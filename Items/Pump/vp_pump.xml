@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<Items>
+<!--насос малый -->
+  <Item name="" identifier="smallpump_mod" nameidentifier="smallpump" variantof="smallpump">
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="electrical" level="30" />
+	  <RequiredSkill identifier="mechanical" level="40" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="fpgacircuit" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <RequiredItem identifier="iron" />
+    </Deconstruct>
+    <Body width="100" height="100" density="0" />
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+</Items>
+</Override>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+  <Item name="" identifier="idcard" category="Equipment" Tags="smallitem,idcard" cargocontaineridentifier="metalcrate">
+    <Price baseprice="10" soldeverywhere="false" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/idcard.png" depth="0.8" sourcerect="0,0,16,16" />
+    <Body width="16" height="12" density="20" />
+    <IdCard slots="Card,Any" msg="ItemMsgPickUpSelect" />
+	<Holdable slots="RightHand,LeftHand,Any" msg="ItemMsgPickUpSelect"/>
+	<Deconstruct time="10">
+      <Item identifier="plastic" />
+    </Deconstruct>
+	
+  </Item>
+  <Item name="" identifier="idcardwreck" category="Equipment" Tags="smallitem,wreck_id" cargocontaineridentifier="metalcrate">
+    <Price baseprice="10" soldeverywhere="false" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/idcard.png" depth="0.8" sourcerect="0,0,16,16" />
+    <Body width="16" height="12" density="20" />
+    <IdCard slots="Card,Any" msg="ItemMsgPickUpSelect" />
+	<Holdable slots="RightHand,LeftHand,Any" msg="ItemMsgPickUpSelect"/>
+	<Deconstruct time="10">
+      <Item identifier="plastic" />
+    </Deconstruct>
+  </Item>
+</Items>
+</Override> 

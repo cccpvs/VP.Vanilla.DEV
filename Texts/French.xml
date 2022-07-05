@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<infotexts language="French" nowhitespace="false" translatedname="Français">
+    <!-- Avant-poste-->
+	<entityname.opdeco_bunkbeds_mod>Lit militaire simple</entityname.opdeco_bunkbeds_mod>
+    <entitydescription.opdeco_bunkbeds_mod>Ici, vous pouvez passer du temps utilement</entitydescription.opdeco_bunkbeds_mod>
+    <entityname.opdeco_bunkbeds_boxes_mod>Lit simple militaire avec boîtes</entityname.opdeco_bunkbeds_boxes_mod>
+    <entitydescription.opdeco_bunkbeds_boxes_mod>Ici, vous pouvez passer du temps utilement</entitydescription.opdeco_bunkbeds_boxes_mod>
+    <entityname.opdeco_officechair_mod>Chaise de bureau</entityname.opdeco_officechair_mod> 
+	<!-- Maladies du personnage-->
+    <afflictionname.tinkerexhaustion_mod>Fatigue</afflictionname.tinkerexhaustion_mod>
+    <afflictiondescription.tinkerexhaustion_mod>Le sujet se sent fatigué et a besoin de repos, utilise un lit ou une chaise pour se reposer. Soit utiliser des médicaments pour soulager les symptômes, soit utiliser une poupée de chiffon.</afflictiondescription.tinkerexhaustion_mod>
+    <afflictionname.stamina>Endurance</afflictionname.stamina>
+    <afflictiondescription.stamina>Vitesse et mouvement réduits, arrêtez-vous pour restaurer l'endurance. Les stéroïdes anabolisants peuvent prolonger l'endurance.</afflictiondescription.stamina>
+	<!-- Armes-->
+    <entityname.flashlight_weapons>Lanterne d'arme</entityname.flashlight_weapons>
+    <entitydescription.flashlight_weapons>Une lampe de poche utilisée pour se fixer à une arme</entitydescription.flashlight_weapons>
+    <entityname.christmas_tree>Arbre de Noël</entityname.christmas_tree>
+    <entitydescription.christmas_tree>Ambiance de Noël maintenant et immédiatement</entitydescription.christmas_tree>
+    <entityname.cassette_recorder>Magnétophone</entityname.cassette_recorder>
+    <entitydescription.cassette_recorder>Écoutez votre musique préférée en voyage</entitydescription.cassette_recorder>
+    <entityname.cassette_bobbyhelms_jinglebellsrock>Cassette de Bobby Helms - Jingle Bells Rock</entityname.cassette_bobbyhelms_jinglebellsrock>
+    <entityname.cassette_brendalee_rockinaroundthechristmastree>Brenda Lee - Rockin' Around the Christmas Tree Cassette</entityname.cassette_brendalee_rockinaroundthechristmastree>
+    <entityname.cassette_eltonjohn_stepintochristmas>Elton John - Cassette Entrez dans Noël</entityname.cassette_eltonjohn_stepintochristmas>
+    <entityname.cassette_franksinatra_jinglebells>Frank Sinatra - Cassette Jingle Bells</entityname.cassette_franksinatra_jinglebells>
+    <entityname.cassette_franksinatra_letitsnow>Frank Sinatra - Cassette Let It Snow</entityname.cassette_franksinatra_letitsnow>
+    <entityname.cassette_maddiepoppe_rockinaroundthechristmastree>Maddie Poppe - Rockin' Around the Christmas Tree</entityname.cassette_maddiepoppe_rockinaroundthechristmastree>
+    <entityname.cassette_queen_thankgoditschristmas>Queen Cassette - Dieu merci, c'est Noël</entityname.cassette_queen_thankgoditschristmas>
+    <entityname.cassette_wham_lastchristmas>Cassette Wham ! - Noël dernier</entityname.cassette_wham_lastchristmas>
+    <!-- Armement du navire -->
+    <entityname.coilgunammobox_big>Boîte de munitions de canon magnétique</entityname.coilgunammobox_big>
+    <entitydescription.coilgunammobox_big>Munitions pour le pistolet magnétique.</entitydescription.coilgunammobox_big>
+    <entityname.physicoriumammobox_big>Grande boîte de munitions Physicorium</entityname.physicoriumammobox_big>
+    <entitydescription.physicoriumammobox_big>Munitions magnétiques pour pistolet fabriquées à partir de matériaux extraterrestres.</entitydescription.physicoriumammobox_big>
+    <entityname.coilgunammoboxexplosive_big>Grande boîte de munitions explosives</entityname.coilgunammoboxexplosive_big>
+    <entitydescription.coilgunammoboxexplosive_big>Projectiles magnétiques. Exploser à l'impact.</entitydescription.coilgunammoboxexplosive_big>
+    <entityname.coilgunammoboxpiercing_big>Grande caisse de coquillages perforants</entityname.coilgunammoboxpiercing_big>
+    <entitydescription.coilgunammoboxpiercing_big>Un projectile de pistolet magnétique avec des capacités de perçage.</entitydescription.coilgunammoboxpiercing_big>
+    <entityname.pulselaserammobox_big>Grande capsule laser à impulsions</entityname.pulselaserammobox_big>
+    <entitydescription.pulselaserammobox_big>Une capsule contenant des réactifs spécialement sélectionnés et une lentille de focalisation. Convient pour créer de puissantes explosions d'énergie. Utilisé comme munitions pour le laser pulsé.</entitydescription.pulselaserammobox_big>
+    <entityname.pulselaserammoboxtrilaser_big>Grande capsule Pulse Trilaser</entityname.pulselaserammoboxtrilaser_big>
+    <entitydescription.pulselaserammoboxtrilaser_big>Caisse contenant une solution de produits chimiques et d'ingrédients spéciaux. La lentille divise le faisceau laser en trois, vous permettant de toucher plusieurs cibles à la fois.</entitydescription.pulselaserammoboxtrilaser_big>
+    <entityname.chaingunammobox_big>Munitions Big Chaingun</entityname.chaingunammobox_big>
+    <entitydescription.chaingunammobox_big>Chaingunammobox lourd</entitydescription.chaingunammobox_big>
+    <entityname.chaingunammoboxphysicorium_big>Grandes munitions pour chaingun de Physicorium</entityname.chaingunammoboxphysicorium_big>
+    <entitydescription.chainunammoboxphysicorium_big>Une boîte incroyablement lourde de munitions de chaingun physicorium. Le pouvoir d'arrêt de ces projectiles est tel qu'ils peuvent étourdir n'importe quelle cible.</entitydescription.chainunammoboxphysicorium_big>
+    <ItemMsgDeleteItems>Supprimer l'élément</ItemMsgDeleteItems>
+    <!-- Scooters sous-marins -->
+    <entityname.underwaterscooter_sonar>Scooter sous-marin sonar</entityname.underwaterscooter_sonar>
+    <entitydescription.underwaterscooter_sonar>Un appareil de transport sous-marin alimenté par des batteries. Contient un sonar.</entitydescription.underwaterscooter_sonar>
+    <entityname.cargoscooter_sonar>Scooter cargo avec sonar</entityname.cargoscooter_sonar>
+    <entitydescription.cargoscooter_sonar>Un scooter sous-marin pour transporter des fournitures sous l'eau. Contient un sonar. Le scooter est trop grand pour tenir dans votre inventaire, mais sa flottabilité neutre lui permet de rester là où vous le laissez tomber. </entitydescription.cargoscooter_sonar>
+    <entityname.turrethardpoint_mod>Porte-outils</entityname.turrethardpoint_mod>
+    <entitydescription.turrethardpoint_mod>Un module actif vide sur lequel installer une arme.</entitydescription.turrethardpoint_mod>
+    <entityname.blankperiscope_mod>Base périscope</entityname.blankperiscope_mod>
+	<!--Modifications d'armes -->
+    <entityname.harpoongun_golograf>Arbalète holographique</entityname.harpoongun_golograf>
+    <entityname.revolver_golograf>Revolver avec viseur holographique</entityname.revolver_golograf>
+    <entityname.smg_golograf>SMG avec viseur holographique</entityname.smg_golograf>
+    <entityname.smg_optics>SMG avec optique</entityname.smg_optics>
+    <entityname.shotgun_golograf>Fusil Holograf</entityname.shotgun_golograf>
+    <entityname.smgunique_golograf>Carabine précise avec lunette holographique</entityname.smgunique_golograf>
+    <entityname.smgunique_optics>Carabine à lunette précise</entityname.smgunique_optics>
+    <entityname.autoshotgun_golograf>Fusil de chasse automatique avec lunette holographique</entityname.autoshotgun_golograf>
+    <entityname.assaultrifle_golograf>Fusil d'assaut holographique</entityname.assaultrifle_golograf>
+    <entityname.assaultrifle_optics>Fusil d'assaut à lunette</entityname.assaultrifle_optics>
+    <entityname.crosshairs_weapons_golograf>Viseur d'arme holographique</entityname.crosshairs_weapons_golograf>
+    <entitydescription.crosshairs_weapons_golograf>Un viseur holographique à monter sur certaines armes. Pour installer, utilisez le fabricant</entitydescription.crosshairs_weapons_golograf>
+    <entityname.crosshairs_weapons_golograf_flashlight>Viseur de lampe de poche holographique</entityname.crosshairs_weapons_golograf_flashlight>
+    <entitydescription.crosshairs_weapons_golograf_flashlight>Un viseur holographique avec une lampe de poche à attacher à certaines armes. Pour installer, utilisez le fabricant</entitydescription.crosshairs_weapons_golograf_flashlight>
+    <entityname.crosshairs_weapons_optics>Optique d'arme</entityname.crosshairs_weapons_optics>
+    <entitydescription.crosshairs_weapons_optics>Un viseur optique à monter sur certains types d'armes. Pour l'installation, utilisez le fabricant</entitydescription.crosshairs_weapons_optics>
+	<!-- Railgun -->
+    <entityname.railgunshell_c4>Charge de canon C4</entityname.railgunshell_c4>
+    <entitydescription.railgunshell_c4>Requis pour tirer avec le railgun. Augmentation des dégâts</entitydescription.railgunshell_c4>
+    <entityname.railgunshell_c4plus>Railgun Shell C4+ renforcé</entityname.railgunshell_c4plus>
+    <entitydescription.railgunshell_c4plus>Requis pour tirer avec le railgun. Charge accrue avec une zone de frappe plus élevée.</entitydescription.railgunshell_c4plus>
+    <entityname.nuclearshell_plus>Nuclear Shell habilité</entityname.nuclearshell_plus>
+    <entitydescription.nuclearshell_plus>Obus nucléaire pour le railgun. Coque nucléaire améliorée</entitydescription.nuclearshell_plus>
+	<entityname.coilgunammoshelf_mod_big >Plateau de munitions grandes</entityname.coilgunammoshelf_mod_big>
+    <entitydescription.coilgunammoshelf_mod_big >un moyen Pratique de stocker de grandes munitions.</entitydescription.coilgunammoshelf_mod_big>
+	<entityname.crateshelf_small_mod>Petit support de caisse</entityname.crateshelf_small_mod>
+    <entitydescription.crateshelf_small_mod>Petite étagère à caisses.</entitydescription.crateshelf_small_mod>
+</infotexts>

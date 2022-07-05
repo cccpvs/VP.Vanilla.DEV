@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<Items>
+
+<!-- Шкаф Медицинский -->
+  <Item name="" identifier="medcabinet_mod" nameidentifier="medcabinet" variantof="medcabinet">
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="2">
+	  <Item identifier="scrap" />
+	  <Item identifier="scrap" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="815,1,208,346" />
+    <Body width="100" height="100" density="0" />
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!-- Полка с боеприпасами-->
+  <Item name="" identifier="coilgunammoshelf_mod" nameidentifier="coilgunammoshelf" variantof="coilgunammoshelf">
+	<Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="188,717,140,306" />
+	<Body width="140" height="306" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!-- Полка с боеприпасами большими -->
+  <Item name="" identifier="coilgunammoshelf_mod_big" tags="container,coilgunammocontainer,ammocontainer" linkable="true" pickdistance="150" waterproof="true" scale="0.5">
+    <Sprite texture="%ModDir%/Items/Containers/vp_containers.png" depth="0.701" sourcerect="0,10,210,384" canflipx="false" origin="0.5,0.5" />
+    <ItemContainer capacity="3" canbeselected="true" hideitems="false" itemRotation="90" itempos="100,-65" iteminterval="0,-120" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" />
+      <Containable items="ammobox_big" />
+    </ItemContainer>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="70" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Containers/vp_containers.png" sourcerect="15,1,210,384" />
+	<Body width="210" height="384" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Защищенный металлический ящик-->
+  <Item name="" identifier="securemetalcrate_mod" nameidentifier="securemetalcrate" variantof="securemetalcrate">
+	<Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="70" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="fpgacircuit" />
+	  <RequiredItem identifier="equalscomponent" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" depth="0.54" sourcerect="561,377,151,86" />
+	<Body width="100" height="100" density="0" />
+	<Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--Защищенный стальной шкаф-->
+  <Item name="" identifier="securesteelcabinet_mod" nameidentifier="securesteelcabinet" variantof="securesteelcabinet">
+	<Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="mechanical" level="80" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="fpgacircuit" />
+	  <RequiredItem identifier="equalscomponent" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+	  <Item identifier="scrap" />
+	  <Item identifier="steel" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="1,380,105,160" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Полка для хранения кислородных баллонов-->
+  <Item name="" identifier="oxygentankshelf_mod" nameidentifier="oxygentankshelf" variantof="oxygentankshelf">
+	<Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="copper" />
+	  <RequiredItem identifier="copper" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="copper" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/DivingSuitLocker.png"  sourcerect="0,0,92,338" />
+	<Body width="92" height="338" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" stackable="false" />
+      <StatusEffect type="OnBroken" target="This" stackable="false">
+        <Conditional HasStatusTag="onfire" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="500" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="500" />
+        <Explosion range="30.0" structuredamage="10" force="1.0">
+          <Affliction identifier="burn" strength="50" />
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!--Полка для хранения кислородных баллонов малая-->
+  <Item name="" identifier="oxygentankshelf2_mod" nameidentifier="oxygentankshelf" variantof="oxygentankshelf2">
+	<Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="copper" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="copper" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="714,259,99,82" />
+	<Body width="99" height="82" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true" itempos="27,-42" iteminterval="22.5,0" itemrotation="0">
+	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" stackable="false" />
+      <StatusEffect type="OnBroken" target="This" stackable="false">
+        <Conditional HasStatusTag="onfire" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="500" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="500" />
+        <Explosion range="30.0" structuredamage="10" force="1.0">
+          <Affliction identifier="burn" strength="50" />
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!--Средний стальной шкаф-->
+  <Item name="" identifier="mediumsteelcabinet_mod" nameidentifier="mediumsteelcabinet" variantof="mediumsteelcabinet">
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="iron" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="1,1,175,374" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Средний стальной шкаф с окном-->
+    <Item name="" identifier="mediumwindowedsteelcabinet_mod" nameidentifier="mediumwindowedsteelcabinet" variantof="mediumwindowedsteelcabinet">
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="70" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="silicon" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+      <Item identifier="iron" />
+      <Item identifier="silicon" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="178,1,168,377" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Большой стальной шкаф-->
+  <Item name="" identifier="steelcabinet_mod" nameidentifier="steelcabinet" variantof="steelcabinet">
+    <Sprite texture="Content/Items/Containers/containers.png" depth="0.701" sourcerect="348,2,364,373" origin="0.5,0.5" />
+    <ItemContainer capacity="30" slotsperrow="6" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
+      <Containable items="smallitem,mediumitem" />
+    </ItemContainer>
+	<Fabricate suitablefabricators="fabricator" requiredtime="35">
+      <RequiredSkill identifier="mechanical" level="1" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="mediumwindowedsteelcabinet_mod" />
+	  <RequiredItem identifier="mediumsteelcabinet_mod" />
+	  <RequiredItem identifier="mediumsteelcabinet_mod" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="2">
+     <Item identifier="scrap" />
+	 <Item identifier="iron" />
+     <Item identifier="scrap" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="348,2,364,373"  />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Стеллаж для ящиков-->
+  <Item name="" identifier="crateshelf_mod" nameidentifier="crateshelf" variantof="crateshelf">
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="steel" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="2">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="steel" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="1,657,185,366" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Стеллаж для ящиков маленький-->
+  <Item name="" identifier="crateshelf_small_mod" nameidentifier="crateshelf_small_mod" variantof="crateshelf">
+	<Sprite texture="%ModDir%/Items/Containers/vp_containers.png" depth="0.701" sourcerect="210,10,185,188" canflipx="false" origin="0.5,0.5" />
+	<Fabricate suitablefabricators="fabricator" requiredtime="40">
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="steel" />
+    </Fabricate>
+	<Deconstruct time="25" chooserandom="true" amount="2">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="steel" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Containers/vp_containers.png" sourcerect="210,10,185,188" />
+	<Body width="185" height="188" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="20.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+	<ItemContainer capacity="2" maxstacksize="1" canbeselected="true" hideitems="false" itempos="92,-48" iteminterval="0,-92" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <Containable items="crate" />
+    </ItemContainer>
+  </Item>
+  <!--Оружейная стойка-->
+  <Item name="" identifier="weaponholder_mod" nameidentifier="weaponholder" variantof="weaponholder">
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="aluminium" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="aluminium" />
+    </Deconstruct>
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Хозяйственный шкаф-->
+    <Item name="" identifier="suppliescabinet_mod" nameidentifier="suppliescabinet" variantof="suppliescabinet">
+	<Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="20" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="889,349,120,132" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="false">
+      <RequiredItem identifier="wrench" type="Equipped" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+    </Holdable>
+  </Item>
+  <!--Шкаф для хранения токсинов-->
+  <Item name="" identifier="toxcabinet_mod" nameidentifier="toxcabinet" variantof="toxcabinet">
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="35" />
+	  <RequiredSkill identifier="medical" level="70" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="silicon" />
+    </Fabricate>
+	<Deconstruct time="20" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="silicon" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="889,483,125,148" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!--Шкаф для подводного снаряжения-->
+  <Item name="" identifier="divingsuitlocker_mod" nameidentifier="divingsuitlocker" variantof="divingsuitlocker">
+	<Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="mechanical" level="70" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="silicon" />
+	  <RequiredItem identifier="silicon" />
+    </Fabricate>
+	<Deconstruct time="40" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="silicon" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="714,1,99,256"  />
+	<Body width="99" height="256" density="40" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1"/>
+      <StatusEffect type="OnBroken" target="This">
+        <Conditional HasStatusTag="onfire" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="500" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="500" />
+        <Explosion range="50.0" structuredamage="10" force="1.0">
+          <Affliction identifier="burn" strength="50" />
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item> 
+  <!--Стойка для снарядов рельсотрона--> 
+   <Item name="" identifier="railgunshellrack_mod" nameidentifier="railgunshellrack" variantof="railgunshellrack">
+	<Fabricate suitablefabricators="fabricator" requiredtime="35">
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Containers/containers.png" sourcerect="330,811,218,212"  />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!-- Стойка огнетушителя   -->
+   <Item name="" identifier="extinguisherbracket_mod" nameidentifier="extinguisherbracket" variantof="extinguisherbracket">
+	<Fabricate suitablefabricators="fabricator" requiredtime="40">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="rubber" />
+	  <RequiredItem identifier="redpaint" />
+    </Fabricate>
+	<Deconstruct time="10" chooserandom="true" amount="1">
+      <Item identifier="scrap" />
+	  <Item identifier="iron" />
+	  <Item identifier="rubber" />
+    </Deconstruct>
+	<Body width="72" height="204" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item> 
+ 
+ </Items>
+</Override>

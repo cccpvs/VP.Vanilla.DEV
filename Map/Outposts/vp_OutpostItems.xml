@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<Items>
+<Item name="object_core_deleter" identifier="object_core_deleter">
+       <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="304,528,64,96" depth="0.8" />
+	   <CustomInterface drawhudwhenequipped="true" canbeselected="true">
+		<GuiFrame relativesize="0.1,0.1" anchor="TopRight" absoluteoffset="0,0" style="ItemUI" />
+		<RequiredItem identifier="id_captain,com,master,jobid:captain" type="Picked"  ignoreineditor="true" comparison="And"/>
+		<RequiredItem identifier="crowbar" type="Equipped" />
+		<Button text="ItemMsgDeleteItems">
+		  <StatusEffect target="This" type="OnUse" disabledeltatime="true">
+		    <!-- <requireditem identifier="crowbar" type="Equipped" /> -->
+		    <Sound file="Content/Sounds/DropItem.ogg" type="OnUse" range="250" />
+		    <Remove />
+		  </StatusEffect>
+		</Button>
+	</CustomInterface> 
+  </Item>
+<!-- Новогодняя ёлка -->
+  <Item name="" identifier="christmas_tree"  texturescale="1.0,1.0" scale="0.9" category="Decorative" spritecolor="255,255,255,255">
+    <sprite texture="%ModDir%/Map/Outposts/christmas.png" sourcerect="0,0,176,256" depth="0.601" canflipx="false" canflipy="false"/>
+	<Body width="172" height="250" density="0" />
+    <LightComponent range="82.0" lightcolor="215,255,0,255" CastShadows="false" IsOn="true" flicker="0.4" flickerspeed="0.1" powerconsumption="1" pulseFrequency="0" pulseAmount="0"  allowingameediting="true">
+	<!-- MinVoltage="0" -->
+	<RequiredItem items="screwdriver" type="Equipped" />
+        <LightTexture texture="%ModDir%/Map/Outposts/christmas_s.png" sourcerect="0,0,172,250" origin="0.5, 0.5" size="1.0,1.0"/>
+	    
+		<StatusEffect type="InWater" targettype="Contained" targetslot="0" Condition="-25">
+            <RequiredItem items="batterycell,fulguriumbatterycell" type="Contained" />
+        </StatusEffect>
+		<StatusEffect type="OnActive" targettype="Contained" targetslot="0" Condition="-0.10" comparison="Or">
+            <RequiredItem items="batterycell,fulguriumbatterycell" type="Contained" />
+        </StatusEffect>
+	</LightComponent>
+	<LightComponent range="82.0" lightcolor="217,0,255,255" CastShadows="false" IsOn="true" flicker="0" flickerspeed="0" powerconsumption="1" pulseFrequency="0" pulseAmount="0" allowingameediting="true">
+        <RequiredItem items="screwdriver" type="Equipped" />
+		<LightTexture texture="%ModDir%/Map/Outposts/christmas_b.png" sourcerect="0,0,176,256" origin="0.5, 0.5" size="1.0,1.0"/>
+    </LightComponent>
+	<LightComponent range="82.0" lightcolor="255,0,0,255" CastShadows="false" IsOn="true" flicker="0" flickerspeed="0" powerconsumption="1" pulseFrequency="1" pulseAmount="1" allowingameediting="true">
+       <RequiredItem items="screwdriver" type="Equipped" />
+	   <LightTexture texture="%ModDir%/Map/Outposts/christmas_l.png" sourcerect="0,0,176,256" origin="0.5, 0.5" size="1.0,1.0"/>
+    </LightComponent>
+	<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="set_color" displayname="connection.setcolor" />
+    </ConnectionPanel>
+	
+	<InventoryIcon texture="%ModDir%/Map/Outposts/christmas.png" sourcerect="0,0,176,256" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" PickingTime="10.0" msg="ItemMsgDetachWrench" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+	<ItemContainer capacity="0" maxstacksize="0" canbeselected="true" keepopenwhenequipped="true" movableframe="true" hideitems="true" ShowContainedStateIndicator="false" msg="ItemMsgInteractSelect">
+	  <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />
+	  <SlotIcon slotindex="1" texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,0,75,46" origin="0.5,0.45" />
+	  <GuiFrame relativesize="0.15,0.15" anchor="Center" style="ItemUI" />
+	  <Containable items="none"/>
+	  <SubContainer capacity="1" maxstacksize="1">
+	        <Containable items="mobilebattery" >
+              <StatusEffect type="OnContaining" targettype="This" targetslot="0" Voltage="1.0" setvalue="true" />
+		      <RequiredItem items="mobilebattery"/>
+	        </Containable>
+      </SubContainer>
+	  <!-- <SubContainer capacity="1" maxstacksize="1"> -->
+	        <!-- <Containable items="music" > -->
+		      <!-- <RequiredItem items="music"/> -->
+	        <!-- </Containable> -->
+      <!-- </SubContainer> -->
+    </ItemContainer>
+	<Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredItem identifier="elastin" />
+	  <RequiredItem identifier="elastin" />
+	  <RequiredItem identifier="elastin" />
+	  <RequiredItem identifier="elastin" />
+	  <RequiredItem identifier="elastin" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="lightcomponent" />
+	  <RequiredItem identifier="lightcomponent" />
+	  <RequiredItem identifier="lightcomponent" />
+	  <RequiredItem identifier="fpgacircuit" />
+    </Fabricate>
+	<Deconstruct time="20">
+	  <RequiredItem identifier="elastin" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="lightcomponent" />
+    </Deconstruct>
+  </Item>
+<!-- музыка -->
+<Item name="" identifier="cassette_recorder" tags="smallitem,cassete" texturescale="1.0,1.0" scale="0.3" spritecolor="255,255,255,255" impactsoundtag="impact_metal_light" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+	<sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="0,155,148,100" depth="0.600" canflipx="false"/>
+	<Body width="148" height="100" density="10" />
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="0,155,148,100"/>
+	<Holdable slots="RightHand,LeftHand,Any" msg="ItemMsgDetachWrench" selectkey="Select" pickkey="Use" controlpose="true" attachable="true" attachedbydefault="true" aimable="true">
+	    <requireditem identifier="wrench" type="Equipped" />
+	</Holdable>
+	<LightComponent range="22" allowingameediting="false" powerconsumption="5" CastShadows="false" IsOn="true" flicker="0.5" flickerspeed="0.1" pulseFrequency="1">
+	    <!-- <IsActive targetitemcomponent="PowerContainer" overload="True" /> -->
+     <LightTexture texture="%ModDir%/Map/Outposts/music_l.png" sourcerect="0,0,144,100" origin="0.5, 0.5" size="1.0,1.0"/>
+	 
+	 
+	 <StatusEffect type="InWater" targettype="Contained" targetslot="0" Condition="-25">
+            <RequiredItem items="batterycell,fulguriumbatterycell" type="Contained" />
+     </StatusEffect>
+	 <StatusEffect type="OnActive" target="This" condition="-0.03" comparison="And"/>
+	 <StatusEffect type="OnActive" targettype="Contained" targetslot="0" Condition="-0.10">
+            <RequiredItem items="batterycell,fulguriumbatterycell" type="Contained" />
+     </StatusEffect>
+	 <!-- <StatusEffect type="OnActive" targettype="Contained" targetslot="1" power="10" Voltage="1.0" setvalue="true"> -->
+            <!-- <RequiredItem items="music" type="Contained" /> -->
+     <!-- </StatusEffect> -->
+	 <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="100" setvalue="true">
+	         <!-- <RequiredItem items="music" type="Contained" /> -->
+     </StatusEffect>
+	 <!-- comparison="Or" -->
+    </LightComponent>
+    <ItemContainer capacity="0" maxstacksize="0" canbeselected="true" hideitems="true" ShowContainedStateIndicator="false" msg="ItemMsgInteractSelect">
+	  <GuiFrame relativesize="0.2,0.2" minsize="100,100" anchor="Center" style="ItemUI" />
+	  <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />
+	  <SlotIcon slotindex="1" texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,0,75,46" origin="0.5,0.45" />
+	  <Containable items="none"/>
+	  <SubContainer capacity="1" maxstacksize="1">
+	        <Containable items="mobilebattery" >
+              <StatusEffect type="OnContaining" targettype="This" targetslot="0" Voltage="1.0" setvalue="true"/>
+		      <RequiredItem items="mobilebattery"/>
+	        </Containable>
+      </SubContainer>
+	  <SubContainer capacity="1" maxstacksize="1">
+	        <Containable items="music" >
+			   <!-- <StatusEffect type="OnContaining" targettype="This" targetslot="1" Voltage="1.0" setvalue="true" /> -->
+			   <!-- <RequiredItem items="music"/> -->
+			 <!-- <StatusEffect type="OnContaining" targettype="This" condition="100" setvalue="true"/> -->
+		      
+	        </Containable>
+      </SubContainer>
+    </ItemContainer>
+	<!-- <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true"> -->
+            <!-- <GuiFrame relativesize="0.12,0.08" anchor="BottomLeft" absoluteoffset="20,128" style="ItemUI" /> -->
+            <!-- <TickBox text="label.onoff" >   -->
+                <!-- <StatusEffect type="OnUse" targettype="this" IsOn="true" /> -->
+                <!-- <StatusEffect type="OnSecondaryUse" targettype="this" IsOn="false" /> -->
+            <!-- </TickBox> -->
+    <!-- </CustomInterface> -->
+    <Fabricate suitablefabricators="fabricator" requiredtime="80">
+      <RequiredItem identifier="emergencysiren" />
+	  <RequiredItem identifier="emergencysiren" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="fpgacircuit" />
+    </Fabricate>
+	<Deconstruct time="30">
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+    </Deconstruct>
+    <Repairable selectkey="Action" header="electricalrepairsheader" deteriorationspeed="0" mindeteriorationdelay="0" maxdeteriorationdelay="0" mindeteriorationcondition="0" RepairThreshold="50" fixDurationHighSkill="15" fixDurationLowSkill="40" msg="ItemMsgRepairScrewdriver" hudpriority="10">
+      <StatusEffect type="InWater" target="This" condition="-25" />
+	  <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+      <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="50.0" />
+      <RequiredSkill identifier="electrical" level="90" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="300" />
+        <Affliction identifier="blunttrauma" strength="1" />
+      </StatusEffect>
+	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" stackable="false" />
+      <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
+        <Conditional HasStatusTag="onfire" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="5000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="5000" />
+        <Explosion range="10.0" structuredamage="0" force="0.1">
+          <Affliction identifier="burn" strength="10" />
+        </Explosion>
+		<Remove />
+      </StatusEffect>
+    </Repairable>
+    </Item>
+<!-- <Item name="_cassete_base" identifier="cassette_base" tags="music" hideinmenus="true" hiddeningame="true" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light"> -->
+	<!-- <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,0,65,40" depth="0.6" /> -->
+	<!-- <Body width="65" height="40" density="11" /> -->
+	<!-- <Holdable slots="RightHand,LeftHand,Any"/> -->
+<!-- </Item> -->
+<Item name="" identifier="cassette_bobbyhelms_jinglebellsrock" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,0,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,0,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+		<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+		    <StatusEffect type="OnActive" targettype="This">
+	    	    <sound file="%ModDir%/Map/Outposts/bobbyhelms-jinglebellsrock.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+			</StatusEffect> 
+			<StatusEffect type="Always" targettype="This" condition="-99"/>
+        </LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+	
+</Item>
+<Item name="" identifier="cassette_brendalee_rockinaroundthechristmastree" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,50,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,50,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+	<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+	    <StatusEffect type="OnActive" targettype="This">
+	        <sound file="%ModDir%/Map/Outposts/brendalee-rockinaroundthechristmastree.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+	    </StatusEffect>  
+		<StatusEffect type="Always" targettype="This" condition="-99"/>
+	</LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+</Item>
+<Item name="" identifier="cassette_eltonjohn_stepintochristmas" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,101,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,101,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+	<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+	    <StatusEffect type="OnActive" targettype="This">
+	        <sound file="%ModDir%/Map/Outposts/eltonjohn-stepintochristmas.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+	    </StatusEffect>  
+		<StatusEffect type="Always" targettype="This" condition="-99"/>
+	</LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+</Item>
+<Item name="" identifier="cassette_franksinatra_jinglebells" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="80,0,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="80,0,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+	<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+	    <StatusEffect type="OnActive" targettype="This">
+	        <sound file="%ModDir%/Map/Outposts/franksinatra-jinglebells.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+	    </StatusEffect>  
+		<StatusEffect type="Always" targettype="This" condition="-99"/>
+	</LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+</Item>  
+<Item name="" identifier="cassette_franksinatra_letitsnow" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="80,50,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="80,50,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+	<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+	    <StatusEffect type="OnActive" targettype="This">
+	        <sound file="%ModDir%/Map/Outposts/franksinatra-letitsnow.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+	    </StatusEffect>  
+		<StatusEffect type="Always" targettype="This" condition="-99"/>
+	</LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+</Item>
+<Item name="" identifier="cassette_maddiepoppe_rockinaroundthechristmastree" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="80,101,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="80,101,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+	<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+	    <StatusEffect type="OnActive" targettype="This">
+	        <sound file="%ModDir%/Map/Outposts/maddiepoppe-rockinaroundthechristmastree.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+	    </StatusEffect>  
+		<StatusEffect type="Always" targettype="This" condition="-99"/>
+	</LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+</Item>
+<Item name="" identifier="cassette_queen_thankgoditschristmas" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,0,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,0,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+	<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+	    <StatusEffect type="OnActive" targettype="This">
+	        <sound file="%ModDir%/Map/Outposts/queen-thankgoditschristmas.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+	    </StatusEffect>  
+		<StatusEffect type="Always" targettype="This" condition="-99"/>
+	</LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+</Item>
+<Item name="" identifier="cassette_wham_lastchristmas" tags="smallitem,music" texturescale="1.0,1.0" scale="0.2" impactsoundtag="impact_metal_light" HideConditionBar="true">
+    <sprite texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,50,65,40" premultiplyalpha="false" origin="0.5,0.5"/>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/music.png" sourcerect="1,50,65,40" />
+	<Body width="65" height="40" density="11" />
+	<Holdable slots="RightHand,LeftHand,Any"/>
+	<LightComponent range="0" allowingameediting="false" powerconsumption="0" IsOn="true">
+	    <StatusEffect type="OnActive" targettype="This">
+	        <sound file="%ModDir%/Map/Outposts/wham-lastchristmas.ogg" type="OnUse" range="300.0" volume="0.3" loop="true"/>
+	    </StatusEffect>  
+		<StatusEffect type="Always" targettype="This" condition="-99"/>
+	</LightComponent>
+	<Fabricate suitablefabricators="fabricator" requiredtime="30" outcondition="0.0">
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+	<Deconstruct time="10">
+	  <RequiredItem identifier="plastic" />
+    </Deconstruct>
+</Item>
+  <!-- кровать одиночная крафт-->
+  <Item name="" identifier="opdeco_bunkbeds_mod" width="384" height="139" texturescale="1.0,1.0" scale="0.5" category="Decorative" spritecolor="255,255,255,255">
+    <sprite texture="%ModDir%/Map/Outposts/opdeco_bunkbeds_mod.png" sourcerect="0,207,384,139" depth="0.701" premultiplyalpha="false" origin="0.5,0.5" />
+    <Price baseprice="150" >
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="0.9" minavailable="2" />
+      <Price locationtype="research" multiplier="1.25" minavailable="1" />
+      <Price locationtype="military" multiplier="1.25" minavailable="3" />
+      <Price locationtype="mine" multiplier="1" minavailable="1" />
+    </Price>
+	<Controller UserPos="0,0" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true">
+      <limbposition limb="Head" position="36,-15" />
+      <limbposition limb="Torso" position="147,-15" />
+      <limbposition limb="Waist" position="198,-15" />
+      <limbposition limb="RightFoot" position="340,-15" />
+      <limbposition limb="LeftFoot" position="340,-15" />
+      <limbposition limb="RightHand" position="180,-15" allowusinglimb="false" />
+      <limbposition limb="LeftHand" position="180,-15" allowusinglimb="false" />
+	  <StatusEffect type="OnActive" target="Character">
+		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.38889555555" />
+      </StatusEffect>
+	  <StatusEffect type="OnActive" target="Character">
+		
+      </StatusEffect>
+
+    </Controller>
+	<Fabricate suitablefabricators="fabricator" requiredtime="45">
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="organicfiber" />
+	  <RequiredItem identifier="organicfiber" />
+    </Fabricate>
+	<Deconstruct time="30">
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="organicfiber" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/opdeco_bunkbeds_mod.png" sourcerect="0,207,384,139"/>
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <!-- кровать одиночная с ящиками крафт -->
+  <Item name="" identifier="opdeco_bunkbeds_boxes_mod" width="384" height="140" texturescale="1.0,1.0" scale="0.5" category="Decorative" spritecolor="255,255,255,255">
+    <sprite texture="%ModDir%/Map/Outposts/opdeco_bunkbeds_mod.png" sourcerect="1,11,384,140" depth="0.701" premultiplyalpha="false" origin="0.5,0.5" />
+    <Price baseprice="220" >
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="0.9" minavailable="2" />
+      <Price locationtype="research" multiplier="1.25" minavailable="1" />
+      <Price locationtype="military" multiplier="1.25" minavailable="3" />
+      <Price locationtype="mine" multiplier="1" minavailable="1" />
+    </Price>
+	<Controller UserPos="0,600" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true">
+     <limbposition limb="Head" position="36,-15" />
+      <limbposition limb="Torso" position="147,-15" />
+      <limbposition limb="Waist" position="198,-15" />
+      <limbposition limb="RightFoot" position="340,-15" />
+      <limbposition limb="LeftFoot" position="340,-15" />
+      <limbposition limb="RightHand" position="180,-15" allowusinglimb="false" />
+      <limbposition limb="LeftHand" position="180,-15" allowusinglimb="false" />
+	  <StatusEffect type="OnActive" target="Character">
+		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.38889555555" />
+     </StatusEffect>
+    </Controller>
+	<ItemContainer capacity="10" canbeselected="true" keepopenwhenequipped="true" movableframe="true" hideitems="true" ShowContainedStateIndicator="false" msg="ItemMsgInteractSelect">
+	  <GuiFrame relativesize="0.25,0.35" anchor="BottomRight" style="ItemUI" />
+      <Containable items="smallitem,mediumitem" />
+    </ItemContainer>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="mechanical" level="70" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="opdeco_bunkbeds_mod" />
+    </Fabricate>
+	<Deconstruct time="45">
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="organicfiber" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Map/Outposts/opdeco_bunkbeds_mod.png" sourcerect="1,11,384,140" depth="0.701"/>
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <Item name="" identifier="opdeco_officechair_mod" tags="chair" allowattachitems="false" texturescale="1.0,1.0" scale="0.45" category="Decorative" canflipy="false">
+    <sprite texture="Content/Map/Outposts/Art/ManagerOfficeAssets.png" sourcerect="570,341,180,267" depth="0.701" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true">
+      <limbposition limb="Head" position="90,15" />
+      <limbposition limb="Torso" position="90,-60" />
+      <limbposition limb="Waist" position="90,-130" />
+      <limbposition limb="RightFoot" position="150,-240" />
+      <limbposition limb="LeftFoot" position="150,-240" />
+      <limbposition limb="RightHand" position="170,-100" allowusinglimb="true" />
+      <limbposition limb="LeftHand" position="170,-100" allowusinglimb="true" />
+	  <StatusEffect type="OnActive" target="Character">
+		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.22222555555" />
+     </StatusEffect>
+    </Controller>
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="organicfiber" />
+    </Fabricate>
+	<Deconstruct time="25">
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="organicfiber" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Map/Outposts/Art/ManagerOfficeAssets.png" sourcerect="570,341,180,267" depth="0.701" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+  <Item name="" identifier="opdeco_chair1_mod" nameidentifier="opdeco_officechair_mod" tags="chair" allowattachitems="true" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
+    <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1233,31,144,240" depth="0.701" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="-10,30" direction="Left" hidehud="false" canbeselected="true">
+      <limbposition limb="Head" position="100,20" />
+      <limbposition limb="Torso" position="75,-52" />
+      <limbposition limb="Waist" position="80,-110" />
+      <limbposition limb="RightFoot" position="0,-210" />
+      <limbposition limb="LeftFoot" position="0,-210" />
+      <limbposition limb="RightHand" position="20,-120" allowusinglimb="true" />
+      <limbposition limb="LeftHand" position="20,-120" allowusinglimb="true" />
+	  <StatusEffect type="OnActive" target="Character">
+		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.22222555555" />
+     </StatusEffect>
+    </Controller>
+	<Fabricate suitablefabricators="fabricator" requiredtime="50">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="organicfiber" />
+    </Fabricate>
+	<Deconstruct time="25">
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="organicfiber" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1233,31,144,240" />
+	<Body width="100" height="100" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+</Items>
+</Override>

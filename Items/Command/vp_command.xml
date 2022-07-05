@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+<!-- Монитор состояния -->
+<Item name="" identifier="statusmonitor_mod" nameidentifier="statusmonitor" variantof="statusmonitor">
+	<Fabricate suitablefabricators="fabricator" requiredtime="120">
+      <RequiredSkill identifier="electrical" level="80" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="regexcomponent" />
+	  <RequiredItem identifier="concatcomponent" />
+    </Fabricate>
+	<Deconstruct time="30" chooserandom="true" amount="2">
+	  <Item identifier="scrap" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="redwire" />
+    </Deconstruct>
+	<InventoryIcon texture="Content/Items/Command/CommandDevices.png" sourcerect="720,0,160,128" />
+	<Body width="160" height="128" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+
+  </Item>
+</Items>
+</Override> 

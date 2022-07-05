@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Russian" nowhitespace="false" translatedname="Русский">
+	<!-- Аванпост -->
+	<entityname.opdeco_bunkbeds_mod>Армейская кровать одиночная</entityname.opdeco_bunkbeds_mod>
+    <entitydescription.opdeco_bunkbeds_mod>Здесь можно провести время с пользой</entitydescription.opdeco_bunkbeds_mod>
+	<entityname.opdeco_bunkbeds_boxes_mod>Армейская кровать одиночная с ящиками</entityname.opdeco_bunkbeds_boxes_mod>
+    <entitydescription.opdeco_bunkbeds_boxes_mod>Здесь можно провести время с пользой</entitydescription.opdeco_bunkbeds_boxes_mod>
+	<entityname.opdeco_officechair_mod>Офисное кресло</entityname.opdeco_officechair_mod>
+	<!-- Недуги Персонажа-->
+	<afflictionname.tinkerexhaustion_mod>Усталость</afflictionname.tinkerexhaustion_mod>
+    <afflictiondescription.tinkerexhaustion_mod>Подопытный чувствует усталость требуеться отдых, используйте кровать или кресло чтобы отдохнуть. Либо используйте медицинские лекарства для ослабления симптомов, либо используйте тряпичную куклу.</afflictiondescription.tinkerexhaustion_mod>
+	<afflictionname.stamina>Выносливость</afflictionname.stamina>
+    <afflictiondescription.stamina>Скорость и движение персонажа снижены, остановитесь чтобы восстановить выносливость. Анаболические стероиды могут продлить выносливость.</afflictiondescription.stamina>
+	<!-- Оружие-->
+	<entityname.flashlight_weapons>Оружейный фонарь</entityname.flashlight_weapons>
+    <entitydescription.flashlight_weapons>Фонарик используемый для установки на оружие</entitydescription.flashlight_weapons>
+	<entityname.christmas_tree>Новогодняя Ёлка</entityname.christmas_tree>
+    <entitydescription.christmas_tree>Новогоднее настроение сейчас и сразу</entitydescription.christmas_tree>
+    <entityname.cassette_recorder>Кассетный магнитафон</entityname.cassette_recorder>
+    <entitydescription.cassette_recorder>Проигрование вашей любимой музыки во время путишествия</entitydescription.cassette_recorder>
+	<entityname.cassette_bobbyhelms_jinglebellsrock>Кассета Bobby Helms - Jingle Bells Rock</entityname.cassette_bobbyhelms_jinglebellsrock> 
+    <entityname.cassette_brendalee_rockinaroundthechristmastree>Кассета Brenda Lee - Rockin' Around the Christmas Tree</entityname.cassette_brendalee_rockinaroundthechristmastree>
+    <entityname.cassette_eltonjohn_stepintochristmas>Кассета Elton John - Step Into Christmas</entityname.cassette_eltonjohn_stepintochristmas>
+    <entityname.cassette_franksinatra_jinglebells>Кассета Frank Sinatra - Jingle Bells</entityname.cassette_franksinatra_jinglebells>
+    <entityname.cassette_franksinatra_letitsnow>Кассета Frank Sinatra - Let It Snow</entityname.cassette_franksinatra_letitsnow>
+    <entityname.cassette_maddiepoppe_rockinaroundthechristmastree>Кассета Maddie Poppe - Rockin' Around the Christmas Tree</entityname.cassette_maddiepoppe_rockinaroundthechristmastree>
+    <entityname.cassette_queen_thankgoditschristmas>Кассета Queen - Thank God It's Christmas</entityname.cassette_queen_thankgoditschristmas>
+    <entityname.cassette_wham_lastchristmas>Кассета Wham! - Last Christmas</entityname.cassette_wham_lastchristmas>
+     <!-- Вооружение корабля -->
+    <entityname.coilgunammobox_big>Большой ящик с боеприпасов для магнитной пушки</entityname.coilgunammobox_big>
+    <entitydescription.coilgunammobox_big>Боеприпасы для магнитной пушки.</entitydescription.coilgunammobox_big>
+	<entityname.physicoriumammobox_big>Большой ящик физикориевых снарядов</entityname.physicoriumammobox_big>
+	<entitydescription.physicoriumammobox_big>Боеприпасы для магнитной пушки, изготовленные из инопланетного материала.</entitydescription.physicoriumammobox_big>
+	<entityname.coilgunammoboxexplosive_big>Большой ящик взрывных снарядов</entityname.coilgunammoboxexplosive_big>
+    <entitydescription.coilgunammoboxexplosive_big>Снаряды для магнитной пушки. Взрываются при столкновении с целью.</entitydescription.coilgunammoboxexplosive_big>
+    <entityname.coilgunammoboxpiercing_big>Большой ящик пробивных снарядов</entityname.coilgunammoboxpiercing_big>
+    <entitydescription.coilgunammoboxpiercing_big>Снаряд для магнитной пушки с пробивающими способностями.</entitydescription.coilgunammoboxpiercing_big>
+	<entityname.pulselaserammobox_big>Большая капсула для импульсного лазера</entityname.pulselaserammobox_big>
+    <entitydescription.pulselaserammobox_big>Капсула со специально подобранными реагентами и фокусирующей линзой. Подходит для создания мощных всплесков энергии. Используется как боеприпас для импульсного лазера.</entitydescription.pulselaserammobox_big>
+	<entityname.pulselaserammoboxtrilaser_big>Большая капсула для импульсного трилазера</entityname.pulselaserammoboxtrilaser_big>
+    <entitydescription.pulselaserammoboxtrilaser_big>Ящик с раствором особых химикатов и ингредиентов. Линза разделяет луч лазера на три, позволяя поражать сразу несколько целей.</entitydescription.pulselaserammoboxtrilaser_big>
+	<entityname.chaingunammobox_big>Большие боеприпасы для цепной пушки</entityname.chaingunammobox_big>
+    <entitydescription.chaingunammobox_big>Тяжелый ящик с боеприпасами для цепной пушки</entitydescription.chaingunammobox_big>
+    <entityname.chaingunammoboxphysicorium_big>Большие физикориевые боеприпасы для цепной пушки</entityname.chaingunammoboxphysicorium_big>
+    <entitydescription.chaingunammoboxphysicorium_big>Невероятно тяжелый ящик снарядов для цепной пушки, сделанных из физикория. Останавливающая сила этих снарядов такова, что они могут оглушить любую цель.</entitydescription.chaingunammoboxphysicorium_big>
+    <ItemMsgDeleteItems>Удалить предмет</ItemMsgDeleteItems>
+    <!-- Подводные скутеры -->
+    <entityname.underwaterscooter_sonar>Подводный скутер с сонаром</entityname.underwaterscooter_sonar>
+    <entitydescription.underwaterscooter_sonar>Подводное транспортное устройство, работающее от батарей. Содержит сонар.</entitydescription.underwaterscooter_sonar>
+    <entityname.cargoscooter_sonar>Грузовой скутер с сонаром</entityname.cargoscooter_sonar>
+    <entitydescription.cargoscooter_sonar>Подводный скутер для транспортировки материалов под водой. Содержит сонар. Скутер слишком большой и не поместится в инвентаре, но нейтральная плавучесть позволяет ему оставаться там, где вы его бросите. </entitydescription.cargoscooter_sonar>
+	<entityname.turrethardpoint_mod>Держатель орудия</entityname.turrethardpoint_mod>
+    <entitydescription.turrethardpoint_mod>Пустой боевой модуль, на который можно установить орудие.</entitydescription.turrethardpoint_mod>
+    <entityname.blankperiscope_mod>Основание перископа</entityname.blankperiscope_mod>
+	<!-- Модификации оружия -->
+	<entityname.harpoongun_golograf>Подводное ружье с голографическим прицелом</entityname.harpoongun_golograf>
+	<entityname.revolver_golograf>Револьвер с голографическим прицелом</entityname.revolver_golograf>
+	<entityname.smg_golograf>ПП с голографическим прицелом</entityname.smg_golograf>
+	<entityname.smg_optics>ПП с оптическим прицелом</entityname.smg_optics>
+	<entityname.shotgun_golograf>Дробовик с голографическим прицелом</entityname.shotgun_golograf>
+	<entityname.smgunique_golograf>Меткий карабин с голографическим прицелом</entityname.smgunique_golograf>
+	<entityname.smgunique_optics>Меткий карабин с оптическим прицелом</entityname.smgunique_optics>
+	<entityname.autoshotgun_golograf>Автоматический дробовик с голографическим прицелом</entityname.autoshotgun_golograf>
+	<entityname.assaultrifle_golograf>Штурмовая винтовка с голографическим прицелом</entityname.assaultrifle_golograf>
+	<entityname.assaultrifle_optics>Штурмовая винтовка с оптическим прицелом</entityname.assaultrifle_optics>
+	<entityname.crosshairs_weapons_golograf>Голографический прицел для оружия</entityname.crosshairs_weapons_golograf>
+	<entitydescription.crosshairs_weapons_golograf>Голографичский прицел для установки на некоторые виды вооружения. Для установки используйте фабрикатор</entitydescription.crosshairs_weapons_golograf>
+	<entityname.crosshairs_weapons_golograf_flashlight>Голографический прицел с фонариком</entityname.crosshairs_weapons_golograf_flashlight>
+	<entitydescription.crosshairs_weapons_golograf_flashlight>Голографичский прицел с фонариком для установки на некоторые виды вооружения. Для установки используйте фабрикатор</entitydescription.crosshairs_weapons_golograf_flashlight>
+	<entityname.crosshairs_weapons_optics>Оптический прицел для оружия</entityname.crosshairs_weapons_optics>
+	<entitydescription.crosshairs_weapons_optics>Оптический прицел для установки на некоторые виды вооружения. Для установки используйте фабрикатор</entitydescription.crosshairs_weapons_optics>
+	<!-- Рельсотрон -->
+    <entityname.railgunshell_c4>Заряд рельсотрона С4</entityname.railgunshell_c4>
+    <entitydescription.railgunshell_c4>Необходим для стрельбы из рельсотрона. Увеличенная сила повреждений</entitydescription.railgunshell_c4>
+    <entityname.railgunshell_c4plus>Заряд рельсотрона С4+ Усиленный</entityname.railgunshell_c4plus>
+    <entitydescription.railgunshell_c4plus>Необходим для стрельбы из рельсотрона.Увеличенная заряд с более высокой зоной поражения.</entitydescription.railgunshell_c4plus>
+    <entityname.nuclearshell_plus>Ядерный заряд усиленный</entityname.nuclearshell_plus>
+    <entitydescription.nuclearshell_plus>Ядерный заряд для рельсотрона. Усилинный ядерный заряд</entitydescription.nuclearshell_plus>
+	<entityname.nuclearshell_plus>Ядерный заряд усиленный</entityname.nuclearshell_plus>
+    <entitydescription.nuclearshell_plus>Ядерный заряд для рельсотрона. Усилинный ядерный заряд</entitydescription.nuclearshell_plus>
+	<entityname.coilgunammoshelf_mod_big>Полка с боеприпасами большие</entityname.coilgunammoshelf_mod_big>
+    <entitydescription.coilgunammoshelf_mod_big>Удобный способ хранения больших боеприпасов.</entitydescription.coilgunammoshelf_mod_big>
+	<entityname.crateshelf_small_mod>Малый стеллаж для ящиков</entityname.crateshelf_small_mod>
+	<entitydescription.crateshelf_small_mod>Стеллаж для ящиков меньшего размера.</entitydescription.crateshelf_small_mod>
+	<!-- Скилы -->
+	<skillname.fitnes>Фитнес</skillname.fitnes>
+</infotexts>

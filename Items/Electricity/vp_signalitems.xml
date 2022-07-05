@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+ <!-- камера -->
+ <Item name="" identifier="camera_mod" nameidentifier="camera" variantof="camera">
+    <Body width="64" height="64" density="40" />
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
+      <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+    </Holdable>
+	<Fabricate suitablefabricators="fabricator" requiredtime="150">
+      <RequiredSkill identifier="electrical" level="70" />
+      <RequiredItem identifier="lightcomponent" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+    </Fabricate>
+	<Deconstruct time="60" chooserandom="true" amount="1">
+      <Item identifier="plastic" />
+	  <Item identifier="redwire" />
+    </Deconstruct>
+  </Item>
+</Items>
+</Override> 

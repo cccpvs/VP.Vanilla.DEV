@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+<!-- Модификация света для оружия  -->
+<Item name="core_flashlight_weapons" identifier="core_flashlight_weapons">
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="127,21,50,21" scale="0.5" depth="0.55" origin="0.5,0.5" />
+    <!-- обычный свет -->
+	<LightComponent range="400.0" lightcolor="255,255,255,200" flicker="0.5" flickerspeed="0.1" powerconsumption="5" pulseAmount="0.50" IsOn="true" allowingameediting="false">
+    	<StatusEffect targettype="Contained" type="OnContained" target="this" Voltage="1" setvalue="true">
+    		<RequiredItem items="mobilebattery" type="Contained" />
+    			<RequiredItem items="flashlight_weapons" type="Contained" />
+    		    </StatusEffect>
+    		<StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.2">
+                 <RequiredItem items="batterycell" type="Contained" />
+            </StatusEffect>
+            <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.1">
+                 <RequiredItem items="fulguriumbatterycell" type="Contained" />
+            </StatusEffect>
+            <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.2">
+                 <RequiredItem excludedidentifiers="batterycell,fulguriumbatterycell" type="Contained" />
+            </StatusEffect>
+        <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="2.0,0.5" />
+    </LightComponent>
+	<!-- лазерный целеуказатель -->
+	<!-- <LightComponent range="1000.0" lightcolor="255,0,0,255" IsOn="true" allowingameediting="false"> -->
+    	<!-- <StatusEffect targettype="Contained" type="OnContained" target="this" Voltage="1" setvalue="true"> -->
+    		<!-- <RequiredItem items="mobilebattery" type="Contained" /> -->
+    			<!-- <RequiredItem items="flashlight_weapons2" type="Contained" /> -->
+    		    <!-- </StatusEffect> -->
+    		<!-- <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.2"> -->
+                 <!-- <RequiredItem items="batterycell" type="Contained" /> -->
+            <!-- </StatusEffect> -->
+            <!-- <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.1"> -->
+                 <!-- <RequiredItem items="fulguriumbatterycell" type="Contained" /> -->
+            <!-- </StatusEffect> -->
+            <!-- <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.2"> -->
+                 <!-- <RequiredItem excludedidentifiers="batterycell,fulguriumbatterycell" type="Contained" /> -->
+            <!-- </StatusEffect> -->
+        <!-- <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="2.0,0.1" /> -->
+    <!-- </LightComponent> -->
+    <CustomInterface drawhudwhenequipped="true" canbeselected="true" >
+	    <RequiredItem identifier="flashlight_weapons" type="Picked" ignoreineditor="true"/>
+        <GuiFrame relativesize="0.12,0.08" anchor="BottomLeft" absoluteoffset="20,128" style="ItemUI" />
+        <TickBox text="label.onoff">  
+            <StatusEffect type="OnUse" targettype="this" IsOn="true" />
+            <StatusEffect type="OnSecondaryUse" targettype="this" IsOn="false" />
+        </TickBox>
+    </CustomInterface>
+	<ItemContainer capacity="0" ShowContainedStateIndicator="false">
+	  <SlotIcon slotindex="1" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />
+	  <SlotIcon slotindex="2" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="200,4,50,50" origin="0.5,0.45" />
+      <SubContainer capacity="1" maxstacksize="1">
+	     <Containable items="mobilebattery"/>
+      </SubContainer>
+	  <SubContainer capacity="1" maxstacksize="1">
+	     <Containable items="flashlight_weapons"/>
+      </SubContainer>
+	  <!-- <SubContainer capacity="1" maxstacksize="1"> -->
+	     <!-- <Containable items="flashlight_weapons"/> -->
+      <!-- </SubContainer> -->
+	</ItemContainer>
+</Item>
+<!-- Фонарик для оружия -->
+<Item name="" identifier="flashlight_weapons" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,provocative" Scale="0.5" >
+    <Deconstruct time="30">
+      <Item identifier="lightcomponent" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="lightcomponent" />
+      <RequiredItem identifier="plastic" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="rubber" />
+    </Fabricate>
+	<Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="150,0,50,50" scale="0.25" depth="0.55" origin="0.5,0.5" />
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="200,4,50,50" />
+    <Body width="50" height="39" density="50" />
+    <Holdable slots="RightHand,LeftHand,Any" msg="ItemMsgPickUpSelect" />
+	<AiTarget sightrange="3000" />
+</Item>
+<!-- прицел оружия без фонарика -->
+<Item name="crosshairs_weapons" identifier="crosshairs_weapons" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,provocative" Scale="0.5" HideConditionBar="false" condition="100">
+        <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="0,0,50,50" scale="0.25" depth="0.55" origin="0.5,0.5" />
+		<RangedWeapon holdtrigger="true" spread="10" unskilledspread="20" drawhudwhenequipped="true" crosshairscale="1">
+       	    <Crosshair texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,0,256,256"/>
+               <CrosshairPointer texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,256,256,256" />
+			<RequiredSkill identifier="weapons" level="70" />
+        </RangedWeapon>
+</Item>
+<!-- прицел оружия с фонариком -->
+<Item name="crosshairs_weapons_flashlight" identifier="crosshairs_weapons_flashlight" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,provocative" Scale="0.5" variantof="core_flashlight_weapons" HideConditionBar="false">
+         <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="0,0,50,50" scale="0.25" depth="0.55" origin="0.5,0.5" />
+			<RangedWeapon holdtrigger="true" spread="10" unskilledspread="20" drawhudwhenequipped="true" crosshairscale="1">
+       		    <Crosshair texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,0,256,256"/>
+                <CrosshairPointer texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,256,256,256" />
+				<RequiredSkill identifier="weapons" level="70" />
+            </RangedWeapon>  
+</Item>
+<!-- Оружейный прицел голограф-->
+<Item name="" identifier="crosshairs_weapons_golograf" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,provocative" Scale="0.5" >
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="100,0,50,50" scale="0.25" depth="0.55" origin="0.5,0.5" />
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="350,0,50,50" />
+	<RangedWeapon spread="5" unskilledspread="10" drawhudwhenequipped="true" crosshairscale="1">
+        <Crosshair texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,0,256,256"/>
+        <CrosshairPointer texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="0,543,256,256" />
+		<RequiredSkill identifier="weapons" level="60" />
+    </RangedWeapon>
+	<Body width="50" height="48" density="50" />
+    <Holdable slots="RightHand,LeftHand,Any" msg="ItemMsgPickUpSelect" />
+	<Deconstruct time="30">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="aluminium" />
+      <RequiredItem identifier="silicon" />
+    </Fabricate>
+</Item>
+<!-- Оружейный прицел голограф с фонариком-->
+<Item name="" identifier="crosshairs_weapons_golograf_flashlight" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,provocative" Scale="0.5" variantof="core_flashlight_weapons">
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="250,0,50,50" scale="0.25" depth="0.55" origin="0.5,0.5" />
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="250,0,50,50" />	
+		<RangedWeapon spread="5" unskilledspread="10" drawhudwhenequipped="true" crosshairscale="1">
+       	    <Crosshair texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,0,256,256"/>
+            <CrosshairPointer texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="0,543,256,256" />
+			<RequiredSkill identifier="weapons" level="60" />
+        </RangedWeapon>
+	<Body width="50" height="50" density="50" />
+    <Holdable slots="RightHand,LeftHand,Any" msg="ItemMsgPickUpSelect" />
+	<Deconstruct time="30">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <!-- <Fabricate suitablefabricators="fabricator" requiredtime="100"> -->
+      <!-- <RequiredSkill identifier="weapons" level="60" /> -->
+      <!-- <RequiredItem identifier="aluminium" /> -->
+      <!-- <RequiredItem identifier="silicon" /> -->
+    <!-- </Fabricate> -->
+</Item>
+<!-- Оружейный прицел оптический с фонариком-->
+<Item name="" identifier="crosshairs_weapons_optics" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,provocative" Scale="0.5" variantof="core_flashlight_weapons">
+        <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="50,0,50,50" scale="0.25" depth="0.55" origin="0.5,0.5" />
+		<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="50,0,50,50" />		
+		<RangedWeapon spread="0" unskilledspread="5" drawhudwhenequipped="true" crosshairscale="1">
+       	    <Crosshair texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,0,256,256"/>
+            <CrosshairPointer texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="255,543,256,256" />
+			<RequiredSkill identifier="weapons" level="50" />
+        </RangedWeapon>
+	<Body width="50" height="50" density="50" />
+    <Holdable slots="RightHand,LeftHand,Any" msg="ItemMsgPickUpSelect" />
+		<Deconstruct time="30">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+      <RequiredItem identifier="silicon" />
+	  <RequiredItem identifier="silicon" />
+	  <RequiredItem identifier="silicon" />
+    </Fabricate>
+</Item>
+
+</Items>
+</Override> 

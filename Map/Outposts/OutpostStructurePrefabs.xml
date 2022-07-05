@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<!-- <prefabs>
+  <OpDeco name="" nameidentifier="icedebris" identifier="icedebris01" body="true" castshadow="true" health="10" description="" width="176" height="128" texturescale="1.0,1.0" scale="0.5" category="Decorative">
+    <sprite texture="Content/Map/Outposts/Art/TunnelIceWalls.png" sourcerect="624,896,176,128" depth="0.975" origin="0.5,0.5" />
+    <backgroundsprite texture="Content/Map/Outposts/Art/TunnelIceWalls.png" sourcerect="624,896,176,128" depth="0.975" origin="0.5,0.5" />
+  </OpDeco>
+</prefabs> -->
+</Override>

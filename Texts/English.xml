@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+	<!-- Character Ailments-->
+    <afflictionname.tinkerexhaustion_mod>Fatigue</afflictionname.tinkerexhaustion_mod>
+    <afflictiondescription.tinkerexhaustion_mod>Subject feels tired and needs rest, use bed or chair to rest. Either use medical drugs to ease the symptoms, or use a rag doll.</afflictiondescription.tinkerexhaustion_mod>
+    <afflictionname.stamina>Stamina</afflictionname.stamina>
+    <afflictiondescription.stamina>Speed and movement reduced, stop to restore stamina. Anabolic steroids can prolong stamina.</afflictiondescription.stamina>
+	 
+	<entityname.coilgunammoshelf_mod_big>Large ammo regiment</entityname.coilgunammoshelf_mod_big>
+    <entitydescription.coilgunammoshelf_mod_big>Convenient way to store large ammo.</entitydescription.coilgunammoshelf_mod_big> 
+	<!-- Weapon -->
+	<entityname.flashlight_weapons>Gun lantern</entityname.flashlight_weapons>
+    <entitydescription.flashlight_weapons>Flashlight used for mounting on a weapon</entitydescription.flashlight_weapons>
+	<entityname.christmas_tree>Christmas Tree </entityname.christmas_tree>
+    <entitydescription.christmas_tree>Christmas mood now and immediately</entitydescription.christmas_tree> 
+	<entityname.cassette_recorder>Cassette Recorder </entityname.cassette_recorder>
+    <entitydescription.cassette_recorder>Play your favorite music while traveling </entitydescription.cassette_recorder>
+    <entityname.cassette_bobbyhelms_jinglebellsrock>Cassette Bobby Helms - Jingle Bells Rock </entityname.cassette_bobbyhelms_jinglebellsrock>
+    <entityname.cassette_brendalee_rockinaroundthechristmastree>Cassette Brenda Lee - Rockin 'Around the Christmas Tree </entityname.cassette_brendalee_rockinaroundthechristmastree>
+    <entityname.cassette_eltonjohn_stepintochristmas>Cassette Elton John - Step Into Christmas </entityname.cassette_eltonjohn_stepintochristmas>
+    <entityname.cassette_franksinatra_jinglebells>Cassette Frank Sinatra - Jingle Bells </entityname.cassette_franksinatra_jinglebells>
+    <entityname.cassette_franksinatra_letitsnow>Cassette Frank Sinatra - Let It Snow </entityname.cassette_franksinatra_letitsnow>
+    <entityname.cassette_maddiepoppe_rockinaroundthechristmastree>Cassette Maddie Poppe - Rockin 'Around the Christmas Tree </entityname.cassette_maddiepoppe_rockinaroundthechristmastree>
+    <entityname.cassette_queen_thankgoditschristmas>Cassette Queen - Thank God It's Christmas </entityname.cassette_queen_thankgoditschristmas>
+    <entityname.cassette_wham_lastchristmas>Cassette Wham! - Last Christmas </entityname.cassette_wham_lastchristmas>
+	<!-- Ship armament --> 
+    <entityname.coilgunammobox_big>Large Magnetic Cannon Ammo Crate </entityname.coilgunammobox_big>
+    <entitydescription.coilgunammobox_big>Magnetic cannon ammo. </entitydescription.coilgunammobox_big>
+    <entityname.physicoriumammobox_big>Physicorium Ammobox Large Crate </entityname.physicoriumammobox_big>
+    <entitydescription.physicoriumammobox_big>Magnetic cannon ammunition made from alien material. </entitydescription.physicoriumammobox_big>
+    <entityname.coilgunammoboxexplosive_big>Big Box of Explosive Projectiles </entityname.coilgunammoboxexplosive_big>
+    <entitydescription.coilgunammoboxexplosive_big>Magnetic cannon shells. Explodes on collision with a target. </entitydescription.coilgunammoboxexplosive_big>
+    <entityname.coilgunammoboxpiercing_big>Large Crate of Piercing Projectiles </entityname.coilgunammoboxpiercing_big>
+    <entitydescription.coilgunammoboxpiercing_big>Magnetic Cannon Piercing Projectile. </entitydescription.coilgunammoboxpiercing_big>
+    <entityname.pulselaserammobox_big>Large Pulse Laser Capsule </entityname.pulselaserammobox_big>
+    <entitydescription.pulselaserammobox_big>A capsule with specially selected reagents and a focusing lens. Suitable for creating powerful bursts of energy. Used as ammunition for a Pulse Laser. </entitydescription.pulselaserammobox_big>
+    <entityname.pulselaserammoboxtrilaser_big>Large Pulse Trilaser Capsule </entityname.pulselaserammoboxtrilaser_big>
+    <entitydescription.pulselaserammoboxtrilaser_big>A crate containing a solution of special chemicals and ingredients. The lens divides the laser beam into three, allowing you to hit multiple targets at once. </entitydescription.pulselaserammoboxtrilaser_big>
+    <entityname.chaingunammobox_big>Large Chain Cannon Ammo </entityname.chaingunammobox_big>
+    <entitydescription.chaingunammobox_big>Heavy Chain Cannon Ammo Crate </entitydescription.chaingunammobox_big>
+    <entityname.chaingunammoboxphysicorium_big>Large Physicorium Ammo for Chain Cannon </entityname.chaingunammoboxphysicorium_big>
+    <entitydescription.chaingunammoboxphysicorium_big>An incredibly heavy crate of Chainship Cannon projectiles made from Physicorium. The stopping power of these projectiles is such that they can stun any target. </entitydescription.chaingunammoboxphysicorium_big> 
+	<ItemMsgDeleteItems>Delete this item</ItemMsgDeleteItems>
+	<entityname.underwaterscooter_sonar>Sonar scooter</entityname.underwaterscooter_sonar>
+    <entitydescription.underwaterscooter_sonar>Battery operated underwater transport device. Contains sonar. </entitydescription.underwaterscooter_sonar>
+    <entityname.cargoscooter_sonar>Cargo Scooter with Sonar </entityname.cargoscooter_sonar>
+    <entitydescription.cargoscooter_sonar>An underwater scooter for transporting materials underwater. Contains sonar. The scooter is too big to fit in your inventory, but its neutral buoyancy allows it to stay where you drop it. </entitydescription.cargoscooter_sonar>
+    <entityname.turrethardpoint_mod>Implement holder</entityname.turrethardpoint_mod>
+    <entitydescription.turrethardpoint_mod>An empty combat module to which a weapon can be placed.</entitydescription.turrethardpoint_mod>
+    <entityname.blankperiscope_mod>Periscope base</entityname.blankperiscope_mod>
+	<!-- Weapon Mods -->
+    <entityname.harpoongun_golograf>Holographic Sight Diving Gun</entityname.harpoongun_golograf>
+    <entityname.revolver_golograf>Holographic Sight Revolver</entityname.revolver_golograf>
+    <entityname.smg_golograf> Holographic Sight SMG</entityname.smg_golograf>
+    <entityname.smg_optics>SMG with telescopic sight</entityname.smg_optics>
+    <entityname.shotgun_golograf>Holo Sight Shotgun</entityname.shotgun_golograf>
+    <entityname.smgunique_golograf>Sharp Holographic Sight Rifle</entityname.smgunique_golograf>
+    <entityname.smgunique_optics>Scoped Sharp Rifle</entityname.smgunique_optics>
+    <entityname.autoshotgun_golograf>Holographic Automatic Shotgun</entityname.autoshotgun_golograf>
+    <entityname.assaultrifle_golograf>Holographic Assault Rifle</entityname.assaultrifle_golograf>
+    <entityname.assaultrifle_optics>Scoped Assault Rifle</entityname.assaultrifle_optics>
+	<entityname.crosshairs_weapons_golograf>Holographic Weapon Sight </entityname.crosshairs_weapons_golograf>
+    <entitydescription.crosshairs_weapons_golograf>Holographic sight for mounting on some types of weapons. Use the fabricator to install</entitydescription.crosshairs_weapons_golograf> 
+    <entityname.crosshairs_weapons_golograf_flashlight>Holographic Flashlight Sight </entityname.crosshairs_weapons_golograf_flashlight>
+    <entitydescription.crosshairs_weapons_golograf_flashlight>Holographic sight with a flashlight for mounting on some types of weapons. Use the fabricator to install </entitydescription.crosshairs_weapons_golograf_flashlight> 
+    <entityname.crosshairs_weapons_optics>Weapon scope </entityname.crosshairs_weapons_optics>
+    <entitydescription.crosshairs_weapons_optics>Optical sight for mounting on some types of weapons. Use the fabricator to install</entitydescription.crosshairs_weapons_optics> 
+	<!-- Railgun  -->
+    <entityname.railgunshell_c4>Charge of the C4 railgun</entityname.railgunshell_c4>
+    <entitydescription.railgunshell_c4>Required for firing the railgun. Increased damage power</entitydescription.railgunshell_c4>
+    <entityname.railgunshell_c4plus>Railgun C4 + Reinforced Charge</entityname.railgunshell_c4plus>
+    <entitydescription.railgunshell_c4plus>Required for firing a railgun. Increased charge with a higher hit area.</entitydescription.railgunshell_c4plus>
+    <entityname.nuclearshell_plus>Reinforced nuclear charge</entityname.nuclearshell_plus>
+    <entitydescription.nuclearshell_plus>A nuclear charge for a railgun. Enhanced nuclear charge</entitydescription.nuclearshell_plus>
+	<entityname.coilgunammoshelf_mod_big>Large ammunition shelf</entityname.coilgunammoshelf_mod_big>
+    <entitydescription.coilgunammoshelf_mod_big>A convenient way to store large ammunition.</entitydescription.coilgunammoshelf_mod_big>
+	<entityname.crateshelf_small_mod>Small Crate Rack</entityname.crateshelf_small_mod>
+    <entitydescription.crateshelf_small_mod>Small crate shelving.</entitydescription.crateshelf_small_mod>
+</infotexts>

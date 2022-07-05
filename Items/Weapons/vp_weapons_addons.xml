@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+<!-- Гарпун с голографом и фонариком -->
+<Item name="" identifier="harpoongun_golograf" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_golograf_flashlight" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Deconstruct time="5">
+      <Item identifier="harpoongun" />
+      <Item identifier="crosshairs_weapons_golograf" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="harpoongun" />
+      <RequiredItem identifier="crosshairs_weapons_golograf" />
+    </Fabricate>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="400,310,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="22,449,181,54" depth="0.55" origin="0.5,0.5" />
+    <Body width="181" height="54" density="50" />
+    <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="35,-10" aimpos="45,-10" handle1="-20,-6" handle2="30,10" holdangle="-40" msg="ItemMsgPickUpSelect"/>
+    <RangedWeapon reload="1.200" barrelpos="85,14" combatPriority="60">
+      <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" />
+      <Sound file="Content/Items/Weapons/HarpoonGun2.ogg" type="OnUse" />
+      <Sound file="Content/Items/Weapons/HarpoonGun3.ogg" type="OnUse" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+	  </StatusEffect>
+      <RequiredItems items="harpoonammo" type="Contained" msg="ItemMsgSpearRequired" />
+	          <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>  
+    </RangedWeapon>
+    <ItemContainer itempos="27,10" DrawInventory="true" AllowDragAndDrop="true" AutoInteractWithContained="true"  AutoInject="true" iteminterval="0,-4" hideitems="false" capacity="1" maxstacksize="6" containedstateindicatorstyle="spear" containedspritedepths="0.551,0.552,0.553,0.554,0.555,0.556" ShowContainedStateIndicator="false">
+    <Containable items="harpoonammo" />
+    </ItemContainer>
+    <aitarget sightrange="0" soundrange="500" fadeouttime="2" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
+      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="22,449,181,54" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,1.2" />
+    </Wearable>
+  </Item>
+
+<!-- Револьвер с голографом -->
+<Item name="" identifier="revolver_golograf" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_golograf" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="revolver" />
+      <RequiredItem identifier="crosshairs_weapons_golograf" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="revolver" />
+      <Item identifier="crosshairs_weapons_golograf" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="450,205,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="41,298,75,54" depth="0.55" origin="0.5,0.5" />
+	<!-- <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,418,76,41" depth="0.55" origin="0.5,0.5" /> -->
+	<!-- <DecorativeSprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="100,0,50,50" scale="0.4" depth="0.54" offset="-8,24" /> -->
+    <Body width="76" height="41" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect" />
+	<RangedWeapon reload="1.500" barrelpos="30,11" combatPriority="70">
+      <Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="3000" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	          <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>  
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="revolverammo" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+  </Item>  
+
+<!-- ПП с голографом + фонарик -->
+<Item name="" identifier="smg_golograf" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_golograf_flashlight" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="smg" />
+      <RequiredItem identifier="crosshairs_weapons_golograf" />
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="smg" />
+      <Item identifier="crosshairs_weapons_golograf" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="400,50,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="14,145,144,61" depth="0.55" origin="0.5,0.5" />
+	<Body width="144" height="80" density="50" />
+    <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="40,-10" aimpos="45,-10" handle1="-30,-15" handle2="26,5" holdangle="-35" msg="ItemMsgPickUpSelect"/>
+	<RangedWeapon reload="0.250" barrelpos="64,9" combatPriority="80">
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	          <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>  
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
+      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="14,145,144,61" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
+    </Wearable>
+  </Item>
+<!-- ПП с оптическим + фонарик -->
+<Item name="" identifier="smg_optics" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_optics" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="smg" />
+      <RequiredItem identifier="crosshairs_weapons_optics" />
+	  <RequiredItem identifier="aluminium" amount="0"/>
+      <RequiredItem identifier="silicon" amount="0"/>
+      <RequiredItem identifier="silicon" amount="0"/>
+	  <RequiredItem identifier="silicon" amount="0"/>
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="smg" />
+      <Item identifier="crosshairs_weapons_optics" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="450,50,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="192,141,144,65" depth="0.55" origin="0.5,0.5" />
+    <Body width="144" height="61" density="50" />
+    <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="40,-10" aimpos="45,-10" handle1="-30,-15" handle2="26,5" holdangle="-35" msg="ItemMsgPickUpSelect"/>
+	<RangedWeapon reload="0.450" barrelpos="64,9" combatPriority="80">
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	          <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>  
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
+      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="192,141,144,65" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
+    </Wearable>
+  </Item>
+
+<!-- Дробовик с голографом + фонарик -->
+<Item name="" identifier="shotgun_golograf" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_golograf_flashlight" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="shotgun" />
+      <RequiredItem identifier="crosshairs_weapons_golograf" />
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="shotgun" />
+      <Item identifier="crosshairs_weapons_golograf" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="400,205,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="165,74,184,66" depth="0.55" origin="0.5,0.5" />
+    <Body width="180" height="45" density="50" />
+    <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="40,-10" aimpos="35,-10" handle1="-25,-6" handle2="26,10" holdangle="-40" msg="ItemMsgPickUpSelect"/>
+	<RangedWeapon barrelpos="85,13" combatPriority="80" reload="1.7">
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/ShotgunShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/ShotgunShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="2.5" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="1.0">
+        <Sound file="Content/Items/Weapons/ShotgunLoad1.ogg" type="OnUse" range="3000" selectionmode="Random"   />
+        <Sound file="Content/Items/Weapons/ShotgunLoad2.ogg" type="OnUse" range="3000" />
+        <Sound file="Content/Items/Weapons/ShotgunLoad3.ogg" type="OnUse" range="3000" />
+      </StatusEffect>
+      <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	    <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-4" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" itempos="0,0" iteminterval="10,0" ItemRotation="90" hideitems="true" ShowContainedStateIndicator="false">
+      <Containable items="shotgunammo" />
+    </ItemContainer>
+    <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="true" canbepicked="true" pickkey="Select">
+      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="165,74,184,66" depth="0.55" origin="0.6,0.9" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" />
+	</Wearable>
+</Item>
+
+<!-- Меткий карабин с голографом + фонарик -->
+<Item name="" identifier="smgunique_golograf" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_golograf_flashlight" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="smgunique" />
+      <RequiredItem identifier="crosshairs_weapons_golograf" />
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="smgunique" />
+      <Item identifier="crosshairs_weapons_golograf" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="400,100,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="13,221,145,72" depth="0.55" origin="0.5,0.5" />
+    <Body width="145" height="72" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand,Any" controlpose="true" holdpos="40,-15" aimpos="45,-10" handle1="-30,-8" handle2="18,5" holdangle="-35" msg="ItemMsgPickUpSelect"/>
+	<RangedWeapon reload="0.300" barrelpos="64,16" combatPriority="80">
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="2" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
+      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="13,221,145,72" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
+    </Wearable>
+  </Item>
+
+<!-- Меткий карабин с оптикой + фонарик-->
+<Item name="" identifier="smgunique_optics" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_optics" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+	<Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="smgunique" />
+      <RequiredItem identifier="crosshairs_weapons_optics" />
+	  <RequiredItem identifier="aluminium" amount="0"/>
+      <RequiredItem identifier="silicon" amount="0"/>
+      <RequiredItem identifier="silicon" amount="0"/>
+	  <RequiredItem identifier="silicon" amount="0"/>
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="smgunique" />
+      <Item identifier="crosshairs_weapons_optics" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="450,100,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="196,221,145,77" depth="0.55" origin="0.5,0.5" />
+    <Body width="145" height="77" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand,Any" controlpose="true" holdpos="40,-15" aimpos="45,-10" handle1="-30,-8" handle2="18,5" holdangle="-35" msg="ItemMsgPickUpSelect"/>
+	<RangedWeapon reload="0.550" barrelpos="64,16" combatPriority="80">
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="2" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
+      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="196,221,145,77" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
+    </Wearable>
+  </Item>
+
+<!-- Автоматический дробовик с голографом + фонарик -->
+<Item name="" identifier="autoshotgun_golograf" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.62" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_golograf_flashlight" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="autoshotgun" />
+      <RequiredItem identifier="crosshairs_weapons_golograf" />
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="autoshotgun" />
+      <Item identifier="crosshairs_weapons_golograf" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="400,255,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="12,81,151,64" depth="0.55" origin="0.5,0.5" />
+    <Body width="151" height="64" density="100" />
+    <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="32,-30" aimpos="32,-30" handle1="-12,-20" handle2="36,-14" holdangle="-10" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon barrelpos="70,10" combatPriority="80" reload="0.6">
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_autoShotgun.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_autoShotgun_1.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_autoShotgun_2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_autoShotgun_3.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="2" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
+      <!-- <RequiredSkill identifier="weapons" level="70" /> -->
+	  <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="0" maxstacksize="0" itempos="27,10" iteminterval="0,-4" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="shotgunammo" />
+	  <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />
+	  <SlotIcon slotindex="1" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="200,4,50,50" origin="0.5,0.45" />
+	  <SubContainer capacity="1" maxstacksize="1">
+	     <Containable items="mobilebattery"/>
+      </SubContainer>
+	  <SubContainer capacity="1" maxstacksize="1">
+	     <Containable items="flashlight_weapons"/>
+      </SubContainer>
+	  <SubContainer capacity="4" maxstacksize="4">
+	     <Containable items="shotgunammo" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1" />
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Autoshogun Worn" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="12,81,151,64" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" ignorelimbscale="true" scale="0.62" origin="0.5,0.9" />
+    </Wearable>
+  </Item>
+
+<!-- Штурмовая винтовка с голографом + фонарик -->
+<Item name="" identifier="assaultrifle_golograf" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_golograf_flashlight" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="assaultrifle" />
+      <RequiredItem identifier="crosshairs_weapons_golograf" />
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="assaultrifle" />
+      <Item identifier="crosshairs_weapons_golograf" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="400,150,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="14,375,222,74" depth="0.55" origin="0.5,0.5" />
+    <Body width="222" height="74" density="70" />
+    <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="55,-20" aimpos="67,-5" handle1="-35,-10" handle2="40,0" holdangle="-25" />
+    <RangedWeapon reload="0.40" barrelpos="100,20" combatPriority="80">
+      <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_4.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_5.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="assaultriflemagazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <!-- <RequiredSkill identifier="weapons" level="50" /> -->
+	    <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="assaultrifleammo" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1" />
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Assault Rifle Worn" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="14,375,222,74" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" scale="0.5" origin="0.5,0.8" />
+    </Wearable>
+  </Item>
+
+<!-- Штурмовая винтовка с оптикой + фонарик -->
+<Item name="" identifier="assaultrifle_optics" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_optics" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="assaultrifle" />
+      <RequiredItem identifier="crosshairs_weapons_optics" />
+	  <RequiredItem identifier="aluminium" amount="0"/>
+      <RequiredItem identifier="silicon" amount="0"/>
+      <RequiredItem identifier="silicon" amount="0"/>
+	  <RequiredItem identifier="silicon" amount="0"/>
+    </Fabricate>
+	<Deconstruct time="5">
+      <Item identifier="assaultrifle" />
+      <Item identifier="crosshairs_weapons_optics" />
+    </Deconstruct>
+	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="450,150,50,50" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="238,369,222,77" depth="0.55" origin="0.5,0.5" />
+    <Body width="222" height="74" density="70" />
+    <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="55,-20" aimpos="67,-5" handle1="-35,-10" handle2="40,0" holdangle="-25" />
+    <RangedWeapon reload="0.6" barrelpos="100,20" combatPriority="80">
+      <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_4.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_5.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="assaultriflemagazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <!-- <RequiredSkill identifier="weapons" level="50" /> -->
+	  <!-- Поломка оружия -->
+	    <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/>
+		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
+		    <Conditional condition="lt 1"/>
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		</StatusEffect>
+		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
+		     <Conditional condition="lt 1"/>
+		</StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+      <Containable items="assaultrifleammo" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1" />
+    </Quality>
+	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Assault Rifle Worn" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="238,369,222,77" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" scale="0.5" origin="0.5,0.8" />
+    </Wearable>
+  </Item>
+</Items>
+</Override> 

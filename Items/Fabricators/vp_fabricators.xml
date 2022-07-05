@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Override>
+<Items>
+  <Item name="" identifier="fabricator_mod" nameidentifier="fabricator" variantof="fabricator">
+     <Price baseprice="1500">
+	  <Price storeidentifier="merchantoutpost" sold="false" multiplier="0.5"/>
+      <Price storeidentifier="merchantcity" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantresearch" ssold="false" multiplier="0.5" />
+      <Price storeidentifier="merchantmilitary" sold="false" multiplier="0.5" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.5"/>
+    </Price>
+	<Body width="336" height="400" density="0" />
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="itemmsgforceopencrowbar" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	    <requireditem identifier="crowbar" type="Equipped" />
+    </Holdable>
+    <Deconstruct time="50">
+        <Item identifier="scrap" />
+	    <Item identifier="scrap" />
+	    <Item identifier="plastic" />
+	    <Item identifier="redwire" />
+	    <Item identifier="redwire" />
+      </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="200">
+	    <RequiredSkill identifier="mechanical" level="70" />
+	    <RequiredSkill identifier="electrical" level="70" />
+        <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="plastic" />
+	    <RequiredItem identifier="plastic" />
+	    <RequiredItem identifier="plastic" />
+	    <RequiredItem identifier="plastic" />
+	    <RequiredItem identifier="plastic" />
+	    <RequiredItem identifier="switch" />
+	    <RequiredItem identifier="switch" />
+	    <RequiredItem identifier="steel" />
+	    <RequiredItem identifier="steel" />
+	    <RequiredItem identifier="steel" />
+	    <RequiredItem identifier="steel" />
+	    <RequiredItem identifier="steel" />
+	    <RequiredItem identifier="regexcomponent" />
+	    <RequiredItem identifier="regexcomponent" />
+    </Fabricate>
+  </Item>
+
+  <Item name="" identifier="medicalfabricator_mod" nameidentifier="medicalfabricator" variantof="medicalfabricator">
+     <Price baseprice="2000">
+      <Price locationtype="outpost" multiplier="1"/>
+      <Price locationtype="city" multiplier="0.9"/>
+      <Price locationtype="research" multiplier="1.25"/>
+      <Price locationtype="military" multiplier="1"/>
+      <Price locationtype="mine" multiplier="1"/>
+    </Price>
+	<Body width="336" height="288" density="0" />
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="itemmsgforceopencrowbar" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	    <requireditem identifier="crowbar" type="Equipped" />
+    </Holdable>
+    <Deconstruct time="50">
+	    <Item identifier="scrap" />
+	    <Item identifier="plastic" />
+	    <Item identifier="aluminium" />
+	    <Item identifier="redwire" />
+	    <Item identifier="redwire" />
+      </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="200">
+	    <RequiredSkill identifier="mechanical" level="70" />
+	    <RequiredSkill identifier="electrical" level="70" />
+	    <RequiredSkill identifier="medical" level="90" />
+        <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="redwire" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="aluminium" />
+	    <RequiredItem identifier="switch" />
+	    <RequiredItem identifier="regexcomponent" />
+    </Fabricate>
+  </Item>
+
+  <Item identifier="deconstructor_mod" nameidentifier="deconstructor" variantof="deconstructor">
+     <Price baseprice="1000">
+      <Price locationtype="outpost" multiplier="1"/>
+      <Price locationtype="city" multiplier="0.9"/>
+      <Price locationtype="research" multiplier="1.25"/>
+      <Price locationtype="military" multiplier="1"/>
+      <Price locationtype="mine" multiplier="1"/>
+    </Price>
+	<Body width="256" height="320" density="0" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="itemmsgforceopencrowbar" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+	  <requireditem identifier="crowbar" type="Equipped" />
+  </Holdable>
+    <Deconstruct time="50">
+	  <Item identifier="scrap" />
+	  <Item identifier="plastic" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="redwire" />
+	  <Item identifier="redwire" />
+    </Deconstruct>
+  <Fabricate suitablefabricators="fabricator" requiredtime="200">
+	  <RequiredSkill identifier="mechanical" level="60" />
+	  <RequiredSkill identifier="electrical" level="60" />
+      <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+	  <RequiredItem identifier="redwire" />
+      <RequiredItem identifier="switch" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="concatcomponent" />
+  </Fabricate>
+  </Item>
+</Items>
+</Override>
