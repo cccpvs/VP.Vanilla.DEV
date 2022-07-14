@@ -187,6 +187,32 @@
     <Affliction  name="Перегрев" identifier="overheating" showiconthreshold="0" maxstrength="100" targets="weapon">
             <icon texture="Content/UI/MainIconsAtlas.png" sheetindex="1,6" sheetelementsize="128,128" origin="0,0"/>
         </Affliction>
+				
+				
+		<MaskLeens
+    name="MaskLens"
+    identifier="MaskLens"
+    limbspecific="false"
+    indicatorlimb="Head"
+    activationthreshold="1.0"
+    showiconthreshold="50"
+    maxstrength="100">
+	<Effect
+      minstrength="0"
+      maxstrength="100"
+      minscreenblur="0.00"
+      maxscreenblur="0.05"
+      minchromaticaberration="0.0"
+      maxchromaticaberration="5.0"
+      minradialdistort="0.0"
+      maxradialdistort="1.25"
+      graincolor="0,0,0,255"
+      mingrainstrength="0.0"
+      maxgrainstrength="6.0"
+			strengthchange="-100.0">
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
+  </MaskLeens>
   
   
 </Afflictions>
