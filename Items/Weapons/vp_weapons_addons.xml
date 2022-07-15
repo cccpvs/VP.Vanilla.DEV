@@ -24,15 +24,12 @@
         <Explosion range="150.0" force="5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
 	  </StatusEffect>
       <RequiredItems items="harpoonammo" type="Contained" msg="ItemMsgSpearRequired" />
-	          <!-- Поломка оружия -->
+	    <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
-		</StatusEffect>  
     </RangedWeapon>
     <ItemContainer itempos="27,10" DrawInventory="true" AllowDragAndDrop="true" AutoInteractWithContained="true"  AutoInject="true" iteminterval="0,-4" hideitems="false" capacity="1" maxstacksize="6" containedstateindicatorstyle="spear" containedspritedepths="0.551,0.552,0.553,0.554,0.555,0.556" ShowContainedStateIndicator="false">
     <Containable items="harpoonammo" />
@@ -41,9 +38,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1"/>
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
-      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="22,449,181,54" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,1.2" />
-    </Wearable>
   </Item>
 
 <!-- Револьвер с голографом -->
@@ -74,13 +68,10 @@
       <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
 	          <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
-		</StatusEffect>  
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="revolverammo" />
@@ -121,15 +112,12 @@
         <Use />
       </StatusEffect>
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
-	          <!-- Поломка оружия -->
+	    <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
-		</StatusEffect>  
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="smgammo" />
@@ -138,9 +126,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1"/>
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
-      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="14,145,144,61" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
-    </Wearable>
   </Item>
 <!-- ПП с оптическим + фонарик -->
 <Item name="" identifier="smg_optics" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_optics" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
@@ -178,13 +163,10 @@
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
 	          <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
-		</StatusEffect>  
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="smgammo" />
@@ -193,9 +175,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1"/>
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
-      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="192,141,144,65" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
-    </Wearable>
   </Item>
 
 <!-- Дробовик с голографом + фонарик -->
@@ -230,12 +209,9 @@
       <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
 	    <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-4" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
-		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" itempos="0,0" iteminterval="10,0" ItemRotation="90" hideitems="true" ShowContainedStateIndicator="false">
@@ -245,9 +221,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1"/>
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="true" canbepicked="true" pickkey="Select">
-      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="165,74,184,66" depth="0.55" origin="0.6,0.9" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" />
-	</Wearable>
 </Item>
 
 <!-- Меткий карабин с голографом + фонарик -->
@@ -282,12 +255,9 @@
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
 	  <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
-		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
@@ -297,9 +267,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1"/>
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
-      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="13,221,145,72" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
-    </Wearable>
   </Item>
 
 <!-- Меткий карабин с оптикой + фонарик-->
@@ -338,12 +305,9 @@
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
 	  <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
-		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
@@ -353,9 +317,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1"/>
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="false">
-      <sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="196,221,145,77" depth="0.55" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" origin="0.6,0.9" />
-    </Wearable>
   </Item>
 
 <!-- Автоматический дробовик с голографом + фонарик -->
@@ -384,14 +345,11 @@
       </StatusEffect>
       <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <!-- <RequiredSkill identifier="weapons" level="70" /> -->
-	  <!-- Поломка оружия -->
+	    <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
-		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
     </RangedWeapon>
     <ItemContainer capacity="0" maxstacksize="0" itempos="27,10" iteminterval="0,-4" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
@@ -412,9 +370,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1" />
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Autoshogun Worn" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="12,81,151,64" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" ignorelimbscale="true" scale="0.62" origin="0.5,0.9" />
-    </Wearable>
   </Item>
 
 <!-- Штурмовая винтовка с голографом + фонарик -->
@@ -449,12 +404,9 @@
       <!-- <RequiredSkill identifier="weapons" level="50" /> -->
 	    <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
-		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
@@ -464,9 +416,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1" />
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Assault Rifle Worn" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="14,375,222,74" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" scale="0.5" origin="0.5,0.8" />
-    </Wearable>
   </Item>
 
 <!-- Штурмовая винтовка с оптикой + фонарик -->
@@ -505,12 +454,9 @@
       <!-- <RequiredSkill identifier="weapons" level="50" /> -->
 	  <!-- Поломка оружия -->
 	    <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
-		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
+		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
+			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
+			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
 		</StatusEffect>
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
@@ -520,9 +466,6 @@
     <Quality>
       <QualityStat stattype="AttackMultiplier" value="0.1" />
     </Quality>
-	<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Assault Rifle Worn" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="238,369,222,77" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" scale="0.5" origin="0.5,0.8" />
-    </Wearable>
   </Item>
 </Items>
 </Override> 

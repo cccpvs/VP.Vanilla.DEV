@@ -31,7 +31,28 @@
         maxvitalitydecrease="3"/>
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,896,128,128" color="195,136,60,255" origin="0,0"/>
   </InternalDamage>
-  
+  <OxygenLow
+    name="Oxygen low"
+    identifier="oxygenlow"
+    description="The skin is pale and clammy, and the lips turning blue."
+    type="oxygenlow"
+    causeofdeathdescription="Suffocated"
+    selfcauseofdeathdescription="You have suffocated."
+    limbspecific="false"
+    indicatorlimb="Torso"
+    activationthreshold="1"
+    karmachangeonapplied="-0.2"
+    maxstrength="100">
+	<!-- healcostmultiplier="0.5" -->
+	<Effect minstrength="0" maxstrength="100">
+		<StatusEffect target="Character" comparison="and">
+		    <Conditional HullOxygenPercentage="gt 0"/>
+			<Conditional InWater="!true"/>
+		    <ReduceAffliction type="oxygenlow" amount="5"/>
+		</StatusEffect>
+	</Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="512,640,128,128" color="68,157,198,255" origin="0,0"/>
+  </OxygenLow>
 
   <tinkerexhaustion_mod
     name=""

@@ -394,6 +394,31 @@
 	  <requireditem identifier="wrench" type="Equipped" />
     </Holdable>
   </Item> 
- 
+   <!-- Стойка для проверки оружия -->
+   <!-- <Item name="weapon_check_stand" identifier="weapon_check_stand" category="Weapon" tags="weaponholder" canflipx="false" canflipy="false" scale="0.5" variantof="object_core_deleter"> -->
+    <!-- <decorativesprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="849,993,206,110" depth="0.95" premultiplyalpha="false" origin="0.5,0.5" /> -->
+    <!-- <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="849,1441,206,110" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" /> -->
+    <!-- <decorativesprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="856,1112,193,96" depth="0.99" premultiplyalpha="false" origin="0.5,0.5" > -->
+        <!-- <IsActiveConditional IsActive="True" targetitemcomponent="ItemContainer" /> -->
+    <!-- </decorativesprite> -->
+	<!-- <decorativesprite texture="Content/UI/UIAtlasDevices.png" depth="0.90" origin="-2.85,-0.87" sourcerect="269,3,90,90" scale="0.25"> -->
+	    <!-- <IsActiveConditional condition="lt 30" targetitemcomponent="ItemContainer" TargetContainedItem="true"/> -->
+    <!-- </decorativesprite> -->
+	<!-- <decorativesprite texture="Content/UI/UIAtlasDevices.png" depth="0.90" origin="-2.85,-0.87" sourcerect="363,3,90,90" scale="0.25"> -->
+	    <!-- <IsActiveConditional condition="gt 30" targetitemcomponent="ItemContainer" TargetContainedItem="true"/> -->
+		<!-- <IsActiveConditional condition="lt 75" targetitemcomponent="ItemContainer" TargetContainedItem="true"/> -->
+    <!-- </decorativesprite> -->
+	<!-- <decorativesprite texture="Content/UI/UIAtlasDevices.png" depth="0.90" origin="-2.85,-0.87" sourcerect="461,3,90,90" scale="0.25"> -->
+	    <!-- <IsActiveConditional condition="gt 75" targetitemcomponent="ItemContainer" TargetContainedItem="true"/> -->
+    <!-- </decorativesprite> -->
+    <!-- <ItemContainer hideitems="false" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="1" itempos="100,-60" iteminterval="0,0" itemrotation="0" containedspritedepth="0.84" canbeselected="true" msg="ItemMsgInteractSelect"> -->
+        <!-- <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" relativeoffset="0,0.2"/> -->
+		<!-- <Containable items="gun" excludebroken="false"> -->
+		    <!-- <StatusEffect type="OnContaining" targettype="Contained" condition="1" disabledeltatime="true" Comparison="And"> -->
+			    <!-- <Conditional Condition="lt 1"/> -->
+            <!-- </StatusEffect> -->
+		<!-- </Containable> -->
+    <!-- </ItemContainer> -->
+  <!-- </Item> -->
  </Items>
 </Override>

@@ -260,9 +260,12 @@
     </LightComponent>
     <MiniMap MinVoltage="0.5" PowerConsumption="100" canbeselected="true" msg="ItemMsgInteractSelect" allowuioverlap="true">
 	<!-- RequireWaterDetectors="false" RequireOxygenDetectors="false" ShowHullIntegrity="false" EnableHullStatus="false" -->
-      <GuiFrame relativesize="0.5,0.5" anchor="Center" style="ItemUI" />
-      <AlternativeLayout relativesize="0.2725,0.3" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.05,-0.001"/>
-      <poweronsound file="Content/Items/PowerOnLight3.ogg" range="1000" loop="false" />
+        <GuiFrame relativesize="0.5,0.5" anchor="Center" style="ItemUI" />
+        <AlternativeLayout relativesize="0.2725,0.3" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.05,-0.001"/>
+        <poweronsound file="Content/Items/PowerOnLight3.ogg" range="1000" loop="false" />
+	    <StatusEffect type="OnActive" target="this" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true" comparison="or">
+	        <Conditional ShowHullIntegrity="!e false" RequireWaterDetectors="!e true" RequireOxygenDetectors="!e true"/>
+	    </StatusEffect>
     </MiniMap>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />

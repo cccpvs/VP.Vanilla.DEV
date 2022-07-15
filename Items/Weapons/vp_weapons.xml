@@ -9,7 +9,7 @@
     	<StatusEffect targettype="Contained" type="OnContained" target="this" Voltage="1" setvalue="true">
     		<RequiredItem items="mobilebattery" type="Contained" />
     			<RequiredItem items="flashlight_weapons" type="Contained" />
-    		    </StatusEffect>
+    		</StatusEffect>
     		<StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.2">
                  <RequiredItem items="batterycell" type="Contained" />
             </StatusEffect>
