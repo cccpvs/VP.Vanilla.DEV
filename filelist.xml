@@ -74,6 +74,7 @@
   <Item file="%ModDir%/Items/Command/vp_command.xml" />
   <Item file="%ModDir%/Items/Labels/labels.xml" />
   <Item file="%ModDir%/Map/Pirates/PirateItems.xml" />
+  <Item file="%ModDir%/Items/Reactor/reactor.xml" />
   <NPCSets file="%ModDir%/Map/Outposts/OutpostGenerationNpcs.xml" />
   <Structure file="%ModDir%/Map/StructurePrefabs.xml" />
   <Structure file="%ModDir%/Map/Outposts/OutpostStructurePrefabs.xml" />

@@ -35,7 +35,7 @@
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
   <!-- Бомбарда -->
-  <Item name="" identifier="handcannon" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
+  <Item name="" identifier="handcannon" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons">
     <PreferredContainer primary="secarmcab"/>
     <PreferredContainer secondary="armcab,weaponholder" />
     <Price baseprice="600" sold="false">
@@ -76,14 +76,11 @@
       <RequiredItems items="handcannonammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <!-- <RequiredSkill identifier="weapons" level="60" /> -->
 	          <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false">
-		    <Conditional condition="lt 1"/>
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" type="OnUse" range="200" />
-		</StatusEffect>
-		<StatusEffect target="this" type="Always" condition="1" disabledeltatime="true" delay="5" stackable="false" comparison="and">
-		     <Conditional condition="lt 1"/>
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="handcannonammo" />

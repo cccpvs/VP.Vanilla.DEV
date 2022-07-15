@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override>
 <prefabs>
-
+  <!-- <structure name="" identifier="ff_x_wall" descriptionidentifier="resizeablewallwithcollisiondetection" width="1024" height="96" resizehorizontal="true" body="true" castshadow="true" health="75" scale="0.5" tags="inner" showProgressBar="false" ProgressBar="false" UpdateHUDProgressBar="false"> -->
+    <!-- <Upgrade gameversion="0.10.0.0" scale="*0.5" /> -->
+    <!-- <sprite texture="Content/Map/LargeInsideWalls.png" depth="0.06" sourcerect="0,0,1024,96" origin="0.5,0.5" /> -->
+    <!-- <backgroundsprite texture="Content/Map/LargeInsideWalls.png" depth="0.85" sourcerect="0,0,1024,96" color="60,60,60,255" origin="0.5,0.5" /> -->
+  <!-- </structure> -->
 </prefabs>
 </Override>
