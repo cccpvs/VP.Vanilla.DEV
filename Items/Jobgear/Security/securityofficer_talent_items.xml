@@ -5,25 +5,23 @@
   <Item name="" identifier="autoshotgun" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.62" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_flashlight">
     <PreferredContainer primary="secarmcab" />
     <PreferredContainer primary="armcab" secondary="locker"/>
-    <Price baseprice="600" sold="false">
-        <Price storeidentifier="merchantoutpost" multiplier="1.4" />
-        <Price storeidentifier="merchantcity" multiplier="1.25" />
-        <Price storeidentifier="merchantresearch" multiplier="1.25" />
-        <Price storeidentifier="merchantmilitary" multiplier="0.9" />
-        <Price storeidentifier="merchantmine" multiplier="1.25" />
+    <Price baseprice="710" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.4" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
     </Price>
     <Fabricate suitablefabricators="fabricator" requiredtime="65" requiresrecipe="true">
-        <RequiredSkill identifier="weapons" level="55" />
-        <RequiredItem identifier="ballisticfiber" />
-        <RequiredItem identifier="dementonite" />
-        <RequiredItem identifier="titaniumaluminiumalloy" />
-        <RequiredItem identifier="steel" />
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredItem identifier="ballisticfiber" />
+      <RequiredItem identifier="physicorium" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
     </Fabricate>
     <Deconstruct time="30">
-        <Item identifier="ballisticfiber" />
-        <Item identifier="dementonite" />
-        <Item identifier="titaniumaluminiumalloy" />
-        <Item identifier="steel" />
+      <Item identifier="ballisticfiber" />
+      <Item identifier="physicorium" amount="2" />
+      <Item identifier="titaniumaluminiumalloy" />
     </Deconstruct>
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="308,1,152,61" depth="0.55" origin="0.5,0.5" />
     <Body width="150" height="40" density="100" />
@@ -71,25 +69,24 @@
   </Item>
 <!-- Штурмовая винтовка -->
 <Item name="" identifier="assaultrifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_flashlight">
-    <PreferredContainer primary="secarmcab" />
-    <PreferredContainer primary="armcab" secondary="locker"/>
-    <Price baseprice="660" sold="false">
-        <Price storeidentifier="merchantoutpost" multiplier="1.5" />
-        <Price storeidentifier="merchantcity" multiplier="1.25" />
-        <Price storeidentifier="merchantresearch" multiplier="1.25" />
-        <Price storeidentifier="merchantmilitary" multiplier="0.9" />
-        <Price storeidentifier="merchantmine" multiplier="1.25" />
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder"/>
+    <Price baseprice="720" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
     </Price>
     <Fabricate suitablefabricators="fabricator" requiredtime="75" requiresrecipe="true">
-        <RequiredSkill identifier="weapons" level="65" />
-        <RequiredItem identifier="dementonite" />
-        <RequiredItem identifier="dementonite" />
-        <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredSkill identifier="weapons" level="65" />
+      <RequiredItem identifier="physicorium" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="3" />
+      <RequiredItem identifier="rubber" />
     </Fabricate>
     <Deconstruct time="35">
-        <Item identifier="dementonite" />
-        <Item identifier="dementonite" />
-        <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="physicorium" amount="2" />
+      <Item identifier="titaniumaluminiumalloy" amount="2" />
+      <Item identifier="rubber" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="276,63,233,62" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="276,63,233,62" depth="0.55" origin="0.5,0.5" />
@@ -143,15 +140,13 @@
     <Fabricate suitablefabricators="fabricator" requiredtime="35" requiresrecipe="true">
       <RequiredSkill identifier="weapons" level="40" />
       <RequiredItem identifier="magnesium" />
-      <RequiredItem identifier="physicorium" />
-      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="lead" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
     </Fabricate>
     <Deconstruct time="15">
-      <Item identifier="physicorium" copycondition="true" />
-      <Item identifier="steel" />
+      <Item identifier="lead" mincondition="0.95" />
+      <Item identifier="titaniumaluminiumalloy" />
     </Deconstruct>
-    <PreferredContainer primary="assaultrifle" minamount="1" maxamount="1" spawnprobability="1"/>
-    <PreferredContainer primary="secarmcab" minamount="0" maxamount="0" spawnprobability="0.0"/>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="476,3,36,48" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="476,3,36,48" depth="0.55" origin="0.5,0.5" />
     <Body width="28" height="40" density="50" />
@@ -170,9 +165,9 @@
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
-      <Attack structuredamage="10" targetforce="7.5" itemdamage="20" severlimbsprobability="0.1">
-        <Affliction identifier="bleeding" strength="15" />
+      <Attack structuredamage="10" targetforce="7.5" itemdamage="20" severlimbsprobability="0.2" penetration="0.2">
         <Affliction identifier="gunshotwound" strength="30" />
+        <Affliction identifier="bleeding" strength="15" />
         <Affliction identifier="stun" strength="0.25" />
         <Affliction identifier="stun" strength="0.5" probability="0.2" />
       </Attack>
@@ -188,8 +183,7 @@
   </Item>
   <!-- Разрывная пуля -->
   <Item name="" identifier="shotgunslugexplosive" category="Weapon" maxstacksize="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,shotgunammo" Scale="0.5" impactsoundtag="impact_metal_light">
-    <PreferredContainer primary="secarmcab" />
-    <PreferredContainer primary="armcab" secondary="locker"/>
+    <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="75" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.5" />
       <Price storeidentifier="merchantcity" multiplier="1.25" />
@@ -198,7 +192,7 @@
       <Price storeidentifier="merchantmine" multiplier="1.25" />
     </Price>
     <Deconstruct time="5"></Deconstruct>
-    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true" amount="4">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true" amount="6">
       <RequiredSkill identifier="weapons" level="40" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="incendium" />
@@ -215,13 +209,13 @@
         <Affliction identifier="stun" strength="0.8" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
-        <ParticleEmitter particle="impactfirearm" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" scalemultiplier="7,7" colormultiplier="255,115,95,150" />
+        <ParticleEmitter particle="impactfirearm" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" scalemultiplier="7,7" colormultiplier="255,115,95,150" lifetimemultiplier="0.5"/>
         <ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="300" velocitymax="350" scalemin="1.5" scalemax="1.9" drawontop="true" colormultiplier="255,200,225,180" />
       </StatusEffect>
       <StatusEffect type="OnUse" target="This" disabledeltatime="true">
-        <Explosion range="70.0" structuredamage="40" itemdamage="20" force="3.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,115,95,150">
-          <Affliction identifier="explosiondamage" strength="17.5" />
-          <Affliction identifier="burn" strength="32.5" />
+        <Explosion range="70.0" severlimbsprobability="0.5" structuredamage="40" itemdamage="20" force="3.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,115,95,150">
+          <Affliction identifier="explosiondamage" strength="60" />
+          <Affliction identifier="burn" strength="40" />
         </Explosion>
       </StatusEffect>
     </Projectile>
@@ -229,20 +223,21 @@
   </Item>
   <!-- Патронташ -->
   <Item name="" identifier="bandolier" category="Equipment" tags="smallitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+    <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="250" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.3" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
       <Price storeidentifier="merchantresearch" />
       <Price storeidentifier="merchantmilitary" multiplier="0.9" />
       <Price storeidentifier="merchantmine" />
-    </Price>
+    </Price>   
     <Deconstruct time="30">
       <Item identifier="ballisticfiber" />
       <Item identifier="plastic" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
       <RequiredSkill identifier="weapons" level="35" />
-      <RequiredItem identifier="ballisticfiber" />
+      <RequiredItem identifier="ballisticfiber" amount="2" />
       <RequiredItem identifier="plastic" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="202,304,48,61" origin="0.45,0.5" />
@@ -282,8 +277,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
       <RequiredSkill identifier="weapons" level="40" />
-      <RequiredItem identifier="titaniumaluminiumalloy" />
-      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="165,366,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="1,425,164,53" depth="0.55" origin="0.5,0.2" />
@@ -313,8 +307,7 @@
   </Item>
   <!-- Искусство подводной войны -->
   <Item name="" identifier="skillbooksubmarinewarfare" category="Misc" cargocontaineridentifier="metalcrate" Tags="smallitem,skillbook" maxstacksize="8" scale="0.5" impactsoundtag="impact_soft">
-    <PreferredContainer primary="storagecab,crewcab" />
-    <PreferredContainer primary="armcab" secondary="locker"/>
+    <PreferredContainer primary="crewcab"/>
     <Price baseprice="350" buyingpricemodifier="2.5" minleveldifficulty="40">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" maxavailable="1" />
@@ -343,7 +336,10 @@
     <Price baseprice="480" sold="false" />
     <PreferredContainer primary="divingsuitcontainer" spawnprobability="0.0"/>
     <Deconstruct time="30">
-      <Item identifier="combatdivingsuit" />
+      <Item identifier="ballisticfiber" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="rubber" />
       <Item identifier="rubber" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="45" requiresrecipe="true">
@@ -418,8 +414,7 @@
   </Item>
 <!--Грозовиевый дротик для электрошокера-->
   <Item name="" identifier="stungundartfulgurium" category="Weapon" maxstacksize="8" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,stungunammo" Scale="0.5" impactsoundtag="impact_metal_light">
-    <PreferredContainer primary="armcab" />
-    <PreferredContainer secondary="locker" />
+    <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="120" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.4" />
       <Price storeidentifier="merchantcity" multiplier="1.25" />

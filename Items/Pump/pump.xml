@@ -56,6 +56,11 @@
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
       </StatusEffect>
+	  <StatusEffect type="Always" target="this" IsOn="true" FlowPercentage="100">
+          <Conditional IsClaimedByBallastFlora="true"/>
+		  
+		  <!-- <remove/> -->
+	  </StatusEffect>
     </Repairable>
   </Item>
   

@@ -51,25 +51,7 @@
 	<Deconstruct time="20">
       <Item identifier="organicfiber" />
     </Deconstruct>
-    <!-- <Fabricate suitablefabricators="fabricator" requiredtime="30"> -->
-      <!-- <Item identifier="organicfiber" /> -->
-	  <!-- <Item identifier="organicfiber" /> -->
-	  <!-- <Item identifier="organicfiber" /> -->
-    <!-- </Fabricate> -->
-	<!-- <Price baseprice="200" > -->
-      <!-- <Price locationtype="outpost" multiplier="1" minavailable="4" /> -->
-      <!-- <Price locationtype="city" multiplier="0.9" minavailable="6" /> -->
-      <!-- <Price locationtype="research" multiplier="1.25" minavailable="1" /> -->
-      <!-- <Price locationtype="military" multiplier="1.25" minavailable="1" /> -->
-      <!-- <Price locationtype="mine" multiplier="1.25" minavailable="8" /> -->
-    <!-- </Price> -->
     <Body width="120" radius="45" density="10.2" friction="1.0" restitution="0.01" />
-	<!-- <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbepicked="true" pickkey="Select" > -->
-	  <!-- <sprite name="duffelbag" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="6,240,219,109" rotation="270" depth="0.56" limb="Torso" inherittexturescale="true" origin="0.4,0" scale="0.80" offset="0,1"/> -->
-	  <!-- <statvalue stattype="MovementSpeed" value="-0.1"/> -->
-	  <!-- <statvalue stattype="WalkingSpeed" value="-0.1"/> -->
-	  <!-- <statvalue stattype="SwimmingSpeed" value="-0.2"/> -->
-	<!-- </Wearable> -->
     <Holdable slots="RightHand,LeftHand" holdpos="0,-80" handle1="0,50" handle2="0,50" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer autofill="true" capacity="9" ShowContainedStateIndicator="false">
       <Containable items="smallitem,spear" excludeditems="toolbelt,toolbox,bandolier,cargoscooter,underwaterscooter"/>

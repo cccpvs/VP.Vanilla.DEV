@@ -717,7 +717,7 @@
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracernucleargun" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1,1" colormultiplier="255,200,200,200" />
-      <Attack structuredamage="5" targetforce="5" itemdamage="20" severlimbsprobability="0.05">
+      <Attack structuredamage="5" targetforce="5" itemdamage="20" severlimbsprobability="0.1">
         <Affliction identifier="burn" strength="21" />
         <Affliction identifier="stun" strength="0.1" />
       </Attack>

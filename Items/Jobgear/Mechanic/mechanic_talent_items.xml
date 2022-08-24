@@ -2,7 +2,7 @@
 <Override>
 <Items>
 <!-- Ручной монитор статуса -->
-  <Item name="" identifier="handheldstatusmonitor" category="Equipment" Tags="smallitem,sonar,provocative" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="7">
+  <Item name="" identifier="handheldstatusmonitor" category="Equipment" Tags="smallitem,sonar,provocative" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="7" HideConditionBar="true">
     <PreferredContainer primary="divingcab" />
     <PreferredContainer secondary="locker" />
     <Price baseprice="140" sold="false">
@@ -13,8 +13,8 @@
       <Price storeidentifier="merchantmine" />
     </Price>
     <Deconstruct time="15">
-      <Item identifier="fpgacircuit" />
-      <Item identifier="plastic" />
+      <Item identifier="copper" />
+      <Item identifier="plastic" amount="2" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
       <RequiredSkill identifier="mechanical" level="30" />
@@ -39,17 +39,20 @@
 		    <SpawnItem identifiers="scrap" spawnposition="This" />
             <Remove />
         </StatusEffect>
-		<StatusEffect type="OnActive" targettype="This" Voltage="-0.9" setvalue="true"/>
+		<!-- <StatusEffect type="OnActive" targettype="This" Voltage="-0.5" setvalue="true"/> -->
 		<StatusEffect type="OnActive" targettype="Contained" Condition="-0.25">
             <RequiredItem items="batterycell" type="Contained" />
         </StatusEffect>
         <StatusEffect type="OnActive" targettype="Contained" Condition="-0.13">
            <RequiredItem items="fulguriumbatterycell" type="Contained" />
         </StatusEffect>
+		<StatusEffect type="OnActive" target="this" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true" comparison="or">
+	       <Conditional ShowHullIntegrity="!e false" RequireWaterDetectors="!e true" RequireOxygenDetectors="!e true"/>
+	    </StatusEffect>
 	</Holdable>
-    <MiniMap MinVoltage="1" powerconsumption="5" enableitemfinder="false" enablehullcondition="false" enableelectricalview="false" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true" IsOn="false" ShowHullIntegrity="false">
-      <GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
-    </MiniMap>
+    <MiniMap MinVoltage="1" powerconsumption="5" enableitemfinder="false" enablehullcondition="false" enableelectricalview="false" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true" IsOn="false" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true">
+      <GuiFrame relativesize="0.3,0.3" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
+	</MiniMap>
 	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery" ShowContainedStateIndicator="false">
       <Containable items="mobilebattery">
             <StatusEffect type="OnContaining" targettype="This" Voltage="1" setvalue="true"/>
@@ -76,7 +79,7 @@
     <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true" amount="2">
       <RequiredItem identifier="copper" />
       <RequiredItem identifier="silicon" />
-      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="251,1,56,57" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="113,239,57,19" depth="0.55" origin="0.5,0.5" />
@@ -90,8 +93,7 @@
   </Item>
   <Item name="" identifier="portablepump" tags="smallitem" category="Machine" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2" impactsoundtag="impact_metal_heavy" isshootable="true">
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="locker" />
-    <Price baseprice="340" sold="false">
+    <Price baseprice="520" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.2" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
       <Price storeidentifier="merchantresearch" />
@@ -103,14 +105,15 @@
     <Body width="50" height="55" density="30" />
     <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
       <RequiredSkill identifier="mechanical" level="50" />
-      <RequiredItem identifier="dementonite" />
-      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="dementonite" amount="2" />
+      <RequiredItem identifier="steel" amount="2" />
       <RequiredItem identifier="fpgacircuit" />
     </Fabricate>
     <Deconstruct time="20">
-      <RequiredItem identifier="dementonite" />
-      <RequiredItem identifier="steel" />
-      <RequiredItem identifier="fpgacircuit" />
+      <Item identifier="copper" />
+      <Item identifier="plastic" />
+      <Item identifier="dementonite" />
+      <Item identifier="steel" />
     </Deconstruct>
     <Pump canbeselected="true" maxflow="1000" PowerConsumption="60.0" MinVoltage="0.3" IsOn="false" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.25,0.2" minsize="420,220" anchor="Center" style="ItemUI" />
@@ -158,8 +161,7 @@
   </Item>
   <!-- Страховочные ремни -->
   <Item name="" identifier="safetyharness" category="Equipment" tags="smallitem,clothing" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
-    <PreferredContainer primary="crewcab,engcab" />
-    <PreferredContainer secondary="locker" />
+    <PreferredContainer primary="crewcab" secondary="engcab"/>
     <Price baseprice="120" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.2" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />
@@ -174,9 +176,9 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
       <RequiredSkill identifier="mechanical" level="25" />
-      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="rubber" amount="2" />
       <RequiredItem identifier="steel" />
-      <RequiredItem identifier="organicfiber" />
+      <RequiredItem identifier="organicfiber" amount="2" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="198,132,67,57" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="58,326,143,40" depth="0.6" origin="0.5,0.5" />
@@ -214,7 +216,7 @@
     </Deconstruct>
     <Fabricate requiresrecipe="true">
       <RequiredItem identifier="wrench" />
-      <RequiredItem identifier="dementonite" />
+      <RequiredItem identifier="dementonite" amount="2" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="8">
@@ -230,17 +232,19 @@
     </MeleeWeapon>
   </Item>
   <Item name="" identifier="crowbardementonite" descriptionidentifier="dementonitetool" variantof="crowbar" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedpickingspeedmultiplier="0.6">
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <Price baseprice="+200" sold="false" />
+    <PreferredContainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
+    <PreferredContainer primary="engcab" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" spawnprobability="0" />
+    <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0" />
+    <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+    <Price baseprice="450" sold="false" />
     <Deconstruct>
       <Item identifier="iron" />
       <Item identifier="dementonite" />
     </Deconstruct>
     <Fabricate requiresrecipe="true">
       <RequiredItem identifier="crowbar" />
-      <RequiredItem identifier="dementonite" />
+      <RequiredItem identifier="dementonite" amount="2" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="13">
@@ -260,18 +264,21 @@
   </Item>
   <!-- Дементонитовая отвертка -->
   <Item name="" identifier="screwdriverdementonite" descriptionidentifier="dementonitetool" variantof="screwdriver" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedrepairspeedmultiplier="0.4">
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <Price baseprice="+200" sold="false" />
+    <PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true"/>
+    <PreferredContainer primary="reactorcab,engcab" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab"  spawnprobability="0"/>
+    <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0"/>
+    <PreferredContainer primary="wreckreactorcab,abandonedreactorcab" spawnprobability="0" />
+    <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+    <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+    <Price baseprice="450" sold="false" />
     <Deconstruct>
       <Item identifier="iron" />
       <Item identifier="dementonite" />
     </Deconstruct>
     <Fabricate requiresrecipe="true">
       <RequiredItem identifier="screwdriver" />
-      <RequiredItem identifier="dementonite" />
+      <RequiredItem identifier="dementonite" amount="2" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="8">
@@ -287,10 +294,12 @@
     </MeleeWeapon>
   </Item>
   <Item name="" identifier="divingknifedementonite" descriptionidentifier="dementonitetool" variantof="divingknife" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166">
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <Price baseprice="+200" sold="false">
+    <PreferredContainer secondary="wreckarmcab,abandonedarmcab" spawnprobability="0"/>
+    <PreferredContainer secondary="abandonedstoragecab" spawnprobability="0"/>
+    <PreferredContainer secondary="beaconsupplycab" spawnprobability="0"/>
+    <PreferredContainer primary="armcab,secarmcab" spawnprobability="0" />
+    
+    <Price baseprice="450" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="0.9" />
       <Price storeidentifier="merchantresearch" />
@@ -303,7 +312,7 @@
     </Deconstruct>
     <Fabricate requiresrecipe="true">
       <RequiredItem identifier="divingknife" />
-      <RequiredItem identifier="dementonite" />
+      <RequiredItem identifier="dementonite" amount="2" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="4" itemdamage="20">
@@ -320,8 +329,7 @@
   </Item>
   <!-- Граната с монтажной пеной -->
   <Item name="" identifier="fixfoamgrenade" category="Equipment" maxstacksize="8" cargocontaineridentifier="explosivecrate" tags="smallitem,weapon,explosive,demolitionsexpert" Scale="0.5" impactsoundtag="impact_metal_light" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="9">
-    <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="locker" />
+    <PreferredContainer primary="engcab" secondary="locker"/>
     <Price baseprice="95" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" />
       <Price storeidentifier="merchantcity" multiplier="1.3" />
@@ -332,7 +340,6 @@
     <Deconstruct time="10">
       <Item identifier="steel" />
       <Item identifier="sodium" mincondition="1.0" />
-      <Item identifier="phosphorus" mincondition="1.0" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
       <RequiredSkill identifier="mechanical" level="35" />

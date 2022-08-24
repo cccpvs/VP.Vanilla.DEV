@@ -13,7 +13,7 @@
   </Item>
   <Item name="" identifier="op_electricalstoresign" nameidentifier="sign" width="242" height="63" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/SignAssets.png" sourcerect="172,815,166,188" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0" lightcolor="213,213,185,255  " flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="0" lightcolor="213,213,185,255" flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">
       <Upgrade gameversion="0.17.15.0" range="0" />
       <sprite texture="Content/Map/Outposts/Art/SignAssets.png" sourcerect="842,809,166,188" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
     </LightComponent>
@@ -28,7 +28,7 @@
   </Item>
   <Item name="" identifier="op_shipyardsign1.png" nameidentifier="opdeco_adposter" width="185" height="191" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/SignAssets.png" sourcerect="316,173,185,191" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0" lightcolor="213,213,185,255  " flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">      
+    <LightComponent range="0" lightcolor="213,213,185,255" flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">      
       <Upgrade gameversion="0.17.15.0" range="0" />
       <sprite texture="Content/Map/Outposts/Art/SignAssets.png" sourcerect="332,2,163,167" depth="0.97" premultiplyalpha="false" origin="0.5,0.52" />
     </LightComponent>
@@ -356,9 +356,9 @@
   </Item>
   <Item name="" identifier="op_researchcontainmenttank3" nameidentifier="op_researchcontainmenttank1" width="221" height="364" texturescale="1.0,1.0" scale="0.5" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedicalItemResearch.png" sourcerect="209,562,221,364" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-	<DecorativeSprite texture="Content/Map/Outposts/Art/MedicalItemResearch.png" sourcerect="432,564,222,357" depth="0.98" origin="0.5,0.5"/>
-	<DecorativeSprite texture="Content/Map/Outposts/Art/MedicalItemResearch.png" sourcerect="742,662,63,91" depth="0.975" origin="0.5,0.5" offset="80,80" offsetanim="Noise" rotationanim="Noise" rotation="80" rotationspeed="0.5" offsetanimspeed="0.05" />
-	  <LightComponent range="0.0" lightcolor="255,255,255,111" IsOn="true" castshadows="false" allowingameediting="false">
+    <DecorativeSprite texture="Content/Map/Outposts/Art/MedicalItemResearch.png" sourcerect="432,564,222,357" depth="0.98" origin="0.5,0.5"/>
+    <DecorativeSprite texture="Content/Map/Outposts/Art/MedicalItemResearch.png" sourcerect="742,662,63,91" depth="0.975" origin="0.5,0.5" offset="80,80" offsetanim="Noise" rotationanim="Noise" rotation="80" rotationspeed="0.5" offsetanimspeed="0.05" />
+    <LightComponent range="0.0" lightcolor="255,255,255,111" IsOn="true" castshadows="false" allowingameediting="false">
       <sprite texture="Content/Map/Outposts/Art/MedicalItemResearchLights.png" sourcerect="209,562,221,364" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
@@ -467,8 +467,9 @@
   </Item>
   <Item name="" identifier="opdeco_heater" width="144" height="336" texturescale="1.0,1.0" scale="0.5" category="Decorative" spritecolor="255,255,255,255" noninteractable="true">
     <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1291,1689,144,333" depth="0.95" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="246,92,59,111" IsOn="true" castshadows="false" allowingameediting="false" flicker="0.0">
+    <LightComponent range="0.0" lightcolor="246,92,59,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="0.0" pulseamont="0.2" pulsefrequency="0.2">
       <Upgrade gameversion="0.17.15.0" range="0" />
+      <Upgrade gameversion="0.18.13.0" lightcolor="246,92,59,0" />
       <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1441,1689,144,333" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
@@ -496,23 +497,23 @@
   <!--Wall Decorations-->
   <Item name="" identifier="op_lightbox1" width="163" height="209" texturescale="1.0,1.0" scale="0.5" category="Decorative" noninteractable="true">
     <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" sourcerect="1337,590,163,209" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"></LightComponent>
+    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"/>
   </Item>
   <Item name="" identifier="op_lightbox2" nameidentifier="op_lightbox1" width="159" height="206" texturescale="1.0,1.0" scale="0.5" category="Decorative" noninteractable="true">
     <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" sourcerect="1526,586,159,206" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"></LightComponent>
+    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"/>
   </Item>
   <Item name="" identifier="op_lightbox3" nameidentifier="op_lightbox1" width="289" height="194" texturescale="1.0,1.0" scale="0.5" category="Decorative" noninteractable="true">
     <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" sourcerect="1760,394,289,194" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"></LightComponent>
+    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"/>
   </Item>
   <Item name="" identifier="op_lightbox4" nameidentifier="op_lightbox1" width="145" height="194" texturescale="1.0,1.0" scale="0.5" category="Decorative" noninteractable="true">
     <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" sourcerect="1759,1607,145,194" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"></LightComponent>
+    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"/>
   </Item>
   <Item name="" identifier="op_lightbox5" nameidentifier="op_lightbox1" width="145" height="194" texturescale="1.0,1.0" scale="0.5" category="Decorative" noninteractable="true">
     <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" sourcerect="1903,1607,144,194" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"></LightComponent>
+    <LightComponent range="60.0" lightcolor="255,234,181,200" IsOn="true" castshadows="false" allowingameediting="false"/>
   </Item>
   <!-- Medical -->
   <Item name="" identifier="opdeco_mountedmonitor1" nameidentifier="medicalmonitor" width="96" height="128" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
@@ -544,28 +545,32 @@
   </Item>
   <Item name="" identifier="opdeco_surgicallights" width="272" height="128" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="752,0,272,128" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,255" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false">
+      <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="480,0,272,128" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
   <Item name="" identifier="opdeco_xrayscreen" width="208" height="144" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="304,160,208,144" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,255" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">      
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">      
       <Upgrade gameversion="0.17.15.0" range="0" />
+      <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,160,208,144" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
   <Item name="" identifier="opdeco_xrayscreen2" nameidentifier="opdeco_xrayscreen" width="369" height="133" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="0,0,369,133" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,255" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">      
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">      
       <Upgrade gameversion="0.17.15.0" range="0" />
+      <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="0,133,369,133" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
   <Item name="" identifier="opdeco_xrayscreen3" nameidentifier="opdeco_xrayscreen" width="192" height="208" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="199,266,192,208" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,255" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">
       <Upgrade gameversion="0.17.15.0" range="0" />
+      <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="0,267,192,208" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>

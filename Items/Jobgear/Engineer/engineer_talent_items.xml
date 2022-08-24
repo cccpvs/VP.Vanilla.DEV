@@ -249,14 +249,14 @@
     <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" spawnprobability="0"/>
     <PreferredContainer secondary="wreckarmcab,abandonedarmcab" spawnprobability="0"/>
     <PreferredContainer secondary="secarmcab" spawnprobability="0"/>
-    <Price baseprice="45" sold="false">
+    <Price baseprice="20" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.4" />
       <Price storeidentifier="merchantcity" />
       <Price storeidentifier="merchantresearch" />
       <Price storeidentifier="merchantmilitary" />
       <Price storeidentifier="merchantmine" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true" amount="6">
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true" amount="12">
       <RequiredSkill identifier="weapons" level="30" />
       <RequiredSkill identifier="electrical" level="30" />
       <RequiredItem identifier="magnesium" />
@@ -269,7 +269,7 @@
       <Attack structuredamage="10" targetforce="10" itemdamage="15" penetration="0.25">
         <Affliction identifier="bleeding" strength="10" />
         <Affliction identifier="gunshotwound" strength="35" />
-        <Affliction identifier="stun" strength="0.4" />
+        <Affliction identifier="stun" strength="0.3" />
         <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
           <Conditional radiationsickness="lt 30" />
           <Affliction identifier="radiationsickness" strength="10" />
@@ -288,14 +288,14 @@
       <RequiredSkill identifier="weapons" level="40" />
       <RequiredSkill identifier="electrical" level="30" />
       <RequiredItem identifier="magnesium" />
-      <RequiredItem identifier="depletedfuel" usecondition="true" mincondition="0.5" />
+      <RequiredItem identifier="depletedfuel" />
       <RequiredItem identifier="steel" />
     </Fabricate>
     <Fabricate suitablefabricators="fabricator" requiredtime="18" requiresrecipe="true" displayname="recycleitem">
       <RequiredSkill identifier="weapons" level="40" />
       <RequiredSkill identifier="electrical" level="30" />
       <RequiredItem identifier="magnesium" />
-      <RequiredItem identifier="depletedfuel" usecondition="true" mincondition="0.5" />
+      <RequiredItem identifier="depletedfuel" />
       <RequiredItem identifier="smgmagazinedepletedfuel" mincondition="0.0" usecondition="false"/>
     </Fabricate>
     <Deconstruct time="15">
@@ -520,13 +520,13 @@
     </Price>
     <Deconstruct time="20">
       <Item identifier="aluminium" />
-      <Item identifier="aluminium" />
       <Item identifier="titaniumaluminiumalloy" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
       <RequiredSkill identifier="mechanical" level="30" />
       <RequiredItem identifier="aluminium" amount="2" />
       <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="tin" amount="2" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="131,123,53,58" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" depth="0.55" sourcerect="295,195,149,105" origin="0.5,0.5" />
@@ -582,13 +582,13 @@
 	</Holdable>
     <Propulsion force="150" usablein="water" particles="bubbles">
       <RequiredItems items="mobilebattery" targetslot="0" type="Contained" msg="ItemMsgBatteryCellRequired" />
-      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.50">
+      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.25">
         <RequiredItem items="batterycell" type="Contained" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.25">
+      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.125">
         <RequiredItem items="fulguriumbatterycell" type="Contained" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.50">
+      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.25">
         <RequiredItem excludedidentifiers="batterycell,fulguriumbatterycell" type="Contained" />
       </StatusEffect>
       <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />

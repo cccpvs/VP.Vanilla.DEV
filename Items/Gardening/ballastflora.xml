@@ -63,7 +63,8 @@
     <Target tags="door" priority="50"/>
 	<!-- <Target tags="turret" priority="100"/> -->
 	<Target tags="supercapacitor" priority="50"/>
-	
+	<Target tags="navterminal" priority="50"/>
+	<Target tags="statusmonitor" priority="50"/>
   </Targets>
 </BallastFloraBehavior>
 </Override>

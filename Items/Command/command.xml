@@ -9,7 +9,9 @@
     <Sprite texture="Content/Items/Command/CommandDevices.png" depth="0.8" sourcerect="0,0,384,304" origin="0.5,0.5" />
     <BrokenSprite texture="Content/Items/Command/CommandDevices.png" sourcerect="0,320,384,304" depth="0.8" maxcondition="80" fadein="true" origin="0.5,0.5" />
     <BrokenSprite texture="Content/Items/Command/CommandDevices.png" sourcerect="0,640,384,304" depth="0.8" maxcondition="0" origin="0.5,0.5" />
-    <Steering minvoltage="0.5" canbeselected="true" powerconsumption="10" linkuitocomponent="Sonar" msg="ItemMsgInteractSelect" allowuioverlap="true" hudlayer="-1">
+    <InfectedSprite texture="Content/Items/Gardening/ballastflora.png" sourcerect="259,7,238,251" origin="0.5,0.5"/>
+    <DamagedInfectedSprite texture="Content/Items/Gardening/ballastflora.png" sourcerect="13,4,238,251" origin="0.5,0.5"/>
+	<Steering minvoltage="0.5" canbeselected="true" powerconsumption="10" linkuitocomponent="Sonar" msg="ItemMsgInteractSelect" allowuioverlap="true" hudlayer="-1">
       <GuiFrame relativesize="0.55,0.59" anchor="Center" style="OuterGlow" color="0,0,0,0.8" relativeoffset="0.1,-0.05" />
       <StatusEffect type="InWater" target="This" condition="-0.5" />
       <poweronsound file="Content/Items/PowerOnLight1.ogg" range="1000" loop="false" />
@@ -254,7 +256,9 @@
     <Sprite texture="Content/Items/Command/CommandDevices.png" sourcerect="720,0,160,128" depth="0.8" origin="0.5,0.5" />
     <BrokenSprite texture="Content/Items/Command/CommandDevices.png" sourcerect="720,144,160,128" depth="0.8" maxcondition="80" fadein="true" origin="0.5,0.5" />
     <BrokenSprite texture="Content/Items/Command/CommandDevices.png" sourcerect="720,288,160,128" depth="0.8" maxcondition="0" origin="0.5,0.5" />
-    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" allowingameediting="false">
+    <InfectedSprite texture="Content/Items/Gardening/ballastflora.png" sourcerect="8,260,149,170" origin="0.5,0.5" />
+    <DamagedInfectedSprite texture="Content/Items/Gardening/ballastflora.png" sourcerect="157,260,149,170" origin="0.5,0.5" />
+	<LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" allowingameediting="false">
       <Upgrade gameversion="0.9.600.0" lightcolor="255,255,255,0"/>
       <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="0,320,160,128" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>

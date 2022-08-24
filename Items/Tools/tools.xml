@@ -391,7 +391,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="15">
       <RequiredSkill identifier="mechanical" level="40" />
-      <RequiredItem identifier="aluminium" />
+      <RequiredItem identifier="aluminium" amount="2" />
       <RequiredItem identifier="incendium" />
     </Fabricate>
     <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
@@ -1606,7 +1606,7 @@
     <PreferredContainer primary="storagecab" minamount="1" maxamount="2" spawnprobability="0.25" />
     <PreferredContainer secondary="storagecab" minamount="1" maxamount="2" spawnprobability="0.25" notcampaign="true"/>
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.1" />
-    <Price baseprice="65" minleveldifficulty="5">
+    <Price baseprice="140" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" />
       <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" />
@@ -1616,10 +1616,10 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="256,320,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="379,78,27,58" depth="0.6" origin="0.5,0.5" />
     <Body width="25" height="55" density="20" />
-    <Fabricate suitablefabricators="fabricator" requiredtime="30" amount="2">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
       <RequiredSkill identifier="mechanical" level="20" />
-      <RequiredItem identifier="ethanol" amount="2" />
-      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="ethanol" />
+      <RequiredItem identifier="tin" />
       <RequiredItem identifier="alienblood" />
     </Fabricate>
     <Deconstruct time="10">
@@ -1645,7 +1645,7 @@
     <PreferredContainer primary="storagecab" minamount="1" maxamount="2" spawnprobability="0.25" />
     <PreferredContainer secondary="storagecab" minamount="1" maxamount="2" spawnprobability="0.25" notcampaign="true"/>
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.1" />
-    <Price baseprice="65" minleveldifficulty="5">
+    <Price baseprice="90" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" />
       <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" />
@@ -1655,10 +1655,10 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="256,320,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="379,78,27,58" depth="0.6" origin="0.5,0.5" />
     <Body width="25" height="55" density="20" />
-    <Fabricate suitablefabricators="fabricator" requiredtime="30" amount="2">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" >
       <RequiredSkill identifier="mechanical" level="20" />
-      <RequiredItem identifier="ethanol" amount="2" />
-      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="ethanol"  />
+      <RequiredItem identifier="tin" />
       <RequiredItem identifier="copper" />
     </Fabricate>
     <Deconstruct time="10">
@@ -1685,7 +1685,7 @@
     <PreferredContainer primary="engcab" minamount="0" maxamount="1" spawnprobability="0.25" />
     <PreferredContainer secondary="storagecab" minamount="1" maxamount="2" spawnprobability="0.25" notcampaign="true"/>
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.1" />
-    <Price baseprice="65" minleveldifficulty="5">
+    <Price baseprice="90" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" />
       <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" />
@@ -1695,10 +1695,10 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="256,320,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="379,78,27,58" depth="0.6" origin="0.5,0.5" />
     <Body width="25" height="55" density="20" />
-    <Fabricate suitablefabricators="fabricator" requiredtime="30" amount="2">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
       <RequiredSkill identifier="mechanical" level="20" />
-      <RequiredItem identifier="ethanol" amount="2" />
-      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="ethanol" />
+      <RequiredItem identifier="tin" />
       <RequiredItem identifier="zinc" />
     </Fabricate>
     <Deconstruct time="10">
@@ -1725,7 +1725,7 @@
     <PreferredContainer primary="engcab" minamount="0" maxamount="1" spawnprobability="0.25" />
     <PreferredContainer secondary="storagecab" minamount="1" maxamount="2" spawnprobability="0.25" notcampaign="true"/>
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.1" />
-    <Price baseprice="65" minleveldifficulty="5">
+    <Price baseprice="90" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" />
       <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" />
@@ -1735,10 +1735,10 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="256,320,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="379,78,27,58" depth="0.6" origin="0.5,0.5" />
     <Body width="25" height="55" density="20" />
-    <Fabricate suitablefabricators="fabricator" requiredtime="30" amount="2">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" >
       <RequiredSkill identifier="mechanical" level="20" />
-      <RequiredItem identifier="ethanol" amount="2" />
-      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="ethanol" />
+      <RequiredItem identifier="tin" />
       <RequiredItem identifier="zinc" />
     </Fabricate>
     <Deconstruct time="10">
@@ -1763,7 +1763,7 @@
   <whitepaint name="" identifier="whitepaint" category="Misc" maxstacksize="4" cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,paint" spritecolor="128,128,128,255" InventoryIconColor="128,128,128,255" scale="0.5" impactsoundtag="impact_metal_light" impacttolerance="6" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true">
     <PreferredContainer secondary="storagecab" minamount="1" maxamount="2" spawnprobability="0.25" notcampaign="true"/>
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.1" />
-    <Price baseprice="65" minleveldifficulty="5">
+    <Price baseprice="90" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" />
       <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" />
@@ -1773,10 +1773,10 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="256,320,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="379,78,27,58" depth="0.6" origin="0.5,0.5" />
     <Body width="25" height="55" density="20" />
-    <Fabricate suitablefabricators="fabricator" requiredtime="30" amount="2">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" >
       <RequiredSkill identifier="mechanical" level="20" />
-      <RequiredItem identifier="ethanol" amount="2" />
-      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="ethanol" />
+      <RequiredItem identifier="tin" />
       <RequiredItem identifier="zinc" />
     </Fabricate>
     <Deconstruct time="10">
