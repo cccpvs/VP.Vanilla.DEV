@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="VP.Vanilla.DEV" modversion="0.1.10" corepackage="False" steamworkshopid="2662433306" gameversion="0.18.12.0">
+<contentpackage name="VP.Vanilla.DEV" modversion="0.1.9" corepackage="False" steamworkshopid="2662433306" gameversion="0.18.15.1">
   <Text file="%ModDir%/Texts/Russian.xml" />
   <Text file="%ModDir%/Texts/English.xml" />
   <Text file="%ModDir%/Texts/French.xml" />

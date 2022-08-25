@@ -16,7 +16,6 @@
     </DecorativeSprite>
     <DecorativeSprite texture="Content/Items/Pump/Pumps.png" depth="0.78" offset="-130,70" sourcerect="109,456,43,43"/>
     <LightComponent range="40.0" lightcolor="199,96,64,88" powerconsumption="5" IsOn="true" castshadows="false" allowingameediting="false" />
-
     <Pump canbeselected="true" maxflow="600" PowerConsumption="300.0" MinVoltage="0.3" IsOn="true" msg="ItemMsgInteractSelect">
       <!-- TODO: define max size-->
       <GuiFrame relativesize="0.25,0.2" minsize="420,220" anchor="Center" style="ItemUI" />
@@ -58,8 +57,6 @@
       </StatusEffect>
 	  <StatusEffect type="Always" target="this" IsOn="true" FlowPercentage="100">
           <Conditional IsClaimedByBallastFlora="true"/>
-		  
-		  <!-- <remove/> -->
 	  </StatusEffect>
     </Repairable>
   </Item>
