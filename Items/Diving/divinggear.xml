@@ -29,41 +29,38 @@
     <Sprite name="Diving Mask" texture="Content/Items/Jobgear/headgears.png" depth="0.55" sourcerect="226,326,69,68" origin="0.5,0.5" />
     <Body width="40" height="35" density="15" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect" displaycontainedstatus="true">
-      <sprite name="Diving Mask Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hidelimb="false" hideotherwearables="false" sourcerect="226,326,69,68" origin="0.4,0.3" hidewearablesoftype="moustache,beard" />
-      <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" SpeedMultiplier="0.9" setvalue="true" disabledeltatime="true" />
-      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1000.0" Condition="-0.5" comparison="Or">
-        <Conditional IsDead="false" />
-        <RequiredItem items="oxygentank" type="Contained" />
-      </StatusEffect>
-			
-      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-5.0" Condition="-5.0">
-        <Conditional IsDead="false" />
-        <RequiredItem items="weldingfueltank" type="Contained" />
-      </StatusEffect>
-			
-			<StatusEffect type="OnWearing" target="Character">
-				<Affliction identifier="MaskLens" amount="250" />
-      </StatusEffect>
-			
-      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-7.0" Condition="-5.0">
-        <RequiredItem items="incendiumfueltank" type="Contained" />
-        <Affliction identifier="burn" amount="0.1" />
-      </StatusEffect>
-      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1500.0" Condition="-0.1" comparison="Or">
-        <Conditional IsDead="false" />
-        <RequiredItem items="oxygenitetank" type="Contained" />
-      </StatusEffect>
-      <StatusEffect type="OnWearing" target="Contained,Character" SpeedMultiplier="1.2" setvalue="true" comparison="Or">
-        <Conditional IsDead="false" />
-        <RequiredItem items="oxygenitetank" type="Contained" />
-      </StatusEffect>
-	  <StatusEffect type="OnUse" target="This" condition="-0.05" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
-      <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
-        <Conditional HasStatusTag="onfire" />
-		<SpawnItem identifiers="scrap" spawnposition="This" />
-		<Remove />
-      </StatusEffect>
+        <sprite name="Diving Mask Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hidelimb="false" hideotherwearables="false" sourcerect="226,326,69,68" origin="0.4,0.3" hidewearablesoftype="moustache,beard" />
+        <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" SpeedMultiplier="0.9" setvalue="true" disabledeltatime="true" />
+        <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1000.0" Condition="-0.5" comparison="Or">
+          <Conditional IsDead="false" />
+          <RequiredItem items="oxygentank" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-5.0" Condition="-5.0">
+          <Conditional IsDead="false" />
+          <RequiredItem items="weldingfueltank" type="Contained" />
+        </StatusEffect>
+	    <StatusEffect type="OnWearing" target="Character">
+		  <Affliction identifier="MaskLens" amount="250" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-7.0" Condition="-5.0">
+          <RequiredItem items="incendiumfueltank" type="Contained" />
+          <Affliction identifier="burn" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1500.0" Condition="-0.1" comparison="Or">
+          <Conditional IsDead="false" />
+          <RequiredItem items="oxygenitetank" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" SpeedMultiplier="1.2" setvalue="true" comparison="Or">
+          <Conditional IsDead="false" />
+          <RequiredItem items="oxygenitetank" type="Contained" />
+        </StatusEffect>
+	    <StatusEffect type="OnUse" target="This" condition="-0.05" />
+	    <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+        <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
+          <Conditional HasStatusTag="onfire" />
+		  <SpawnItem identifiers="scrap" spawnposition="This" />
+		  <Remove />
+        </StatusEffect>
     </Wearable>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="tank" ShowContainedStateIndicator="false">
       <Containable items="oxygensource,weldingtoolfuel" />

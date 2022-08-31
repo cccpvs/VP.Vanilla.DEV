@@ -376,5 +376,19 @@
 	  <!-- <Conditional IsDead="true"/> -->
       <!-- <giveskill skillidentifier="fitnes" amount="-100"/> -->
   <!-- </StatusEffect> -->
+  <!-- Ограниченный обзор -->
+  <StatusEffect TargetType="This" ObstructVision="true"/>
+  
+  
+  <!-- <StatusEffect type="Always" target="This" Comparison="Or">  -->
+	  <!-- <Conditional IsKeyHit="e InputType.Run"/> -->
+	  <!-- <Conditional HasFlag="e Run"/> -->
+	  <!-- <Conditional IsKeyDown="e true"/> -->
+	  <!-- <Conditional HasFlag="e true"/> -->
+	  
+	  <!-- <Affliction identifier="oxygenlow" amount="30"/> -->
+	  <!-- <SpawnCharacter speciesname="Husk" count="1" offset="0,700" spread="100"/> -->
+	  
+  <!-- </StatusEffect> -->
 </Character>
 </Override>
