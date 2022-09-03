@@ -125,7 +125,7 @@
       <StatusEffect type="OnUse" targettype="UseTarget" targets="door,ductblock" Stuck="5.0" Condition="3.0" />
       <!-- do burn damage to characters -->
       <StatusEffect type="OnUse" targettype="Limb">
-        <Affliction identifier="burn" amount="1.0" />
+        <Affliction identifier="burn" amount="4.0" />
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="UseTarget" Condition="-3.0" />
       <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
@@ -232,7 +232,7 @@
       <StatusEffect type="OnUse" targettype="UseTarget" targets="door,ductblock,aliendoor" Stuck="-20.0" Condition="-3.0" />
       <StatusEffect type="OnUse" targettype="UseTarget" Condition="-3.0" />
       <StatusEffect type="OnUse" targettype="Limb" severlimbsprobability="0.005">        
-         <Affliction identifier="burn" strength="30.0" />
+         <Affliction identifier="burn" strength="5.0" />
 		 <Affliction identifier="lacerations" strength="2.0" />
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="Contained" targets="weldingfueltank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">

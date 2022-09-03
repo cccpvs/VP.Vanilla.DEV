@@ -217,20 +217,20 @@
     activationthreshold="1.0"
     showiconthreshold="1000"
     maxstrength="100">
-	    <Effect
-          minstrength="0"
-          maxstrength="100"
-          minscreenblur="0.00"
-          maxscreenblur="0.05"
-          minchromaticaberration="0.0"
-          maxchromaticaberration="5.0"
-          minradialdistort="0.0"
-          maxradialdistort="1.25"
-          graincolor="0,0,0,255"
-          mingrainstrength="0.0"
-          maxgrainstrength="6.0"
-	    		strengthchange="-100.0">
-        </Effect>
+	    <!-- <Effect -->
+          <!-- minstrength="0" -->
+          <!-- maxstrength="100" -->
+          <!-- minscreenblur="0.00" -->
+          <!-- maxscreenblur="0.05" -->
+          <!-- minchromaticaberration="0.0" -->
+          <!-- maxchromaticaberration="5.0" -->
+          <!-- minradialdistort="0.0" -->
+          <!-- maxradialdistort="1.25" -->
+          <!-- graincolor="0,0,0,255" -->
+          <!-- mingrainstrength="0.0" -->
+          <!-- maxgrainstrength="6.0" -->
+	      <!-- strengthchange="-100.0"> -->
+        <!-- </Effect> -->
         <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </MaskLens>
 	
@@ -243,18 +243,19 @@
     showiconthreshold="1000"
     maxstrength="100">
 	    <Effect
-          minstrength="0"
+		  minstrength="0"
           maxstrength="100"
-          minscreenblur="0.00"
-          maxscreenblur="0.1"
-          minchromaticaberration="0.0"
+	      minchromaticaberration="0.0"
           maxchromaticaberration="10.0"
-          minradialdistort="0.0"
-          maxradialdistort="2.5"
-          graincolor="0,0,0,255"
-          mingrainstrength="0.0"
+		  mingrainstrength="0.0"
           maxgrainstrength="12.0"
-	    		strengthchange="-100.0">
+		  graincolor="0,0,0,255"
+		  strengthchange="-100.0"
+          minradialdistort="0.0"
+          maxradialdistort="2.0"
+		  >
+          <!-- minscreenblur="0.00" -->
+          <!-- maxscreenblur="0.1" -->
         </Effect>
         <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </MaskSuitLens>	

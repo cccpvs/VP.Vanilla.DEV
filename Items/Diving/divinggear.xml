@@ -139,8 +139,9 @@
         <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
         <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
       </StatusEffect>
-						<StatusEffect type="OnWearing" target="Character">
-				<Affliction identifier="MaskSuitLens" amount="250" />
+	  <!-- MaskSuitLens -->
+	  <StatusEffect type="OnWearing" target="Character">
+		<Affliction identifier="MaskSuitLens" amount="250" />
       </StatusEffect>
       <!-- Refill oxygen when the suit is contained. -->
       <StatusEffect type="OnContained" target="Contained" targetslot="1.0" Condition="1.0">
