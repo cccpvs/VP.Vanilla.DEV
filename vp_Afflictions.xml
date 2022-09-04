@@ -242,21 +242,21 @@
     activationthreshold="1.0"
     showiconthreshold="1000"
     maxstrength="100">
-	    <Effect
-		  minstrength="0"
-          maxstrength="100"
-	      minchromaticaberration="0.0"
-          maxchromaticaberration="10.0"
-		  mingrainstrength="0.0"
-          maxgrainstrength="12.0"
-		  graincolor="0,0,0,255"
-		  strengthchange="-100.0"
-          minradialdistort="0.0"
-          maxradialdistort="2.0"
-		  >
+	    <!-- <Effect -->
+		  <!-- minstrength="0" -->
+          <!-- maxstrength="100" -->
+	      <!-- minchromaticaberration="0.0" -->
+          <!-- maxchromaticaberration="10.0" -->
+		  <!-- mingrainstrength="0.0" -->
+          <!-- maxgrainstrength="12.0" -->
+		  <!-- graincolor="0,0,0,255" -->
+		  <!-- strengthchange="-100.0" -->
+          <!-- minradialdistort="0.0" -->
+          <!-- maxradialdistort="2.0" -->
+		  <!-- > -->
           <!-- minscreenblur="0.00" -->
           <!-- maxscreenblur="0.1" -->
-        </Effect>
+        <!-- </Effect> -->
         <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </MaskSuitLens>	
 	<StunVision
@@ -267,14 +267,14 @@
     activationthreshold="1.0"
     showiconthreshold="1000"
     maxstrength="100">
-	    <Effect
-            minstrength="0"
-            maxstrength="100"
-            graincolor="0,0,0,255"
-            mingrainstrength="0.0"
-            maxgrainstrength="1000.0"
-	        strengthchange="-100.0">
-        </Effect>
+	    <!-- <Effect -->
+            <!-- minstrength="0" -->
+            <!-- maxstrength="100" -->
+            <!-- graincolor="0,0,0,255" -->
+            <!-- mingrainstrength="0.0" -->
+            <!-- maxgrainstrength="1000.0" -->
+	        <!-- strengthchange="-100.0"> -->
+        <!-- </Effect> -->
         <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </StunVision>
 </Afflictions>

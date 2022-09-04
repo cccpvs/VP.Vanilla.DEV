@@ -56,7 +56,7 @@
         <Fabricate suitablefabricators="fabricator" requiredtime="60">
           <RequiredSkill identifier="mechanical" level="60" />
 		  <RequiredSkill identifier="electrical" level="60" />
-          <RequiredItem identifier="underwaterscooter" />
+          <RequiredItem identifier="underwaterscooter" minCondition="0.8"/>
           <RequiredItem identifier="concatcomponent" />
           <RequiredItem identifier="handheldsonar" />
 		  <RequiredItem identifier="fpgacircuit" />
@@ -116,7 +116,7 @@
         <Fabricate suitablefabricators="fabricator" requiredtime="60">
           <RequiredSkill identifier="mechanical" level="75" />
 		  <RequiredSkill identifier="electrical" level="75" />
-          <RequiredItem identifier="cargoscooter" />
+          <RequiredItem identifier="cargoscooter" minCondition="0.8"/>
           <RequiredItem identifier="concatcomponent" />
           <RequiredItem identifier="handheldsonar" />
 		  <RequiredItem identifier="fpgacircuit" />

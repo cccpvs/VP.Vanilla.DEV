@@ -46,7 +46,6 @@
     </Projectile>
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
-  
   <Item name="" identifier="alienspear" category="Weapon,Alien" maxstacksize="6" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="mediumitem,harpoonammo" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="armcab" amount="6" spawnprobability="0.05" notcampaign="true"/>
     <PreferredContainer secondary="ruinstoragesmall" minamount="1" maxamount="2" spawnprobability="0.05" />

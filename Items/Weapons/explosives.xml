@@ -121,7 +121,7 @@
       <QualityStat stattype="ExplosionDamage" value="0.1"/>
     </Quality>
   </Item>
-  
+  <!-- Нестабильное соединение N -->
   <Item name="" identifier="volatilecompoundn" category="Weapon,Material" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="8" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft">
     <Upgrade gameversion="0.9.3.0" scale="0.5"/>
     <PreferredContainer primary="secarmcab" secondary="armcab"/>
