@@ -58,7 +58,9 @@
 	  <StatusEffect type="Always" target="this" IsOn="true" FlowPercentage="100">
           <Conditional IsClaimedByBallastFlora="true"/>
 	  </StatusEffect>
-	  <StatusEffect type="Always" target="this" Locked="false"/>
+	  <StatusEffect type="Always" target="this" Locked="false">
+	  	<Conditional Locked="true"/>
+	  </StatusEffect>
     </Repairable>
   </Item>
   

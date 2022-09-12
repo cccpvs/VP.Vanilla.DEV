@@ -65,6 +65,7 @@
     <target tag="sonar" state="Attack" priority="5" reactdistance="0" ignoreinside="true"/>
     <target tag="turret" state="Attack" priority="1" ignoreinside="true"/>
     <target tag="crawlerbroodmother" state="Protect" priority="10" reactdistance="750" ignoreinside="true"/>
+    <target tag="crawler_large" state="Protect" priority="5" reactdistance="750" ignoreinside="true"/>
     <target tag="watcher" state="Protect" priority="1" reactdistance="1000" ignoreinside="true"/>
     <chooserandom>
       <latchonto attachtowalls="true" attachtosub="true" mindeattachspeed="5.0" maxdeattachspeed="8.0" damageondetach="30" detachstun="5.0" attachlimb="Head" localattachpos="40,10" offset="50" attachlimbrotation="100" />

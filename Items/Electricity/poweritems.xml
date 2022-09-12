@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override>
 <Items>
+  <!-- Кабельная коробка -->
   <Item name="" identifier="junctionbox" tags="junctionbox,bigitem" category="Electrical,Machine" description="" scale="0.5" allowedlinks="gap,door" linkable="true" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true"  variantof="object_core_deleter">
     <Upgrade gameversion="0.10.0.0" scale="*0.667"/>
     <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="264,1,110,176" depth="0.8" canflipx="false" origin="0.5,0.5" />
@@ -43,6 +44,9 @@
       <output name="condition_out" displayname="connection.conditionout" />
       <output name="power_value_out" displayname="connection.powervalueout" />
       <output name="load_value_out" displayname="connection.loadvalueout" />
+	  <StatusEffect type="Always" target="this" Locked="false">
+	       <Conditional Locked="true"/>
+	  </StatusEffect>
     </ConnectionPanel>
     <Repairable selectkey="Action" header="electricalrepairsheader" deteriorationspeed="0.1" mindeteriorationdelay="120" maxdeteriorationdelay="720" mindeteriorationcondition="0" RepairThreshold="80" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.0,0.27" style="ItemUI" />
