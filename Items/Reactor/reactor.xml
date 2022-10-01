@@ -12,7 +12,7 @@
     <Reactor canbeselected="true" firedelay="20" meltdowndelay="120" maxpoweroutput="10000" fuelconsumptionrate="0.2" vulnerabletoemp="true" msg="ItemMsgInteractSelect">
       <StatusEffect type="Always" target="This" autoTemp="false"/>
 	  <StatusEffect type="InWater" target="This" condition="-0.5">
-        <Conditional condition="gt 10"/>
+        <!-- <Conditional condition="gt 10"/> -->
       </StatusEffect>
       <GuiFrame relativesize="0.5,0.45" minsize="700,350" maxsize="2688,1166" anchor="Center" relativeoffset="0.1,0" style="ItemUI" />
       <GraphLine texture="Content/Items/Reactor/graphLine.png">

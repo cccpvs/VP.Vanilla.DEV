@@ -5,18 +5,19 @@
 <Item name="core_flashlight_weapons" identifier="core_flashlight_weapons">
     <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="127,21,50,21" scale="0.5" depth="0.55" origin="0.5,0.5" />
     <!-- обычный свет -->
-	<LightComponent range="400.0" lightcolor="255,255,255,200" flicker="0.5" flickerspeed="0.1" powerconsumption="5" pulseAmount="0.50" IsOn="true" allowingameediting="false">
-    	<StatusEffect targettype="Contained" type="OnContained" target="this" Voltage="1" setvalue="true">
-    		<RequiredItem items="mobilebattery" type="Contained" />
+	<LightComponent range="600.0" lightcolor="255,255,255,255" flicker="0.5" flickerspeed="0.1" powerconsumption="5" pulseAmount="0.50" IsOn="true" allowingameediting="false">
+    	    <!-- <IsActive targetitemcomponent="RangedWeapon" Use="true" /> -->
+			<StatusEffect targettype="Contained" type="OnContained" target="this" Voltage="1" setvalue="true">
+    		    <RequiredItem items="mobilebattery" type="Contained" />
     			<RequiredItem items="flashlight_weapons" type="Contained" />
     		</StatusEffect>
-    		<StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.2">
+    		<StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.1">
                  <RequiredItem items="batterycell" type="Contained" />
             </StatusEffect>
-            <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.1">
+            <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.05">
                  <RequiredItem items="fulguriumbatterycell" type="Contained" />
             </StatusEffect>
-            <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.2">
+            <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.1">
                  <RequiredItem excludedidentifiers="batterycell,fulguriumbatterycell" type="Contained" />
             </StatusEffect>
         <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="2.0,0.5" />

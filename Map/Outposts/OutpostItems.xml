@@ -588,6 +588,7 @@
   </Item>
 
   <!--Outpost Machines-->
+  <!-- Большой реактор -->
   <Item name="" nameidentifier="reactor1" identifier="outpostreactor" tags="reactor" type="Reactor" linkable="true" category="Machine" damagedbyexplosions="true" scale="0.5" explosiondamagemultiplier="0.2">
     <trigger />
     <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" sourcerect="38,336,575,849" depth="0.8" origin="0.5,0.5" />
@@ -596,8 +597,9 @@
     <BrokenSprite texture="Content/Map/Outposts/Art/GenericAssets2.png" sourcerect="975,1197,502,690" depth="0.79" maxcondition="10" offset="0,0" fadein="true" />
     <aitarget sightrange="500" soundrange="7500" />
     <Reactor canbeselected="true" firedelay="20" meltdowndelay="120" maxpoweroutput="20000" fuelconsumptionrate="0.2" vulnerabletoemp="false" msg="ItemMsgInteractSelect">
-      <StatusEffect type="InWater" target="This" condition="-0.5">
-        <Conditional condition="gt 10" />
+      <StatusEffect type="Always" target="This" autoTemp="false"/>
+	  <StatusEffect type="InWater" target="This" condition="-0.5">
+        <!-- <Conditional condition="gt 10" /> -->
       </StatusEffect>
       <GuiFrame relativesize="0.5,0.45" minsize="700,350" maxsize="2688,1166" anchor="Center" relativeoffset="0.1,0" style="ItemUI" />
       <GraphLine texture="Content/Items/Reactor/graphLine.png">
@@ -659,8 +661,8 @@
       <output name="power_out" displayname="connection.powerout" maxwires="1" />
       <output name="temperature_out" displayname="connection.temperatureout" />
       <input name="shutdown" displayname="connection.shutdown" />
-      <input name="set_fissionrate" displayname="connection.setfissionrate" />
-      <input name="set_turbineoutput" displayname="connection.setturbineoutput" />
+      <!-- <input name="set_fissionrate" displayname="connection.setfissionrate" /> -->
+      <!-- <input name="set_turbineoutput" displayname="connection.setturbineoutput" /> -->
       <output name="meltdown_warning" displayname="connection.meltdownwarning">
         <StatusEffect type="OnUse" target="This">
           <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />

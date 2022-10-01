@@ -59,6 +59,7 @@
   <Item file="%ModDir%/Items/Labels/labels.xml" />
   <Item file="%ModDir%/Map/Pirates/PirateItems.xml" />
   <Item file="%ModDir%/Items/Reactor/reactor.xml" />
+  <Item file="%ModDir%/Items/Engine/engine.xml" />
   <BallastFlora file="%ModDir%/Items/Gardening/ballastflora.xml" />
   <NPCSets file="%ModDir%/Map/Outposts/OutpostGenerationNpcs.xml" />
   <Structure file="%ModDir%/Map/StructurePrefabs.xml" />
@@ -66,4 +67,5 @@
   <Item file="%ModDir%/Items/Misc/misc.xml" />
   <UIStyle file="%ModDir%/UI/style.xml" />
   <Jobs file="%ModDir%/Jobs.xml" />
+  <Talents file="%ModDir%/Talents/Security/TalentsSecurity.xml" />
 </contentpackage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Talents>
+  <Talent identifier="dualspecops">
+    <Description tag="talentdescription.dualspecops"/>
+    <Description tag="talentdescription.extratalentpoint">
+      <Replace tag="[points]" value="2" color="gui.green"/>
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="5,2" sheetelementsize="128,128"/>
+    <AbilityGroupEffect abilityeffecttype="OnSelfRagdoll">
+      <Conditions>
+        <AbilityConditionInWater/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true">
+              <Conditional stamina="lt 70"/>
+			  <Affliction identifier="dashing" amount="1.0"/>
+			  <Affliction identifier="tinkerexhaustion_mod" amount="0.2"/>
+			  <Affliction identifier="stamina" amount="15.0"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupInterval>
+      <Conditions>
+        <AbilityConditionInWater/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyForce maxvelocity="40" force="200" afflictionidentifier="dashing" />
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveTalentPoints amount="2" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+</Talents>
+</Override> 

@@ -195,16 +195,13 @@
     <!-- Стамина -->
     <stamina identifier="stamina" IndicatorLimb="None" ShowIconThreshold="70" ShowInHealthScannerThreshold="1000" ShowIconToOthersThreshold="1000" activationthreshold="90" treatmentthreshold="1000" showiconthreshold="1000" maxstrength="100" iconcolors="230,126,34,255">
           <Effect minstrength="90" maxstrength="100">
-              <StatValue stattype="MovementSpeed" minvalue="-0.5" maxvalue="-0.7" />
+            <StatValue stattype="MovementSpeed" minvalue="-0.5" maxvalue="-0.7" />
       	    <StatValue stattype="WalkingSpeed" minvalue="-0.5" maxvalue="-0.7" />
       	    <StatValue stattype="SwimmingSpeed" minvalue="-0.5" maxvalue="-0.7" />
-          </Effect>
-	  	<Effect minstrength="85" maxstrength="100">
-              <StatusEffect target="Character">
+			<StatusEffect target="Character">
 	  		    <!-- <Conditional InWater="!e true"/> -->
                   <Affliction identifier="oxygenlow" amount="15"/>
-	  			<!-- <Affliction identifier="tinkerexhaustion_mod" amount="10" DamagePerSecond="30"/> -->
-              </StatusEffect>
+            </StatusEffect>
           </Effect>
           <icon texture="%ModDir%/UI/Afflictions.png" sheetindex="1,0" sheetelementsize="120,120" origin="0,0"/>
     </stamina>

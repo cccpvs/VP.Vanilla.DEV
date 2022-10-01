@@ -358,8 +358,16 @@
   <!-- </StatusEffect> -->
   <!-- Восстановление -->
   <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And">
-	  <Conditional CurrentSpeed="lt 2" InWater="false"/>
+	  <Conditional CurrentSpeed="lt 1"/>
       <reduceaffliction identifier="stamina" amount="5"/>
+  </StatusEffect>
+  <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And">
+	  <Conditional CurrentSpeed="lt 2" InWater="false"/>
+      <reduceaffliction identifier="stamina" amount="3"/>
+  </StatusEffect>
+    <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And">
+	  <Conditional CurrentSpeed="lt 2" InWater="true"/>
+      <reduceaffliction identifier="stamina" amount="1"/>
   </StatusEffect>
   <!-- <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And"> -->
 	  <!-- <Conditional CurrentSpeed="lt 1" InWater="e true"/> -->
@@ -379,6 +387,13 @@
   <!-- Ограниченный обзор -->
   <StatusEffect TargetType="This" ObstructVision="true"/>
   
+  
+  <!-- <StatusEffect type="Always" target="This" Comparison="Or">  -->
+     <!-- <Conditional IsMovingFast="e true"/> -->
+	  <!-- <Conditional AnimController="e IsMovingFast"/> -->
+	  <!-- <Conditional AnimController="IsMovingFast"/> -->
+	  <!-- <Affliction identifier="oxygenlow" amount="100"/> -->
+   <!-- </StatusEffect> -->
   
   <!-- <StatusEffect type="Always" target="This" Comparison="Or">  -->
 	  <!-- <Conditional IsKeyHit="e InputType.Run"/> -->

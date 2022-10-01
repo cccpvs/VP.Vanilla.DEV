@@ -24,12 +24,13 @@
         <Explosion range="150.0" force="5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
 	  </StatusEffect>
       <RequiredItems items="harpoonammo" type="Contained" msg="ItemMsgSpearRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.7" setvalue="true" target="Character"/>
 	    <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer itempos="27,10" DrawInventory="true" AllowDragAndDrop="true" AutoInteractWithContained="true"  AutoInject="true" iteminterval="0,-4" hideitems="false" capacity="1" maxstacksize="6" containedstateindicatorstyle="spear" containedspritedepths="0.551,0.552,0.553,0.554,0.555,0.556" ShowContainedStateIndicator="false">
     <Containable items="harpoonammo" />
@@ -66,12 +67,13 @@
         <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
       </StatusEffect>
       <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
-	          <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.8" setvalue="true" target="Character"/>
+	    <!-- Поломка оружия -->
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="revolverammo" />
@@ -112,12 +114,13 @@
         <Use />
       </StatusEffect>
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.7" setvalue="true" target="Character"/>
 	    <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="smgammo" />
@@ -161,12 +164,13 @@
         <Use />
       </StatusEffect>
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
-	          <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.7" setvalue="true" target="Character"/>
+	    <!-- Поломка оружия -->
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="smgammo" />
@@ -207,12 +211,13 @@
         <Sound file="Content/Items/Weapons/ShotgunLoad3.ogg" type="OnUse" range="3000" />
       </StatusEffect>
       <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
 	    <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-4" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-4" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" itempos="0,0" iteminterval="10,0" ItemRotation="90" hideitems="true" ShowContainedStateIndicator="false">
       <Containable items="shotgunammo" />
@@ -253,12 +258,13 @@
         <Use />
       </StatusEffect>
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
 	  <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="smgammo" />
@@ -303,12 +309,13 @@
         <Use />
       </StatusEffect>
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.7" setvalue="true" target="Character"/>
 	  <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="smgammo" />
@@ -344,13 +351,14 @@
         <Explosion range="150.0" force="2" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
       </StatusEffect>
       <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.5" setvalue="true" target="Character"/>
       <!-- <RequiredSkill identifier="weapons" level="70" /> -->
 	    <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="0" maxstacksize="0" itempos="27,10" iteminterval="0,-4" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="shotgunammo" />
@@ -401,13 +409,14 @@
         <Use />
       </StatusEffect>
       <RequiredItems items="assaultriflemagazine" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.6" setvalue="true" target="Character"/>
       <!-- <RequiredSkill identifier="weapons" level="50" /> -->
 	    <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="assaultrifleammo" />
@@ -451,13 +460,14 @@
         <Use />
       </StatusEffect>
       <RequiredItems items="assaultriflemagazine" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.6" setvalue="true" target="Character"/>
       <!-- <RequiredSkill identifier="weapons" level="50" /> -->
 	  <!-- Поломка оружия -->
-	    <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/>
-		<StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255">
-			<Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/>
-			<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
-		</StatusEffect>
+	    <!-- <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/> -->
+		<!-- <StatusEffect target="this" type="OnBroken" stackable="false" spriteColor="82,82,82,255" InventoryIconColor="255,120,120,255"> -->
+			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
+			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
+		<!-- </StatusEffect> -->
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="assaultrifleammo" />

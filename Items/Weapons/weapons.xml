@@ -341,7 +341,9 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,418,76,41" depth="0.55" origin="0.5,0.5" />
     <Body width="72" height="40" density="50" />
-    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect" >
+	    <StatusEffect type="OnContained" SpeedMultiplier="0.9" setvalue="true" target="Character"/>
+    </Holdable>
     <!-- <RangedWeapon barrelpos="29,11" spread="0" unskilledspread="2" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2"> -->
 	<RangedWeapon reload="1.000" barrelpos="30,11" combatPriority="70">
       <!-- <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" /> -->
@@ -440,7 +442,7 @@
       </StatusEffect>
     </ItemContainer>
     <!--Magazines can be combined to raise condition.-->
-    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect"/>
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
 <!-- ПП -->
@@ -467,8 +469,10 @@
 	    <!-- <IsActiveConditional targetitemcomponent="ItemContainer" TargetContainedItem="true" Name="flashlight_weapons"/> -->
     <!-- </decorativesprite> -->
 	<Body width="140" height="60" density="50" />
-    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,-10" aimpos="45,-10" handle1="-30,-15" handle2="26,5" holdangle="-35" msg="ItemMsgPickUpSelect"/>
-    <!-- <RangedWeapon reload="0.175" holdtrigger="true" barrelpos="64,9" spread="10" unskilledspread="16" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2"> -->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,-10" aimpos="45,-10" handle1="-30,-15" handle2="26,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+    	<StatusEffect type="OnContained" SpeedMultiplier="0.7" setvalue="true" target="Character"/>
+    </Holdable>
+	<!-- <RangedWeapon reload="0.175" holdtrigger="true" barrelpos="64,9" spread="10" unskilledspread="16" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2"> -->
 	<RangedWeapon reload="0.100" barrelpos="64,9" combatPriority="80">
         <!-- <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" /> -->
         <!-- <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" /> -->
@@ -503,7 +507,6 @@
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="smgammo" />
     </ItemContainer>
-
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
       <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
@@ -824,6 +827,7 @@
       </Attack>
       <!-- changed to use incremental stun: normal batteries cause 40 points of incremental stun -> full stun in three consecutive hits -->
       <!-- keep weight check in place for now (affect targets with mass < 60) -->
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.9" setvalue="true" target="Character"/>
       <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
         <Affliction identifier="stun" strength="0.3"/>
         <Affliction identifier="incrementalstun" strength="40"/>
@@ -933,9 +937,9 @@
     <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,244,186,65" depth="0.55" origin="0.5,0.5" />
     <Body width="170" height="40" density="50" />
     <Holdable slots="RightHand+LeftHand,Any" controlpose="true" holdpos="40,-20" aimpos="45,-10" handle1="-33,-15" handle2="26,5" holdangle="-25" />
-    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Grenade Launcher Worn" texture="Content/Items/Weapons/weapons_new.png" canbehiddenbyotherwearables="false" sourcerect="0,244,186,65" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" scale="0.5" origin="0.5,0.8" />
-    </Wearable>    
+    <!-- <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select"> -->
+      <!-- <sprite name="Grenade Launcher Worn" texture="Content/Items/Weapons/weapons_new.png" canbehiddenbyotherwearables="false" sourcerect="0,244,186,65" rotation="90" inheritlimbdepth="false" depth="0.6" limb="Torso" scale="0.5" origin="0.5,0.8" /> -->
+    <!-- </Wearable>     -->
     <!-- <RangedWeapon barrelpos="80,10" spread="1" unskilledspread="10" combatPriority="75" drawhudwhenequipped="true" crosshairscale="0.2"> -->
 	<RangedWeapon barrelpos="80,10" combatPriority="75">
       <!-- <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" /> -->
@@ -944,7 +948,8 @@
       <Sound file="Content/Items/Weapons/GrenadeLauncherShot1.ogg" type="OnUse" selectionmode="Random"/>
       <Sound file="Content/Items/Weapons/GrenadeLauncherShot2.ogg" type="OnUse" />
       <Sound file="Content/Items/Weapons/GrenadeLauncherShot3.ogg" type="OnUse" />
-      <StatusEffect type="OnUse">
+      <StatusEffect type="OnContained" SpeedMultiplier="0.5" setvalue="true" target="Character"/>
+	  <StatusEffect type="OnUse">
         <Explosion range="150.0" force="2" shockwave="false" smoke="false" flames="false" flash="true" sparks="false" underwaterbubble="false" applyfireeffects="false" camerashake="6.0" />
       </StatusEffect>
       <RequiredItems items="grenade" type="Contained" msg="ItemMsgAmmoRequired" />
@@ -1172,6 +1177,7 @@
         <Sound file="Content/Items/Weapons/ShotgunLoad2.ogg" type="OnUse" range="3000" />
         <Sound file="Content/Items/Weapons/ShotgunLoad3.ogg" type="OnUse" range="3000" />
       </StatusEffect>
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.7" setvalue="true" target="Character"/>
       <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <!-- <RequiredSkill identifier="weapons" level="60" /> -->
 	    <!-- Поломка оружия -->
@@ -1314,6 +1320,7 @@
       </StatusEffect>
       <RequiredItems items="stungunammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <RequiredSkill identifier="weapons" level="20" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.8" setvalue="true" target="Character"/>
 	          <!-- Поломка оружия -->
 	    <!-- <StatusEffect target="this" type="OnUse" condition="-10" disabledeltatime="true" stackable="false"/> -->
 		<!-- <StatusEffect target="this" type="OnUse" playsoundonrequireditemfailure="true" stackable="false"> -->
@@ -1465,6 +1472,7 @@
         <Sound file="Content/Items/Weapons/ShotgunLoad3.ogg" type="OnUse" range="3000" />
       </StatusEffect>
       <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.8" setvalue="true" target="Character"/>
       <!-- <RequiredSkill identifier="weapons" level="60" /> -->
 	    <!-- Поломка оружия -->
 	    <!-- <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/> -->
@@ -1586,6 +1594,7 @@
       <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <StatusEffect type="OnUse" target="This" reload="0.7" setvalue="true" delay="0.2" />
       <StatusEffect type="OnUse" target="This" reload="0.1" setvalue="true" delay="0.7" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.7" setvalue="true" target="Character"/>
       <!-- <RequiredSkill identifier="weapons" level="50" /> -->
 	    <!-- Поломка оружия -->
 	    <!-- <StatusEffect target="this" type="OnUse" condition="-1" disabledeltatime="true" stackable="false"/> -->

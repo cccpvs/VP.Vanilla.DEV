@@ -39,6 +39,7 @@
           <Explosion range="150.0" force="2" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
         </StatusEffect>
         <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
+		<StatusEffect type="OnContained" SpeedMultiplier="0.5" setvalue="true" target="Character"/>
         <!-- <RequiredSkill identifier="weapons" level="70" /> -->
 	          <!-- Поломка оружия -->
 	    <!-- <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/> -->
@@ -109,6 +110,7 @@
             <Use />
         </StatusEffect>
         <RequiredItems items="assaultriflemagazine" type="Contained" msg="ItemMsgAmmoRequired" />
+		<StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
         <!-- <RequiredSkill identifier="weapons" level="50" /> -->
 	    <!-- Поломка оружия -->
 	    <!-- <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/> -->
@@ -295,6 +297,7 @@
           <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
           <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
         </StatusEffect>
+		<StatusEffect type="OnContained" SpeedMultiplier="0.6" setvalue="true" target="Character"/>
       </Attack>
     </MeleeWeapon>
     <Quality>

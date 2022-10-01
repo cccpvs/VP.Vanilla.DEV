@@ -110,15 +110,15 @@
 		 <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.02">
 		     <RequiredItem items="fulguriumbatterycell" type="Contained" />
          </StatusEffect>
-		 <IsActive condition="gt 10.0"/>
+		 <!-- <IsActive condition="gt 10.0"/> -->
         </LightComponent>
-		 <LightComponent range="200.0" lightcolor="140,140,140,200" powerconsumption="10" IsOn="true" flicker="0.8" flickerspeed="1.0" pulsefrequency="0.1" pulseamount="0.5">
-          <StatusEffect type="OnWearing" target="This,Character" Voltage="1.0" setvalue="true">
-            <Conditional IsDead="false" />
-          </StatusEffect>
-          <LightTexture texture="Content/Lights/divinghelmetlight.png" origin="0.05, 0.5" size="1.0,1.0" />
-          <IsActive condition="lte 10.0"/>
-        </LightComponent>
+		 <!-- <LightComponent range="200.0" lightcolor="140,140,140,200" powerconsumption="10" IsOn="true" flicker="0.8" flickerspeed="1.0" pulsefrequency="0.1" pulseamount="0.5"> -->
+          <!-- <StatusEffect type="OnWearing" target="This,Character" Voltage="1.0" setvalue="true"> -->
+            <!-- <Conditional IsDead="false" /> -->
+          <!-- </StatusEffect> -->
+          <!-- <LightTexture texture="Content/Lights/divinghelmetlight.png" origin="0.05, 0.5" size="1.0,1.0" /> -->
+          <!-- <IsActive condition="lte 10.0"/> -->
+        <!-- </LightComponent> -->
       </sprite>
       <sprite name="Regular Diving Suit Torso" texture="Content/Items/Diving/reg_DivingSuit.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="false" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Regular Diving Suit Right Hand" texture="Content/Items/Diving/reg_DivingSuit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
@@ -134,7 +134,7 @@
       <sprite name="Regular Diving Suit Left Leg" texture="Content/Items/Diving/reg_DivingSuit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Regular Diving Suit Left Shoe" texture="Content/Items/Diving/reg_DivingSuit.png" limb="LeftFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Regular Diving Suit Right Shoe" texture="Content/Items/Diving/reg_DivingSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
-      <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
+	  <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" PressureProtection="6000.0" SpeedMultiplier="0.8" LowPassMultiplier="0.2" setvalue="true" disabledeltatime="true">
         <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
         <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
@@ -226,7 +226,7 @@
     <aitarget maxsightrange="1500" />  
   </Item>
 <!-- подводный скутер -->
-<Item name="" identifier="underwaterscooter" category="Diving,Equipment" Tags="mediumitem,provocative,scooter" linkable="true" pickdistance="30" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="10">
+<Item name="" identifier="underwaterscooter" category="Diving,Equipment" Tags="bigitem,provocative,scooter" linkable="true" pickdistance="30" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="10">
     <Price baseprice="180">
         <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="4" />
         <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="6" />

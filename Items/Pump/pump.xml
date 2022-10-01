@@ -61,6 +61,9 @@
 	  <StatusEffect type="Always" target="this" Locked="false">
 	  	<Conditional Locked="true"/>
 	  </StatusEffect>
+	  <StatusEffect type="Always" target="this" InvulnerableToDamage="false">
+	  	<Conditional InvulnerableToDamage="true"/>
+	  </StatusEffect>
     </Repairable>
   </Item>
   

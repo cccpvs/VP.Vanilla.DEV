@@ -264,7 +264,7 @@
     <Body width="150" height="80" density="10.1" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter,underwaterscooter" />
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
@@ -278,7 +278,7 @@
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <RequiredItem items="idcard" type="Picked" msg="ItemMsgUnauthorizedAccess" ignoreineditor="true" />
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter,underwaterscooter" />
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
@@ -291,7 +291,7 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-20,14" handle2="20,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="12" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem" excludeditems="toolbox,cargoscooter,underwaterscooter" />
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
@@ -304,7 +304,7 @@
     <Body width="145" height="85" density="10.1" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-20,14" handle2="20,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="12" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem" excludeditems="toolbox,cargoscooter,underwaterscooter" />
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
@@ -316,7 +316,7 @@
     <Body width="145" height="85" density="10.1" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-20,14" handle2="20,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="12" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem" excludeditems="toolbox,cargoscooter,underwaterscooter" />
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
