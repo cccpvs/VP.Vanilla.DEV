@@ -443,7 +443,7 @@
   </Item>
   <Item name="" identifier="opdeco_officechair_mod" tags="chair" allowattachitems="false" texturescale="1.0,1.0" scale="0.45" category="Decorative" canflipy="false">
     <sprite texture="Content/Map/Outposts/Art/ManagerOfficeAssets.png" sourcerect="570,341,180,267" depth="0.701" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true">
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true">
       <limbposition limb="Head" position="90,15" />
       <limbposition limb="Torso" position="90,-60" />
       <limbposition limb="Waist" position="90,-130" />
@@ -474,7 +474,7 @@
   </Item>
   <Item name="" identifier="opdeco_chair1_mod" nameidentifier="opdeco_officechair_mod" tags="chair" allowattachitems="true" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
     <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1233,31,144,240" depth="0.701" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="-10,30" direction="Left" hidehud="false" canbeselected="true">
+    <Controller UserPos="-10,30" direction="Left" hidehud="false" canbeselected="true" issecondaryitem="true">
       <limbposition limb="Head" position="100,20" />
       <limbposition limb="Torso" position="75,-52" />
       <limbposition limb="Waist" position="80,-110" />

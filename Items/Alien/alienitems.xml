@@ -315,7 +315,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1875,104,58" />
     <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1875,104,58" depth="0.55" />
-    <Body radius="15" width="15" density="50" />
+    <Body radius="15" width="15" density="25" />
     <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="90,10" handle1="2,-7" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnBroken" target="This" Condition="100" setvalue="true" delay="1" />
     </Holdable>
@@ -718,7 +718,8 @@
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracernucleargun" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1,1" colormultiplier="255,200,200,200" />
       <Attack structuredamage="5" targetforce="5" itemdamage="20" severlimbsprobability="0.1">
-        <Affliction identifier="burn" strength="21" />
+        <Affliction identifier="explosiondamage" strength="10.5" />
+        <Affliction identifier="burn" strength="10.5" />
         <Affliction identifier="stun" strength="0.1" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -1083,7 +1084,7 @@
 
   <Item identifier="guardianhookcannon" category="hidden" tags="" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
     <Sprite texture="Content/Characters/Fractalguardian/Fractalguardian.png" sourcerect="409,520,92,42" depth="0.55" origin="0.5,0.5" />
-    <Body width="80" height="25" density="50" />
+    <Body width="80" height="25" density="25" />
     <Holdable slots="Any,RightHand" controlpose="false" aimpos="150,0" handle1="-50,-2" holdangle="0" usehandrotationforholdangle="true" msg="ItemMsgPickUpSelect" />
     <RangedWeapon barrelpos="45,0" spread="0" drawhudwhenequipped="true" crosshairscale="0.2">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
@@ -1214,8 +1215,8 @@
   <Item name="" identifier="spinelingspike" category="Misc" scale="0.5" sonarsize="2" hideinmenus="true">
     <Sprite texture="Content/Characters/Spineling/Spineling.png" sourcerect="0,215,180,18" depth="0.55" />
     <Body width="160" height="10" density="20" />
-    <Projectile characterusable="false" launchimpulse="200" maxtargetstohit="3" sticktocharacters="true" sticktoitems="false" sticktostructures="true" penetration="0.25" friendlyfire="false">
-      <Attack structuredamage="20" severlimbsprobability="0.5">
+    <Projectile characterusable="false" launchimpulse="200" maxtargetstohit="3" sticktocharacters="true" sticktoitems="false" sticktostructures="true" penetration="0.25" friendlyfire="false" damagedoors="true">
+      <Attack structuredamage="20" itemdamage="20" severlimbsprobability="0.5" penetration="0.2">
         <!--Hits up to 3 limbs, so the actual damage can be 3x-->
         <Affliction identifier="lacerations" strength="10" />
         <Affliction identifier="bleeding" strength="10" />
@@ -1249,8 +1250,8 @@
   <Item name="" identifier="giantspinelingspike" nameidentifier="spinelingspike" translationidentifier="spinelingspike" category="Misc" scale="0.5" sonarsize="6" hideinmenus="true">
     <Sprite texture="Content/Characters/Spineling_giant/Spineling_giant.png" sourcerect="0,860,720,72" depth="0.55" />
     <Body width="600" height="35" density="20" />
-    <Projectile characterusable="false" launchimpulse="400" maxtargetstohit="10" sticktocharacters="false" sticktoitems="false" sticktostructures="true" friendlyfire="false">
-      <Attack structuredamage="100" severlimbsprobability="2.0" penetration="0.5">
+    <Projectile characterusable="false" launchimpulse="400" maxtargetstohit="10" sticktocharacters="false" sticktoitems="false" sticktostructures="true" friendlyfire="false" damagedoors="true">
+      <Attack structuredamage="100" itemdamage="100" severlimbsprobability="2.0" penetration="0.5">
         <!--Hits up to 10 limbs, so the actual damage can be 10x-->
         <Affliction identifier="lacerations" strength="15" />
         <Affliction identifier="bleeding" strength="10" />
@@ -1265,7 +1266,10 @@
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure"/>
         <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="5" velocitymin="100" velocitymax="2000" scalemin="0.1" scalemax="0.2" />
-        <Explosion ignorecover="true" onlyinside="true" range="600" force="0" playtinnitus="false" showeffects="false" />
+        <!--Add some impact effect-->
+        <Explosion ignorecover="true" onlyinside="true" range="600" force="10" playtinnitus="false" showeffects="false" applyfireeffects="false">
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure"/>
@@ -1306,7 +1310,7 @@
       <StatusEffect type="OnImpact" target="This" Condition="-100" setvalue="true">
         <Explosion range="100" structuredamage="200" itemdamage="75" smoke="false" flames="false" force="0" sparks="false" shockwave="true" underwaterbubble="false" camerashake="0" flash="false" playtinnitus="false">
           <Affliction identifier="stun" strength="0.5" probability="1" />
-          <Affliction identifier="acidburn" strength="20" probability="1" />
+          <Affliction identifier="acidburn" strength="25" probability="1" />
         </Explosion>
       </StatusEffect>
     </Holdable>
@@ -1323,8 +1327,8 @@
       <Item identifier="sulphuricacid" />
     </Deconstruct>
     <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10"/>
-    <Projectile characterusable="false" launchimpulse="18" deactivationtime="1" IgnoreProjectilesWhileActive="true">
-      <Attack structuredamage="10" targetforce="100">
+    <Projectile characterusable="false" launchimpulse="18" deactivationtime="1" IgnoreProjectilesWhileActive="true" damagedoors="true">
+      <Attack structuredamage="10" itemdamage="10" targetforce="100">
         <Affliction identifier="stun" strength="3" probability="1" />
         <Affliction identifier="blunttrauma" strength="20" probability="1" />
       </Attack>
@@ -1348,7 +1352,7 @@
       <StatusEffect type="OnImpact" target="This" Condition="-100" setvalue="true">
         <Explosion range="100" structuredamage="200" itemdamage="75" smoke="false" flames="false" force="0" sparks="false" shockwave="true" underwaterbubble="false" camerashake="0" flash="false" playtinnitus="false">
           <Affliction identifier="stun" strength="0.5" probability="1" />
-          <Affliction identifier="acidburn" strength="20" probability="1" />
+          <Affliction identifier="acidburn" strength="25" probability="1" />
         </Explosion>
       </StatusEffect>
     </Projectile>
@@ -1383,6 +1387,10 @@
         <particleemitter drawontop="true" particle="tonguehitsplash" particleamount="20" scalemin="1" scalemax="3" anglemin="0" anglemax="360"/>
         <particleemitter drawontop="false" particle="damagebubbles" particleamount="20" scalemin="1" scalemax="3" anglemin="0" anglemax="360"/>
         <particleemitter drawontop="true" particle="damagebubbles" particleamount="10" scalemin="1" scalemax="3" anglemin="0" anglemax="360"/>
+        <!--Add some impact effect-->
+        <Explosion ignorecover="true" onlyinside="true" range="2000" force="20" playtinnitus="false" showeffects="false" applyfireeffects="false">
+          <Affliction identifier="stun" strength="3" />
+        </Explosion>
       </StatusEffect>
       <StatusEffect type="Always" target="This">
         <Conditional Snapped="true" />
@@ -1433,8 +1441,8 @@
   <Item name="" identifier="toothspike" category="Misc" scale="1" sonarsize="2" hideinmenus="true">
     <Sprite texture="Content/Characters/Latcher/Latcher.png" sourcerect="1794,924,256,64" depth="0.55" origin="0.5,0.5"/>
     <Body width="240" height="40" density="20" />
-    <Projectile characterusable="false" launchimpulse="200" maxtargetstohit="5" sticktocharacters="false" sticktoitems="false" sticktostructures="false" penetration="0.25" friendlyfire="false">
-      <Attack structuredamage="30" severlimbsprobability="0.5">
+    <Projectile characterusable="false" launchimpulse="200" maxtargetstohit="5" sticktocharacters="false" sticktoitems="false" sticktostructures="false" penetration="0.25" friendlyfire="false" damagedoors="true">
+      <Attack structuredamage="30" itemdamage="30" severlimbsprobability="0.5" penetration="0.3">
         <!--Hits up to 5 limbs, so the actual damage can be 5x-->
         <Affliction identifier="lacerations" strength="10" />
         <Affliction identifier="bleeding" strength="10" />
@@ -1446,7 +1454,12 @@
       <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1">
         <Remove />
       </StatusEffect>
-      <StatusEffect type="OnImpact" target="This" condition="-34"/>
+      <StatusEffect type="OnImpact" target="This" condition="-34">
+        <!--Add some impact effect-->
+        <Explosion ignorecover="true" onlyinside="true" range="500" force="5" playtinnitus="false" showeffects="false" applyfireeffects="false">
+          <Affliction identifier="stun" strength="0.5" />
+        </Explosion>
+      </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure"/>
         <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="5" velocitymin="100" velocitymax="2000" scalemin="0.1" scalemax="0.2" />

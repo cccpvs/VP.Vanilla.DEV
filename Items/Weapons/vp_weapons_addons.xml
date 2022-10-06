@@ -37,7 +37,7 @@
     </ItemContainer>
     <aitarget sightrange="0" soundrange="500" fadeouttime="2" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
     </Quality>
   </Item>
 
@@ -80,7 +80,7 @@
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
     </Quality>
   </Item>  
 
@@ -127,7 +127,7 @@
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
     </Quality>
   </Item>
 <!-- ПП с оптическим + фонарик -->
@@ -177,7 +177,7 @@
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
     </Quality>
   </Item>
 
@@ -224,7 +224,7 @@
     </ItemContainer>
     <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
     </Quality>
 </Item>
 
@@ -271,7 +271,7 @@
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
     </Quality>
   </Item>
 
@@ -322,7 +322,7 @@
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1"/>
     </Quality>
   </Item>
 
@@ -376,7 +376,7 @@
     </ItemContainer>
     <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1" />
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
   </Item>
 
@@ -423,7 +423,7 @@
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1" />
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
   </Item>
 
@@ -474,7 +474,7 @@
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
-      <QualityStat stattype="AttackMultiplier" value="0.1" />
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
   </Item>
 </Items>

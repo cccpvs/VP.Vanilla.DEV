@@ -525,14 +525,14 @@
   <Item name="" identifier="opdeco_medcompartment1" nameidentifier="medicalcompartment" tags="container,suppliescontainer" linkable="true" width="80" height="80" texturescale="1.0,1.0" scale="0.5" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="192,0,80,80" depth="0.84" premultiplyalpha="false" origin="0.5,0.5" />
     <ItemContainer capacity="3" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.18,0.25" anchor="Center" style="ItemUI" />
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
       <Containable items="smallitem,mediumitem" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="opdeco_medcompartment2" nameidentifier="medicalcompartment" tags="container,suppliescontainer" linkable="true" width="48" height="80" texturescale="1.0,1.0" scale="0.5" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="272,0,48,80" depth="0.84" premultiplyalpha="false" origin="0.5,0.5" />
-    <ItemContainer capacity="1" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.18,0.25" anchor="Center" style="ItemUI" />
+    <ItemContainer capacity="2" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.15,0.16" anchor="Center" style="ItemUI" />
       <Containable items="smallitem,mediumitem" />
     </ItemContainer>
   </Item>
@@ -576,7 +576,7 @@
   </Item>
   <Item name="" identifier="opdeco_wheelchair2" nameidentifier="opdeco_wheelchair1" tags="chair" allowattachitems="false" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
     <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="452,781,249,225" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true">
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true">
       <limbposition limb="Head" position="70,45" />
       <limbposition limb="Torso" position="90,-30" />
       <limbposition limb="Waist" position="95,-85" />
@@ -606,10 +606,10 @@
         <Sprite name="ReactorGraphLine" texture="Content/Items/Reactor/graphLine.png" sourcerect="0,0,32,32" />
       </GraphLine>
       <FissionRateMeter>
-        <Sprite name="FissionRateMeter" texture="Content/Items/Reactor/reactor.png" sourcerect="603,817,441,240" origin="0.5,1" />
+        <Sprite name="FissionRateMeter" texture="Content/Items/Reactor/reactor.png" sourcerect="544,770,441,240" origin="0.5,1" />
       </FissionRateMeter>
       <TurbineOutputMeter>
-        <Sprite name="TurbineOutputMeter" texture="Content/Items/Reactor/reactor.png" sourcerect="603,817,441,240" origin="0.5,1" />
+        <Sprite name="TurbineOutputMeter" texture="Content/Items/Reactor/reactor.png" sourcerect="544,770,441,240" origin="0.5,1" />
       </TurbineOutputMeter>
       <MeterPointer>
         <Sprite name="MeterPointer" texture="Content/UI/UIAtlasDevices.png" sourcerect="938,846,31,167 " origin="0.5,0.9" />
@@ -630,14 +630,17 @@
       <RequiredItem items="idcard" type="Picked" msg="ItemMsgUnauthorizedAccess" ignoreineditor="true" />
       <sound file="Content/Items/Reactor/Reactor.ogg" type="OnActive" range="2000.0" volumeproperty="FissionRate" volume="0.02" loop="true" />
       <StatusEffect type="OnBroken" target="This" FissionRate="0.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="8000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" type="OnUse" volume="10" selectionmode="Random" range="50000" dontmuffle="true" />
         <sound file="Content/Items/Weapons/ExplosionDebris5.ogg" range="8000" />
-        <Explosion range="2000" structuredamage="200" force="5.0" camerashake="200" flashrange="10000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="3.0">
-          <Affliction identifier="burn" strength="200" />
-          <Affliction identifier="explosiondamage" strength="80" />
-          <Affliction identifier="radiationsickness" strength="80" />
-          <Affliction identifier="stun" strength="5" />
+        <Explosion range="750" ballastfloradamage="1000" structuredamage="300" itemdamage="500" force="25.0" camerashake="0" flashrange="10000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="3.0" decal="explosion" decalsize="1">
+          <Affliction identifier="explosiondamage" strength="500" />
+          <Affliction identifier="burn" strength="500" />
+          <Affliction identifier="stun" strength="15" />
         </Explosion>
+        <Explosion range="2000" force="0.0" camerashake="200" camerashakerange="50000" showEffects="false" empstrength="1.25" applyfireeffects="false" ignorecover="true">
+          <Affliction identifier="radiationsickness" strength="75" />
+        </Explosion>
+        <ParticleEmitter particle="underwaterexplosion" anglemin="0" anglemax="360" particleamount="3" velocitymin="0" velocitymax="0" scalemin="15" scalemax="15" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="Contained" Condition="0.0" setvalue="true" />
     </Reactor>
@@ -766,7 +769,7 @@
   </Item>
   <Item name="" identifier="opdeco_officechair" tags="chair" allowattachitems="false" texturescale="1.0,1.0" scale="0.45" category="Decorative" canflipy="false">
     <sprite texture="Content/Map/Outposts/Art/ManagerOfficeAssets.png" sourcerect="570,341,180,267" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true">
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true">
       <limbposition limb="Head" position="90,15" />
       <limbposition limb="Torso" position="85,-60" />
       <limbposition limb="Waist" position="90,-130" />
@@ -781,7 +784,7 @@
   </Item>
   <Item name="" identifier="opdeco_chair1" nameidentifier="opdeco_officechair" tags="chair" allowattachitems="true" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
     <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1233,31,144,240" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="-10,30" direction="Left" hidehud="false" canbeselected="true">
+    <Controller UserPos="-10,30" direction="Left" hidehud="false" canbeselected="true" issecondaryitem="true">
       <limbposition limb="Head" position="82,18" />
       <limbposition limb="Torso" position="80,-52" />
       <limbposition limb="Waist" position="73,-105" />
@@ -796,7 +799,7 @@
   </Item>
   <Item name="" identifier="opdeco_chair2" nameidentifier="opdeco_officechair" tags="chair" allowattachitems="true" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
     <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="744,784,144,240" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true">
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true">
       <limbposition limb="Head" position="40,15" />
       <limbposition limb="Torso" position="55,-60" />
       <limbposition limb="Waist" position="60,-130" />

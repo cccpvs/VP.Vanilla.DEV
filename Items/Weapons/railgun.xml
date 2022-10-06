@@ -5,18 +5,18 @@
   <Item name="" identifier="railgun" description="" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" focusonselected="true" offsetonselected="800" linkable="true" allowedlinks="railgunammosource" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
     <Sprite texture="Content/Items/Weapons/Turrets.png" depth="0.01" sourcerect="0,0,512,512" canflipy="false" />
     <MinimapIcon name="Command_Weapons_Railgun" texture="Content/UI/CommandUIAtlas.png" sourcerect="640,0,128,128" />
-    <SwappableItem price="5000" replacementonuninstall="turrethardpoint" origin="256,438" swapidentifier="basicturret">
+    <SwappableItem price="7500" replacementonuninstall="largeturrethardpoint" origin="256,438" swapidentifier="largeturret">
       <SchematicSprite texture="Content/UI/WeaponUI.png" sourcerect="0,0,256,389" />
       <SwapConnectedItem tag="periscope" swapto="periscope" />
       <SwapConnectedItem tag="turretammosource" swapto="railgunloadersmall" />
     </SwappableItem>
-    <UpgradePreviewSprite scale="3.5" texture="Content/UI/WeaponUI.png" sourcerect="134,810,114,65" origin="0.5,0.5" />
+    <UpgradePreviewSprite scale="3.5" texture="Content/UI/WeaponUI.png" sourcerect="140,805,102,70" origin="0.5,0.5" />
     <StaticBody width="80" radius="80" />
-    <Turret canbeselected="false" characterusable="false" linkable="true" barrelpos="252, 178" rotationlimits="180,360" powerconsumption="16000.0" showchargeindicator="false" showprojectileindicator="false" recoildistance="100" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8">
+    <Turret launchimpulse="80.0" canbeselected="false" characterusable="false" linkable="true" barrelpos="252, 178" rotationlimits="180,360" powerconsumption="16000.0" showchargeindicator="false" showprojectileindicator="false" recoildistance="100" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8">
       <StatusEffect type="OnUse" target="This">
-        <sound file="Content/Items/Weapons/Railgun1.ogg" range="10000" type="OnUse" />
-        <sound file="Content/Items/Weapons/Railgun2.ogg" range="10000" type="OnUse" />
-        <sound file="Content/Items/Weapons/Railgun3.ogg" range="10000" type="OnUse" />
+        <sound file="Content/Items/Weapons/Railgun1.ogg" range="10000" type="OnUse" volume="3" />
+        <sound file="Content/Items/Weapons/Railgun2.ogg" range="10000" type="OnUse" volume="3" />
+        <sound file="Content/Items/Weapons/Railgun3.ogg" range="10000" type="OnUse" volume="3" />
         <Explosion range="1000.0" structuredamage="0" force="0.01" camerashake="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
       </StatusEffect>
       <WeaponIndicator texture="Content/UI/WeaponUI.png" sourcerect="343,913,66,36" origin="0.227, 0.5" />
@@ -30,7 +30,7 @@
       <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
       <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
       <RequiredSkill identifier="weapons" level="50" />
-      <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2048" IsOn="true" drawbehindsubs="false" ignorecontinuoustoggle="true" allowingameediting="false">
+      <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2048" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true">
         <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="1.0,1.0" />
       </LightComponent>
       <ParticleEmitter particle="muzzleflashrailgun" particleamount="1" velocitymin="50" velocitymax="100" />
@@ -95,7 +95,7 @@
     <Sprite name="Railgun Loader Front" texture="Content/Items/Weapons/Loaders.png" depth="0.78" sourcerect="709,370,220,353" origin="0.5,0.5" />
     <DecorativeSprite name="Railgun Loader Frame Front" texture="Content/Items/Weapons/Loaders.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-30" />
     <ItemContainer hideitems="false" drawinventory="true" capacity="5" slotsperrow="6" itempos="70,-200" iteminterval="20,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepth="0.79">
-      <GuiFrame relativesize="0.3,0.2" anchor="Center" style="ItemUI" />
+      <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
       <Containable items="railgunammo" />
     </ItemContainer>
     <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="20" mindeteriorationdelay="5" maxdeteriorationdelay="15" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
@@ -123,7 +123,7 @@
   <Item name="" identifier="railgunshell" tags="railgunequipment,railgunammo" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy"> 
     <PreferredContainer primary="railgunammocontainer" minamount="3" maxamount="6"/>
     <PreferredContainer primary="wreckrailgun" minamount="0" maxamount="3" spawnprobability="0.33"/>
-    <Price baseprice="100">
+    <Price baseprice="150">
       <Price storeidentifier="merchantoutpost" multiplier="1.5" minavailable="3" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4"/>
       <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="2" />
@@ -186,7 +186,8 @@
    
   <!-- Ядерный заряд -->
   <Item name="" identifier="nuclearshell" tags="railgunequipment,railgunammo" showcontentsintooltip="true" category="Misc" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy">
-    <PreferredContainer primary="railgunammocontainer" spawnprobability="0.05"/>
+    <PreferredContainer primary="railgunammoloader,railgunammocontainer" mincondition="1"/>
+    <PreferredContainer secondary="wreckrailgunammocontainer" amount="1" spawnprobability="0.05"/>
     <Price baseprice="430" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.35" />
       <Price storeidentifier="merchantcity" multiplier="1.25" sold="false"/>
@@ -245,7 +246,8 @@
           <Affliction identifier="explosiondamage" strength="400" />
           <Affliction identifier="stun" strength="100" />
         </Explosion>
-        <Explosion range="2000" force="0.0" smoke="false" sparks="false" empstrength="2.5" applyfireeffects="false"></Explosion>
+        <Explosion range="2000" force="0.0" smoke="false" sparks="false" empstrength="2.5" applyfireeffects="false"/>
+        <ParticleEmitter particle="underwaterexplosion" anglemin="0" anglemax="360" particleamount="3" velocitymin="0" velocitymax="0" scalemin="15" scalemax="15" />
         <SpawnItem identifier="nuclearaftereffectemitter" spawnposition="This"/>
       </StatusEffect>
       <StatusEffect type="OnActive" target="This">

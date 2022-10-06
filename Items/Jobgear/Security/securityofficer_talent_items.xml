@@ -264,8 +264,7 @@
   </Item>
  <!-- Абордажный топор -->
   <Item name="" identifier="boardingaxe" category="Weapon" Tags="mediumitem,weapon,gunsmith" scale="0.5" requireaimtouse="true" impactsoundtag="impact_metal_light">
-    <PreferredContainer primary="armcab" />
-    <PreferredContainer secondary="locker" />
+    <PreferredContainer primary="secarmcab" secondary="armcab"/>
     <Price baseprice="350" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.25" />
       <Price storeidentifier="merchantcity" multiplier="1.25" />
@@ -274,7 +273,6 @@
       <Price storeidentifier="merchantmine" multiplier="1.25" />
     </Price>
     <Deconstruct time="20">
-      <Item identifier="titaniumaluminiumalloy" />
       <Item identifier="titaniumaluminiumalloy" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
@@ -336,8 +334,9 @@
   </Item>
 <!-- Гидрокостюм  -->
 <Item name="" identifier="slipsuit" variantof="combatdivingsuit" category="Equipment" tags="diving,deepdiving,provocative" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
-    <Price baseprice="480" sold="false" />
+    <Price baseprice="630" sold="false" />
     <PreferredContainer primary="divingsuitcontainer" spawnprobability="0.0"/>
+    <PreferredContainer primary="wreckdivingsuitcontainer"  spawnprobability="0.0"/>
     <Deconstruct time="30">
       <Item identifier="ballisticfiber" />
       <Item identifier="titaniumaluminiumalloy" />

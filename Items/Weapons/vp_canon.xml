@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+<!-- Большие Боеприпасы для цепной пушки -->
+  <Item name="" identifier="chaingunammobox_big" tags="ammobox_big,chaingunammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+      <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="257,200,110,156" origin="0.5,0.5" />
+	  <Body width="110" height="156" density="50" />
+	  <Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="chaingunbolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.44" disabledeltatime="true">
+        <RequiredItem items="chaingunbolt" type="Contained" />
+      </StatusEffect>
+      <Containable items="chaingunbolt" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	 <Deconstruct time="10">
+      <Item identifier="lead" copycondition="true" />
+      <Item identifier="scrap" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="lead" />
+	  <RequiredItem identifier="lead" />
+	  <RequiredItem identifier="lead" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredItem identifier="lead" />
+	  <RequiredItem identifier="lead" />
+	  <RequiredItem identifier="lead" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="chaingunammobox_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+  </Item>
+  <Item name="" identifier="chaingunammoboxphysicorium_big" tags="ammobox_big,chaingunammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+      <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="368,200,110,156" origin="0.5,0.5" />
+	  <Body width="110" height="156" density="50" />
+	  <Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="chaingunboltphysicorium" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.80" disabledeltatime="true">
+        <RequiredItem items="chaingunboltphysicorium" type="Contained" />
+      </StatusEffect>
+      <Containable items="chaingunboltphysicorium" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	 <Deconstruct time="10">
+      <Item identifier="scrap" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="75" />
+      <RequiredItem identifier="physicorium" />
+	  <RequiredItem identifier="physicorium" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="physicorium" />
+	  <RequiredItem identifier="physicorium" />
+	  <RequiredItem identifier="physicorium" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="chaingunammoboxphysicorium_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+  </Item>
+<!-- Большие патроны магнитной пушки--> 
+  <Item name="" identifier="coilgunammobox_big" tags="ammobox_big,coilgunammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+    <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="36,44,110,156" origin="0.5,0.5" />
+	<Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	<Body width="110" height="156" density="50" />
+	<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="coilgunbolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.30" disabledeltatime="true">
+        <RequiredItem items="coilgunbolt" type="Contained" />
+      </StatusEffect>
+      <Containable items="coilgunbolt" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	<Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="50"/>
+      <RequiredItem identifier="lead"/>
+	  <RequiredItem identifier="lead"/>
+	  <RequiredItem identifier="lead"/>
+      <RequiredItem identifier="steel"/>
+	  <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="aluminium"/>
+	  <RequiredItem identifier="aluminium"/>
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="45"/>
+      <RequiredItem identifier="lead"/>
+	  <RequiredItem identifier="lead"/>
+	  <RequiredItem identifier="lead"/>
+      <RequiredItem identifier="steel"/>
+	  <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="coilgunammobox_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+	<Deconstruct time="10">
+      <Item identifier="steel" copycondition="true"/>
+      <Item identifier="scrap" />
+    </Deconstruct>
+  </Item>
+  <Item name="" identifier="physicoriumammobox_big" tags="ammobox_big,coilgunammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+      <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="147,44,110,156" origin="0.5,0.5" />
+	  <Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	  <Body width="110" height="156" density="50" />
+	      <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="physicoriumbolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.30" disabledeltatime="true">
+        <RequiredItem items="physicoriumbolt" type="Contained" />
+      </StatusEffect>
+      <Containable items="physicoriumbolt" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	<Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="60"/>
+      <RequiredItem identifier="physicorium" />
+	  <RequiredItem identifier="physicorium" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+      <RequiredItem identifier="aluminium"/>
+	  <RequiredItem identifier="aluminium"/>
+	  <RequiredItem identifier="aluminium"/>
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="50"/>
+      <RequiredItem identifier="physicorium" />
+	  <RequiredItem identifier="physicorium" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="aluminium"/>
+      <RequiredItem identifier="physicoriumammobox_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" copycondition="true"/>
+      <Item identifier="scrap" />
+      <Item identifier="aluminium"/>
+    </Deconstruct>
+  </Item>
+  <Item name="" identifier="coilgunammoboxexplosive_big" tags="ammobox_big,coilgunammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+      <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="257,44,110,156" origin="0.5,0.5" />
+	  <Body width="110" height="156" density="50" />
+	  <Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	  <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="coilgunboltexplosive" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.7" disabledeltatime="true">
+        <RequiredItem items="coilgunboltexplosive" type="Contained" />
+      </StatusEffect>
+      <Containable items="coilgunboltexplosive" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	<Deconstruct time="10">
+      <Item identifier="steel" copycondition="true"/>
+      <Item identifier="scrap" />
+	  <Item identifier="scrap" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="65" />
+      <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+      <RequiredItem identifier="coilgunammoboxexplosive_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+  </Item>
+  <Item name="" identifier="coilgunammoboxpiercing_big" tags="ammobox_big,coilgunammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+      <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="368,44,110,156" origin="0.5,0.5" />
+	  <Body width="110" height="156" density="50" />
+	  <Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	  <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="coilgunboltpiercing" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.50" disabledeltatime="true">
+        <RequiredItem items="coilgunboltpiercing" type="Contained" />
+      </StatusEffect>
+      <Containable items="coilgunboltpiercing" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	<Deconstruct time="10">
+	  <Item identifier="scrap" />
+	  <Item identifier="steel" copycondition="true"/>
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+	  <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+      <RequiredItem identifier="coilgunammoboxpiercing_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+  </Item>
+<!-- Большие Боеприпасы для импульсного лазера -->
+  <Item name="" identifier="pulselaserammobox_big" tags="ammobox_big,pulselaserammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+      <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="36,200,110,156" origin="0.5,0.5" />
+	   <Body width="110" height="156" density="50" />
+	   <Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	   <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="pulselaserbolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-1.50" disabledeltatime="true">
+        <RequiredItem items="pulselaserbolt" type="Contained" />
+      </StatusEffect>
+      <Containable items="pulselaserbolt" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	<Deconstruct time="10">
+      <Item identifier="lithium" copycondition="true"/>
+      <Item identifier="scrap" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="lithium" />
+	  <RequiredItem identifier="lithium" />
+      <RequiredItem identifier="alienblood" />
+	  <RequiredItem identifier="alienblood" />
+	  <RequiredItem identifier="alienblood" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="65" />
+      <RequiredItem identifier="lithium" />
+	  <RequiredItem identifier="lithium" />
+      <RequiredItem identifier="alienblood" />
+	  <RequiredItem identifier="alienblood" />
+	  <RequiredItem identifier="alienblood" />
+      <RequiredItem identifier="pulselaserammobox_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+  </Item>
+  <Item name="" identifier="pulselaserammoboxtrilaser_big" tags="ammobox_big,pulselaserammo" scale="0.5" category="Equipment" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+      <Sprite texture="%ModDir%/Items/Weapons/ammobox.png" depth="0.54" sourcerect="147,200,110,156" origin="0.5,0.5" />
+	  <Body width="110" height="156" density="50" />
+	   <Holdable canbecombined="true" slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect"/>
+	<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="pulselaserbolttrilaser" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-1.8" disabledeltatime="true">
+        <RequiredItem items="pulselaserbolttrilaser" type="Contained" />
+      </StatusEffect>
+      <Containable items="pulselaserbolttrilaser" />
+	  <StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+    </ItemContainer>
+	<Deconstruct time="10">
+      <Item identifier="fulgurium" copycondition="true"/>
+      <Item identifier="scrap" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="75" />
+      <RequiredItem identifier="fulgurium" />
+	  <RequiredItem identifier="fulgurium" />
+	  <RequiredItem identifier="fulgurium" />
+      <RequiredItem identifier="alienblood" />
+	  <RequiredItem identifier="alienblood" />
+      <RequiredItem identifier="aluminium" />
+	  <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="fulgurium" />
+	  <RequiredItem identifier="fulgurium" />
+	  <RequiredItem identifier="fulgurium" />
+      <RequiredItem identifier="alienblood" />
+	  <RequiredItem identifier="alienblood" />
+      <RequiredItem identifier="pulselaserammoboxtrilaser_big" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+    </Fabricate>
+  </Item>
+<!-- перископ мод-->
+ <Item name="" description="" identifier="periscope_mod" nameidentifier="periscope" variantof="periscope">
+    <Price baseprice="200">
+      <Price locationtype="outpost" multiplier="1"/>
+      <Price locationtype="city" multiplier="0.9"/>
+      <Price locationtype="research" multiplier="1.25"/>
+      <Price locationtype="military" multiplier="1"/>
+      <Price locationtype="mine" multiplier="1"/>
+    </Price>
+	<Body width="134" height="203" density="40" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
+      <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+    </Holdable>
+	<Fabricate suitablefabricators="fabricator" requiredtime="150">
+      <RequiredSkill identifier="electrical" level="70" />
+      <Item identifier="aluminium" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="steel" />
+	  <Item identifier="steel" />
+	  <Item identifier="steel" />
+	  <Item identifier="steel" />
+	  <Item identifier="signalcheckcomponent" />
+	  <Item identifier="concatcomponent" />
+	  <Item identifier="redwire" />
+	  <Item identifier="redwire" />
+    </Fabricate>
+	<Deconstruct time="60" chooserandom="true" amount="2">
+      <Item identifier="steel" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="redwire" />
+    </Deconstruct>
+
+  </Item>  
+<!-- Заряд рельсотрона с с-4 -->
+<Item name="" identifier="railgunshell_c4" variantof="railgunshell">
+    <InventoryIcon texture="railgun.png" sourcerect="0,450,50,50" origin="0.5,0.5" />
+    <Sprite texture="railgun.png" sourcerect="25,5,213,31" depth="0.55" origin="0.5,0.5" />
+    <PreferredContainer/>
+	<Price/>
+    <Deconstruct/>
+	<Fabricate/>
+    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+        <Attack structuredamage="100" itemdamage="100" severlimbsprobability="3" penetration="0.6">
+            <Affliction identifier="lacerations" strength="500" />
+            <Affliction identifier="bleeding" strength="100" />
+            <Affliction identifier="stun" strength="70" />
+        </Attack>
+		<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+            <Explosion range="600.0" structuredamage="400" itemdamage="400" force="60.0" severlimbsprobability="3" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+        </StatusEffect>
+		<StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+        <StatusEffect type="OnBroken" target="This" stackable="false">
+            <Conditional HasStatusTag="onfire" />
+		    <Explosion range="600.0" structuredamage="400" itemdamage="400" force="60.0" severlimbsprobability="3" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+		    <Remove />
+      </StatusEffect>
+    </Projectile>
+	<Deconstruct time="30">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="uex" />
+	  <RequiredItem identifier="uex" />
+	  <RequiredItem identifier="c4block" />
+    </Fabricate>
+</Item>
+<!-- Заряд рельсотрона с с-4+ усиленный-->
+<Item name="" identifier="railgunshell_c4plus" variantof="railgunshell">
+    <InventoryIcon texture="railgun.png" sourcerect="50,450,50,50" origin="0.5,0.5" />
+    <Sprite texture="railgun.png" sourcerect="25,40,213,31" depth="0.55" origin="0.5,0.5" />
+	<PreferredContainer/>
+	<Price/>
+    <Deconstruct/>
+	<Fabricate/>
+    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+        <Attack structuredamage="300" itemdamage="300" severlimbsprobability="6" penetration="0.6">
+            <Affliction identifier="lacerations" strength="1000" />
+            <Affliction identifier="bleeding" strength="1000" />
+            <Affliction identifier="stun" strength="300" />
+        </Attack>
+		<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+            <Explosion range="1200.0" structuredamage="1200" itemdamage="1200" force="120.0" severlimbsprobability="6" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+        </StatusEffect>
+		<StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+        <StatusEffect type="OnBroken" target="This" stackable="false">
+            <Conditional HasStatusTag="onfire" />
+		    <Explosion range="1200.0" structuredamage="1200" itemdamage="1200" force="120.0" severlimbsprobability="6" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+		<Remove />
+      </StatusEffect>
+    </Projectile>
+	<Deconstruct time="30">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+    </Fabricate>
+</Item>
+<!-- Заряд рельсотрона ядерный усиленный-->
+<Item name="" identifier="nuclearshell_plus" variantof="nuclearshell">
+    <InventoryIcon texture="railgun.png" sourcerect="100,450,50,50" origin="0.5,0.5" />
+    <Sprite texture="railgun.png" sourcerect="25,75,213,31" depth="0.55" origin="0.5,0.5" />
+	<PreferredContainer/>
+	<Price/>
+    <Deconstruct/>
+	<Fabricate/>
+    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+        <Attack structuredamage="750" itemdamage="600" severlimbsprobability="6" penetration="0.6">
+            <Affliction identifier="lacerations" strength="750" />
+            <Affliction identifier="bleeding" strength="500" />
+            <Affliction identifier="stun" strength="150" />
+        </Attack>
+		<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+            <Explosion range="2500.0" structuredamage="2000" itemdamage="1800" ballastfloradamage="2000" force="100.0" severlimbsprobability="4" decal="explosion" decalsize="1.0" 
+                       camerashake="900" camerashakerange="70000" 
+                       flashrange="12000" flashduration="8.0"
+                       screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0">        
+                <Affliction identifier="burn" strength="500" />
+                <Affliction identifier="radiationsickness" strength="1000" />
+                <Affliction identifier="explosiondamage" strength="800" />
+                <Affliction identifier="stun" strength="300" />
+            </Explosion>
+        <SpawnItem identifier="nuclearaftereffectemitter" spawnposition="This"/>
+      </StatusEffect>
+	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+      <StatusEffect type="OnBroken" target="This" stackable="false">
+            <Conditional HasStatusTag="onfire" />
+		    <Explosion range="2500.0" structuredamage="2000" itemdamage="1800" ballastfloradamage="2000" force="100.0" severlimbsprobability="4" decal="explosion" decalsize="1.0" 
+                       camerashake="900" camerashakerange="70000" 
+                       flashrange="12000" flashduration="8.0"
+                       screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0"> 
+                <Affliction identifier="burn" strength="500" />
+                <Affliction identifier="radiationsickness" strength="1000" />
+                <Affliction identifier="explosiondamage" strength="800" />
+                <Affliction identifier="stun" strength="300" />
+            </Explosion>
+		<Remove />
+      </StatusEffect>
+    </Projectile>
+	<Deconstruct time="30">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="300">
+<RequiredSkill identifier="weapons" level="90" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+      <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+      <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+    </Fabricate>
+</Item>
+</Items>
+</Override> 

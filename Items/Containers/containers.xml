@@ -5,7 +5,7 @@
   <Item name="" identifier="suppliescabinet" tags="container,suppliescontainer" linkable="true" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter">
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="889,349,120,132" origin="0.5,0.5" />
     <ItemContainer capacity="6" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.18,0.25" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.18,0.25" anchor="Center" style="ItemUI" />
       <Containable items="smallitem,mediumitem" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
@@ -17,7 +17,7 @@
   <Item name="" identifier="mediumsteelcabinet" tags="locker,container" linkable="true" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter" >
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="1,1,175,374" origin="0.5,0.5" />
     <ItemContainer capacity="15" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.25,0.35" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.25,0.35" anchor="Center" style="ItemUI" />
       <Containable items="smallitem,mediumitem" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
@@ -29,7 +29,7 @@
   <Item name="" aliases="Diving Gear Cabinet" identifier="mediumwindowedsteelcabinet" category="Diving" tags="locker,container" linkable="true" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter" >
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="178,1,168,377" origin="0.5,0.5" />
     <ItemContainer capacity="15" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.25,0.35" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.25,0.35" anchor="Center" style="ItemUI" />
       <Containable items="smallitem,mediumitem" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
@@ -41,7 +41,7 @@
   <Item name="" identifier="steelcabinet" tags="locker,container" linkable="true" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter">
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="348,2,364,373" origin="0.5,0.5" />
     <ItemContainer capacity="30" slotsperrow="6" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" relativeoffset="0,0.2" />
+      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
       <Containable items="smallitem,mediumitem" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
@@ -54,7 +54,7 @@
   <Item name="" identifier="securesteelcabinet" tags="locker,container,securecontainer" linkable="true" spritecolor="255,255,255,255" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter">
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="1,380,105,160" origin="0.5,0.5" />
     <ItemContainer capacity="20" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
       <RequiredItem items="idcard" type="Picked" msg="ItemMsgUnauthorizedAccess" ignoreineditor="true" />
       <Containable items="smallitem,mediumitem" />
     </ItemContainer>
@@ -68,7 +68,7 @@
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="330,811,218,212" origin="0.5,0.5" />
     <ItemContainer hideitems="false" drawinventory="true" capacity="3" slotsperrow="6" itempos="32,-100" iteminterval="30,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect">
       <Upgrade gameversion="0.18.0.0" itempos="32,-100" iteminterval="30,0" />
-      <GuiFrame relativesize="0.3,0.2" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.3,0.2" anchor="Center" style="ItemUI" />
       <Containable items="railgunammo" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
@@ -77,11 +77,18 @@
     </Controller>
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
+  <Item name="" identifier="railgunshellrack3" nameidentifier="railgunshellrack" category="Legacy" tags="container,railgunammocontainer" pickdistance="120" scale="0.5" canflipx="false" canflipy="false">
+    <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="330,811,218,212" origin="0.5,0.5" />
+    <ItemContainer hideitems="false" drawinventory="true" capacity="3" slotsperrow="3" itempos="53,-100" iteminterval="55,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" />
+      <Containable items="railgunammo" />
+    </ItemContainer>
+  </Item>
   <!-- Полка с боеприпасами -->
   <Item name="" identifier="coilgunammoshelf" tags="container,ammoboxcontainer" linkable="true" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter">
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="188,717,140,306" canflipx="false" origin="0.5,0.5" />
     <ItemContainer capacity="3" canbeselected="true" hideitems="false" itempos="70,-52" iteminterval="0,-96" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" />
       <Containable items="ammobox,coilgunammo,depthchargeammo" excludeditems="ammobox_big"/>
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
@@ -93,7 +100,7 @@
   <Item name="" identifier="medcabinet" tags="container,medcontainer" category="Medical" linkable="true" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter">
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="815,1,208,346" />
     <ItemContainer capacity="30" slotsperrow="6" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.25,0.45" anchor="Center" slotsperrow="6" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.25,0.45" anchor="Center" slotsperrow="6" style="ItemUI" />
       <Containable items="smallitem,chem,medical" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
@@ -106,7 +113,7 @@
   <Item name="" identifier="toxcabinet" tags="container,toxcontainer" linkable="true" pickdistance="150" waterproof="true" scale="0.5" variantof="object_core_deleter">
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="889,483,125,148" origin="0.5,0.5" />
     <ItemContainer capacity="20" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
       <RequiredItem items="idcard" type="Picked" msg="ItemMsgUnauthorizedAccess" ignoreineditor="true" />
       <Containable items="smallitem,chem,medical" />
     </ItemContainer>
@@ -169,6 +176,7 @@
         <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And">
           <Conditional Voltage="gt 0.1" targetcontainer="true" targetitemcomponent="Powered"/>
           <Conditional HasTag="refillableoxygensource"/>
+          <Conditional targetcontainer="true" HasStatusTag="!eq onfire" />
         </StatusEffect>
       </Containable>
     </ItemContainer>
@@ -250,6 +258,7 @@
         <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And">
           <Conditional Voltage="gt 0.1" targetcontainer="true" targetitemcomponent="Powered"/>
           <Conditional HasTag="refillableoxygensource"/>
+          <Conditional targetcontainer="true" HasStatusTag="!eq onfire" />
         </StatusEffect>
       </Containable>
     </ItemContainer>
@@ -334,7 +343,7 @@
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.85" sourcerect="188,596,84,85" origin="0.5,0.5"/>
     <DecorativeSprite texture="Content/Items/Containers/containers.png" depth="0.5" sourcerect="188,682,124,33" origin="0.5,0.5" />
     <ItemContainer hideitems="false" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="1" itempos="46,-47" iteminterval="0,0" itemrotation="90" containedspritedepth="0.84" canbeselected="true" msg="ItemMsgInteractSelect">
-        <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" relativeoffset="0,0.2"/>
+        <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
         <Containable items="mountableweapon,scooter" />
 	    <!-- <StatusEffect type="OnActive" target="Contained" targets="gun" condition="10" disabledeltatime="true"> -->
 	         <!-- <Conditional HasTag="sprayer"/> -->
@@ -387,7 +396,7 @@
   
   <!--Контейнер для перевозки артефактов--> 
   <Item name="" identifier="artifacttransportcase" category="Equipment" tags="mediumitem,mobilecontainer,artifactcontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="false" description="" impactsoundtag="impact_soft">
-	<!--PreferredContainer primary="engcab"/-->
+	<PreferredContainer primary="engcab"/>
     <Deconstruct time="20">
       <Item identifier="lead" />
       <Item identifier="scrap" />
@@ -428,12 +437,11 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
   </Item>
-  <!-- Грузовой модуль -->
-  <Item name="" identifier="unitloaddevice" tags="cargocontainer" linkable="true" pickdistance="150" scale="0.5">
+  <Item name="" identifier="unitloaddevice" tags="cargocontainer" linkable="true" pickdistance="150" scale="0.5" waterproof="true" >
     <Sprite texture="Content/Items/Containers/UnitLoadDevice.png" depth="0.8" sourcerect="0,0,567,446" origin="0.5,0.5" />
     <DecorativeSprite texture="Content/Items/Containers/UnitLoadDevice.png" depth="0.85" sourcerect="0,457,567,446" origin="0.5,0.5" />
-    <ItemContainer capacity="10" maxstacksize="1" canbeselected="true" hideitems="false" itempos="120,-364" iteminterval="150,80" itemsperrow="3" msg="ItemMsgInteractSelect" containedspritedepths="0.81,0.82,0.81,0.82,0.81,0.82,0.81,0.82,0.81,0.82">
-      <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" relativeoffset="0,0.2"/>
+    <ItemContainer capacity="12" maxstacksize="1" canbeselected="true" hideitems="false" itempos="120,-364" iteminterval="150,80" itemsperrow="3" slotsperrow="4" msg="ItemMsgInteractSelect" containedspritedepths="0.81,0.82,0.81,0.82,0.81,0.82,0.81,0.82,0.81,0.82,0.81,0.82">
+      <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" />
       <Containable items="crate" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">

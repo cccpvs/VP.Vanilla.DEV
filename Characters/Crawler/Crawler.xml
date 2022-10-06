@@ -71,7 +71,7 @@
       <latchonto attachtowalls="true" attachtosub="true" mindeattachspeed="5.0" maxdeattachspeed="8.0" damageondetach="30" detachstun="5.0" attachlimb="Head" localattachpos="40,10" offset="50" attachlimbrotation="100" />
       <latchonto attachtowalls="true" attachtosub="false" mindeattachspeed="5.0" maxdeattachspeed="8.0" damageondetach="30" detachstun="5.0" attachlimb="Head" localattachpos="40,10" offset="50" attachlimbrotation="100" />
     </chooserandom>
-    <SwarmBehavior mindistfromclosest="200" maxdistfromcenter="1000" cohesion="1" />
+    <SwarmBehavior mindistfromclosest="200" maxdistfromcenter="1000" cohesion="0.5" />
   </ai>
 </Character>
 </Override> 

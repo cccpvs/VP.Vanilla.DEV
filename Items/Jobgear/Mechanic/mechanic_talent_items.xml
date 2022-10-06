@@ -25,6 +25,9 @@
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="64,3,36,28" depth="0.55" origin="0.5,0.5" />
     <Body width="40" height="22" density="40" />
     <AiTarget sight="500" staticsight="true" />
+    <MiniMap MinVoltage="1" powerconsumption="5" enableitemfinder="false" enablehullcondition="false" enableelectricalview="false" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true" IsOn="false" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true"/>
+      <GuiFrame relativesize="0.3,0.3" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
+	<GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
 		<StatusEffect type="OnFire" target="This" Condition="-100.0" />
         <StatusEffect type="OnBroken" target="This" Condition="-100.0">
@@ -50,9 +53,6 @@
 	       <Conditional ShowHullIntegrity="!e false" RequireWaterDetectors="!e true" RequireOxygenDetectors="!e true"/>
 	    </StatusEffect>
 	</Holdable>
-    <MiniMap MinVoltage="1" powerconsumption="5" enableitemfinder="false" enablehullcondition="false" enableelectricalview="false" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true" IsOn="false" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true">
-      <GuiFrame relativesize="0.3,0.3" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
-	</MiniMap>
 	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery" ShowContainedStateIndicator="false">
       <Containable items="mobilebattery">
             <StatusEffect type="OnContaining" targettype="This" Voltage="1" setvalue="true"/>
@@ -199,11 +199,13 @@
   </Item>
   <!-- Дементонитовый гаечный ключ -->
   <Item name="" identifier="wrenchdementonite" descriptionidentifier="dementonitetool" variantof="wrench" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedrepairspeedmultiplier="0.4">
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <PreferredContainer spawnprobability="0" />
-    <Price baseprice="+200" sold="false">
+    <Preferredcontainer secondary="respawncontainer" amount="1"  spawnprobability="0" notcampaign="true"/>
+    <PreferredContainer primary="engcab"  spawnprobability="0"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab"  spawnprobability="0" />
+    <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab"  spawnprobability="0"/>
+    <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0"/>
+    <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+    <Price baseprice="450" sold="false">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="0.9" />
       <Price storeidentifier="merchantresearch" />
@@ -215,8 +217,8 @@
       <Item identifier="dementonite" />
     </Deconstruct>
     <Fabricate requiresrecipe="true">
-      <RequiredItem identifier="wrench" />
       <RequiredItem identifier="dementonite" amount="2" />
+      <RequiredItem identifier="wrench" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="8">
@@ -243,8 +245,8 @@
       <Item identifier="dementonite" />
     </Deconstruct>
     <Fabricate requiresrecipe="true">
-      <RequiredItem identifier="crowbar" />
       <RequiredItem identifier="dementonite" amount="2" />
+      <RequiredItem identifier="crowbar" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="13">
@@ -277,8 +279,8 @@
       <Item identifier="dementonite" />
     </Deconstruct>
     <Fabricate requiresrecipe="true">
-      <RequiredItem identifier="screwdriver" />
       <RequiredItem identifier="dementonite" amount="2" />
+      <RequiredItem identifier="screwdriver" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="8">
@@ -311,8 +313,8 @@
       <Item identifier="dementonite" />
     </Deconstruct>
     <Fabricate requiresrecipe="true">
-      <RequiredItem identifier="divingknife" />
       <RequiredItem identifier="dementonite" amount="2" />
+      <RequiredItem identifier="divingknife" />
     </Fabricate>
     <MeleeWeapon reload="*0.7">
       <Attack targetimpulse="4" itemdamage="20">

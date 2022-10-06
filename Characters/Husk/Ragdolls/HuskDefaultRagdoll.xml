@@ -8,9 +8,9 @@
       <StatusEffect type="OnUse" target="This" disabledeltatime="true">
         <ReduceAffliction type="damage" strength="5" />
       </StatusEffect>
-      <Affliction identifier="bitewounds" strength="30" probability="1" />
-      <Affliction identifier="bleeding" strength="30" probability="0.75" />
-      <Affliction identifier="huskinfection" strength="10" probability="0.5" />
+      <Affliction identifier="bitewounds" strength="5" probability="1" />
+      <Affliction identifier="bleeding" strength="5" probability="0.75" />
+      <Affliction identifier="huskinfection" strength="5" probability="0.5" />
       <Affliction identifier="stun" strength="0.5" probability="1" />
     </attack>
   </limb>

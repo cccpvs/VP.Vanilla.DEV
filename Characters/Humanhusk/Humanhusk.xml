@@ -55,7 +55,7 @@
     <target tag="swarmfeeder" state="Idle" priority="0" ignoreinside="True" ignoreoutside="True" ignoreifnotinsamesub="True" ignoreincapacitated="True" />
     <target tag="huskinfected" state="Idle" priority="0" ignoreinside="True" ignoreoutside="True" ignoreifnotinsamesub="True" ignoreincapacitated="True" threshold="1"/>
   </ai>
-  <inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" commonness="1" />
+  <inventory arrowslot="5" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" commonness="1" />
 
   <Vars>
     <Var var="GENDER" tags="female,male" />
