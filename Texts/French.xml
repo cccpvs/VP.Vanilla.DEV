@@ -43,15 +43,34 @@
     <entitydescription.chaingunammobox_big>Chaingunammobox lourd</entitydescription.chaingunammobox_big>
     <entityname.chaingunammoboxphysicorium_big>Grandes munitions pour chaingun de Physicorium</entityname.chaingunammoboxphysicorium_big>
     <entitydescription.chainunammoboxphysicorium_big>Une boîte incroyablement lourde de munitions de chaingun physicorium. Le pouvoir d'arrêt de ces projectiles est tel qu'ils peuvent étourdir n'importe quelle cible.</entitydescription.chainunammoboxphysicorium_big>
-    <ItemMsgDeleteItems>Supprimer l'élément</ItemMsgDeleteItems>
+    
+	<entityname.coilgunammoboxdepletedfuel_big>Grande boîte de munitions magnétiques à carburant épuisé</entityname.coilgunammoboxdepletedfuel_big>
+    <entitydescription.coilgunammoboxdepletedfuel_big>Une boîte de munitions en carburant lourd pour le canon magnétique. Cette munition a un pouvoir de pénétration élevé et cause des dégâts de radiation à la cible</entitydescription.coilgunammoboxdepletedfuel_big>
+    <entityname.chaingunammoboxshredder_big>Grande boîte de munitions fractionnées pour Chaingun</entityname.chaingunammoboxshredder_big>
+    <entitydescription.chaingunammoboxshredder_big>Une boîte de munitions lourdes pour le chaingun. Les munitions fractionnées transpercent le corps et l'armure de tous les ennemis.</entitydescription.chaingunammoboxshredder_big>
+    <entityname.flakcannonammobox_big>Grande boîte d'obus à dispersion large</entityname.flakcannonammobox_big>
+    <entitydescription.flakcannonammobox_big>Une boîte de munitions lourde à large dispersion pour le canon à éclats. Utilisé contre de grands groupes de cibles.</entitydescription.flakcannonammobox_big>
+    <entityname.flakcannondirectionalammobox_big>Grande caisse d'obus à faible dispersion</entityname.flakcannondirectionalammobox_big>
+    <entitydescription.flakcannondirectionalammobox_big>Une lourde petite boîte de munitions de dispersion pour le canon à éclats. Utilisé contre des cibles uniques.</entitydescription.flakcannondirectionalammobox_big>
+    <entityname.flakcannonammoboxphysicorium_big>Grande boîte d'obus d'obus de Physicorium</entityname.flakcannonammoboxphysicorium_big>
+    <entitydescription.flakcannonammoboxphysicorium_big>Une lourde boîte de munitions de physicorium pour le canon à éclats.</entitydescription.flakcannonammoboxphysicorium_big>
+    <entityname.flakcannonammoboxexplosive_big>Grande caisse d'obus explosifs pour canon à shrapnel</entityname.flakcannonammoboxexplosive_big>
+    <entitydescription.flakcannonammoboxexplosive_big>Boîte lourde de munitions d'obus explosifs.</entitydescription.flakcannonammoboxexplosive_big>
+	
+	<ItemMsgDeleteItems>Supprimer l'élément</ItemMsgDeleteItems>
     <!-- Scooters sous-marins -->
     <entityname.underwaterscooter_sonar>Scooter sous-marin sonar</entityname.underwaterscooter_sonar>
     <entitydescription.underwaterscooter_sonar>Un appareil de transport sous-marin alimenté par des batteries. Contient un sonar.</entitydescription.underwaterscooter_sonar>
+    <entityname.underwaterscooter_sonar_mineral>Scooter sous-marin avec scanner de minéraux</entityname.underwaterscooter_sonar_mineral>
+    <entitydescription.underwaterscooter_sonar_mineral>Un appareil de transport sous-marin alimenté par des batteries. Contient un scanner minéral.</entitydescription.underwaterscooter_sonar_mineral>
     <entityname.cargoscooter_sonar>Scooter cargo avec sonar</entityname.cargoscooter_sonar>
-    <entitydescription.cargoscooter_sonar>Un scooter sous-marin pour transporter des fournitures sous l'eau. Contient un sonar. Le scooter est trop grand pour tenir dans votre inventaire, mais sa flottabilité neutre lui permet de rester là où vous le laissez tomber. </entitydescription.cargoscooter_sonar>
+    <entitydescription.cargoscooter_sonar>Un scooter sous-marin pour transporter des fournitures sous l'eau. Contient un sonar.</entitydescription.cargoscooter_sonar>
+    <entityname.cargoscooter_sonar_mineral>Scooter cargo avec scanner de minéraux</entityname.cargoscooter_sonar_mineral>
+    <entitydescription.cargoscooter_sonar_mineral>Un scooter sous-marin pour transporter des matériaux sous l'eau. Contient un scanner de minéraux.</entitydescription.cargoscooter_sonar_mineral>
+    <!-- Modules -->
     <entityname.turrethardpoint_mod>Porte-outils</entityname.turrethardpoint_mod>
     <entitydescription.turrethardpoint_mod>Un module actif vide sur lequel installer une arme.</entitydescription.turrethardpoint_mod>
-    <entityname.blankperiscope_mod>Base périscope</entityname.blankperiscope_mod>
+    <entityname.blankperiscope_mod>Base de périscope</entityname.blankperiscope_mod>	
 	<!--Modifications d'armes -->
     <entityname.harpoongun_golograf>Arbalète holographique</entityname.harpoongun_golograf>
     <entityname.revolver_golograf>Revolver avec viseur holographique</entityname.revolver_golograf>

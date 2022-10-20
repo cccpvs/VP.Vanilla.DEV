@@ -248,9 +248,9 @@
       <RequiredItem identifier="fpgacircuit" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,128,67,62" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Diving/Scooter.png" depth="0.60" sourcerect="0,0,140,102"/>
-	<BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="187,11,139,93" depth="0.8" maxcondition="60" />
-    <BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="353,16,139,93" depth="0.8" maxcondition="20" />
+    <Sprite texture="Content/Items/Diving/Scooter.png" depth="0.50" sourcerect="0,0,140,102"/>
+	<!-- <BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="187,11,139,93" depth="0.8" maxcondition="60" /> -->
+    <!-- <BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="353,16,139,93" depth="0.8" maxcondition="20" /> -->
     <Body width="140" height="102" density="10" />
     <Holdable slots="RightHand+LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect" >
 	    <LightComponent range="1000.0" lightcolor="255,255,255,255" flicker="0.4" flickerspeed="0.1" powerconsumption="5" IsOn="true">
@@ -572,11 +572,11 @@
         <Conditional IsDead="false" />
         <RequiredItem items="oxygentank" type="Contained" />
       </StatusEffect>
-      <StatusEffect type="OnWearing" target="Contained,Character" targetslot="0" Oxygen="-20.0" Condition="-0.5">
+      <StatusEffect type="OnWearing" target="Contained,Character" targetslot="0" Oxygen="-10.0" Condition="-0.5">
         <Conditional IsDead="false" />
         <RequiredItem items="weldingfueltank" type="Contained" />
       </StatusEffect>
-      <StatusEffect type="OnWearing" target="Contained,Character" targetslot="0" Oxygen="-20.0" Condition="-0.5">
+      <StatusEffect type="OnWearing" target="Contained,Character" targetslot="0" Oxygen="-10.0" Condition="-0.5">
         <Conditional IsDead="false" />
         <RequiredItem items="incendiumfueltank" type="Contained" />
         <Affliction identifier="burn" amount="0.1" />

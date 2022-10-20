@@ -334,17 +334,9 @@
         <reduceaffliction identifier="lacerations" strength="0.01" />
 		<reduceaffliction identifier="bitewounds" strength="0.01" />
   </StatusEffect>
-  
-  
-  <!-- Выносливость персонажа -->
-  <!-- Фитнес 0-10 -->
-   <!-- <StatusEffect TargetType="This" Comparison="And"> -->
-	  <!-- <Conditional IsPlayer="true" CurrentSpeed="gt 2" InWater="!e true"/> -->
-      <!-- <Affliction identifier="stamina" amount="5"/> -->
-  <!-- </StatusEffect> -->
-  
-  
-  
+  <!-- Ограничение видимости -->
+  <StatusEffect TargetType="This" ObstructVision="true"/>
+
     <!-- Выносливость -->
   <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And">
 	  <Conditional IsPlayer="true" CurrentSpeed="gt 1.81" InWater="!e true"/>
@@ -385,7 +377,7 @@
       <!-- <giveskill skillidentifier="fitnes" amount="-100"/> -->
   <!-- </StatusEffect> -->
   <!-- Ограниченный обзор -->
-  <StatusEffect TargetType="This" ObstructVision="true"/>
+
   
   
   <!-- <StatusEffect type="Always" target="This" Comparison="Or">  -->
@@ -404,6 +396,14 @@
 	  <!-- <Affliction identifier="oxygenlow" amount="30"/> -->
 	  <!-- <SpawnCharacter speciesname="Husk" count="1" offset="0,700" spread="100"/> -->
 	  
+  <!-- </StatusEffect> -->
+  
+  
+    <!-- Выносливость персонажа -->
+  <!-- Фитнес 0-10 -->
+   <!-- <StatusEffect TargetType="This" Comparison="And"> -->
+	  <!-- <Conditional IsPlayer="true" CurrentSpeed="gt 2" InWater="!e true"/> -->
+      <!-- <Affliction identifier="stamina" amount="5"/> -->
   <!-- </StatusEffect> -->
 </Character>
 </Override>

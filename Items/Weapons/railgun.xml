@@ -136,16 +136,14 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="weapons" level="40" />
-      <RequiredItem identifier="steel" />
-	  <RequiredItem identifier="steel" />
-	  <RequiredItem identifier="uex" />
-	  <RequiredItem identifier="uex" />
+      <RequiredItem identifier="steel" amount="2" />
+	  <RequiredItem identifier="uex" amount="2" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,128,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="2,91,215,33" depth="0.55" origin="0.5,0.5" />
     <Body width="215" height="30" density="30" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
-    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+    <Projectile characterusable="false" launchimpulse="80.0" damagedoors="true" MaxTargetsToHit="1">
       <Attack structuredamage="55" itemdamage="55" severlimbsprobability="1.5" penetration="0.6">
         <Affliction identifier="lacerations" strength="250" />
         <Affliction identifier="bleeding" strength="50" />
@@ -201,20 +199,15 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="30">
       <RequiredSkill identifier="weapons" level="70" />
-      <RequiredItem identifier="steel" />
-	  <RequiredItem identifier="steel" />
-      <RequiredItem identifier="uranium" />
-	  <RequiredItem identifier="uranium" />
-	  <RequiredItem identifier="uranium" />
-	  <RequiredItem identifier="uranium" />
-      <RequiredItem identifier="ic4block" />
-	  <RequiredItem identifier="ic4block" />
+      <RequiredItem identifier="steel" amount="2" />
+      <RequiredItem identifier="uranium" amount="4" />
+      <RequiredItem identifier="ic4block" amount="2" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,128,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="1,131,217,33" depth="0.55" origin="0.5,0.5" />
     <Body width="215" height="30" density="35" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
-    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+    <Projectile characterusable="false" launchimpulse="80.0" damagedoors="true" MaxTargetsToHit="1">
       <Attack structuredamage="75" itemdamage="75" severlimbsprobability="2" penetration="0.6">
         <Affliction identifier="lacerations" strength="250" />
         <Affliction identifier="bleeding" strength="50" />
@@ -283,18 +276,16 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="weapons" level="60" />
-      <RequiredItem identifier="steel" />
-	  <RequiredItem identifier="steel" />
-      <RequiredItem identifier="physicorium" />
-	  <RequiredItem identifier="physicorium" />
-      <RequiredItem identifier="uex" />
+      <RequiredItem identifier="steel" amount="2" />
+      <RequiredItem identifier="physicorium" amount="2" />
+      <RequiredItem identifier="uex" amount="2" />
 	  <RequiredItem identifier="uex" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,959,61,65" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="1,170,216,34" depth="0.55" origin="0.5,0.5" />
     <Body width="215" height="30" density="35" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
-    <Projectile characterusable="false" launchimpulse="80.0">
+    <Projectile characterusable="false" launchimpulse="80.0" damagedoors="true" MaxTargetsToHit="1">
       <Attack structuredamage="200" itemdamage="200" severlimbsprobability="2.0" penetration="0.6">
         <Affliction identifier="lacerations" strength="800" />
         <Affliction identifier="bleeding" strength="50" />
@@ -339,11 +330,11 @@
     <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="140,486,21,21" depth="0.55" />
     <Body width="160" height="10" density="20" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
-    <Projectile characterusable="false" launchimpulse="65.0" impulsespread="0.3" spread="30" >
-      <Attack structuredamage="15" itemdamage="15" severlimbsprobability="1.0" penetration="0.20">
-        <Affliction identifier="gunshotwound" strength="70" />
-        <Affliction identifier="bleeding" strength="3.0" />
-        <Affliction identifier="stun" strength="2.0" />
+    <Projectile characterusable="false" launchimpulse="-15.0" impulsespread="0.3" spread="30" damagedoors="true">
+      <Attack structuredamage="30" itemdamage="15" severlimbsprobability="3.0" penetration="0.3">
+        <Affliction identifier="lacerations" strength="50" />
+        <Affliction identifier="bleeding" strength="20" />
+        <Affliction identifier="stun" strength="2" />
       </Attack>
       <StatusEffect type="OnActive" target="This" lifetime="2">
         <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="0.33" scalemax="1" />
@@ -365,9 +356,9 @@
   </Item>
 
   <!-- Картечный снаряд -->
-  <Item name="" identifier="railguncanistershell" tags="railgunequipment,railgunammo,containershell" category="Equipment" linkable="true" scale="0.5" impactsoundtag="impact_metal_heavy">
-    <PreferredContainer primary="railgunammocontainer" spawnprobability="0.2"/>
-    <PreferredContainer primary="wreckrailgun" minamount="0" maxamount="3" spawnprobability="0.25"/>
+  <Item name="" identifier="railguncanistershell" tags="railgunequipment,railgunammo,containershell" category="Weapon" linkable="true" scale="0.5" impactsoundtag="impact_metal_heavy">
+    <PreferredContainer primary="railgunammoloader,railgunammocontainer" mincondition="1"/>
+    <PreferredContainer secondary="wreckrailgunammocontainer" minamount="1" maxamount="2" spawnprobability="0.2"/>
     <Price baseprice="120">
       <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.2" />
       <Price storeidentifier="merchantcity" multiplier="1.2" minavailable="1" sold="false"/>
@@ -382,11 +373,8 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="weapons" level="50" />
-      <RequiredItem identifier="steel" />
-	  <RequiredItem identifier="steel" />
-	  <RequiredItem identifier="lead" />
-	  <RequiredItem identifier="lead" />
-	  <RequiredItem identifier="lead" />
+      <RequiredItem identifier="steel" amount="2" />
+	  <RequiredItem identifier="lead" amount="3" />
 	  <RequiredItem identifier="uex" />
     </Fabricate>
     <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="8">

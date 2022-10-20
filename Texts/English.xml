@@ -40,14 +40,33 @@
     <entitydescription.chaingunammobox_big>Heavy Chain Cannon Ammo Crate </entitydescription.chaingunammobox_big>
     <entityname.chaingunammoboxphysicorium_big>Large Physicorium Ammo for Chain Cannon </entityname.chaingunammoboxphysicorium_big>
     <entitydescription.chaingunammoboxphysicorium_big>An incredibly heavy crate of Chainship Cannon projectiles made from Physicorium. The stopping power of these projectiles is such that they can stun any target. </entitydescription.chaingunammoboxphysicorium_big> 
+	
+	<entityname.coilgunammoboxdepletedfuel_big>Large Depleted Fuel Magnet Ammo Box</entityname.coilgunammoboxdepletedfuel_big>
+    <entitydescription.coilgunammoboxdepletedfuel_big>A heavy depleted fuel ammo box for the Magnet Cannon. This ammunition has high penetration power and causes radiation damage to the target</entitydescription.coilgunammoboxdepletedfuel_big>
+    <entityname.chaingunammoboxshredder_big>Big Box of Fractional Chaingun Ammo</entityname.chaingunammoboxshredder_big>
+    <entitydescription.chaingunammoboxshredder_big>A heavy ammo box for the chaingun. Fractional ammo pierces the bodies and armor of any enemies.</entitydescription.chaingunammoboxshredder_big>
+    <entityname.flakcannonammobox_big>Large Box of Broad Dispersion Shrapnel Shells</entityname.flakcannonammobox_big>
+    <entitydescription.flakcannonammobox_big>A heavy wide-dispersion ammo box for the shrapnel cannon. Used against large clusters of targets.</entitydescription.flakcannonammobox_big>
+    <entityname.flakcannondirectionalammobox_big>Large Crate of Low Dispersion Shrapnel Shells</entityname.flakcannondirectionalammobox_big>
+    <entitydescription.flakcannondirectionalammobox_big>A heavy small dispersion ammo box for the shrapnel cannon. Used against single targets.</entitydescription.flakcannondirectionalammobox_big>
+    <entityname.flakcannonammoboxphysicorium_big>Big Box of Physicorium Shrapnel Shells</entityname.flakcannonammoboxphysicorium_big>
+    <entitydescription.flakcannonammoboxphysicorium_big>A heavy box of physicorium ammo for the shrapnel cannon.</entitydescription.flakcannonammoboxphysicorium_big>
+    <entityname.flakcannonammoboxexplosive_big>Large Crate of Shrapnel Cannon Explosive Shells</entityname.flakcannonammoboxexplosive_big>
+    <entitydescription.flakcannonammoboxexplosive_big>Heavy box of explosive shrapnel ammo.</entitydescription.flakcannonammoboxexplosive_big>
 	<ItemMsgDeleteItems>Delete this item</ItemMsgDeleteItems>
-	<entityname.underwaterscooter_sonar>Sonar scooter</entityname.underwaterscooter_sonar>
-    <entitydescription.underwaterscooter_sonar>Battery operated underwater transport device. Contains sonar. </entitydescription.underwaterscooter_sonar>
-    <entityname.cargoscooter_sonar>Cargo Scooter with Sonar </entityname.cargoscooter_sonar>
-    <entitydescription.cargoscooter_sonar>An underwater scooter for transporting materials underwater. Contains sonar. The scooter is too big to fit in your inventory, but its neutral buoyancy allows it to stay where you drop it. </entitydescription.cargoscooter_sonar>
-    <entityname.turrethardpoint_mod>Implement holder</entityname.turrethardpoint_mod>
-    <entitydescription.turrethardpoint_mod>An empty combat module to which a weapon can be placed.</entitydescription.turrethardpoint_mod>
-    <entityname.blankperiscope_mod>Periscope base</entityname.blankperiscope_mod>
+    <!-- Underwater scooters -->
+    <entityname.underwaterscooter_sonar>Sonar Underwater Scooter</entityname.underwaterscooter_sonar>
+    <entitydescription.underwaterscooter_sonar>An underwater transportation device powered by batteries. Contains sonar.</entitydescription.underwaterscooter_sonar>
+    <entityname.underwaterscooter_sonar_mineral>Underwater Scooter with Mineral Scanner</entityname.underwaterscooter_sonar_mineral>
+    <entitydescription.underwaterscooter_sonar_mineral>An underwater transportation device powered by batteries. Contains a mineral scanner.</entitydescription.underwaterscooter_sonar_mineral>
+    <entityname.cargoscooter_sonar>Cargo Scooter with Sonar</entityname.cargoscooter_sonar>
+    <entitydescription.cargoscooter_sonar>An underwater scooter for transporting supplies underwater. Contains sonar.</entitydescription.cargoscooter_sonar>
+    <entityname.cargoscooter_sonar_mineral>Cargo Scooter with Mineral Scanner</entityname.cargoscooter_sonar_mineral>
+    <entitydescription.cargoscooter_sonar_mineral>An underwater scooter for transporting materials underwater. Contains a mineral scanner.</entitydescription.cargoscooter_sonar_mineral>
+    <!-- Modules -->
+    <entityname.turrethardpoint_mod>Implement Holder</entityname.turrethardpoint_mod>
+    <entitydescription.turrethardpoint_mod>An empty active module on which to install a weapon.</entitydescription.turrethardpoint_mod>
+    <entityname.blankperiscope_mod>Periscope Base</entityname.blankperiscope_mod>	
 	<!-- Weapon Mods -->
     <entityname.harpoongun_golograf>Holographic Sight Diving Gun</entityname.harpoongun_golograf>
     <entityname.revolver_golograf>Holographic Sight Revolver</entityname.revolver_golograf>

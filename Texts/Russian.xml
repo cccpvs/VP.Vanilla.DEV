@@ -35,6 +35,20 @@
     <entitydescription.coilgunammoboxexplosive_big>Снаряды для магнитной пушки. Взрываются при столкновении с целью.</entitydescription.coilgunammoboxexplosive_big>
     <entityname.coilgunammoboxpiercing_big>Большой ящик пробивных снарядов</entityname.coilgunammoboxpiercing_big>
     <entitydescription.coilgunammoboxpiercing_big>Снаряд для магнитной пушки с пробивающими способностями.</entitydescription.coilgunammoboxpiercing_big>
+	
+	<entityname.coilgunammoboxdepletedfuel_big>Большой Ящик с боеприпасами с обедненным топливом для магнитной пушки</entityname.coilgunammoboxdepletedfuel_big>
+    <entitydescription.coilgunammoboxdepletedfuel_big>Тяжелый ящик с боеприпасами с обедненным топливом для магнитной пушки. Эти боеприпасы отличаются большой пробивной силой и вызывают радиационное поражение цели</entitydescription.coilgunammoboxdepletedfuel_big>
+	<entityname.chaingunammoboxshredder_big>Большой ящик Дробных боеприпасы для цепной пушки</entityname.chaingunammoboxshredder_big>
+    <entitydescription.chaingunammoboxshredder_big>Тяжелый ящик с боеприпасами для цепной пушки. Дробные боеприпасы проникают в тела и броню любых врагов.</entitydescription.chaingunammoboxshredder_big>
+	<entityname.flakcannonammobox_big>Большой Ящик шрапнельных снарядов широкого рассеивания</entityname.flakcannonammobox_big>
+    <entitydescription.flakcannonammobox_big>Тяжелый ящик с боеприпасами широкого рассеивания для шрапнельного орудия. Применяются против больших скоплений целей.</entitydescription.flakcannonammobox_big>
+    <entityname.flakcannondirectionalammobox_big>Большой Ящик шрапнельных снарядов малого рассеивания</entityname.flakcannondirectionalammobox_big>
+    <entitydescription.flakcannondirectionalammobox_big>Тяжелый ящик с боеприпасами малого рассеивания для шрапнельного орудия. Применяются против одиночных целей.</entitydescription.flakcannondirectionalammobox_big>
+	<entityname.flakcannonammoboxphysicorium_big>Большой Ящик физикориевых шрапнельных снарядов</entityname.flakcannonammoboxphysicorium_big>
+    <entitydescription.flakcannonammoboxphysicorium_big>Тяжелый ящик с физикориевыми боеприпасами для шрапнельного орудия.</entitydescription.flakcannonammoboxphysicorium_big>
+	<entityname.flakcannonammoboxexplosive_big>Большой Ящик взрывчатых снарядов шрапнельного орудия</entityname.flakcannonammoboxexplosive_big>
+    <entitydescription.flakcannonammoboxexplosive_big>Тяжелый ящик с взрывчатыми боеприпасами для шрапнельного орудия.</entitydescription.flakcannonammoboxexplosive_big>
+
 	<entityname.pulselaserammobox_big>Большая капсула для импульсного лазера</entityname.pulselaserammobox_big>
     <entitydescription.pulselaserammobox_big>Капсула со специально подобранными реагентами и фокусирующей линзой. Подходит для создания мощных всплесков энергии. Используется как боеприпас для импульсного лазера.</entitydescription.pulselaserammobox_big>
 	<entityname.pulselaserammoboxtrilaser_big>Большая капсула для импульсного трилазера</entityname.pulselaserammoboxtrilaser_big>
@@ -47,8 +61,13 @@
     <!-- Подводные скутеры -->
     <entityname.underwaterscooter_sonar>Подводный скутер с сонаром</entityname.underwaterscooter_sonar>
     <entitydescription.underwaterscooter_sonar>Подводное транспортное устройство, работающее от батарей. Содержит сонар.</entitydescription.underwaterscooter_sonar>
-    <entityname.cargoscooter_sonar>Грузовой скутер с сонаром</entityname.cargoscooter_sonar>
-    <entitydescription.cargoscooter_sonar>Подводный скутер для транспортировки материалов под водой. Содержит сонар. Скутер слишком большой и не поместится в инвентаре, но нейтральная плавучесть позволяет ему оставаться там, где вы его бросите. </entitydescription.cargoscooter_sonar>
+    <entityname.underwaterscooter_sonar_mineral>Подводный скутер со сканером минералов</entityname.underwaterscooter_sonar_mineral>
+    <entitydescription.underwaterscooter_sonar_mineral>Подводное транспортное устройство, работающее от батарей. Содержит сканер минералов.</entitydescription.underwaterscooter_sonar_mineral>
+	<entityname.cargoscooter_sonar>Грузовой скутер с сонаром</entityname.cargoscooter_sonar>
+    <entitydescription.cargoscooter_sonar>Подводный скутер для транспортировки материалов под водой. Содержит сонар.</entitydescription.cargoscooter_sonar>
+	<entityname.cargoscooter_sonar_mineral>Грузовой скутер со сканером минералов</entityname.cargoscooter_sonar_mineral>
+    <entitydescription.cargoscooter_sonar_mineral>Подводный скутер для транспортировки материалов под водой. Содержит сканер минералов.</entitydescription.cargoscooter_sonar_mineral>
+	<!-- Модули -->
 	<entityname.turrethardpoint_mod>Держатель орудия</entityname.turrethardpoint_mod>
     <entitydescription.turrethardpoint_mod>Пустой боевой модуль, на который можно установить орудие.</entitydescription.turrethardpoint_mod>
     <entityname.blankperiscope_mod>Основание перископа</entityname.blankperiscope_mod>
@@ -70,14 +89,14 @@
 	<entityname.crosshairs_weapons_optics>Оптический прицел для оружия</entityname.crosshairs_weapons_optics>
 	<entitydescription.crosshairs_weapons_optics>Оптический прицел для установки на некоторые виды вооружения. Для установки используйте фабрикатор</entitydescription.crosshairs_weapons_optics>
 	<!-- Рельсотрон -->
-    <entityname.railgunshell_c4>Заряд рельсотрона С4</entityname.railgunshell_c4>
+    <entityname.railgunshell_c4>Снаряд рельсотрона С4</entityname.railgunshell_c4>
     <entitydescription.railgunshell_c4>Необходим для стрельбы из рельсотрона. Увеличенная сила повреждений</entitydescription.railgunshell_c4>
-    <entityname.railgunshell_c4plus>Заряд рельсотрона С4+ Усиленный</entityname.railgunshell_c4plus>
-    <entitydescription.railgunshell_c4plus>Необходим для стрельбы из рельсотрона.Увеличенная заряд с более высокой зоной поражения.</entitydescription.railgunshell_c4plus>
-    <entityname.nuclearshell_plus>Ядерный заряд усиленный</entityname.nuclearshell_plus>
-    <entitydescription.nuclearshell_plus>Ядерный заряд для рельсотрона. Усилинный ядерный заряд</entitydescription.nuclearshell_plus>
-	<entityname.nuclearshell_plus>Ядерный заряд усиленный</entityname.nuclearshell_plus>
-    <entitydescription.nuclearshell_plus>Ядерный заряд для рельсотрона. Усилинный ядерный заряд</entitydescription.nuclearshell_plus>
+    <entityname.railgunshell_c4plus>Снаряд рельсотрона С4+ Усиленный</entityname.railgunshell_c4plus>
+    <entitydescription.railgunshell_c4plus>Необходим для стрельбы из рельсотрона.Увеличенная Снаряд с более высокой зоной поражения.</entitydescription.railgunshell_c4plus>
+    <entityname.nuclearshell_plus>Ядерный Снаряд усиленный</entityname.nuclearshell_plus>
+    <entitydescription.nuclearshell_plus>Ядерный Снаряд для рельсотрона. Усилинный ядерный Снаряд</entitydescription.nuclearshell_plus>
+	<entityname.nuclearshell_plus>Ядерный Снаряд усиленный</entityname.nuclearshell_plus>
+    <entitydescription.nuclearshell_plus>Ядерный Снаряд для рельсотрона. Усилинный ядерный Снаряд</entitydescription.nuclearshell_plus>
 	<entityname.coilgunammoshelf_mod_big>Полка с боеприпасами большие</entityname.coilgunammoshelf_mod_big>
     <entitydescription.coilgunammoshelf_mod_big>Удобный способ хранения больших боеприпасов.</entitydescription.coilgunammoshelf_mod_big>
 	<entityname.crateshelf_small_mod>Малый стеллаж для ящиков</entityname.crateshelf_small_mod>

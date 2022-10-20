@@ -154,7 +154,6 @@
       <output name="condition_out" displayname="connection.conditionout" />
     </ConnectionPanel>
   </Item>
-  <!-- Взрывной снаряд магнитной пушки -->
   <Item name="" identifier="coilgunbolt" category="Weapon" scale="0.5" sonarsize="2" hideinmenus="true">
     <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="143,414,113,9" depth="0.55" />
     <Body width="170" height="10" density="20" />

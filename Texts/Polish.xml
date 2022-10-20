@@ -43,15 +43,34 @@
     <entitydescription.chaingunammobox_big>Ciężkie pudełko na łańcuchgunammobox</entitydescription.chaingunammobox_big>
     <entityname.chaingunammoboxphysicorium_big>Duża amunicja do Physicorium Chaingun</entityname.chaingunammoboxphysicorium_big>
     <entitydescription.chaingunammoboxphysicorium_big>Niewiarygodnie ciężkie pudełko z amunicją do Physicorium Chaingun. Siła rażenia tych pocisków jest taka, że ​​mogą ogłuszyć każdy cel.</entitydescription.chaingunammoboxphysicorium_big>
-    <ItemMsgDeleteItems>Usuń element</ItemMsgDeleteItems>
+    
+	<entityname.coilgunammoboxdepletedfuel_big>Duża skrzynka na amunicję z magnesem na zużyty magnes</entityname.coilgunammoboxdepletedfuel_big>
+    <entitydescription.coilgunammoboxdepletedfuel_big>Ciężka skrzynka z amunicją z paliwem do działa magnetycznego. Ta amunicja ma dużą siłę penetracji i powoduje obrażenia od promieniowania u celu</entitydescription.coilgunammoboxdepletedfuel_big>
+    <entityname.chaingunammoboxshredder_big>Duża skrzynka ułamkowej amunicji do broni łańcuchowej</entityname.chaingunammoboxshredder_big>
+    <entitydescription.chaingunammoboxshredder_big>Ciężka skrzynka na amunicję do pistoletu łańcuchowego. Amunicja frakcyjna przebija ciała i zbroje wszystkich wrogów.</entitydescription.chaingunammoboxshredder_big>
+    <entityname.flakcannonammobox_big>Duże pudełko łusek szrapnela o szerokim rozproszeniu</entityname.flakcannonammobox_big>
+    <entitydescription.flakcannonammobox_big>Ciężka skrzynka z amunicją o szerokim rozproszeniu do działa szrapnelowego. Używane przeciwko dużym grupom celów.</entitydescription.flakcannonammobox_big>
+    <entityname.flakcannondirectionalammobox_big>Duża skrzynia łusek szrapnela o niskiej dyspersji</entityname.flakcannondirectionalammobox_big>
+    <entitydescription.flakcannondirectionalammobox_big>Ciężka, mała skrzynka na amunicję do działka szrapnelowego. Używane przeciwko pojedynczym celom.</entitydescription.flakcannondirectionalammobox_big>
+    <entityname.flakcannonammoboxphysicorium_big>Wielkie pudełko łusek odłamków Physicorium</entityname.flakcannonammoboxphysicorium_big>
+    <entitydescription.flakcannonammoboxphysicorium_big>Ciężkie pudełko z amunicją Physicorium do działa odłamkowego.</entitydescription.flakcannonammoboxphysicorium_big>
+    <entityname.flakcannonammoboxexplosive_big>Duża skrzynka z pociskami wybuchowymi działa szrapnelowego</entityname.flakcannonammoboxexplosive_big>
+    <entitydescription.flakcannonammoboxexplosive_big>Ciężkie pudełko z wybuchową amunicją odłamkową.</entitydescription.flakcannonammoboxexplosive_big>
+	
+	<ItemMsgDeleteItems>Usuń element</ItemMsgDeleteItems>
     <!-- Skutery podwodne -->
     <entityname.underwaterscooter_sonar>Podwodny skuter z sonarem</entityname.underwaterscooter_sonar>
     <entitydescription.underwaterscooter_sonar>Podwodne urządzenie transportowe zasilane bateriami. Zawiera sonar.</entitydescription.underwaterscooter_sonar>
+    <entityname.underwaterscooter_sonar_mineral>Podwodny skuter ze skanerem minerałów</entityname.underwaterscooter_sonar_mineral>
+    <entitydescription.underwaterscooter_sonar_mineral>Podwodne urządzenie transportowe zasilane bateriami. Zawiera skaner minerałów.</entitydescription.underwaterscooter_sonar_mineral>
     <entityname.cargoscooter_sonar>Skuter towarowy z sonarem</entityname.cargoscooter_sonar>
-    <entitydescription.cargoscooter_sonar>Skuter podwodny do transportu zaopatrzenia pod wodą. Zawiera sonar. Hulajnoga jest zbyt duża, aby zmieścić się w ekwipunku, ale jej neutralna pływalność pozwala mu pozostać tam, gdzie go upuścisz. </entitydescription.cargoscooter_sonar>
+    <entitydescription.cargoscooter_sonar>Podwodny skuter do transportu zaopatrzenia pod wodą. Zawiera sonar.</entitydescription.cargoscooter_sonar>
+    <entityname.cargoscooter_sonar_mineral>Skuter towarowy ze skanerem minerałów</entityname.cargoscooter_sonar_mineral>
+    <entitydescription.cargoscooter_sonar_mineral>Skuter podwodny do transportu materiałów pod wodą. Zawiera skaner minerałów.</entitydescription.cargoscooter_sonar_mineral>
+    <!-- Moduły -->
     <entityname.turrethardpoint_mod>Posiadacz implementacji</entityname.turrethardpoint_mod>
     <entitydescription.turrethardpoint_mod>Pusty aktywny moduł, na którym należy zainstalować broń.</entitydescription.turrethardpoint_mod>
-    <entityname.blankperiscope_mod>Podstawa peryskopu</entityname.blankperiscope_mod>
+    <entityname.blankperiscope_mod>Podstawa peryskopu</entityname.blankperiscope_mod>  	
 	<!-- Modyfikacje broni -->
     <entityname.harpoongun_golograf>Holograficzna strzelba</entityname.harpoongun_golograf>
     <entityname.revolver_golograf>Rewolwer z celownikiem holograficznym</entityname.revolver_golograf>

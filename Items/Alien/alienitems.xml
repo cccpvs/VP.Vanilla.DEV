@@ -259,9 +259,9 @@
       <StatusEffect type="OnBroken" target="This">
         <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" selectionmode="All" />
         <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
-        <Explosion range="600.0" structuredamage="800" force="20.0">
-          <Affliction identifier="lacerations" strength="300" />
-          <Affliction identifier="stun" strength="4" />
+        <Explosion range="200.0" ballastfloradamage="30" structuredamage="20" force="4">
+          <Affliction identifier="burn" strength="80" />
+          <Affliction identifier="stun" strength="5" />
         </Explosion>
         <Remove />
       </StatusEffect>
@@ -661,14 +661,14 @@
   </Item>
   <Item name="" identifier="aliengenerator" category="Alien" Tags="alien,aliengenerator" scale="0.3">
     <Sprite texture="Content/Items/Alien/Legacy/AlienRuin_Legacy.png" depth="0.8" sourcerect="512,0,512,573" />
-    <DecorativeSprite texture="Content/Items/Alien/Legacy/AlienRuin_Legacy.png" sourcerect="0,468,178,178" depth="0.799" offset="6,-36" origin="0.5,0.5">
-      <Conditional Charge="gt 1" targetitemcomponent="PowerContainer" />
-    </DecorativeSprite>
-    <LightComponent AllowInGameEditing="false" lightcolor="112,146,190,50" canbeselected="false" range="800.0" IsOn="true" />
-    <ItemContainer capacity="1" maxstacksize="1" canbeselected="true" hideitems="false" itempos="264,-321" autointeractwithcontained="true">
+    <LightComponent AllowInGameEditing="false" lightcolor="112,146,190,50" canbeselected="false" range="800.0" IsOn="true">
+      <Sprite texture="Content/Items/Alien/Legacy/AlienRuin_Legacy.png" sourcerect="0,486,176,176" origin="0.47, 0.3" alpha="1.0"/>
+    </LightComponent>
+    <ItemContainer capacity="1" maxstacksize="1" canbeselected="true" hideitems="false" itempos="264,-321" containedspritedepth="0.01" autointeractwithcontained="true">
       <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+      <StatusEffect type="Always" target="This" Charge="-10.0" />
       <Containable items="alienpowercell">
-        <StatusEffect type="OnContaining" target="This" Charge="100.0" />
+        <StatusEffect type="OnContaining" target="This" Charge="100.0" setvalue="true" />
       </Containable>
     </ItemContainer>
     <PowerContainer capacity="10.0" canbeselected="false" maxrechargespeed="1000.0" maxoutput="10000.0" />
@@ -811,7 +811,7 @@
       <StatusEffect type="OnImpact" target="This" condition="-100" />
       <StatusEffect type="OnBroken" target="This">
         <Explosion range="300.0" structuredamage="0" force="20.0">
-          <Affliction identifier="explosiondamage" strength="10" />
+          <Affliction identifier="explosiondamage" strength="15" />
         </Explosion>
         <Remove />
       </StatusEffect>
@@ -1036,9 +1036,9 @@
         <Sound file="Content/Sounds/Damage/GlassBreak3.ogg" range="3000" selectionmode="Random" />
         <Sound file="Content/Sounds/Damage/GlassBreak4.ogg" range="3000" selectionmode="Random" />
         <ParticleEmitter particle="plasmaspark" drawontop="true" particleamount="50" scalemin="0.5" scalemax="1" velocitymin="600" velocitymax="1000" anglemin="0" anglemax="360" />
-        <Explosion range="150.0" structuredamage="0" itemdamage="0" force="10" severlimbsprobability="0" decal="explosion" showeffects="true" flames="false" applyfireeffects="false">
-          <Affliction identifier="explosiondamage" strength="20" />
-          <Affliction identifier="stun" strength="3" />
+        <Explosion range="100.0" structuredamage="0" itemdamage="0" force="5" severlimbsprobability="0" decal="explosion" showeffects="true" flames="false" applyfireeffects="false">
+          <Affliction identifier="explosiondamage" strength="50" />
+          <Affliction identifier="stun" strength="5" />
           <StatusEffect type="OnUse" target="NearbyCharacters" range="60" disabledeltatime="true">
             <Conditional group="ancientalien" />
             <ReduceAffliction identifier="damageimmunity" amount="100" />

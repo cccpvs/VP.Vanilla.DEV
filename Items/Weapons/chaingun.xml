@@ -102,7 +102,6 @@
       <output name="condition_out" displayname="connection.conditionout" />
     </ConnectionPanel>
   </Item>
-  <!-- Болт для цепной пушки -->
   <Item name="" identifier="chaingunbolt" category="Weapon" scale="0.3" sonarsize="2" hideinmenus="true">
     <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="143,310,369,66" depth="0.55" />
     <Body width="170" height="10" density="10" />
@@ -132,7 +131,6 @@
       </StatusEffect>
     </Projectile>
   </Item>
-  
   <Item name="" identifier="chaingunboltphysicorium" nameidentifier="chaingunbolt" category="Weapon" scale="0.5" sonarsize="2" hideinmenus="true" spritecolor="255,150,100,255">
     <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="143,310,369,66" depth="0.55" />
     <Body width="170" height="10" density="15" />
@@ -164,7 +162,7 @@
   </Item>
 
   <Item name="" identifier="chaingunboltshredder" category="Misc" scale="0.3" sonarsize="2" hideinmenus="true">
-    <Sprite texture="TurretsAndDepthCharges.png" sourcerect="143,310,369,66" depth="0.55" />
+    <Sprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" sourcerect="143,310,369,66" depth="0.55" />
     <Body width="170" height="10" density="10" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
     <Projectile characterusable="false" launchimpulse="0" spread="9.5" removeonhit="true" damagedoors="true">
@@ -192,7 +190,7 @@
       </StatusEffect>
     </Projectile>
   </Item>
- <!-- Боеприпасы для цепной пушки -->
+<!-- Боеприпасы для цепной пушки -->
 <Item name="" identifier="chaingunammobox" scale="0.5" tags="chaingunequipment,chaingunammo,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy">
     <PreferredContainer primary="chaingunammosource" amount="1" mincondition="1"/>
     <PreferredContainer primary="ammoboxcontainer" mincondition="1"/>
@@ -236,6 +234,7 @@
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
+<!-- Физикориевые боеприпасы для цепной пушки -->
 <Item name="" identifier="chaingunammoboxphysicorium" fallbacknameidentifier="chaingunammobox" scale="0.5" tags="chaingunequipment,chaingunammo,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
     <PreferredContainer primary="chaingunammosource,ammoboxcontainer" mincondition="1"/>
     <Price baseprice="410" sold="false" displaynonempty="true" minleveldifficulty="35">
@@ -277,7 +276,7 @@
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
-  <!-- Дробные боеприпасы для цепной пушки -->
+<!-- Дробные боеприпасы для цепной пушки -->
   <Item name="" identifier="chaingunammoboxshredder" scale="0.5" tags="chaingunequipment,chaingunammo,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy"  damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
     <PreferredContainer primary="chaingunammosource,ammoboxcontainer" mincondition="1"/>
     <Price baseprice="260" minavailable="0" displaynonempty="true" minleveldifficulty="15">
