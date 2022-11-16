@@ -5,7 +5,7 @@
   <animations folder="Content/Characters/Mudraptor/Animations" />
   <health vitality="300" doesbleed="True" crushdepth="-Infinity" usehealthwindow="False" bleedingreduction="1" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="1">
     <Limb name="Torso" />
-    <Limb name="Head" />
+    <Limb name="Head"/>
     <Limb name="LeftLeg" />
     <Limb name="RightLeg" />
     <!--Tail-->

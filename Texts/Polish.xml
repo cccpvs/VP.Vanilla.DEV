@@ -14,18 +14,9 @@
     <!-- Broń-->
     <entityname.flashlight_weapons>Latarnia broni</entityname.flashlight_weapons>
     <entitydescription.flashlight_weapons>Latarka używana do mocowania do broni</entitydescription.flashlight_weapons>
-    <entityname.christmas_tree>Choinka</entityname.christmas_tree>
-    <entitydescription.christmas_tree>Świąteczny nastrój teraz i natychmiast</entitydescription.christmas_tree>
-    <entityname.cassette_recorder>Nagrywarka kasetowa</entityname.cassette_recorder>
-    <entitydescription.cassette_recorder>Odtwarzaj ulubioną muzykę podczas podróży</entitydescription.cassette_recorder>
-    <entityname.cassette_bobbyhelms_jinglebellsrock>Kaseta Bobby Helms – Jingle Bells Rock</entityname.cassette_bobbyhelms_jinglebellsrock>
-    <entityname.cassette_brendalee_rockinaroundthechristmastree>Brenda Lee – Kaseta Rockin' Around the Christmas Tree</entityname.cassette_brendalee_rockinaroundthechristmastree>
-    <entityname.cassette_eltonjohn_stepintochristmas>Elton John – wskocz do świątecznej kasety</entityname.cassette_eltonjohn_stepintochristmas>
-    <entityname.cassette_franksinatra_jinglebells>Frank Sinatra — kaseta Jingle Bells</entityname.cassette_franksinatra_jinglebells>
-    <entityname.cassette_franksinatra_letitsnow>Frank Sinatra – kaseta na śnieg</entityname.cassette_franksinatra_letitsnow>
-    <entityname.cassette_maddiepoppe_rockinaroundthechristmastree>Maddie Poppe – kołysz się wokół choinki</entityname.cassette_maddiepoppe_rockinaroundthechristmastree>
-    <entityname.cassette_queen_thankgoditschristmas>Królowa kaseta – dzięki Bogu to Boże Narodzenie</entityname.cassette_queen_thankgoditschristmas>
-    <entityname.cassette_wham_lastchristmas>Kaseta Wham! - Ostatnie Święta Bożego Narodzenia</entityname.cassette_wham_lastchristmas>
+	<timer_detonator_10sec>10 sekundowy timer</timer_detonator_10sec>
+    <timer_detonator_30sec>30-sekundowy licznik czasu</timer_detonator_30sec>
+    <timer_detonator_60sec>Licznik czasu 60 sekund</timer_detonator_60sec>
     <!-- Uzbrojenie statku -->
     <entityname.coilgunammobox_big>Skrzynka z amunicją do armaty magnetycznej</entityname.coilgunammobox_big>
     <entitydescription.coilgunammobox_big>Amunicja do pistoletu magnetycznego.</entitydescription.coilgunammobox_big>

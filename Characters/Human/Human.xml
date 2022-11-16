@@ -366,19 +366,38 @@
       <!-- <reduceaffliction identifier="stamina" amount="5"/> -->
   <!-- </StatusEffect> -->
 
+<!-- <StatusEffect ActionType="OnWearing" TargetType="this,UseTarget" targettags="deepdiving"> -->
+           <!-- <fire/> -->
+
+<!-- </StatusEffect> -->
+
+
+
+
+
   <!-- Фитнес -->
   <!-- <StatusEffect TargetType="This" Comparison="And"> -->
 	  <!-- <Conditional CanMove="e true" CurrentSpeed="gt 4"/> -->
       <!-- <giveskill skillidentifier="fitnes" amount="0.0001"/> -->
   <!-- </StatusEffect> -->
   <!-- Сброс фитнеса после смерти -->
-  <!-- <StatusEffect TargetType="This" Comparison="And"> -->
-	  <!-- <Conditional IsDead="true"/> -->
-      <!-- <giveskill skillidentifier="fitnes" amount="-100"/> -->
+  <!-- <StatusEffect Type="OnDeath" Target="this" checkconditionalalways="true"> -->
+	  <!-- <Conditional IsDead="e true"/> -->
+      <!-- <giveskill skillidentifier="helm" amount="-100"/> -->
+	  <!-- <fire/> -->
   <!-- </StatusEffect> -->
   <!-- Ограниченный обзор -->
 
-  
+<!-- <StatusEffect Target="this" checkconditionalalways="true"> -->
+	  <!-- <Conditional ForceRun="true"/> -->
+	  <!-- <fire/> -->
+  <!-- </StatusEffect> -->
+
+  <!-- <StatusEffect Target="this" checkconditionalalways="true"> -->
+	  <!-- <Conditional helm="gt 10"/> -->
+	  <!-- <fire/> -->
+  <!-- </StatusEffect> -->
+
   
   <!-- <StatusEffect type="Always" target="This" Comparison="Or">  -->
      <!-- <Conditional IsMovingFast="e true"/> -->

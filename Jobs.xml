@@ -14,11 +14,11 @@
       <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="612,669,28,28" origin="0.5,0.5"/>
     </JobiconSmall>
     <Skills>
-      <Skill identifier="helm" level="40,50" primary="true"/>
-      <Skill identifier="weapons" level="25,35"/>
-      <Skill identifier="mechanical" level="15,25"/>
-      <Skill identifier="electrical" level="15,25"/>
-      <Skill identifier="medical" level="5,10"/>
+      <Skill identifier="helm" level="30,30" primary="true"/>
+      <Skill identifier="weapons" level="0,0"/>
+      <Skill identifier="mechanical" level="0,0"/>
+      <Skill identifier="electrical" level="0,0"/>
+      <Skill identifier="medical" level="0,0"/>
 	  <!-- <Skill identifier="fitnes" level="0,0"/> -->
     </Skills>
     <ItemSet>
@@ -104,11 +104,11 @@
       <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="612,727,28,28" origin="0.5,0.5"/>
     </JobiconSmall>
     <Skills>
-      <Skill identifier="electrical" level="40,50" primary="true"/>
-      <Skill identifier="mechanical" level="25,35"/>
-      <Skill identifier="weapons" level="15,25"/>
-      <Skill identifier="medical" level="15,25"/>
-      <Skill identifier="helm" level="5,10"/>
+      <Skill identifier="electrical" level="30,30" primary="true"/>
+      <Skill identifier="mechanical" level="0,0"/>
+      <Skill identifier="weapons" level="0,0"/>
+      <Skill identifier="medical" level="0,0"/>
+      <Skill identifier="helm" level="0,0"/>
     </Skills>
     <ItemSet>
       <Item identifier="idcard" equip="true" showpreview="false"/>
@@ -166,11 +166,11 @@
       <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="641,640,28,28" origin="0.5,0.5"/>
     </JobiconSmall>
     <Skills>
-      <Skill identifier="mechanical" level="40,50" primary="true"/>
-      <Skill identifier="electrical" level="25,35"/>
-      <Skill identifier="weapons" level="15,25"/>
-      <Skill identifier="medical" level="15,25"/>
-      <Skill identifier="helm" level="5,10"/>
+      <Skill identifier="mechanical" level="30,30" primary="true"/>
+      <Skill identifier="electrical" level="0,0"/>
+      <Skill identifier="weapons" level="0,0"/>
+      <Skill identifier="medical" level="0,0"/>
+      <Skill identifier="helm" level="0,0"/>
     </Skills>
     <ItemSet>
       <Item identifier="idcard" equip="true" showpreview="false"/>
@@ -240,11 +240,11 @@
       <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="612,640,28,28" origin="0.5,0.5"/>
     </JobiconSmall>
     <Skills>
-      <Skill identifier="weapons" level="40,50" primary="true"/>
-      <Skill identifier="medical" level="25,35"/>
-      <Skill identifier="mechanical" level="15,25"/>
-      <Skill identifier="electrical" level="15,25"/>
-      <Skill identifier="helm" level="5,10"/>
+      <Skill identifier="weapons" level="30,30" primary="true"/>
+      <Skill identifier="medical" level="0,0"/>
+      <Skill identifier="mechanical" level="0,0"/>
+      <Skill identifier="electrical" level="0,0"/>
+      <Skill identifier="helm" level="0,0"/>
     </Skills>
     <ItemSet>
       <Item identifier="securityuniform1" equip="true" outfit="true"/>
@@ -314,11 +314,11 @@
       <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="612,698,28,28" origin="0.5,0.5"/>
     </JobiconSmall>
     <Skills>
-      <Skill identifier="medical" level="40,50" primary="true"/>
-      <Skill identifier="weapons" level="15,25"/>
-      <Skill identifier="mechanical" level="15,25"/>
-      <Skill identifier="electrical" level="15,25"/>
-      <Skill identifier="helm" level="5,10"/>
+      <Skill identifier="medical" level="30,30" primary="true"/>
+      <Skill identifier="weapons" level="0,0"/>
+      <Skill identifier="mechanical" level="0,0"/>
+      <Skill identifier="electrical" level="0,0"/>
+      <Skill identifier="helm" level="0,0"/>
     </Skills>
     <ItemSet>
       <Item identifier="idcard" equip="true" showpreview="false"/>
@@ -370,11 +370,11 @@
       <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="641,669,28,28" origin="0.5,0.5"/>
     </JobiconSmall>
     <Skills>
-      <Skill identifier="weapons" level="20,30"/>
-      <Skill identifier="mechanical" level="20,30"/>
-      <Skill identifier="electrical" level="20,30"/>
-      <Skill identifier="medical" level="20,30"/>
-      <Skill identifier="helm" level="17.5,20"/>
+      <Skill identifier="weapons" level="5,5"/>
+      <Skill identifier="mechanical" level="5,5"/>
+      <Skill identifier="electrical" level="5,5"/>
+      <Skill identifier="medical" level="5,5"/>
+      <Skill identifier="helm" level="5,5"/>
     </Skills>
     <ItemSet>
       <Item identifier="idcard" equip="true" showpreview="false"/>

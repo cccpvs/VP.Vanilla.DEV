@@ -67,7 +67,7 @@
     </ItemContainer>
   </Item>
 <!-- Водолазный скафандр -->
-  <Item name="" identifier="divingsuit" category="Diving,Equipment" tags="diving,deepdiving,provocative" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="divingsuit" category="Diving,Equipment" tags="diving,deepdiving,provocative" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy" >
     <Price baseprice="250">
       <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="4" />
@@ -136,9 +136,20 @@
       <sprite name="Regular Diving Suit Right Shoe" texture="Content/Items/Diving/reg_DivingSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
 	  <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" PressureProtection="6000.0" SpeedMultiplier="0.8" LowPassMultiplier="0.2" setvalue="true" disabledeltatime="true">
-        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
-        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/> -->
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/> -->
       </StatusEffect>
+	  <!-- Sound of Gear -->
+	  <StatusEffect type="OnWearing" target="Character">
+	     <Conditional inWater="ne true"/>
+		 <Sound file="%ModDir%/Items/Diving/breath_diving.ogg" range="200" loop="true" volume="1.0"/>
+	  </StatusEffect>
+	  <StatusEffect type="OnWearing" target="Character">
+	  	 <Conditional inWater="e true"/>
+	     <Sound file="%ModDir%/Items/Diving/breath_diving_water.ogg" range="200" loop="true" volume="1.0"/>
+		 <ParticleEmitter particle="bubbles" particlespersecond="1" emitinterval="2.1" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="1" scalemin="0.33" scalemax="1" />
+	  </StatusEffect>
+	  <!-- End Sound of Gear -->
 	  <!-- MaskSuitLens -->
 	  <StatusEffect type="OnWearing" target="Character">
 		<Affliction identifier="MaskSuitLens" amount="250" />
@@ -191,12 +202,13 @@
 	  <statvalue stattype="RepairSpeed" value="-0.3" />
 	  <statvalue stattype="FlowResistance" value="0.3" />
 	</Wearable>
-    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
+	<Propulsion force="10" usablein="water" particles="bubbles"/>
+    <Holdable slots="RightHand+LeftHand" controlpose="true" selectkey="Select" pickkey="Use" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" canbeselected="false" canbepicked="true">
       <Upgrade gameversion="0.1401.0.0" msg="ItemMsgPickUpUse" />
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </Holdable>
-    <ItemContainer capacity="0" maxstacksize="0" hideitems="true" containedstateindicatorstyle="tank" ShowContainedStateIndicator="false">
-	<Containable items="none" />
+    <ItemContainer capacity="0" maxstacksize="0" hideitems="true" containedstateindicatorstyle="tank" ShowContainedStateIndicator="false" >
+	<Containable items="none"/>
       <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,93,120,29" origin="0.5,0.45" />
 	  <SlotIcon slotindex="1" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />
       <SubContainer capacity="1" maxstacksize="1">
@@ -216,13 +228,13 @@
           <Sound file="Content/Items/WarningBeep.ogg" range="500" />
         </StatusEffect>
     </ItemContainer>
-	<!-- <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
       <GuiFrame relativesize="0.12,0.15" anchor="BottomLeft" absoluteoffset="20,138" style="ItemUI" />
-      <TickBox text="label.onoff" >
+      <TickBox text="entityname.divingsuit" >
         <StatusEffect type="OnUse" targettype="This" IsOn="true" />
         <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
       </TickBox>
-    </CustomInterface> -->
+    </CustomInterface> 
     <aitarget maxsightrange="1500" />  
   </Item>
 <!-- подводный скутер -->
@@ -252,7 +264,7 @@
 	<!-- <BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="187,11,139,93" depth="0.8" maxcondition="60" /> -->
     <!-- <BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="353,16,139,93" depth="0.8" maxcondition="20" /> -->
     <Body width="140" height="102" density="10" />
-    <Holdable slots="RightHand+LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect" >
+    <Holdable slots="RightHand+LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect">
 	    <LightComponent range="1000.0" lightcolor="255,255,255,255" flicker="0.4" flickerspeed="0.1" powerconsumption="5" IsOn="true">
 	    	<StatusEffect type="OnActive" targettype="Contained" targetslot="0" Condition="-0.1">
                 <RequiredItem items="batterycell" type="Contained" />
@@ -400,9 +412,20 @@
       <sprite name="Abyss Diving Suit Right Shoe" texture="Content/Items/Diving/Abyss_DivingSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" PressureProtection="10000.0" SpeedMultiplier="0.7" PropulsionSpeedMultiplier="0.5" LowPassMultiplier="0.2" setvalue="true" disabledeltatime="true">
-        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
-        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/> -->
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/> -->
       </StatusEffect>
+	  <!-- Sound of Gear -->
+	  <StatusEffect type="OnWearing" target="Character">
+	     <Conditional inWater="ne true"/>
+		 <Sound file="%ModDir%/Items/Diving/breath_diving.ogg" range="200" loop="true" volume="1.0"/>
+	  </StatusEffect>
+	  <StatusEffect type="OnWearing" target="Character">
+	  	 <Conditional inWater="e true"/>
+	     <Sound file="%ModDir%/Items/Diving/breath_diving_water.ogg" range="200" loop="true" volume="1.0"/>
+		 <ParticleEmitter particle="bubbles" particlespersecond="1" emitinterval="2.1" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="1" scalemin="0.33" scalemax="1" />
+	  </StatusEffect>
+	  <!-- End Sound of Gear -->
 			<StatusEffect type="OnWearing" target="Character">
 				<Affliction identifier="MaskSuitLens" amount="250" />
       </StatusEffect>
@@ -481,13 +504,13 @@
           <Sound file="Content/Items/WarningBeep.ogg" range="500" />
         </StatusEffect>
     </ItemContainer>
-	<!-- <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+	<CustomInterface canbeselected="false" drawhudwhenequipped="true">
       <GuiFrame relativesize="0.12,0.15" anchor="BottomLeft" absoluteoffset="20,138" style="ItemUI" />
-      <TickBox text="label.onoff" >
+      <TickBox text="entityname.divingsuit" >
         <StatusEffect type="OnUse" targettype="This" IsOn="true" />
         <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
       </TickBox>
-    </CustomInterface> -->
+    </CustomInterface> 
     <aitarget maxsightrange="1500" />
   </Item>
 <!-- Боевой водолазный скафандр -->
@@ -557,11 +580,22 @@
       <sprite name="Combat Diving Suit Right Shoe" texture="Content/Items/Diving/combat_DivingSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" PressureProtection="8000.0" SpeedMultiplier="0.95" PropulsionSpeedMultiplier="1.4" LowPassMultiplier="0.2" setvalue="true" disabledeltatime="true">
-        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
-        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/> -->
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/> -->
       </StatusEffect>
-			<StatusEffect type="OnWearing" target="Character">
-				<Affliction identifier="MaskSuitLens" amount="250" />
+	  <!-- Sound of Gear -->
+	  <StatusEffect type="OnWearing" target="Character">
+	     <Conditional inWater="ne true"/>
+		 <Sound file="%ModDir%/Items/Diving/breath_diving.ogg" range="200" loop="true" volume="1.0"/>
+	  </StatusEffect>
+	  <StatusEffect type="OnWearing" target="Character">
+	  	 <Conditional inWater="e true"/>
+	     <Sound file="%ModDir%/Items/Diving/breath_diving_water.ogg" range="200" loop="true" volume="1.0"/>
+		 <ParticleEmitter particle="bubbles" particlespersecond="1" emitinterval="2.1" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="1" scalemin="0.33" scalemax="1" />
+	  </StatusEffect>
+	  <!-- End Sound of Gear -->
+	  <StatusEffect type="OnWearing" target="Character">
+		<Affliction identifier="MaskSuitLens" amount="250" />
       </StatusEffect>
       <!-- Refill oxygen when the suit is contained. -->
       <StatusEffect type="OnContained" target="Contained" Condition="1.0" interval="1" disabledeltatime="true">
@@ -639,13 +673,13 @@
           <Sound file="Content/Items/WarningBeep.ogg" range="500" />
         </StatusEffect>
     </ItemContainer>
-	<!-- <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+	<CustomInterface canbeselected="false" drawhudwhenequipped="true">
       <GuiFrame relativesize="0.12,0.15" anchor="BottomLeft" absoluteoffset="20,138" style="ItemUI" />
-      <TickBox text="label.onoff" >
+      <TickBox text="entityname.divingsuit" >
         <StatusEffect type="OnUse" targettype="This" IsOn="true" />
         <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
       </TickBox>
-    </CustomInterface> -->
+    </CustomInterface> 
     <aitarget maxsightrange="1500" />
   </Item>
   <!-- Расходный водолазный скафандр -->
@@ -690,8 +724,8 @@
       <sprite name="Respawn Diving Suit Right Shoe" texture="Content/Items/Diving/RespawnSuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
       <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="true" SpeedMultiplier="0.7" PropulsionSpeedMultiplier="0.5" setvalue="true" disabledeltatime="true"/>
-			<StatusEffect type="OnWearing" target="Character">
-				<Affliction identifier="MaskSuitLens" amount="250" />
+	  <StatusEffect type="OnWearing" target="Character">
+		<Affliction identifier="MaskSuitLens" amount="250" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="this,Character" PressureProtection="10000.0" setvalue="true" disabledeltatime="true">
         <Conditional condition="gt 0.0" />
@@ -710,9 +744,20 @@
         <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true"/>
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Character" LowPassMultiplier="0.2" setvalue="true" >
-        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true" />
-        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true" />  
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true" /> -->
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true" />   -->
       </StatusEffect>
+	  <!-- Sound of Gear -->
+	  <StatusEffect type="OnWearing" target="Character">
+	     <Conditional inWater="ne true"/>
+		 <Sound file="%ModDir%/Items/Diving/breath_diving.ogg" range="200" loop="true" volume="1.0"/>
+	  </StatusEffect>
+	  <StatusEffect type="OnWearing" target="Character">
+	  	 <Conditional inWater="e true"/>
+	     <Sound file="%ModDir%/Items/Diving/breath_diving_water.ogg" range="200" loop="true" volume="1.0"/>
+		 <ParticleEmitter particle="bubbles" particlespersecond="1" emitinterval="2.1" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="1" scalemin="0.33" scalemax="1" />
+	  </StatusEffect>
+	  <!-- End Sound of Gear -->
       <StatusEffect type="OnWearing" target="this,Character">
         <Conditional condition="lte 0.0" />
         <Sound file="Content/Items/Diving/ITEMS_divingSuitOxygenLeakLoop.ogg" range="200" loop="true" dontmuffle="true"/>

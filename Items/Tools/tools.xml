@@ -141,7 +141,6 @@
           <Affliction identifier="burn" strength="75" />
           <Affliction identifier="stun" strength="4" />
         </Explosion>
-		
       </StatusEffect>
 	  <!-- <StatusEffect type="OnDamaged" target="UseTarget" targets="structure"> -->
 	      <!-- <Explosion range="10" force="0.0" camerashake="1" shockwave="true" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" structuredamage="-1" /> -->
@@ -149,7 +148,7 @@
 	  <!-- </StatusEffect> -->
 	  <!-- <StatusEffect type="OnUse" target="Character" UpdateHUDProgressBar="false" /> -->
 	  <!-- <StatusEffect type="OnUse" target="NearbyItems" condition="-20" /> -->
-      <Fixable identifier="structure"/>
+
       <!-- the tool can fix structures, i.e. walls and windows -->
       <Fixable identifier="structure" />
       <NonFixable identifier="thalamus,ice" />
@@ -181,7 +180,7 @@
       </StatusEffect>
     </RepairTool>
     <!-- one welding fuel or oxygen tank can be contained inside the welding tool -->
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="8,-35" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="8,-35" containedspritedepth="0.56" containedstateindicatorstyle="tank" ShowContainedStateIndicator="false">
       <Containable items="weldingtoolfuel,oxygensource" />
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="500" fadeouttime="3" />
@@ -282,7 +281,7 @@
 		<Remove />
       </StatusEffect>
     </RepairTool>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="0,-39" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="0,-39" containedspritedepth="0.56" containedstateindicatorstyle="tank" ShowContainedStateIndicator="false">
       <Containable items="weldingtoolfuel,oxygensource" />
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="500" fadeouttime="3" />

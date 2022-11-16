@@ -25,9 +25,10 @@
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="64,3,36,28" depth="0.55" origin="0.5,0.5" />
     <Body width="40" height="22" density="40" />
     <AiTarget sight="500" staticsight="true" />
-    <MiniMap MinVoltage="1" powerconsumption="5" enableitemfinder="false" enablehullcondition="false" enableelectricalview="false" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true" IsOn="false" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true"/>
-      <GuiFrame relativesize="0.3,0.3" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
-	<GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
+    <MiniMap MinVoltage="0" powerconsumption="5" enableitemfinder="false" enablehullcondition="false" enableelectricalview="false" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true" IsOn="false" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true">
+	    <GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
+		<RequiredItem items="mobilebattery" targetslot="0" type="Contained" msg="ItemMsgBatteryCellRequired"/>
+	</MiniMap>
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
 		<StatusEffect type="OnFire" target="This" Condition="-100.0" />
         <StatusEffect type="OnBroken" target="This" Condition="-100.0">
@@ -42,22 +43,24 @@
 		    <SpawnItem identifiers="scrap" spawnposition="This" />
             <Remove />
         </StatusEffect>
-		<!-- <StatusEffect type="OnActive" targettype="This" Voltage="-0.5" setvalue="true"/> -->
-		<StatusEffect type="OnActive" targettype="Contained" Condition="-0.25">
+		<StatusEffect type="OnActive" targettype="Contained" Condition="-0.5">
             <RequiredItem items="batterycell" type="Contained" />
         </StatusEffect>
-        <StatusEffect type="OnActive" targettype="Contained" Condition="-0.13">
+        <StatusEffect type="OnActive" targettype="Contained" Condition="-0.3">
            <RequiredItem items="fulguriumbatterycell" type="Contained" />
+        </StatusEffect>
+		<StatusEffect type="OnActive" targettype="this" drawhudwhenequipped="true">
+           <RequiredItem items="mobilebattery" type="Contained" />
+        </StatusEffect>
+		<StatusEffect type="OnActive" targettype="this" drawhudwhenequipped="false" interval="5">
         </StatusEffect>
 		<StatusEffect type="OnActive" target="this" ShowHullIntegrity="false" RequireWaterDetectors="true" RequireOxygenDetectors="true" comparison="or">
 	       <Conditional ShowHullIntegrity="!e false" RequireWaterDetectors="!e true" RequireOxygenDetectors="!e true"/>
 	    </StatusEffect>
 	</Holdable>
 	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery" ShowContainedStateIndicator="false">
-      <Containable items="mobilebattery">
-            <StatusEffect type="OnContaining" targettype="This" Voltage="1" setvalue="true"/>
-		    <RequiredItem items="mobilebattery"/>
-		</Containable>
+	  <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />	  
+      <Containable items="mobilebattery"/>
     </ItemContainer>
   </Item>
 <!-- Ремнабор-->

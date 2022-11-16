@@ -14,18 +14,9 @@
 	<!-- Оружие-->
 	<entityname.flashlight_weapons>Оружейный фонарь</entityname.flashlight_weapons>
     <entitydescription.flashlight_weapons>Фонарик используемый для установки на оружие</entitydescription.flashlight_weapons>
-	<entityname.christmas_tree>Новогодняя Ёлка</entityname.christmas_tree>
-    <entitydescription.christmas_tree>Новогоднее настроение сейчас и сразу</entitydescription.christmas_tree>
-    <entityname.cassette_recorder>Кассетный магнитафон</entityname.cassette_recorder>
-    <entitydescription.cassette_recorder>Проигрование вашей любимой музыки во время путишествия</entitydescription.cassette_recorder>
-	<entityname.cassette_bobbyhelms_jinglebellsrock>Кассета Bobby Helms - Jingle Bells Rock</entityname.cassette_bobbyhelms_jinglebellsrock> 
-    <entityname.cassette_brendalee_rockinaroundthechristmastree>Кассета Brenda Lee - Rockin' Around the Christmas Tree</entityname.cassette_brendalee_rockinaroundthechristmastree>
-    <entityname.cassette_eltonjohn_stepintochristmas>Кассета Elton John - Step Into Christmas</entityname.cassette_eltonjohn_stepintochristmas>
-    <entityname.cassette_franksinatra_jinglebells>Кассета Frank Sinatra - Jingle Bells</entityname.cassette_franksinatra_jinglebells>
-    <entityname.cassette_franksinatra_letitsnow>Кассета Frank Sinatra - Let It Snow</entityname.cassette_franksinatra_letitsnow>
-    <entityname.cassette_maddiepoppe_rockinaroundthechristmastree>Кассета Maddie Poppe - Rockin' Around the Christmas Tree</entityname.cassette_maddiepoppe_rockinaroundthechristmastree>
-    <entityname.cassette_queen_thankgoditschristmas>Кассета Queen - Thank God It's Christmas</entityname.cassette_queen_thankgoditschristmas>
-    <entityname.cassette_wham_lastchristmas>Кассета Wham! - Last Christmas</entityname.cassette_wham_lastchristmas>
+	<timer_detonator_10sec>Таймер 10 секунд</timer_detonator_10sec>
+	<timer_detonator_30sec>Таймер 30 секунд</timer_detonator_30sec>
+	<timer_detonator_60sec>Таймер 60 секунд</timer_detonator_60sec>
      <!-- Вооружение корабля -->
     <entityname.coilgunammobox_big>Большой ящик с боеприпасов для магнитной пушки</entityname.coilgunammobox_big>
     <entitydescription.coilgunammobox_big>Боеприпасы для магнитной пушки.</entitydescription.coilgunammobox_big>
@@ -103,4 +94,7 @@
 	<entitydescription.crateshelf_small_mod>Стеллаж для ящиков меньшего размера.</entitydescription.crateshelf_small_mod>
 	<!-- Скилы -->
 	<skillname.fitnes>Фитнес</skillname.fitnes>
+	<!-- Разное -->
+	<itemmsgWearable>Надеваем...</itemmsgWearable>
+	<itemmsgHoldable>Берем в руки...</itemmsgHoldable>
 </infotexts>

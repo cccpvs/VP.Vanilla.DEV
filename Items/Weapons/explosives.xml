@@ -212,7 +212,7 @@
       <QualityStat stattype="ExplosionDamage" value="0.1"/>
     </Quality>
   </Item>
-  
+  <!-- Детонатор -->
   <Item name="" identifier="detonator" description="" category="Equipment,Weapon" Tags="smallitem,detonator" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_metal_light" isshootable="true">
     <Upgrade gameversion="0.9.3.0" scale="0.5"/>
     <PreferredContainer primary="secarmcab" amount="1" spawnprobability="0.5" notcampaign="true"/>
@@ -231,26 +231,65 @@
     <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.55" sourcerect="215,242,41,21" origin="0.5,0.5" />
     <Body width="40" height="22" density="20" />
     <Holdable selectkey="Action" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" aimpos="35,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+      <!-- <RequiredItem items="wrench" type="Equipped" /> -->
     </Holdable>
     <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" itempos="20,-11" hideitems="false" containedstateindicatorstyle="explosive" containedspritedepth="0.81">
       <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
       <Containable items="explosive" />
-    </ItemContainer>
-    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
-      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-      <RequiredItem items="screwdriver" type="Equipped" />
-      <input name="activate" displayname="connection.activate">
-        <StatusEffect type="OnUse" target="Contained">
-          <Use />
-        </StatusEffect>
-      </input>
-	    <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
         <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
 			<SpawnItem identifiers="scrap" spawnposition="This" />
             <Remove />
         </StatusEffect>
-    </ConnectionPanel>
+    </ItemContainer>
+	<LightComponent color="1.0,0.0,0.0,1.0" castshadows="true" isOn="false" lightcolor="255,0,0,100" Range="50" BlinkFrequency="1" AllowInGameEditing="False">
+      <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
+      <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.5,0.5" />
+    </LightComponent>
+	<CustomInterface drawhudwhenequipped="true" canbeselected="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,140" anchor="BottomCenter" relativesize="0.12,0.15" />
+      <Button text="timer_detonator_10sec">
+        <StatusEffect target="This" type="OnUse" isOn="true">
+		  <RequiredItem items="explosive" type="Contained" />
+          <sound file="%ModDir%/Items/Weapons/timer.ogg" range="300" type="OnUse"/>
+        </StatusEffect>
+        <StatusEffect target="Contained" type="OnUse" delay="10" disabledeltatime="true">
+		  <Use /> 
+        </StatusEffect>
+      </Button>
+	  <Button text="timer_detonator_30sec">
+        <StatusEffect target="This" type="OnUse" isOn="true">
+		  <RequiredItem items="explosive" type="Contained" />
+          <sound file="%ModDir%/Items/Weapons/timer.ogg" range="300" type="OnUse"/>
+        </StatusEffect>
+        <StatusEffect target="Contained" type="OnUse" delay="30" disabledeltatime="true">
+		  <Use /> 
+        </StatusEffect>
+      </Button>
+	  <Button text="timer_detonator_60sec">
+        <StatusEffect target="This" type="OnUse" isOn="true">
+		  <RequiredItem items="explosive" type="Contained" />
+          <sound file="%ModDir%/Items/Weapons/timer.ogg" range="300" type="OnUse"/>
+        </StatusEffect>
+        <StatusEffect target="Contained" type="OnUse" delay="60" disabledeltatime="true">
+		  <Use /> 
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <!-- <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10"> -->
+      <!-- <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" /> -->
+      <!-- <RequiredItem items="screwdriver" type="Equipped" /> -->
+      <!-- <input name="activate" displayname="connection.activate"> -->
+        <!-- <StatusEffect type="OnUse" target="Contained"> -->
+          <!-- <Use /> -->
+        <!-- </StatusEffect> -->
+      <!-- </input> -->
+	    <!-- <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" /> -->
+        <!-- <StatusEffect type="OnBroken" target="This" delay="1" stackable="false"> -->
+			<!-- <SpawnItem identifiers="scrap" spawnposition="This" /> -->
+            <!-- <Remove /> -->
+        <!-- </StatusEffect> -->
+    <!-- </ConnectionPanel> -->
   </Item>
   <!-- Нитроглицерин -->
   <Item name="" identifier="nitroglycerin" category="Material,Weapon" maxstacksize="8" description="" spritecolor="1.0,1.0,1.0,1.0" containercolor="1.0,1.0,1.0,1.0" cargocontaineridentifier="explosivecrate" Tags="smallitem,chem,medical" impacttolerance="6" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true">

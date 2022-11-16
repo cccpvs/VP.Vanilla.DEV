@@ -59,6 +59,7 @@
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
   <!-- Большой двигатель -->
@@ -124,6 +125,7 @@
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
   <!-- Двигатель челнока -->
@@ -181,6 +183,7 @@
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
 </Items>

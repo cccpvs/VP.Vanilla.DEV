@@ -648,6 +648,7 @@
     <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" throwforce="4.0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="This" Condition="-100.0" delay="3.0" disabledeltatime="true" />
     </Throwable>
+	
     <Quality>
       <QualityStat stattype="ExplosionRadius" value="0.1"/>
       <QualityStat stattype="ExplosionDamage" value="0.1"/>
@@ -869,7 +870,7 @@
       <QualityStat stattype="StrikingSpeedMultiplier" value="0.1"/>
     </Quality>
   </Item>
-<!--Дементонитовый нож ныряльщика-->
+<!--нож ныряльщика-->
 <Item name="" identifier="divingknife" category="Weapon" Tags="smallitem,weapon,gunsmith,mountableweapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <PreferredContainer primary="armcab" minamount="0" maxamount="3" spawnprobability="1"/>
     <PreferredContainer secondary="wreckarmcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
@@ -894,7 +895,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="835,385,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="183,203,66,16" depth="0.55" origin="0.5,0.5" />
-    <Body width="65" height="15" density="50" />
+    <Body width="65" height="15" density="20" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-10,0" holdangle="30" reload="0.75" range="50" combatPriority="25" msg="ItemMsgPickUpSelect">
       <Attack targetimpulse="2" severlimbsprobability="0.1" itemdamage="10" structuredamage="10" structuresoundtype="StructureSlash">
         <Affliction identifier="lacerations" strength="10" />

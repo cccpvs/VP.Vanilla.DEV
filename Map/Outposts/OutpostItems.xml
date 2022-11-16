@@ -598,10 +598,7 @@
     <aitarget sightrange="500" soundrange="7500" />
     <Reactor canbeselected="true" firedelay="20" meltdowndelay="120" maxpoweroutput="20000" fuelconsumptionrate="0.2" vulnerabletoemp="false" msg="ItemMsgInteractSelect">
       <StatusEffect type="Always" target="This" autoTemp="false" nonplayerteaminteractable="false">
-	      <!-- <Conditional location="e Outpost"/> -->
-		  <!-- <Conditional outpostlevel="e true"/> -->
 		  <Conditional SpawnedInCurrentOutpost="!e true"/>
-		  <!-- <fire/> -->
 	  </StatusEffect>
 	  <StatusEffect type="InWater" target="This" condition="-0.5">
         <!-- <Conditional condition="gt 10" /> -->
@@ -711,6 +708,7 @@
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
   <Item name="" nameidentifier="oxygenerator" identifier="outpostoxygenerator" tags="oxygengenerator" category="Machine" linkable="true" allowedlinks="vent" damagedbyexplosions="true" scale="0.5" explosiondamagemultiplier="0.2">

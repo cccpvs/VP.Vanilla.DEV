@@ -11,18 +11,9 @@
 	<!-- Weapon -->
 	<entityname.flashlight_weapons>Gun lantern</entityname.flashlight_weapons>
     <entitydescription.flashlight_weapons>Flashlight used for mounting on a weapon</entitydescription.flashlight_weapons>
-	<entityname.christmas_tree>Christmas Tree </entityname.christmas_tree>
-    <entitydescription.christmas_tree>Christmas mood now and immediately</entitydescription.christmas_tree> 
-	<entityname.cassette_recorder>Cassette Recorder </entityname.cassette_recorder>
-    <entitydescription.cassette_recorder>Play your favorite music while traveling </entitydescription.cassette_recorder>
-    <entityname.cassette_bobbyhelms_jinglebellsrock>Cassette Bobby Helms - Jingle Bells Rock </entityname.cassette_bobbyhelms_jinglebellsrock>
-    <entityname.cassette_brendalee_rockinaroundthechristmastree>Cassette Brenda Lee - Rockin 'Around the Christmas Tree </entityname.cassette_brendalee_rockinaroundthechristmastree>
-    <entityname.cassette_eltonjohn_stepintochristmas>Cassette Elton John - Step Into Christmas </entityname.cassette_eltonjohn_stepintochristmas>
-    <entityname.cassette_franksinatra_jinglebells>Cassette Frank Sinatra - Jingle Bells </entityname.cassette_franksinatra_jinglebells>
-    <entityname.cassette_franksinatra_letitsnow>Cassette Frank Sinatra - Let It Snow </entityname.cassette_franksinatra_letitsnow>
-    <entityname.cassette_maddiepoppe_rockinaroundthechristmastree>Cassette Maddie Poppe - Rockin 'Around the Christmas Tree </entityname.cassette_maddiepoppe_rockinaroundthechristmastree>
-    <entityname.cassette_queen_thankgoditschristmas>Cassette Queen - Thank God It's Christmas </entityname.cassette_queen_thankgoditschristmas>
-    <entityname.cassette_wham_lastchristmas>Cassette Wham! - Last Christmas </entityname.cassette_wham_lastchristmas>
+	<timer_detonator_10sec>10 second timer</timer_detonator_10sec>
+    <timer_detonator_30sec>30 second timer</timer_detonator_30sec>
+    <timer_detonator_60sec>Timer 60 seconds</timer_detonator_60sec>
 	<!-- Ship armament --> 
     <entityname.coilgunammobox_big>Large Magnetic Cannon Ammo Crate </entityname.coilgunammobox_big>
     <entitydescription.coilgunammobox_big>Magnetic cannon ammo. </entitydescription.coilgunammobox_big>

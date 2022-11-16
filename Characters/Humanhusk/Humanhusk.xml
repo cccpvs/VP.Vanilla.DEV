@@ -14,7 +14,7 @@
     <Limb name="Head">
       <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="1,0,126,374" highlightarea="41,0,45,54" />
       <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="1,515,126,374" />
-      <VitalityMultiplier type="damage" multiplier="2.0" />
+      <VitalityMultiplier type="damage" multiplier="5.0" />
     </Limb>
     <Limb name="Torso">
       <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,0,126,374" highlightarea="29,56,70,134" />

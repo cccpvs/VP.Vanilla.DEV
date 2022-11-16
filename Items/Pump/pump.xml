@@ -55,6 +55,7 @@
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
 	  <StatusEffect type="Always" target="this" IsOn="true" FlowPercentage="100">
           <Conditional IsClaimedByBallastFlora="true"/>
 	  </StatusEffect>
@@ -131,6 +132,7 @@
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
 	  <StatusEffect type="Always" target="this" Locked="false">
 	  	<Conditional Locked="true"/>
 	  </StatusEffect>

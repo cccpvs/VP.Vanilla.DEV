@@ -14,18 +14,9 @@
 	<!-- Armes-->
     <entityname.flashlight_weapons>Lanterne d'arme</entityname.flashlight_weapons>
     <entitydescription.flashlight_weapons>Une lampe de poche utilisée pour se fixer à une arme</entitydescription.flashlight_weapons>
-    <entityname.christmas_tree>Arbre de Noël</entityname.christmas_tree>
-    <entitydescription.christmas_tree>Ambiance de Noël maintenant et immédiatement</entitydescription.christmas_tree>
-    <entityname.cassette_recorder>Magnétophone</entityname.cassette_recorder>
-    <entitydescription.cassette_recorder>Écoutez votre musique préférée en voyage</entitydescription.cassette_recorder>
-    <entityname.cassette_bobbyhelms_jinglebellsrock>Cassette de Bobby Helms - Jingle Bells Rock</entityname.cassette_bobbyhelms_jinglebellsrock>
-    <entityname.cassette_brendalee_rockinaroundthechristmastree>Brenda Lee - Rockin' Around the Christmas Tree Cassette</entityname.cassette_brendalee_rockinaroundthechristmastree>
-    <entityname.cassette_eltonjohn_stepintochristmas>Elton John - Cassette Entrez dans Noël</entityname.cassette_eltonjohn_stepintochristmas>
-    <entityname.cassette_franksinatra_jinglebells>Frank Sinatra - Cassette Jingle Bells</entityname.cassette_franksinatra_jinglebells>
-    <entityname.cassette_franksinatra_letitsnow>Frank Sinatra - Cassette Let It Snow</entityname.cassette_franksinatra_letitsnow>
-    <entityname.cassette_maddiepoppe_rockinaroundthechristmastree>Maddie Poppe - Rockin' Around the Christmas Tree</entityname.cassette_maddiepoppe_rockinaroundthechristmastree>
-    <entityname.cassette_queen_thankgoditschristmas>Queen Cassette - Dieu merci, c'est Noël</entityname.cassette_queen_thankgoditschristmas>
-    <entityname.cassette_wham_lastchristmas>Cassette Wham ! - Noël dernier</entityname.cassette_wham_lastchristmas>
+	<timer_detonator_10sec>Minuterie de 10 secondes</timer_detonator_10sec>
+    <timer_detonator_30sec>Minuterie de 30 secondes</timer_detonator_30sec>
+    <timer_detonator_60sec>Minuterie 60 secondes</timer_detonator_60sec>
     <!-- Armement du navire -->
     <entityname.coilgunammobox_big>Boîte de munitions de canon magnétique</entityname.coilgunammobox_big>
     <entitydescription.coilgunammobox_big>Munitions pour le pistolet magnétique.</entitydescription.coilgunammobox_big>

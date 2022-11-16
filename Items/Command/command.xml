@@ -98,6 +98,7 @@
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
   <Item name="" identifier="shuttlenavterminal" tags="command,navterminal,secondarynavterminal" linkable="true" allowedlinks="statusmonitor" category="Machine" scale="0.5" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
@@ -184,6 +185,7 @@
         <Affliction identifier="burn" strength="5" />
         <Affliction identifier="stun" strength="4" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
@@ -248,6 +250,7 @@
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
   <!-- Монитор состояния -->
@@ -300,6 +303,7 @@
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
 	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
         <Conditional HasStatusTag="onfire" />

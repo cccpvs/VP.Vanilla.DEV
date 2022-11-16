@@ -14,6 +14,7 @@
   <Character file="%ModDir%/Characters/Mudraptor_unarmored/Mudraptor_unarmored.xml" />
   <Character file="%ModDir%/Characters/Spineling/Spineling.xml" />
   <Character file="%ModDir%/Characters/Tigerthresher/Tigerthresher.xml" />
+  <Character file="%ModDir%/Characters/Bonethresher/Bonethresher.xml" />
   <Item file="%ModDir%/Map/Outposts/vp_OutpostItems.xml" />
   <Item file="%ModDir%/Items/Weapons/vp_weapons.xml" />
   <Item file="%ModDir%/Items/Weapons/vp_weapons_addons.xml" />
@@ -23,12 +24,16 @@
   <Item file="%ModDir%/Items/Electricity/lights.xml" />
   <Item file="%ModDir%/Items/Electricity/signalitems.xml" />
   <Item file="%ModDir%/Items/Containers/containers.xml" />
+  <Item file="%ModDir%/Items/Jobgear/Captain/captain_talent_items.xml" />
+  <Item file="%ModDir%/Items/Jobgear/Captain/captain_gear.xml" />
   <Item file="%ModDir%/Items/Jobgear/Engineer/engineer_talent_items.xml" />
   <Item file="%ModDir%/Items/Jobgear/Engineer/engineer_gear.xml" />
-  <Item file="%ModDir%/Items/Jobgear/Security/securityofficer_talent_items.xml" />
-  <Item file="%ModDir%/Items/Jobgear/Security/securityofficer_gear.xml" />
   <Item file="%ModDir%/Items/Jobgear/Mechanic/mechanic_talent_items.xml" />
   <Item file="%ModDir%/Items/Jobgear/Mechanic/mechanic_gear.xml" />
+  <Item file="%ModDir%/Items/Jobgear/Medic/medic_talent_items.xml" />
+  <Item file="%ModDir%/Items/Jobgear/Medic/medic_gear.xml" />
+  <Item file="%ModDir%/Items/Jobgear/Security/securityofficer_talent_items.xml" />
+  <Item file="%ModDir%/Items/Jobgear/Security/securityofficer_gear.xml" />
   <Item file="%ModDir%/Items/Jobgear/misc.xml" />
   <Item file="%ModDir%/Items/Diving/divinggear.xml" />
   <Item file="%ModDir%/Items/Tools/tools.xml" />
@@ -43,8 +48,6 @@
   <Item file="%ModDir%/Items/Fabricators/fabricators.xml" />
   <Item file="%ModDir%/Items/Fabricators/vp_fabricators.xml" />
   <Item file="%ModDir%/Items/Pump/vp_pump.xml" />
-  <Item file="%ModDir%/Items/Jobgear/Captain/captain_talent_items.xml" />
-  <Item file="%ModDir%/Items/Jobgear/Captain/captain_gear.xml" />
   <Item file="%ModDir%/Items/Diving/divinggear_addons.xml" />
   <Item file="%ModDir%/idcard.xml" />
   <Item file="%ModDir%/Items/Weapons/weapons.xml" />
@@ -68,4 +71,5 @@
   <Item file="%ModDir%/Items/Misc/misc.xml" />
   <Jobs file="%ModDir%/Jobs.xml" />
   <Talents file="%ModDir%/Talents/Security/TalentsSecurity.xml" />
+  <UIStyle file="%ModDir%/UI/style.xml" />  
 </contentpackage>

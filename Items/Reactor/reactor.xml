@@ -125,6 +125,7 @@
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
     <Upgrade gameversion="0.1500.6.0">
       <Repairable header="electricalrepairsheader" msg="ItemMsgRepairScrewdriver">

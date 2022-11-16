@@ -39,10 +39,10 @@
             <!-- </StatusEffect> -->
         <!-- <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="2.0,0.1" /> -->
     <!-- </LightComponent> -->
-    <CustomInterface drawhudwhenequipped="true" canbeselected="true" >
-	    <RequiredItem identifier="flashlight_weapons" type="Picked" ignoreineditor="true"/>
+    <CustomInterface drawhudwhenequipped="true">
+	    <!-- <RequiredItem identifier="flashlight_weapons" type="Contained" TargetSlot="1" ignoreineditor="true" /> -->
         <GuiFrame relativesize="0.12,0.08" anchor="BottomLeft" absoluteoffset="20,128" style="ItemUI" />
-        <TickBox text="label.onoff">  
+        <TickBox text="entityname.flashlight_weapons">  
             <StatusEffect type="OnUse" targettype="this" IsOn="true" />
             <StatusEffect type="OnSecondaryUse" targettype="this" IsOn="false" />
         </TickBox>
@@ -63,11 +63,11 @@
 </Item>
 <!-- Фонарик для оружия -->
 <Item name="" identifier="flashlight_weapons" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,provocative" Scale="0.5" >
-    <Deconstruct time="30">
+    <Deconstruct time="15">
       <Item identifier="lightcomponent" />
       <Item identifier="plastic" />
     </Deconstruct>
-    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
       <RequiredSkill identifier="weapons" level="50" />
       <RequiredItem identifier="lightcomponent" />
       <RequiredItem identifier="plastic" />
@@ -154,12 +154,8 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="100">
       <RequiredSkill identifier="weapons" level="70" />
-      <RequiredItem identifier="aluminium" />
-	  <RequiredItem identifier="aluminium" />
-	  <RequiredItem identifier="aluminium" />
-      <RequiredItem identifier="silicon" />
-	  <RequiredItem identifier="silicon" />
-	  <RequiredItem identifier="silicon" />
+      <RequiredItem identifier="aluminium" amount="3"/>
+      <RequiredItem identifier="silicon" amount="3"/>
     </Fabricate>
 </Item>
 

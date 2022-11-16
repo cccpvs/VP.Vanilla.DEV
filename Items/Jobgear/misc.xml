@@ -31,8 +31,8 @@
     </ItemContainer>
     <Wearable limbtype="Head" slots="Any,Headset" msg="ItemMsgPickUpSelect" displaycontainedstatus="true">
       <sprite name="Headset Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hideotherwearables="false" sourcerect="28,321,49,62" origin="0.5,0.6" />
-	  <StatusEffect type="OnWearing" target="Contained" Condition="-0.05">
-	    <!-- <Conditional IsPlayer="true"/>  -->
+	  <StatusEffect type="OnWearing" target="Contained,Character" Condition="-0.05">
+	    <Conditional IsPlayer="true"/> 
 	    <RequiredItem items="mobilebattery" type="Contained" />
 	  </StatusEffect>
 	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />

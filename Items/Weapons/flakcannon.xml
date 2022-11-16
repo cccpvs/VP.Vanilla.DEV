@@ -40,6 +40,7 @@
       <StatusEffect type="OnUse" target="This">
         <Explosion range="1000.0" structuredamage="0" force="0.0" camerashake="50.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
       </StatusEffect>
+	  <StatusEffect type="OnUse" target="This" condition="-2.15" />
     </Turret>
     <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
@@ -51,6 +52,17 @@
       <input name="toggle_light" displayname="connection.togglelight"/>
       <input name="set_light" displayname="connection.setlight" />
     </ConnectionPanel>
+	<Repairable selectkey="Action" header="electricalrepairsheader" deteriorationspeed="0" mindeteriorationdelay="0" maxdeteriorationdelay="0" mindeteriorationcondition="0" RepairThreshold="70" fixDurationHighSkill="25" fixDurationLowSkill="70" msg="ItemMsgRepairWrench" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+      <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="50.0" />      
+	  <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem items="wrench" type="equipped"/>
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="300" />
+        <Affliction identifier="blunttrauma" strength="10" />
+      </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
+    </Repairable>
   </Item>
   <!-- Зарядник шрапнельного орудия -->
   <Item name="" identifier="flakcannonloader" tags="flakcannonequipment,flakcannonammosource,turretammosource,flakcannonammoloader" category="Machine,Weapon" linkable="true" allowedlinks="flakcannon" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">

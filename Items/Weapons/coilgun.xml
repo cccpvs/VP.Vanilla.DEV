@@ -60,6 +60,7 @@
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="300" />
         <Affliction identifier="blunttrauma" strength="10" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
   <!-- Двойная магнитная пушка -->
@@ -97,6 +98,7 @@
       <StatusEffect type="OnUse" target="This">
         <Explosion range="1000.0" structuredamage="0" force="0.01" camerashake="5.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
       </StatusEffect>
+	  <StatusEffect type="OnUse" target="This" condition="-0.7" />
     </Turret>
     <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
@@ -117,6 +119,7 @@
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="300" />
         <Affliction identifier="blunttrauma" strength="10" />
       </StatusEffect>
+	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
   </Item>
   <!-- Зарядник магнитной пушки -->
