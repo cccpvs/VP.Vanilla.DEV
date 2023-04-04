@@ -63,7 +63,13 @@
         </StatusEffect>
     </Wearable>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="tank" ShowContainedStateIndicator="false">
-      <Containable items="oxygensource,weldingtoolfuel" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <Containable items="oxygensource,weldingtoolfuel" excludeditems="oxygenitetank" />
+      <Containable items="oxygenitetank">
+        <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="1.2" setvalue="true" targetslot="0">
+          <Conditional IsDead="false" />
+        </StatusEffect>
+      </Containable>
     </ItemContainer>
   </Item>
 <!-- Водолазный скафандр -->
@@ -95,10 +101,11 @@
     <ContainedSprite name="Diving Suit In Vertical Locker" allowedcontainertags="divingsuitcontainervertical" texture="Content/Items/Diving/DivingSuit_Item.png" sourcerect="181,0,75,193" depth="0.55" origin="0.5,0.5" />
     <ContainedSprite name="Diving Suit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="Content/Items/Containers/containers.png" sourcerect="724,373,77,209" depth="0.55" origin="-0.12,-0.14" />
     <ContainedSprite name="Diving Suit In Horizontal Locker" allowedcontainertags="divingsuitcontainerhorizontal" texture="Content/Items/Diving/DivingSuit_Item.png" sourcerect="0,193,230,63" depth="0.55" origin="0.6,0.5" />
-    <Body radius="45" width="34" density="15" />
+    <Body radius="45" width="34" density="20" />
     <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Diving Suit Helmet Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="true" hideotherwearables="true" sourcerect="5,4,92,94" origin="0.5,0.5">
         <LightComponent range="500.0" lightcolor="140,140,140,200" flicker="0.5" flickerspeed="0.2" powerconsumption="5" IsOn="true">
+		<Upgrade gameversion="0.1300.0.3" allowingameediting="false" />
 		<LightTexture texture="Content/Lights/divinghelmetlight.png" origin="0.05, 0.5" size="1.0,1.0" />
 		  <StatusEffect type="OnWearing" target="This,Character" Voltage="1.0" setvalue="true">
             <Conditional IsDead="false" />
@@ -161,7 +168,7 @@
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Contained,Character" targetslot="0" OxygenAvailable="1000.0" Condition="-0.3" comparison="Or">
         <Conditional IsDead="false" />
-        <RequiredItem items="oxygentank" type="Contained" />
+        <RequiredItem items="oxygensource" type="Contained" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Contained,Character" targetslot="0" Oxygen="-20.0" Condition="-0.5" interval="1" disabledeltatime="true">
         <Conditional IsDead="false" />
@@ -240,30 +247,32 @@
 <!-- подводный скутер -->
 <Item name="" identifier="underwaterscooter" category="Diving,Equipment" Tags="bigitem,provocative,scooter" linkable="true" pickdistance="30" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="10">
     <Price baseprice="180">
-        <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="4" />
-        <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="6" />
-        <Price storeidentifier="merchantresearch" minavailable="3" />
-        <Price storeidentifier="merchantmilitary" minavailable="5" />
-        <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="4" />
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="6" />
+      <Price storeidentifier="merchantresearch" minavailable="3" />
+      <Price storeidentifier="merchantmilitary" minavailable="5" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="4" />
     </Price>
     <Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
     <PreferredContainer primary="divingcab" amount="2" spawnprobability="1" notcampaign="true"/>
     <PreferredContainer secondary="wrecksupplycab,beaconsupplycab" spawnprobability="0.05"/>
     <Deconstruct time="20">
-        <Item identifier="aluminium" />
-        <Item identifier="copper" />
-        <Item identifier="plastic" />
+      <Item identifier="aluminium" />
+      <Item identifier="copper" />
+      <Item identifier="tin" />
+      <Item identifier="plastic" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="30">
       <RequiredSkill identifier="mechanical" level="30" />
       <RequiredItem identifier="aluminium" amount="2" />
       <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="tin" amount="2" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,128,67,62" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Diving/Scooter.png" depth="0.50" sourcerect="0,0,140,102"/>
+    <Sprite texture="Content/Items/Diving/Scooter.png" depth="0.55" sourcerect="0,0,140,102"/>
+	<Body width="120" height="60" density="10" />
 	<!-- <BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="187,11,139,93" depth="0.8" maxcondition="60" /> -->
     <!-- <BrokenSprite texture="%ModDir%/Items/Diving/divinggear.png" sourcerect="353,16,139,93" depth="0.8" maxcondition="20" /> -->
-    <Body width="140" height="102" density="10" />
     <Holdable slots="RightHand+LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect">
 	    <LightComponent range="1000.0" lightcolor="255,255,255,255" flicker="0.4" flickerspeed="0.1" powerconsumption="5" IsOn="true">
 	    	<StatusEffect type="OnActive" targettype="Contained" targetslot="0" Condition="-0.1">
@@ -379,7 +388,7 @@
     <ContainedSprite name="Abyss Diving Suit In Vertical Locker" allowedcontainertags="divingsuitcontainervertical" texture="Content/Items/Diving/Abyss_DivingSuit_Items.png" sourcerect="181,0,70,192" depth="0.55" origin="0.5,0.5" />
     <ContainedSprite name="Abyss Diving Suit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="Content/Items/Containers/containers.png" sourcerect="316,379,77,214" depth="0.55" origin="-0.12,-0.13" />
     <ContainedSprite name="Abyss Diving Suit In Horizontal Locker" allowedcontainertags="divingsuitcontainerhorizontal" texture="Content/Items/Diving/Abyss_DivingSuit_Items.png" sourcerect="0,193,230,63" depth="0.55" origin="0.6,0.5" />
-    <Body radius="45" width="34" density="15" />
+    <Body radius="45" width="34" density="20" />
     <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Abyss Diving Suit Helmet Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="true" hideotherwearables="true" sourcerect="0,409,103,103" origin="0.5,0.5">
         <LightComponent range="500.0" lightcolor="140,140,140,200" flicker="0.5" flickerspeed="0.2" powerconsumption="5" IsOn="true">
@@ -539,7 +548,7 @@
       <RequiredItem identifier="titaniumaluminiumalloy" />
       <RequiredItem identifier="rubber" />
     </Fabricate>
-    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="512,0,128,128" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="128,704,128,128" origin="0.5,0.5" />
     <!--
     <Sprite name="Diving Suit" texture="DivingSuit_Item.png" sourcerect="157,0,90,307" depth="0.55" origin="0.4888889,0.5439739" />
     -->
@@ -547,7 +556,7 @@
     <ContainedSprite name="Combat Diving Suit In Vertical Locker" allowedcontainertags="divingsuitcontainervertical" texture="Content/Items/Diving/Combat_DivingSuit_Items.png" sourcerect="181,0,70,192" depth="0.55" origin="0.5,0.5" />
     <ContainedSprite name="Combat Diving Suit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="Content/Items/Containers/containers.png" sourcerect="215,379,80,207" depth="0.55" origin="-0.12,-0.14" />
     <ContainedSprite name="Combat Diving Suit In Horizontal Locker" allowedcontainertags="divingsuitcontainerhorizontal" texture="Content/Items/Diving/Combat_DivingSuit_Items.png" sourcerect="0,193,230,63" depth="0.55" origin="0.6,0.5" />
-    <Body radius="45" width="34" density="15" />
+    <Body radius="45" width="34" density="20" />
     <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Diving Suit Helmet Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="true" hideotherwearables="true" sourcerect="326,0,103,103" origin="0.5,0.5">
         <LightComponent range="500.0" lightcolor="140,140,140,200" flicker="0.5" flickerspeed="0.2" powerconsumption="5" IsOn="true">
@@ -685,12 +694,12 @@
   <!-- Расходный водолазный скафандр -->
   <Item name="" identifier="respawndivingsuit" category="Diving,Equipment" tags="diving,deepdiving,provocative,respawnsuit" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
     <Deconstruct time="1"/>
-    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="896,0,128,128" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="0,832,128,128" origin="0.5,0.5" />
     <Sprite name="Respawn Diving Suit Item" texture="Content/Items/Diving/RespawnSuit_Items.png" sourcerect="0,0,157,121" depth="0.55" origin="0.5,0.5" />
     <ContainedSprite name="Respawn Diving Suit In Vertical Locker" allowedcontainertags="divingsuitcontainervertical" texture="Content/Items/Diving/RespawnSuit_Items.png" sourcerect="181,0,70,192" depth="0.55" origin="0.5,0.5" />
     <ContainedSprite name="Respawn Diving Suit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="Content/Items/Containers/containers.png" sourcerect="118,379,77,214" depth="0.55" origin="-0.12,-0.13" />
     <ContainedSprite name="Respawn Diving Suit In Horizontal Locker" allowedcontainertags="divingsuitcontainerhorizontal" texture="Content/Items/Diving/RespawnSuit_Items.png" sourcerect="0,193,230,63" depth="0.55" origin="0.6,0.5" />
-    <Body radius="45" width="34" density="15" />
+    <Body radius="45" width="34" density="20" />
     <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Respawn Diving Suit Helmet Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="true" hideotherwearables="true" sourcerect="100,409,103,103" origin="0.5,0.5">
         <LightComponent range="500.0" lightcolor="140,140,140,200" flicker="0.5" flickerspeed="0.2" powerconsumption="5" IsOn="true">
@@ -737,16 +746,16 @@
       <StatusEffect type="OnWearing" target="this" comparison="and">
         <Conditional condition="lt 5.0" />
         <Conditional condition="gt 0.0" />
-        <Sound file="Content/Items/WarningBeepSlow.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeepSlow.ogg" range="250" loop="true"/>
       </StatusEffect>
       <StatusEffect type="OnWearing" target="this">
         <Conditional condition="lte 0.0" />
-        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/WarningBeep.ogg" range="250" loop="true"/>
       </StatusEffect>
-      <StatusEffect type="OnWearing" target="Character" LowPassMultiplier="0.2" setvalue="true" >
-        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true" /> -->
-        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true" />   -->
-      </StatusEffect>
+      <!-- <StatusEffect type="OnWearing" target="Character" LowPassMultiplier="0.2" setvalue="true" > -->
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="250" loop="true" /> -->
+        <!-- <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="250" loop="true" />   -->
+      <!-- </StatusEffect> -->
 	  <!-- Sound of Gear -->
 	  <StatusEffect type="OnWearing" target="Character">
 	     <Conditional inWater="ne true"/>
@@ -762,10 +771,10 @@
         <Conditional condition="lte 0.0" />
         <Sound file="Content/Items/Diving/ITEMS_divingSuitOxygenLeakLoop.ogg" range="200" loop="true" dontmuffle="true"/>
       </StatusEffect>
-      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,bitewounds,lacerations,bleeding" damagemultiplier="0.55" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,bitewounds,lacerations,bleeding" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.75" damagesound="" deflectprojectiles="true" />
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.75" damagesound="LimbArmor"/>
-      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0.5" probabilitymultiplier="0.5" damagesound="LimbArmor"/>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" probabilitymultiplier="0.5" damagesound="LimbArmor"/>
     </Wearable>
     <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" />
     <aitarget maxsightrange="1500" />

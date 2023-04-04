@@ -32,8 +32,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer itempos="27,10" DrawInventory="true" AllowDragAndDrop="true" AutoInteractWithContained="true"  AutoInject="true" iteminterval="0,-4" hideitems="false" capacity="1" maxstacksize="6" containedstateindicatorstyle="spear" containedspritedepths="0.551,0.552,0.553,0.554,0.555,0.556" ShowContainedStateIndicator="false">
-    <Containable items="harpoonammo" />
+    <ItemContainer itempos="27,10" iteminterval="0,-4" hideitems="false" capacity="1" maxstacksize="6" containedstateindicatorslot="0" containedstateindicatorstyle="spear" containedspritedepths="0.551,0.552,0.553,0.554,0.555,0.556" ShowContainedStateIndicator="false">
+      <Containable items="harpoonammo" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="0,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />   
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="18,12" setactive="true" />
+      </SubContainer>
     </ItemContainer>
     <aitarget sightrange="0" soundrange="500" fadeouttime="2" />
     <Quality>
@@ -75,8 +80,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="6" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
+	  <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
       <Containable items="revolverammo" />
+      <SubContainer capacity="1" maxstacksize="1">
+            <Containable items="flashlight" hide="false" itempos="17,1" setactive="true" />
+      </SubContainer>
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
     <Quality>
@@ -122,8 +132,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
-      <Containable items="smgammo" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" hide="false" itempos="4,-10" rotation="-30" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="22,-1" setactive="true" />
+      </SubContainer>
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
@@ -134,16 +149,12 @@
 <Item name="" identifier="smg_optics" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_optics" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
     <Fabricate suitablefabricators="fabricator" requiredtime="5">
       <RequiredSkill identifier="weapons" level="50" />
-      <RequiredItem identifier="smg" />
-      <RequiredItem identifier="crosshairs_weapons_optics" />
-	  <RequiredItem identifier="aluminium" amount="0"/>
-      <RequiredItem identifier="silicon" amount="0"/>
-      <RequiredItem identifier="silicon" amount="0"/>
-	  <RequiredItem identifier="silicon" amount="0"/>
+      <RequiredItem identifier="smg" amount="1"/>
+      <RequiredItem identifier="crosshairs_weapons_optics" amount="1"/>
     </Fabricate>
 	<Deconstruct time="5">
-      <Item identifier="smg" />
-      <Item identifier="crosshairs_weapons_optics" />
+      <Item identifier="smg"/>
+      <Item identifier="crosshairs_weapons_optics"/>
     </Deconstruct>
 	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="450,50,50,50" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="192,141,144,65" depth="0.55" origin="0.5,0.5" />
@@ -172,8 +183,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
-      <Containable items="smgammo" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" hide="false" itempos="4,-10" rotation="-30" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="22,-1" setactive="true" />
+      </SubContainer>
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
@@ -219,8 +235,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="6" itempos="0,0" iteminterval="10,0" ItemRotation="90" hideitems="true" ShowContainedStateIndicator="false">
-      <Containable items="shotgunammo" />
+     <ItemContainer capacity="1" maxstacksize="6" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="shotgunammo" hide="true" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="26,-3" setactive="true" />
+      </SubContainer>
     </ItemContainer>
     <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
     <Quality>
@@ -266,8 +287,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
-      <Containable items="smgammo" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" hide="false" itempos="4,-5" rotation="-25" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="17,5" setactive="true" />
+      </SubContainer>
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
@@ -279,16 +305,12 @@
 <Item name="" identifier="smgunique_optics" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_optics" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
 	<Fabricate suitablefabricators="fabricator" requiredtime="5">
       <RequiredSkill identifier="weapons" level="50" />
-      <RequiredItem identifier="smgunique" />
-      <RequiredItem identifier="crosshairs_weapons_optics" />
-	  <RequiredItem identifier="aluminium" amount="0"/>
-      <RequiredItem identifier="silicon" amount="0"/>
-      <RequiredItem identifier="silicon" amount="0"/>
-	  <RequiredItem identifier="silicon" amount="0"/>
+      <RequiredItem identifier="smgunique" amount="1"/>
+      <RequiredItem identifier="crosshairs_weapons_optics" amount="1"/>
     </Fabricate>
 	<Deconstruct time="5">
-      <Item identifier="smgunique" />
-      <Item identifier="crosshairs_weapons_optics" />
+      <Item identifier="smgunique"/>
+      <Item identifier="crosshairs_weapons_optics"/>
     </Deconstruct>
 	<InventoryIcon texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="450,100,50,50" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="196,221,145,77" depth="0.55" origin="0.5,0.5" />
@@ -317,8 +339,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
-      <Containable items="smgammo" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="smgammo" hide="false" itempos="4,-5" rotation="-25" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="17,5" setactive="true" />
+      </SubContainer>
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
@@ -360,18 +387,13 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="0" maxstacksize="0" itempos="27,10" iteminterval="0,-4" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
-      <Containable items="shotgunammo" />
-	  <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />
-	  <SlotIcon slotindex="1" texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="200,4,50,50" origin="0.5,0.45" />
-	  <SubContainer capacity="1" maxstacksize="1">
-	     <Containable items="mobilebattery"/>
-      </SubContainer>
-	  <SubContainer capacity="1" maxstacksize="1">
-	     <Containable items="flashlight_weapons"/>
-      </SubContainer>
-	  <SubContainer capacity="4" maxstacksize="4">
-	     <Containable items="shotgunammo" />
+    <ItemContainer capacity="2" maxstacksize="5" hideitems="false" containedstateindicatorstyle="bullet" ShowTotalStackCapacityInContainedStateIndicator="true" containedstateindicatorslot="0" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="shotgunammo" hide="true"/>
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="26,-2" setactive="true"/>
       </SubContainer>
     </ItemContainer>
     <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
@@ -418,9 +440,14 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
-      <Containable items="assaultrifleammo" />
-    </ItemContainer>
+     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="assaultrifleammo" itempos="4,-12" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />   
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="24,4" setactive="true"/>
+      </SubContainer>
+    </ItemContainer> 
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
       <QualityStat stattype="FirepowerMultiplier" value="0.1" />
@@ -431,12 +458,8 @@
 <Item name="" identifier="assaultrifle_optics" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons_optics" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" HideConditionBar="true" HideConditionInTooltip="false">
     <Fabricate suitablefabricators="fabricator" requiredtime="5">
       <RequiredSkill identifier="weapons" level="30" />
-      <RequiredItem identifier="assaultrifle" />
-      <RequiredItem identifier="crosshairs_weapons_optics" />
-	  <RequiredItem identifier="aluminium" amount="0"/>
-      <RequiredItem identifier="silicon" amount="0"/>
-      <RequiredItem identifier="silicon" amount="0"/>
-	  <RequiredItem identifier="silicon" amount="0"/>
+      <RequiredItem identifier="assaultrifle" amount="1"/>
+      <RequiredItem identifier="crosshairs_weapons_optics" amount="1"/>
     </Fabricate>
 	<Deconstruct time="5">
       <Item identifier="assaultrifle" />
@@ -469,9 +492,14 @@
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="4,-12" containedspritedepth="0.56" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
-      <Containable items="assaultrifleammo" />
-    </ItemContainer>
+     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56" ShowContainedStateIndicator="false">
+      <Containable items="assaultrifleammo" itempos="4,-12" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />   
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="24,4" setactive="true"/>
+      </SubContainer>
+    </ItemContainer> 
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
       <QualityStat stattype="FirepowerMultiplier" value="0.1" />

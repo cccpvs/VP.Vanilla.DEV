@@ -3,15 +3,16 @@
 <Character speciesname="Tigerthresher" humanoid="False" husk="False" needsair="False" needswater="True" canspeak="False" noise="100" visibility="200" blooddecal="blood" group="thresher" eatingspeed="20" displayname="" hasinfo="False" usehuskappendage="False" bleedparticleair="blooddrop" bleedparticlewater="waterblood" pathfinderpriority="1" hideinsonar="False" speciestranslationoverride="" sonardisruption="0">
   <ragdolls folder="Content/Characters/Tigerthresher/Ragdolls/" />
   <animations folder="Content/Characters/Tigerthresher/Animations/" />
-  <health vitality="400" doesbleed="True" crushdepth="-Infinity" usehealthwindow="False" bleedingreduction="1" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="3" >
+  <health vitality="400" doesbleed="True" crushdepth="Infinity" usehealthwindow="False" bleedingreduction="1" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="3" >
     <Limb name="Head">
       <VitalityMultiplier type="damage,burn" multiplier="7" />
     </Limb>
   </health>
-  <ai combatstrength="200" sight="1" hearing="1" aggressionhurt="200" aggressiongreed="10" fleehealththreshold="0" attackwhenprovoked="True" aggressiveboarding="True" targetouterwalls="False" avoidgunfire="True" enforceaggressivebehaviorformissions="True" randomattack="False" avoidtime="3" minfleetime="20">
-    <target tag="decoy" state="Attack" priority="500" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreifnotinsamesub="True"/>
-    <target tag="provocative" state="Attack" priority="100" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreifnotinsamesub="True"/>
-    <target tag="weapon" state="Attack" priority="100" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreifnotinsamesub="True"/>
+  <ai combatstrength="200" sight="1" hearing="1" aggressionhurt="200" aggressiongreed="10" fleehealththreshold="0" attackwhenprovoked="True" aggressiveboarding="True" targetouterwalls="False" avoidgunfire="True" DamageThreshold="10" enforceaggressivebehaviorformissions="True" randomattack="False" avoidtime="3" minfleetime="20">
+    <target tag="decoy" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="provocative" state="Attack" priority="100" ignoreifnotinsamesub="True"/>
+    <target tag="weapon" state="Attack" priority="100" ignoreifnotinsamesub="True"/>
+    <target tag="nasonov" state="Attack" priority="100" ignoreinside="True"/>
     <target tag="tool" state="Aggressive" priority="50" reactdistance="1000" attackdistance="0" timer="0" ignorecontained="False" ignoreifnotinsamesub="True"/>
     <target tag="human" state="Attack" priority="60" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreifnotinsamesub="True"/>
     <target tag="weaker" state="Attack" priority="50" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" />
@@ -39,8 +40,12 @@
   <sound file="Content/Characters/Tigerthresher/TIGERTRESHER_attack2.ogg" state="Attack" range="4000" volume="1" />
   <sound file="Content/Characters/Tigerthresher/TIGERTRESHER_death1.ogg" state="Die" range="3000" volume="1" />
   <sound file="Content/Characters/Tigerthresher/TIGERTRESHER_death2.ogg" state="Die" range="3000" volume="1" />
-  <Inventory slots="Any, Any" accessiblewhenalive="False">
+  <Inventory slots="Any, Any, Any, Any" accessiblewhenalive="False" commonness="15">
     <Item identifier="alienblood" />
+  </Inventory>
+  <Inventory slots="Any, Any, Any, Any" accessiblewhenalive="False" commonness="5">
+    <Item identifier="alienblood" />
+    <Item identifier="diversremains" />
   </Inventory>
   <damageemitter particle="gib" drawontop="True" particleamount="10" velocitymin="50" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.25" scalemax="0.5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
   <bloodemitter particle="blood" anglemin="1" anglemax="2" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" particleamount="10" highqualitycollisiondetection="False" copyentityangle="False" />

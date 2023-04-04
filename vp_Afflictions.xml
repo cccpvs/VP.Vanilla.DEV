@@ -12,8 +12,14 @@
       activationthreshold="1.0"
       showiconthreshold="1000"
       maxstrength="100">
-	    <Effect minstrength="0" maxstrength="100" strengthchange="-1.0">
-	    	<StatusEffect type="Always" target="Character,This" disabledeltatime="false">
+	    <Description
+            textidentifier="afflictiondescription.stun"
+            target="OtherCharacter" />
+        <Description
+            textidentifier="afflictiondescription.stun.self"
+            target="Self" />
+	    <Effect minstrength="0" maxstrength="100" strengthchange="-1.0" >
+	    	<StatusEffect ActionType="Always" target="Character" disabledeltatime="true">
 	    		<Affliction identifier="StunVision" strength="2"/>
 	    	</StatusEffect>
 	    </Effect>
@@ -279,7 +285,7 @@
             graincolor="0,0,0,255"
             mingrainstrength="0.0"
             maxgrainstrength="1000.0"
-	        strengthchange="-100.0">
+			strengthchange="-100.0">
         </Effect>
         <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </StunVision>

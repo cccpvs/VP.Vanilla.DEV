@@ -101,7 +101,7 @@
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="815,1,208,346" />
     <ItemContainer capacity="30" slotsperrow="6" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.25,0.45" anchor="Center" slotsperrow="6" style="ItemUI" />
-      <Containable items="smallitem,chem,medical" />
+      <Containable items="smallitem,chem,medical,mediumitem" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
       <limbposition limb="RightHand" position="30,-150" allowusinglimb="false" />
@@ -115,7 +115,7 @@
     <ItemContainer capacity="20" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
       <RequiredItem items="idcard" type="Picked" msg="ItemMsgUnauthorizedAccess" ignoreineditor="true" />
-      <Containable items="smallitem,chem,medical" />
+      <Containable items="smallitem,chem,medical,mediumitem" />
     </ItemContainer>
 	<Controller UserPos="0,0" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
       <limbposition limb="RightHand" position="20,-50" allowusinglimb="false" />
@@ -135,7 +135,7 @@
     -->
     <ItemContainer hideitems="false" drawinventory="true" capacity="5" slotsperrow="5" itempos="132,-44" iteminterval="0,-65" itemrotation="0" containedspritedepth="0.83" canbeselected="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
-      <Containable items="deepdiving" />
+      <Containable items="deepdiving" excludeditems="deepdivinglarge" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="oxygentankshelf" category="Legacy" tags="container,oxygentankcontainer,oxygentankrefiller" pickdistance="50" scale="0.6" variantof="object_core_deleter" >
@@ -146,11 +146,11 @@
     </Powered>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-      <RequiredSkill identifier="electrical" level="20" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
-        <Sound file="Content/Items/Weapons/ElectricalDischarger.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
-        <Affliction identifier="stun" strength="3" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
 	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" stackable="false" />
@@ -173,6 +173,16 @@
     <ItemContainer hideitems="false" drawinventory="true" capacity="10" maxstacksize="1" slotsperrow="5" itempos="24,-41" iteminterval="42,-65" itemsperrow="2" itemrotation="0" canbeselected="true" containedspritedepth="0.83" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" />
       <StatusEffect type="OnFire" target="This" tags="onfire" duration="1" stackable="false" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="6" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="7" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="8" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="9" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="oxygensource,weldingfuel" excludebroken="false" excludefullcondition="true">
         <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And">
           <Conditional Voltage="gt 0.1" targetcontainer="true" targetitemcomponent="Powered"/>
@@ -191,11 +201,11 @@
     </Powered>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-      <RequiredSkill identifier="electrical" level="20" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
-        <Sound file="Content/Items/Weapons/ElectricalDischarger.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
-        <Affliction identifier="stun" strength="3" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
 	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1"/>
@@ -218,7 +228,7 @@
     </ConnectionPanel>
     <ItemContainer hideitems="false" drawinventory="true" capacity="1" slotsperrow="1" itempos="0,0" iteminterval="0,0" canbeselected="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
-      <Containable items="deepdiving" />
+      <Containable items="deepdiving" excludeditems="deepdivinglarge" />
     </ItemContainer>
   </Item>
   
@@ -230,11 +240,11 @@
     </Powered>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-      <RequiredSkill identifier="electrical" level="20" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
-        <Sound file="Content/Items/Weapons/ElectricalDischarger.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
-        <Affliction identifier="stun" strength="3" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
 	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" stackable="false" />
@@ -256,6 +266,9 @@
     </ConnectionPanel> 
     <ItemContainer hideitems="false" drawinventory="true" capacity="3" maxstacksize="1" slotsperrow="3" itempos="27,-42" iteminterval="22.5,0" itemrotation="0" canbeselected="true" containedspritedepth="0.83" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.16,0.18" anchor="Center" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <StatusEffect type="OnFire" target="This" tags="onfire" duration="1" stackable="false" />
       <Containable items="oxygensource,weldingfuel" excludebroken="false" excludefullcondition="true">
         <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And">
@@ -267,16 +280,16 @@
     </ItemContainer>
   </Item>
   <!-- Металлический ящик -->
-  <Item  name="" identifier="metalcrate" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
+  <Item  name="" identifier="metalcrate" tags="crate,allowcleanup" scale="0.5" body="true" bodywidth="150" bodyheight="80" bodyoffset="0,0" castshadow="true" health="200" allowattachitems="true" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
     <Deconstruct time="20">
       <Item identifier="steel" />
     </Deconstruct>
     <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,128,64,64" />-->
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.54" sourcerect="407,376,152,89" origin="0.5,0.5" />
-    <Body width="150" height="80" density="10.1" />
+	<Body width="150" height="80" density="10.1" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect"/>
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true" >
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter,underwaterscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
 	  <StatusEffect type="OnContained" SpeedMultiplier="0.75" setvalue="true" target="Character"/>
     </ItemContainer>
   </Item>
@@ -333,7 +346,7 @@
     </ItemContainer>
   </Item>
   <!-- Стойка огнетушителя -->
-  <Item name="" identifier="extinguisherbracket" tags="extinguisherholder" canflipx="false" canflipy="false" scale="0.5" pickdistance="75" variantof="object_core_deleter">
+  <Item name="" identifier="extinguisherbracket" category="Equipment" tags="extinguisherholder" canflipx="false" canflipy="false" scale="0.5" pickdistance="75" variantof="object_core_deleter">
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.84" sourcerect="815,349,72,204" origin="0.5,0.5" />
     <ItemContainer hideitems="false" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="1" itempos="35,-130" iteminterval="0,0" itemrotation="0" canbeselected="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
@@ -417,7 +430,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="806,2,124,100" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="806,2,124,100" depth="0.6" />
-    <Body width="124" height="95" density="10.2" />
+    <Body width="124" height="95" density="20" />
 	<Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,45" holdangle="0" msg="ItemMsgPickUpUse" aimable="false" canbepicked="true" allowswappingwhenpicked="false" >
 	    <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" />
         <StatusEffect type="OnBroken" target="This">

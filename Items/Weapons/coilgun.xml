@@ -4,7 +4,7 @@
   <!-- Магнитная пушка --> 
   <Item name="" 
         description=""
-        identifier="coilgun" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="750" linkable="true" allowedlinks="coilgunequipment" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
+        identifier="coilgun" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="750" linkable="true" allowedlinks="coilgunequipment" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true" >
     <Sprite texture="Content/Items/Weapons/Turrets.png" depth="0.01" sourcerect="768,0,256,256" canflipy="false" />
 	<MinimapIcon name="Command_Weapons_Coilgun" texture="Content/UI/CommandUIAtlas.png" sourcerect="768,0,128,128" />
     <SwappableItem price="5000" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">

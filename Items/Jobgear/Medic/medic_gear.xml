@@ -24,7 +24,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,256,64,64" origin="0.5,0.5" />
     <Sprite name="Health Scanner" texture="Content/Items/Jobgear/headgears.png" sourcerect="115,349,75,26" depth="0.6" origin="0.5,0.5" />
-    <Body width="70" height="24" density="25" />
+    <Body width="70" height="24" density="15" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
       <sprite name="Health Scanner Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" sourcerect="115,349,75,26" origin="0.55,0.85" />
     </Wearable>
@@ -101,7 +101,7 @@
       <sprite name="Medic Uniform 1 Left Leg" texture="Medic1.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Medic Uniform 1 Right Shoe" texture="Medic1.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Medic Uniform 1 Left Shoe" texture="Medic1.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
-      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,bitewounds" damagemultiplier="0.9" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
     </Wearable>
     <ItemContainer capacity="3">
       <Containable items="chem,medical" />
@@ -138,7 +138,7 @@
       <sprite name="Medic Uniform 2 Left Leg" texture="Medic2.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Medic Uniform 2 Right Shoe" texture="Medic2.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Medic Uniform 2 Left Shoe" texture="Medic2.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
-      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,lacerations,bitewounds" damagemultiplier="0.9" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
     </Wearable>
     <ItemContainer capacity="3">
       <Containable items="chem,medical" />

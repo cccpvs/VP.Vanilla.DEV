@@ -14,13 +14,13 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="166,430,43,43" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="3,118,24,9" depth="0.55" origin="0.5,0.5" />
-    <Body width="34" height="14" density="50" />
+    <Body width="34" height="14" density="30" />
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,115,200" scalemultiplier="1,1" />
-      <Attack structuredamage="20" targetforce="10" itemdamage="40" severlimbsprobability="1.0" penetration="0.5">
-        <Affliction identifier="gunshotwound" strength="50" />
-        <Affliction identifier="bleeding" strength="70" />
+      <Attack structuredamage="20" targetforce="20" itemdamage="20" severlimbsprobability="1.0" penetration="0.5">
+        <Affliction identifier="gunshotwound" strength="70" />
+        <Affliction identifier="bleeding" strength="50" />
         <Affliction identifier="stun" strength="1.5" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -32,7 +32,6 @@
         <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.75" scalemax="1" />
       </StatusEffect>
     </Projectile>
-    <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
   <!-- Бомбарда -->
   <Item name="" identifier="handcannon" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light" variantof="crosshairs_weapons">
@@ -56,9 +55,9 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="303,364,42,67" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="0,256,111,56" depth="0.55" origin="0.5,0.5" />
-    <Body width="106" height="49" density="70" />
+    <Body width="106" height="49" density="30" />
     <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="90,10" handle1="-30,-4" handle2="-50,-15" msg="ItemMsgPickUpSelect" />
-    <RangedWeapon reload="1.45" barrelpos="20,6" spread="0" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+    <RangedWeapon reload="1" barrelpos="40,6" spread="0" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
       <!-- <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" /> -->
       <!-- <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" /> -->
       <Sound file="Content/Items/JobGear/Captain/WEAPONS_handCannon.ogg" type="OnUse" range="3000" selectionmode="Random" />
@@ -69,7 +68,7 @@
       <Sound file="Content/Items/JobGear/Captain/WEAPONS_handCannon_5.ogg" type="OnUse" range="3000" />
       <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="7.0,7.0" colormultiplier="255,200,115,200" />
       <StatusEffect type="OnUse">
-        <Explosion range="300.0" force="50" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+        <Explosion range="150.0" force="5" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
       </StatusEffect>
       <RequiredItems items="handcannonammo" type="Contained" msg="ItemMsgAmmoRequired" />
       <!-- <RequiredSkill identifier="weapons" level="60" /> -->
@@ -86,7 +85,7 @@
     <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
     <Quality>
       <QualityStat stattype="FirepowerMultiplier" value="0.1" />
-	  <QualityStat stattype="Condition" value="0.1"/>
+	  <!--<QualityStat stattype="Condition" value="0.1"/>-->
     </Quality>
   </Item>
   <Item name="" identifier="coalitioncommendation" category="Equipment" Tags="smallitem" cargocontaineridentifier="metalcrate" maxstacksize="8" scale="0.5" impactsoundtag="impact_soft">
@@ -103,13 +102,13 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="265,365,36,65" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="3,4,24,43" depth="0.6" origin="0.5,0.5" />
-    <Body width="19" height="40" density="20" />
-    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect">
+    <Body width="19" height="40" density="25" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <Attack targetimpulse="5">
         <!-- empty attack so that a talent can trigger-->
       </Attack>
       <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
-      <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
         <Sound file="Content/Items/Button/button.ogg" type="OnUse" range="500" />
         <GiveExperience amount="275" />
       </StatusEffect>
@@ -118,7 +117,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
-  <Item name="" identifier="coalitionmedal" category="Equipment" Tags="smallitem" cargocontaineridentifier="metalcrate" maxstacksize="8" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="coalitionmedal" category="Equipment" Tags="smallitem" cargocontaineridentifier="metalcrate" allowasextracargo="true" maxstacksize="8" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab"/>
     <Price baseprice="600" buyingpricemodifier="5" minleveldifficulty="65">
       <Price storeidentifier="merchantoutpost" maxavailable="0" />
@@ -133,15 +132,15 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="228,365,37,65" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="33,4,24,43" depth="0.6" origin="0.5,0.5" />
-    <Body width="19" height="40" density="20" />
-    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect">
+    <Body width="19" height="40" density="25" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <Attack targetimpulse="5">
         <!-- empty attack so that a talent can trigger-->
       </Attack>
       <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
-      <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
         <Sound file="Content/Items/Button/button.ogg" type="OnUse" range="500" />
-        <GiveExperience amount="750" />
+        <GiveExperience amount="550" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />
@@ -149,7 +148,7 @@
     </MeleeWeapon>
   </Item>
   <!-- Сигара -->
-  <Item name="" identifier="cigar" category="Misc" Tags="smallitem" scale="0.5" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" isshootable="true" requireaimtouse="true">
+  <Item name="" identifier="cigar" category="Misc" Tags="smallitem" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" impactsoundtag="impact_soft" isshootable="true" requireaimtouse="true">
     <PreferredContainer primary="crewcab"/>
     <Price baseprice="130" sold="false" />
     <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true">
@@ -157,8 +156,8 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="174,234,42,50" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,60,50,12" depth="0.55" origin="0.5,0.5" />
-    <Body width="45" height="10" />
-    <Holdable slots="Any,RightHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+    <Body width="45" height="10" density="9.9"/>
+    <Holdable slots="Any,RightHand,LeftHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnUse" target="This" Condition="-4.0">
         <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
       </StatusEffect>
@@ -174,5 +173,46 @@
       </StatusEffect>
     </Holdable>
   </Item>
+
+  <Rum name="" identifier="rum" category="Medical,Material" maxstacksize="8" cargocontaineridentifier="mediccrate" description="" Tags="smallitem" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true"/>
+    <PreferredContainer primary="medfabcab" secondary="medcab"/>
+    <Price baseprice="130" sold="false">
+      <Price storeidentifier="merchantclown" minavailable="0" maxavailable="3">
+        <Reputation faction="clowns" min="30"/>
+      </Price>
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
+      <RequiredItem identifier="ethanol" />
+      <RequiredItem identifier="raptorbane" />
+    </Fabricate>
+    <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="486,212,27,66" depth="0.6" origin="0.5,0.5" />
+    <Body width="27" height="66" density="20" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0"/>
+      <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
+        <Conditional Condition="lte 1" />
+        <Use/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Affliction identifier="psychosisresistance" amount="600" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="UseTarget" duration="30">
+        <Conditional huskinfection="lt 50.0" />
+        <ReduceAffliction identifier="huskinfection" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="UseTarget" duration="30">
+        <ReduceAffliction identifier="psychosis" amount="3" />
+        <ReduceAffliction identifier="hallucinating" amount="3" />
+        <Affliction identifier="drunk" amount="3" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Rum>
 </Items>
 </Override>

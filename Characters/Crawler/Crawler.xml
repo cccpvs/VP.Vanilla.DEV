@@ -8,7 +8,7 @@
   <bloodemitter particle="waterblood" particleamount="1" anglemin="0" anglemax="0" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
   <gibemitter particle="gib" particleamount="20" velocitymin="200" velocitymax="700" anglemin="0" anglemax="360" scalemin="1" scalemax="1" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
   <gibemitter particle="heavygib" particleamount="5" velocitymin="50" velocitymax="500" anglemin="0" anglemax="360" scalemin="0.5" scalemax="0.8" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
-  <health vitality="200" doesbleed="True" crushdepth="-Infinity" usehealthwindow="False" bleedingreduction="0.2" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="10">
+  <health vitality="200" doesbleed="True" crushdepth="Infinity" usehealthwindow="False" bleedingreduction="0.2" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="10" poisonvulnerability="2">
     <Limb name="Torso">
       <VitalityMultiplier type="damage,burn" multiplier="1.0" />
     </Limb>
@@ -38,23 +38,23 @@
   <sound file="Content/Characters/Crawler/CRAWLER_damage1.ogg" state="Damage" range="2000" volume="1" />
   <sound file="Content/Characters/Crawler/CRAWLER_damage2.ogg" state="Damage" range="2000" volume="1" />
   <sound file="Content/Characters/Crawler/CRAWLER_damage3.ogg" state="Damage" range="2000" volume="1" />
-  <Inventory slots="Any, Any" accessiblewhenalive="False" commonness="1">
+  <Inventory slots="Any, Any, Any, Any" accessiblewhenalive="False" commonness="1">
     <Item identifier="crawlermask" />
     <Item identifier="alienblood" />
   </Inventory>
-  <Inventory slots="Any, Any" accessiblewhenalive="False" commonness="50">
+  <Inventory slots="Any, Any, Any, Any" accessiblewhenalive="False" commonness="50">
     <Item identifier="alienblood" />
   </Inventory>
-  <ai combatstrength="100" sight="1" hearing="1.0" fleehealththreshold="10" aggressiveboarding="true" aggressiongreed="10" aggressionhurt="200" avoidgunfire="True">
-    <target tag="decoy" state="Attack" priority="500" reactdistance="0" ignoreifnotinsamesub="True"/>
+  <ai combatstrength="100" sight="1" hearing="1.0" fleehealththreshold="10" aggressiveboarding="true" aggressiongreed="10" aggressionhurt="200" avoidgunfire="True" DamageThreshold="10">
     <target tag="stronger" state="Avoid" priority="200" reactdistance="2000" />
     <target tag="husk" state="PassiveAggressive" priority="200" reactdistance="2000" attackdistance="500"/>
-    <target tag="provocative" state="Attack" priority="100" reactdistance="0" ignoreifnotinsamesub="True"/>
-    <target tag="weapon" state="Attack" priority="100" reactdistance="0" ignoreifnotinsamesub="True"/>
+    <target tag="decoy" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="provocative" state="Attack" priority="100" ignoreifnotinsamesub="True"/>
+    <target tag="weapon" state="Attack" priority="100" ignoreifnotinsamesub="True"/>
+    <target tag="nasonov" state="Attack" priority="100" ignoreinside="True"/>
     <target tag="dead" state="Eat" priority="100" reactdistance="0" />
     <target tag="weaker" state="Attack" priority="80" reactdistance="0" />
     <target tag="human" state="Attack" priority="80" reactdistance="0" />
-    <target tag="nasonov" state="Attack" priority="70" reactdistance="0" />
     <target tag="tool" state="Aggressive" priority="50" reactdistance="1000" ignoreifnotinsamesub="True"/>
     <target tag="leucocyte" state="Avoid" priority="50" reactdistance="1000"/>
     <target tag="engine" state="Avoid" priority="50" reactdistance="400" ignoreinside="True" />

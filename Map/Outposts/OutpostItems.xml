@@ -173,8 +173,17 @@
   <Item name="" identifier="op_gardenproducebox" width="266" height="250" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/CafeteriaGardenAssets.png" sourcerect="288,524,266,250" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
   </Item>
-  <Item name="" identifier="op_cafeteriachair" width="152" height="240" scale="0.5" noninteractable="true" category="Decorative">
+  <Item name="" identifier="op_cafeteriachair" width="152" height="240" scale="0.5" noninteractable="false" category="Decorative" canflipy="false">
     <sprite texture="Content/Map/Outposts/Art/CafeteriaGardenAssets.png" sourcerect="197,778,152,240" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true" drawuserbehind="true">
+      <limbposition limb="Head" position="45,40" />
+      <limbposition limb="Torso" position="50,-30" />
+      <limbposition limb="Waist" position="50,-80" />
+      <limbposition limb="RightLeg" position="165,-140" />
+      <limbposition limb="LeftLeg" position="165,-140" />
+      <limbposition limb="RightHand" position="120,-80" allowusinglimb="true" />
+      <limbposition limb="LeftHand" position="120,-80" allowusinglimb="true" />
+    </Controller>
   </Item>
 
   <Item name="" identifier="op_gardenplanter2" nameidentifier="smallplanter" width="107" height="106" scale="0.5" noninteractable="true" category="Decorative">
@@ -370,7 +379,7 @@
     </Fabricator>
     <ItemContainer capacity="0" canbeselected="false" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true"/>
     <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true"/>
-    <LightComponent range="0.0" lightcolor="255,255,255,111" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="0.0" lightcolor="255,255,255,111" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="241,497,238,396" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
@@ -382,7 +391,7 @@
     </Fabricator>
     <ItemContainer capacity="0" canbeselected="false" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true"/>
     <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true"/>
-    <LightComponent range="0.0" lightcolor="255,255,255,111" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="0.0" lightcolor="255,255,255,111" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="721,497,238,396" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
@@ -398,6 +407,8 @@
     <Upgrade gameversion="0.12.0.0" noninteractable="false" />
     <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1600,1760,384,264" depth="0.85" premultiplyalpha="false" origin="0.5,0.5" />
     <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true" noninteractablewhenflippedy="true">
+      <!-- don't allow laying in bed when wearing an exosuit -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
       <limbposition limb="Head" position="-26,-170" />
       <limbposition limb="Torso" position="84,-140" />
       <limbposition limb="Waist" position="224,-160" />
@@ -409,12 +420,19 @@
 		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.38889555555" />
       </StatusEffect>
     </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
   </Item>
   <Item name="" identifier="opdeco_bunks1" nameidentifier="opdeco_bunks1" allowattachitems="false" width="463" height="398" texturescale="1.0,1.0" scale="0.5" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1296,1289,463,387" depth="0.85" premultiplyalpha="false" origin="0.5,0.5" />
     <DecorativeSprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1390,1126,320,160" depth="0.86" origin="0.5,0.5" offset="40,-95" />
     <DecorativeSprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1390,1126,320,160" depth="0.86" origin="0.5,0.5" offset="40,105" />
     <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true" noninteractablewhenflippedy="true">
+      <!-- don't allow laying in bed when wearing an exosuit -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
       <limbposition limb="Head" position="14,-300" />
       <limbposition limb="Torso" position="124,-270" />
       <limbposition limb="Waist" position="264,-290" />
@@ -426,11 +444,18 @@
 		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.38889555555" />
       </StatusEffect>
     </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
   </Item>
   <Item name="" identifier="opdeco_hospitalbed" width="416" height="192" texturescale="1.0,1.0" scale="0.5" noninteractable="false" category="Decorative">
     <Upgrade gameversion="0.12.0.0" noninteractable="false" />
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,304,416,192" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
     <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
+      <!-- don't allow laying in bed when wearing an exosuit -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
       <limbposition limb="Head" position="-6,-10" />
       <limbposition limb="Torso" position="104,0" />
       <limbposition limb="Waist" position="244,-80" />
@@ -449,10 +474,17 @@
 		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.38889555555" />
       </StatusEffect>
     </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
   </Item>
   <Item name="" identifier="opdeco_prisonbed" allowattachitems="true" width="384" height="96" texturescale="1.0,1.0" scale="0.5" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="864,1888,384,96" depth="0.98" premultiplyalpha="false" origin="0.5,0.5" />
     <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true">
+      <!-- don't allow laying in bed when wearing an exosuit -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
       <limbposition limb="Head" position="-6,-10" />
       <limbposition limb="Torso" position="104,20" />
       <limbposition limb="Waist" position="244,-60" />
@@ -464,10 +496,15 @@
 		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.38889555555" />
       </StatusEffect>
     </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
   </Item>
   <Item name="" identifier="opdeco_heater" width="144" height="336" texturescale="1.0,1.0" scale="0.5" category="Decorative" spritecolor="255,255,255,255" noninteractable="true">
     <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1291,1689,144,333" depth="0.95" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="246,92,59,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="0.0" pulseamont="0.2" pulsefrequency="0.2">
+    <LightComponent range="0.0" lightcolor="246,92,59,0" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false" flicker="0.0" pulseamont="0.2" pulsefrequency="0.2">
       <Upgrade gameversion="0.17.15.0" range="0" />
       <Upgrade gameversion="0.18.13.0" lightcolor="246,92,59,0" />
       <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1441,1689,144,333" depth="0.1" origin="0.5,0.5" alpha="1.0" />
@@ -545,14 +582,14 @@
   </Item>
   <Item name="" identifier="opdeco_surgicallights" width="272" height="128" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="752,0,272,128" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
       <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="480,0,272,128" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
   <Item name="" identifier="opdeco_xrayscreen" width="208" height="144" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="304,160,208,144" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">      
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false" flicker="0.1" pulsefrequency="0.5" pulseamount="0.2">      
       <Upgrade gameversion="0.17.15.0" range="0" />
       <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,160,208,144" depth="0.1" origin="0.5,0.5" alpha="1.0" />
@@ -560,7 +597,7 @@
   </Item>
   <Item name="" identifier="opdeco_xrayscreen2" nameidentifier="opdeco_xrayscreen" width="369" height="133" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="0,0,369,133" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">      
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false" flicker="0.1" pulsefrequency="0.5" pulseamount="0.2">      
       <Upgrade gameversion="0.17.15.0" range="0" />
       <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="0,133,369,133" depth="0.1" origin="0.5,0.5" alpha="1.0" />
@@ -568,15 +605,15 @@
   </Item>
   <Item name="" identifier="opdeco_xrayscreen3" nameidentifier="opdeco_xrayscreen" width="192" height="208" texturescale="1.0,1.0" scale="0.5" noninteractable="true" category="Decorative">
     <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="199,266,192,208" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false" flicker="1.0">
+    <LightComponent range="0.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false" flicker="0.1" pulsefrequency="0.5" pulseamount="0.2">
       <Upgrade gameversion="0.17.15.0" range="0" />
       <Upgrade gameversion="0.18.12.0" lightcolor="255,255,255,0" />
       <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="0,267,192,208" depth="0.1" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
   </Item>
   <Item name="" identifier="opdeco_wheelchair2" nameidentifier="opdeco_wheelchair1" tags="chair" allowattachitems="false" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
-    <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="452,781,249,225" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true">
+    <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="452,781,249,225" depth="0.55" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true" drawuserbehind="true">
       <limbposition limb="Head" position="70,45" />
       <limbposition limb="Torso" position="90,-30" />
       <limbposition limb="Waist" position="95,-85" />
@@ -641,6 +678,7 @@
         </Explosion>
         <Explosion range="2000" force="0.0" camerashake="200" camerashakerange="50000" showEffects="false" empstrength="1.25" applyfireeffects="false" ignorecover="true">
           <Affliction identifier="radiationsickness" strength="75" />
+          <Affliction identifier="emp" strength="50" multiplybymaxvitality="true" />
         </Explosion>
         <ParticleEmitter particle="underwaterexplosion" anglemin="0" anglemax="360" particleamount="3" velocitymin="0" velocitymax="0" scalemin="15" scalemax="15" />
       </StatusEffect>
@@ -648,7 +686,7 @@
     </Reactor>
     <LightComponent range="300.0" lightcolor="255,186,152,119" powerconsumption="0" IsOn="false" castshadows="false" allowingameediting="false">
       <IsActive targetitemcomponent="Reactor" temperature="gt 2" />
-      <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" depth="0.025" sourcerect="649,336,575,849" origin="0.5,0.5" alpha="1.0" />
+      <sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" depth="0.025" sourcerect="649,336,575,849" alphablend="false" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
     <LightComponent range="400" lightcolor="255,0,0,250" powerconsumption="0" IsOn="false" castshadows="false" allowingameediting="false" blinkfrequency="1">
       <IsActive targetitemcomponent="Reactor" temperaturecritical="eq true" />
@@ -656,10 +694,10 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.3,0.35" minsize="400,350" maxsize="480,460" anchor="Center" style="ConnectionPanel" />
       <RequiredSkill identifier="electrical" level="70" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
-        <Affliction identifier="stun" strength="5" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
       <RequiredItem items="screwdriver" type="Equipped" />
@@ -705,11 +743,13 @@
       <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
       <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
 	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
     </Repairable>
+    <SkillRequirementHint identifier="electrical" level="50" />
   </Item>
   <Item name="" nameidentifier="oxygenerator" identifier="outpostoxygenerator" tags="oxygengenerator" category="Machine" linkable="true" allowedlinks="vent" damagedbyexplosions="true" scale="0.5" explosiondamagemultiplier="0.2">
     <Sprite texture="Content/Map/Outposts/Art/GenericAssets2.png" depth="0.8" sourcerect="52,1197,360,410" origin="0.5,0.5" />
@@ -722,9 +762,13 @@
       <StatusEffect type="OnFire" target="This" Condition="-0.5" />
       <StatusEffect type="OnActive" targettype="Contained" targets="oxygentank" Condition="2.0" />
       <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="8000" selectionmode="All" />
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="8000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="3000" />
         <Explosion range="50" stun="0" force="3.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="2000" />
       </StatusEffect>
     </OxygenGenerator>
     <trigger />
@@ -745,20 +789,21 @@
       <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
       <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
       <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
-        <Affliction identifier="lacerations" strength="15" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
       </StatusEffect>
     </Repairable>
   </Item>
   <Item name="" identifier="outpostterminal" category="Machine" Tags="smallitem" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
     <Sprite texture="Content/Map/Outposts/Art/Storage.png" depth="0.8" sourcerect="1544,506,142,149" origin="0.5,0.5" />
-    <LightComponent range="0.0" lightcolor="255,255,255,0" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="0.0" lightcolor="255,255,255,0" powerconsumption="0" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
       <Upgrade gameversion="0.17.15.0" range="0" />
       <sprite texture="Content/Map/Outposts/Art/Storage.png" depth="0.025" sourcerect="1709,506,142,149" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
-    <LightComponent range="0.0" lightcolor="255,255,255,0" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false" blinkfrequency="1">
+    <LightComponent range="0.0" lightcolor="255,255,255,0" powerconsumption="0" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false" blinkfrequency="1">
       <Upgrade gameversion="0.17.15.0" range="0" />
       <sprite texture="Content/Map/Outposts/Art/Storage.png" depth="0.025" sourcerect="1869,506,142,149" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
@@ -771,8 +816,8 @@
     </ConnectionPanel>
   </Item>
   <Item name="" identifier="opdeco_officechair" tags="chair" allowattachitems="false" texturescale="1.0,1.0" scale="0.45" category="Decorative" canflipy="false">
-    <sprite texture="Content/Map/Outposts/Art/ManagerOfficeAssets.png" sourcerect="570,341,180,267" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true">
+    <sprite texture="Content/Map/Outposts/Art/ManagerOfficeAssets.png" sourcerect="570,341,180,267" depth="0.55" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true" drawuserbehind="true">
       <limbposition limb="Head" position="90,15" />
       <limbposition limb="Torso" position="85,-60" />
       <limbposition limb="Waist" position="90,-130" />
@@ -786,8 +831,8 @@
     </Controller>
   </Item>
   <Item name="" identifier="opdeco_chair1" nameidentifier="opdeco_officechair" tags="chair" allowattachitems="true" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
-    <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1233,31,144,240" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="-10,30" direction="Left" hidehud="false" canbeselected="true" issecondaryitem="true">
+    <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1233,31,144,240" depth="0.55" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="-10,30" direction="Left" hidehud="false" canbeselected="true" issecondaryitem="true" drawuserbehind="true">
       <limbposition limb="Head" position="82,18" />
       <limbposition limb="Torso" position="80,-52" />
       <limbposition limb="Waist" position="73,-105" />
@@ -801,8 +846,8 @@
     </Controller>
   </Item>
   <Item name="" identifier="opdeco_chair2" nameidentifier="opdeco_officechair" tags="chair" allowattachitems="true" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
-    <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="744,784,144,240" depth="0.1" premultiplyalpha="false" origin="0.5,0.5" />
-    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true">
+    <sprite texture="Content/Map/Outposts/Art/MedicalColonyAssets.png" sourcerect="744,784,144,240" depth="0.55" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="10,30" direction="Right" hidehud="false" canbeselected="true" issecondaryitem="true" drawuserbehind="true">
       <limbposition limb="Head" position="40,15" />
       <limbposition limb="Torso" position="55,-60" />
       <limbposition limb="Waist" position="60,-130" />

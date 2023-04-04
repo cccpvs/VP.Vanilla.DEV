@@ -13,11 +13,11 @@
     </Price>
     <Deconstruct time="10" />
     <Sprite name="Captain's Cap 1" texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="12,130,89,50" origin="0.5,0.5" />
-    <Body width="59" height="40" density="30" />
+    <Body width="59" height="40" density="15" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
       <sprite name="Captain's Cap 1 Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hidelimb="false" sourcerect="12,130,89,50" origin="0.5,1.0" />
       <SkillModifier skillidentifier="helm" skillvalue="10" />
-      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" />
     </Wearable>
 	<Deconstruct time="15" chooserandom="true" amount="1">
         <Item identifier="organicfiber" commonness="1"/>
@@ -34,11 +34,11 @@
     </Price>
     <Deconstruct time="10" />
     <Sprite name="Captain's Cap 2" texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="114,129,83,48" origin="0.5,0.5" />
-    <Body width="75" height="40" density="30" />
+    <Body width="75" height="40" density="15" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
       <sprite name="Captain's Cap 2 Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hidelimb="false" sourcerect="114,129,83,48" origin="0.55,1.1" />
       <SkillModifier skillidentifier="helm" skillvalue="10" />
-      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" />
     </Wearable>
 	<Deconstruct time="15" chooserandom="true" amount="1">
         <Item identifier="organicfiber" commonness="1"/>
@@ -55,11 +55,11 @@
     </Price>
     <Deconstruct time="10" />
     <Sprite name="Captain's Cap 3" texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="212,119,90,53" origin="0.5,0.5" />
-    <Body width="70" height="45" density="30" />
+    <Body width="70" height="45" density="15" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
       <sprite name="Captain's Cap 3 Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hidelimb="false" sourcerect="212,119,90,53" origin="0.55,1.1" />
       <SkillModifier skillidentifier="helm" skillvalue="10" />
-      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" />
     </Wearable>
 	<Deconstruct time="15" chooserandom="true" amount="1">
         <Item identifier="organicfiber" commonness="1"/>
@@ -132,7 +132,7 @@
     </Deconstruct>
     <InventoryIcon name="Captain's Uniform 2 Icon" texture="Content/Items/Jobgear/OutfitIcons.png" sourcerect="128,27,128,101" origin="0.5,0.5" />
     <Sprite name="Captain's Uniform 2" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="375,225,124,61" depth="0.6" origin="0.5,0.5" />
-    <Body width="100" height="50" density="30" friction="0.8" restitution="0.01" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
     <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
       <sprite name="Captain's Uniform 2 Torso" texture="Content/Items/Jobgear/Captain/captain_2.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Captain's Uniform 2 Right Hand" texture="Content/Items/Jobgear/Captain/captain_2.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
@@ -153,7 +153,6 @@
   </Item>
   <Item name="" identifier="captainsuniform3" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab" />
-    <PreferredContainer secondary="locker" />
     <Price baseprice="150">
       <Price storeidentifier="merchantoutpost" minavailable="1" />
       <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
@@ -166,7 +165,7 @@
     </Deconstruct>
     <InventoryIcon name="Captain's Uniform 3 Icon" texture="Content/Items/Jobgear/OutfitIcons.png" sourcerect="255,27,128,101" origin="0.5,0.5" />
     <Sprite name="Captain's Uniform 3" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="244,292,126,64" depth="0.6" origin="0.5,0.5" />
-    <Body width="100" height="50" density="30" friction="0.8" restitution="0.01" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
     <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
       <sprite name="Captain's Uniform 3 Torso" texture="Content/Items/Jobgear/Captain/captain_3.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Captain's Uniform 3 Right Hand" texture="Content/Items/Jobgear/Captain/captain_3.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
