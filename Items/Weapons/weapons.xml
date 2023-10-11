@@ -846,18 +846,21 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="770,0,58,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,191,63" depth="0.55" origin="0.4954025,0.7936202" />
     <Body width="170" height="30" density="20" />
-    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="45,10" handle1="-30,15" holdangle="20" reload="0.95" range="100" combatPriority="49" msg="ItemMsgPickUpSelect" preferredcontaineditems="mobilebattery">
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,20" handle1="-30,15" holdangle="20" aimangle="30" reload="0.95" range="100" combatPriority="49" msg="ItemMsgPickUpSelect" preferredcontaineditems="mobilebattery">
       <Attack targetimpulse="5" itemdamage="1">
-        <Sound file="Content/Items/Weapons/Smack1.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
         <Affliction identifier="blunttrauma" strength="4" />
-        <Affliction identifier="stun" strength="0.2"/>
+        <Affliction identifier="stun" strength="0.5" />
       </Attack>
       <!-- changed to use incremental stun: normal batteries cause 40 points of incremental stun -> full stun in three consecutive hits -->
       <!-- keep weight check in place for now (affect targets with mass < 60) -->
-	  <StatusEffect type="OnContained" SpeedMultiplier="0.9" setvalue="true" target="Character"/>
-      <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
-        <Affliction identifier="stun" strength="0.3"/>
-        <Affliction identifier="incrementalstun" strength="40"/>
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Affliction identifier="stun" strength="0.3" />
+        <Affliction identifier="incrementalstun" strength="40" />
         <sound file="Content/Items/Weapons/StunBaton1.ogg" selectionmode="random" range="500" />
         <sound file="Content/Items/Weapons/StunBaton2.ogg" range="500" />
         <sound file="Content/Items/Weapons/StunBaton3.ogg" range="500" />
@@ -868,9 +871,9 @@
       </StatusEffect>
       <!-- changed to use incremental stun: fulgurium batteries cause 55 points of incremental stun -> full stun in two consecutive hits -->
       <!-- keep weight check in place for now (affect targets with mass < 150) -->
-      <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
-        <Affliction identifier="stun" strength="0.3"/>
-        <Affliction identifier="incrementalstun" strength="55"/>
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Affliction identifier="stun" strength="0.3" />
+        <Affliction identifier="incrementalstun" strength="55" />
         <sound file="Content/Items/Weapons/StunBaton1.ogg" selectionmode="random" range="500" />
         <sound file="Content/Items/Weapons/StunBaton2.ogg" range="500" />
         <sound file="Content/Items/Weapons/StunBaton3.ogg" range="500" />
@@ -880,21 +883,18 @@
         <Conditional mass="lt 150" />
       </StatusEffect>
       <!-- 4 usages with normal battery -->
-      <StatusEffect type="OnUse" target="Contained" Condition="-25.0" disabledeltatime="true">
-        <RequiredItem items="batterycell" type="Contained" msg="ItemMsgBatteryCellRequired" />
-      </StatusEffect>
-      <!-- 6 usages with a fulgurium battery -->
-      <StatusEffect type="OnUse" target="Contained" Condition="-16.7" disabledeltatime="true">
-        <RequiredItem items="fulguriumbatterycell" type="Contained" msg="ItemMsgBatteryCellRequired" />
+      <StatusEffect type="OnUse" target="Contained,UseTarget" Condition="-25.0" disabledeltatime="true">
+        <RequiredItem items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired" />
+        <Conditional entitytype="eq Character" />
       </StatusEffect>
     </MeleeWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-	  <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <Containable items="mobilebattery" />
     </ItemContainer>
     <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
     <Quality>
-      <QualityStat stattype="StrikingPowerMultiplier" value="0.25"/>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.25" />
     </Quality>
   </Item>
 <!--нож ныряльщика-->
