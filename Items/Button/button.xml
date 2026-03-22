@@ -3,7 +3,8 @@
 <Items>
   <Item name="" identifier="button" category="Electrical" tags="smallitem,button" allowedlinks="door" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" maxstacksize="8">
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
-    <Price baseprice="125" minavailable="4">
+    <PreferredContainer primary="engcab"/>
+    <Price baseprice="50" minavailable="4">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false" />
       <Price storeidentifier="merchantresearch" />
@@ -30,11 +31,11 @@
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
           <Conditional HasStatusTag="onfire" />
           <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="500" />
-		  <SpawnItem identifiers="scrap" spawnposition="This" />
+		  <SpawnItem identifiers="scrap2" spawnposition="This" />
 		  <Remove/>
       </StatusEffect>
     </ConnectionPanel>
@@ -42,8 +43,10 @@
       <requireditem identifier="wrench" type="Equipped" />
     </Holdable>
   </Item>
+  <!-- выключатель -->
   <Item name="" identifier="switch" category="Electrical" tags="smallitem,switch" allowedlinks="door" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" maxstacksize="8">
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="engcab"/>
     <Price baseprice="125" minavailable="4">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false" />
@@ -79,11 +82,11 @@
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
           <Conditional HasStatusTag="onfire" />
           <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="500" />
-		  <SpawnItem identifiers="scrap" spawnposition="This" />
+		  <SpawnItem identifiers="scrap2" spawnposition="This" />
 		  <Remove/>
       </StatusEffect>
     </ConnectionPanel>
@@ -91,7 +94,8 @@
       <requireditem identifier="wrench" type="Equipped" />
     </Holdable>
   </Item>
-  <Item name="" identifier="lever" category="Electrical" tags="smallitem,switch" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="lever" category="Electrical" tags="smallitem,switch" allowedlinks="door" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+    <PreferredContainer primary="engcab"/>
     <Price baseprice="125" minavailable="4">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false" />
@@ -122,17 +126,57 @@
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
           <Conditional HasStatusTag="onfire" />
           <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="500" />
-		  <SpawnItem identifiers="scrap" spawnposition="This" />
+		  <SpawnItem identifiers="scrap2" spawnposition="This" />
 		  <Remove/>
       </StatusEffect>
     </ConnectionPanel>
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
-      <requireditem identifier="wrench" type="Equipped" />
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
+  </Item>
+  <Item identifier="valve" category="Machine" tags="valve" linkable="true" allowedlinks="pump,pipeweakpoint" scale="0.5" hideinmenus="false">
+    <Sprite texture="Content/Items/Pump/Pumps2.png" sourcerect="0,352,128,64" depth="0.7"/>
+    <DecorativeSprite texture="Content/Items/Pump/Pumps2.png" sourcerect="384,384,128,128" depth="0.699" rotationspeed="-360">
+      <AnimationConditional targetitemcomponent="Controller" canbepicked="false" />
+    </DecorativeSprite>
+    <LightComponent range="10.0" lightcolor="0,0,255,200" IsOn="true" castshadows="false" alphablend="false" pulseamount="0.2" pulsefrequency="0.5" allowingameediting="false" >
+      <sprite texture="Content/Items/Pump/Pumps2.png" depth="0.025" sourcerect="0,432,128,64" origin="0.5,0.5" alpha="1.0" />
+      <IsActiveConditional state="true" targetitemcomponent="Controller" />
+      <!-- periodically enable the linked pump(s) when the valve is open (if there's multiple linked valves, any open valve will keep the pump active) -->
+      <StatusEffect type="OnActive" target="LinkedEntities" disabled="false" interval="0.25" />
+    </LightComponent>
+    <LightComponent range="10.0" lightcolor="255,0,0,200" IsOn="false" castshadows="false" alphablend="false" blinkfrequency="1" allowingameediting="false">
+      <sprite texture="Content/Items/Pump/Pumps2.png" depth="0.025" sourcerect="144,352,128,64" origin="0.5,0.5" alpha="1.0" />
+      <IsActiveConditional state="false" targetitemcomponent="Controller" />
+    </LightComponent>
+    <Controller direction="None" canbepicked="true" istoggle="true" state="true" msg="ItemMsgPressSelect">
+      <StatusEffect type="OnUse" target="This">
+        <Conditional state="false"/>
+        <sound file="Content/Items/Pump/ValveClose1.ogg" type="OnUse" range="250" selectionmode="random"/>
+        <sound file="Content/Items/Pump/ValveClose2.ogg" type="OnUse" range="250"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional state="true"/>
+        <sound file="Content/Items/Pump/ValveOpen1.ogg" type="OnUse" range="250" selectionmode="random"/>
+        <sound file="Content/Items/Pump/ValveOpen2.ogg" type="OnUse" range="250"/>
+      </StatusEffect>
+      <!-- 0.5 sec to close -->
+      <StatusEffect type="OnUse" target="This,LinkedEntities" disabled="true" delay="0.5">
+        <Conditional state="false"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" targetitemcomponent="Controller" canbepicked="false"/>
+      <StatusEffect type="OnUse" target="This" targetitemcomponent="Controller" canbepicked="true" delay="0.5"/>
+    </Controller>
+    <!-- locked by default (can be enabled in the sub editor if someone wants to use the valve e.g. as a type of analog switch -->
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10" Locked="true">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem identifier="screwdriver" type="Equipped" />
+      <output name="signal_out" displayname="connection.signalout" />
+    </ConnectionPanel>
   </Item>
 </Items>
 </Override> 

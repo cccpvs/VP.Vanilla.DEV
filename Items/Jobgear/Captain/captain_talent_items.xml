@@ -8,11 +8,12 @@
     <Price baseprice="70" sold="false" />
     <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true" amount="6">
       <RequiredSkill identifier="weapons" level="45" />
-      <RequiredItem identifier="magnesium" />
-      <RequiredItem identifier="lead" amount="2" />
-      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="advmunition_tip" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem tag="advmunition_core" description="fabricationdescription.advmunition_core" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
     </Fabricate>
-    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="166,430,43,43" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="166,430,40,43" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="3,118,24,9" depth="0.55" origin="0.5,0.5" />
     <Body width="34" height="14" density="30" />
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
@@ -56,7 +57,7 @@
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="303,364,42,67" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="0,256,111,56" depth="0.55" origin="0.5,0.5" />
     <Body width="106" height="49" density="30" />
-    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="90,10" handle1="-30,-4" handle2="-50,-15" msg="ItemMsgPickUpSelect" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="90,10" handle1="-45,-4" handle2="-45,-15" msg="ItemMsgPickUpSelect" />
     <RangedWeapon reload="1" barrelpos="40,6" spread="0" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
       <!-- <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" /> -->
       <!-- <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" /> -->
@@ -67,7 +68,8 @@
       <Sound file="Content/Items/JobGear/Captain/WEAPONS_handCannon_4.ogg" type="OnUse" range="3000" />
       <Sound file="Content/Items/JobGear/Captain/WEAPONS_handCannon_5.ogg" type="OnUse" range="3000" />
       <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="7.0,7.0" colormultiplier="255,200,115,200" />
-      <StatusEffect type="OnUse">
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
         <Explosion range="150.0" force="5" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
       </StatusEffect>
       <RequiredItems items="handcannonammo" type="Contained" msg="ItemMsgAmmoRequired" />
@@ -78,6 +80,9 @@
 			<!-- <Sound file="%ModDir%/Items/Weapons/noammo.ogg" range="200"/> -->
 			<!-- <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" /> -->
 		<!-- </StatusEffect> -->
+		<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" hideitems="true" containedstateindicatorstyle="bullet" ShowContainedStateIndicator="false">
       <Containable items="handcannonammo" />
@@ -117,7 +122,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
-  <Item name="" identifier="coalitionmedal" category="Equipment" Tags="smallitem" cargocontaineridentifier="metalcrate" allowasextracargo="true" maxstacksize="8" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="coalitionmedal" category="Misc" Tags="smallitem" cargocontaineridentifier="metalcrate" allowasextracargo="true" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab"/>
     <Price baseprice="600" buyingpricemodifier="5" minleveldifficulty="65">
       <Price storeidentifier="merchantoutpost" maxavailable="0" />
@@ -158,13 +163,25 @@
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,60,50,12" depth="0.55" origin="0.5,0.5" />
     <Body width="45" height="10" density="9.9"/>
     <Holdable slots="Any,RightHand,LeftHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
-      <StatusEffect type="OnUse" target="This" Condition="-4.0">
-        <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-4.0" />
+      <StatusEffect type="OnSecondaryUse" target="This">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="swirlysmoke" particlespersecond="1" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10"/>
       </StatusEffect>
-      <StatusEffect tags="medical" type="OnUse" target="Character">
+      <StatusEffect type="OnSecondaryUse" target="This" interval="8">
+        <Conditional InWater="false" />
+        <Sound file="Content/Items/Medical/ITEM_cigarette.ogg" range="250" selectionmode="Random" />
+        <Sound file="Content/Items/Medical/ITEM_cigaretteExtended.ogg" range="250" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This">
+        <Conditional InWater="true" />
+        <ParticleEmitter particle="bubbles" particlespersecond="3" scalemin="0.3" scalemax="0.5" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10"/>
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnSecondaryUse" target="Character">
         <Affliction identifier="psychosisresistance" amount="20" />
         <ReduceAffliction identifier="psychosis" amount="6" />
         <ReduceAffliction identifier="hallucinating" amount="10" />
+        <!-- LEGACY: Reaper's tax is here (for now) only in order to not break existing saves -->
         <ReduceAffliction identifier="reaperstax" amount="1" />
         <ReduceAffliction identifier="watchersgaze" amount="5" />
       </StatusEffect>
@@ -180,13 +197,14 @@
     <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true"/>
     <PreferredContainer primary="medfabcab" secondary="medcab"/>
     <Price baseprice="130" sold="false">
-      <Price storeidentifier="merchantclown" minavailable="0" maxavailable="3">
+      <Price storeidentifier="merchantclown" minavailable="0" maxavailable="3" sold="true">
         <Reputation faction="clowns" min="30"/>
       </Price>
+      <Price storeidentifier="merchantnightclub" minavailable="0" maxavailable="3" sold="true"/>
     </Price>
     <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
       <RequiredItem identifier="ethanol" />
-      <RequiredItem identifier="raptorbane" />
+      <RequiredItem tag="distillable" />
     </Fabricate>
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="486,212,27,66" depth="0.6" origin="0.5,0.5" />
     <Body width="27" height="66" density="20" />
@@ -197,17 +215,30 @@
         <Use/>
       </StatusEffect>
       <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
-      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+      <!-- When Rum is drunk -->
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <Conditional Condition="lte 1" />
         <Affliction identifier="psychosisresistance" amount="600" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="UseTarget" duration="30">
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false" ConditionalComparison="And">
+        <Conditional Condition="lte 1" />
         <Conditional huskinfection="lt 50.0" />
         <ReduceAffliction identifier="huskinfection" amount="1" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="UseTarget" duration="30">
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
         <ReduceAffliction identifier="psychosis" amount="3" />
         <ReduceAffliction identifier="hallucinating" amount="3" />
         <Affliction identifier="drunk" amount="3" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This">
+        <ParticleEmitter particle="juicedrop" particlespersecond="10" scalemin="1" scalemax="1.5" distancemin="20" distancemax="25" anglemin="80" anglemax="100" velocitymin="40" velocitymax="60" copyentityangle="true" lifetimemultiplier="0.10" />
+      </StatusEffect>
+      <!-- When Rum is used in Health GUI -->
+      <StatusEffect type="OnUse" target="This, Limb" duration="10">
+        <ReduceAffliction identifier="infection" amount="1.5" />
+        <Affliction identifier="burn" amount="0.15" /> 
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />

@@ -31,7 +31,9 @@
     <Body width="200" height="100" density="40" />
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
       <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+	    <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="13" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!-- Кабельная коробка-->
@@ -61,7 +63,9 @@
    <InventoryIcon texture="Content/Items/Electricity/signalcomp.png" sourcerect="264,1,110,176" depth="0.8" />
    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
 	  <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="13" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!-- Батарея челнока-->
@@ -94,7 +98,9 @@
     <Body width="118" height="124" density="40" />
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="13" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!-- Батарея-->
@@ -128,7 +134,9 @@
     <Body width="100" height="100" density="40" />
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
       <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="13" />
+        </StatusEffect>
     </Holdable>
   </Item>
 </Items>

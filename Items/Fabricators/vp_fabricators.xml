@@ -2,7 +2,7 @@
 <Override>
 <Items>
   <Item name="" identifier="fabricator_mod" nameidentifier="fabricator" variantof="fabricator">
-     <Price baseprice="1500">
+     <Price baseprice="3000">
 	  <Price storeidentifier="merchantoutpost" sold="false" multiplier="0.5"/>
       <Price storeidentifier="merchantcity" sold="false" multiplier="0.9" />
       <Price storeidentifier="merchantresearch" ssold="false" multiplier="0.5" />
@@ -46,7 +46,7 @@
   </Item>
 
   <Item name="" identifier="medicalfabricator_mod" nameidentifier="medicalfabricator" variantof="medicalfabricator">
-     <Price baseprice="2000">
+     <Price baseprice="2500">
       <Price locationtype="outpost" multiplier="1"/>
       <Price locationtype="city" multiplier="0.9"/>
       <Price locationtype="research" multiplier="1.25"/>
@@ -87,7 +87,7 @@
   </Item>
 
   <Item identifier="deconstructor_mod" nameidentifier="deconstructor" variantof="deconstructor">
-     <Price baseprice="1000">
+     <Price baseprice="1500">
       <Price locationtype="outpost" multiplier="1"/>
       <Price locationtype="city" multiplier="0.9"/>
       <Price locationtype="research" multiplier="1.25"/>

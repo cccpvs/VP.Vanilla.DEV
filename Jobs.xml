@@ -26,14 +26,16 @@
       <Item identifier="captainscap1" equip="true"/>
       <Item identifier="captainsuniform1" equip="true" outfit="true"/>
       <Item identifier="headset" equip="true" showpreview="false"/>
-      <Item identifier="captainspipe" equip="false"/>
+      <Item identifier="captainspipe" equip="false">
+        <Item identifier="pipetobacco" />        
+      </Item>
       <Item identifier="revolver" equip="false">
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
       </Item>
       <PreviewSprites dims="120,109">
         <sprite texture="Content/Items/Jobgear/Captain/captain_torso_[GENDER]_1.png" sourcerect="2,38,120,109" offset="0,0" />
@@ -45,14 +47,16 @@
       <Item identifier="captainscap2" equip="true"/>
       <Item identifier="captainsuniform2" equip="true" outfit="true"/>
       <Item identifier="headset" equip="true" showpreview="false"/>
-      <Item identifier="captainspipe" equip="false"/>
+      <Item identifier="captainspipe" equip="false">
+        <Item identifier="pipetobacco" />
+      </Item>
       <Item identifier="revolver" equip="false">
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
       </Item>
       <PreviewSprites dims="120,109">
         <sprite texture="Content/Items/Jobgear/Captain/captain_torso_[GENDER]_2.png" sourcerect="2,38,120,109" offset="0,0" />
@@ -64,14 +68,16 @@
       <Item identifier="captainscap3" equip="true"/>
       <Item identifier="captainsuniform3" equip="true" outfit="true"/>
       <Item identifier="headset" equip="true" showpreview="false"/>
-      <Item identifier="captainspipe" equip="false"/>
+      <Item identifier="captainspipe" equip="false">
+        <Item identifier="pipetobacco" />
+      </Item>
       <Item identifier="revolver" equip="false">
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
-        <Item identifier="revolverround"/>
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
       </Item>
       <PreviewSprites dims="120,109">
         <sprite texture="Content/Items/Jobgear/Captain/captain_torso_[GENDER]_3.png" sourcerect="2,38,120,109" offset="0,0" />
@@ -92,7 +98,7 @@
   </Job>
 
   <Job identifier="engineer"
-       minkarma="30" initialcount="1"
+       minkarma="0" initialcount="1"
        uicolor="0.88,0.72,0.43"
        vitalitymodifier="0"
        pricemultiplier="1"
@@ -154,7 +160,7 @@
   </Job>
 
   <Job identifier="mechanic"
-       minkarma="30" initialcount="1"
+       minkarma="0" initialcount="1"
        uicolor="0.5,0.86,0.9"
        vitalitymodifier="0"
        pricemultiplier="1"
@@ -228,7 +234,7 @@
   </Job>
 
   <Job identifier="securityofficer"
-       maxnumber="2" minkarma="40"
+       maxnumber="2" minkarma="0"
        uicolor="0.57,0.48,0.43"
        vitalitymodifier="10"
        pricemultiplier="1.15"
@@ -292,6 +298,7 @@
       <Order identifier="fightintruders" prioritymodifier="1"/>
       <Order identifier="rescue" prioritymodifier="1"/>
       <Order identifier="extinguishfires" prioritymodifier ="0.75"/>
+      <Order identifier="inspectnoises" prioritymodifier="0.5" />
       <Order identifier="operatereactor" option="powerup" prioritymodifier="0.2"/>
       <Order identifier="fixleaks" prioritymodifier="0.1"/>
     </AutonomousObjectives>
@@ -302,7 +309,7 @@
   </Job>
 
   <Job identifier="medicaldoctor"
-       maxnumber="2" minkarma="30"
+       maxnumber="2" minkarma="0"
        uicolor="0.81,0.31,0.19"
        vitalitymodifier="10"
        pricemultiplier="1.15"
@@ -413,8 +420,9 @@
       </Item>
     </ItemSet>
   </Job>
-<!--NPC only jobs-->
-<!-- items and behaviors defined through itemsets-->
+  
+  <!--NPC only jobs-->
+  <!-- items and behaviors defined through itemsets-->
 
   <Job identifier="commoner" onlyjobspecificdialog="true" minnumber="0" maxnumber="0" initialcount="0" hiddenjob="true"/>
   <Job identifier="prisoner" onlyjobspecificdialog="true" minnumber="0" maxnumber="0" initialcount="0" hiddenjob="true">
@@ -447,11 +455,47 @@
     <AutonomousObjectives>
       <Order identifier="fightintruders" prioritymodifier="1" />
       <Order identifier="rescue" prioritymodifier="1" />
+      <Order identifier="inspectnoises" prioritymodifier="0.5" />
       <Order identifier="extinguishfires" prioritymodifier="0.75" />
     </AutonomousObjectives>
   </Job>
 
-  <!-- Used for the psychoclown, could be used for other murderous NPCs -->
+  <Job identifier="outpostsecurityofficer" vitalitymodifier="10" minnumber="0" maxnumber="0" initialcount="0" idlebehavior="Patrol" hiddenjob="true">
+    <Skills>
+      <Skill identifier="weapons" level="40,50" primary="true"/>
+      <Skill identifier="medical" level="25,35"/>
+      <Skill identifier="mechanical" level="15,25"/>
+      <Skill identifier="electrical" level="15,25"/>
+      <Skill identifier="helm" level="5,10"/>
+    </Skills>
+    <AutonomousObjectives>
+      <Order identifier="fightintruders" prioritymodifier="1"/>
+      <Order identifier="findthieves" prioritymodifier="1" IgnoreAtNonOutpost="true"/>
+      <Order identifier="rescue" prioritymodifier="1"/>
+      <Order identifier="inspectnoises" prioritymodifier="0.5" />
+      <Order identifier="extinguishfires" prioritymodifier ="0.75"/>
+      <Order identifier="operatereactor" option="powerup" prioritymodifier="0.2"/>
+      <Order identifier="fixleaks" prioritymodifier="0.1"/>
+    </AutonomousObjectives>
+  </Job>
+
+  <Job identifier="outpostmanager" vitalitymodifier="0" idlebehavior="StayInHull" hiddenjob="true">
+    <Skills>
+      <Skill identifier="helm" level="40,50" primary="true"/>
+      <Skill identifier="weapons" level="25,35"/>
+      <Skill identifier="mechanical" level="15,25"/>
+      <Skill identifier="electrical" level="15,25"/>
+      <Skill identifier="medical" level="5,10"/>
+    </Skills>
+    <AutonomousObjectives>
+      <Order identifier="fightintruders" prioritymodifier="1"/>
+      <Order identifier="extinguishfires" prioritymodifier ="1"/>
+      <Order identifier="rescue" prioritymodifier="1"/>
+      <Order identifier="fixleaks" prioritymodifier="0.1"/>
+    </AutonomousObjectives>
+  </Job>
+
+  <!-- Used for hostile NPCs -->
   <Job identifier="killer" onlyjobspecificdialog="false" minnumber="0" maxnumber="0" initialcount="0" hiddenjob="true" idlebehavior="Patrol">
     <Skills>
       <Skill identifier="weapons" level="60,70" primary="true" />
@@ -462,7 +506,27 @@
     </Skills>
     <AutonomousObjectives>
       <Order identifier="fightintruders" prioritymodifier="1" />
+      <Order identifier="inspectnoises" prioritymodifier="0.5" />
       <Order identifier="extinguishfires" prioritymodifier="0.75" />
+    </AutonomousObjectives>
+  </Job>
+  <Job identifier="structuredefender" onlyjobspecificdialog="false" minnumber="0" maxnumber="0" initialcount="0" hiddenjob="true" idlebehavior="Patrol">
+    <Skills>
+      <Skill identifier="weapons" level="60,70" primary="true" />
+      <Skill identifier="medical" level="25,35" />
+      <Skill identifier="mechanical" level="15,25" />
+      <Skill identifier="electrical" level="15,25" />
+      <Skill identifier="helm" level="5,10" />
+    </Skills>
+    <AutonomousObjectives>
+      <Order identifier="fightintruders" prioritymodifier="1"/>
+      <Order identifier="rescue" prioritymodifier="1"/>
+      <Order identifier="extinguishfires" prioritymodifier ="0.75"/>
+      <Order identifier="operatereactor" option="powerup" prioritymodifier="0.5"/>
+      <Order identifier="operateweapons" prioritymodifier="0.3"/>
+      <Order identifier="fixleaks" prioritymodifier="0.2"/>
+      <Order identifier="repairsystems" prioritymodifier="0.2"/>
+      <Order identifier="cleanupitems" prioritymodifier="0.1"/>
     </AutonomousObjectives>
   </Job>
 

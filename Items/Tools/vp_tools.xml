@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+<!-- Инструмент удаления предметов -->
+<!-- <item name="deleter_tool" identifier="deleter_tool" category="Equipment" tags="smallitem,weapon,provocative">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="450,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="161,235,64,20" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="15" density="50" />
+	<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-8,0" holdangle="60" reload="1.0" range="50" combatpriority="8" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="5000" itemdamage="5000" targetimpulse="5">
+        <Affliction identifier="blunttrauma" strength="4" />
+        <Affliction identifier="stun" strength="0.2" />
+        <Sound file="Content/Items/Weapons/Smack1.ogg" range="800" />
+		
+      </Attack>
+      <StatusEffect type="OnSuccess" target="This" Condition="-2" disabledeltatime="true">
+	  </StatusEffect>
+	 <StatusEffect type="OnSuccess" target="Character" targetlimbs="LeftHand,RightHand">
+	    <Conditional IsPlayer="true"/>
+		<Affliction identifier="tinkerexhaustion_mod" strength="0.5" />
+      </StatusEffect>
+
+	  <StatusEffect type="OnUse" targettype="UseTarget" targets="electrical,structure,machine,door,hatch,ductblock" Condition="-5" disabledeltatime="false">
+	  </StatusEffect 
+    </MeleeWeapon>
+</item> -->
+</Items>
+</Override> 

@@ -37,10 +37,6 @@
 	  <StatusEffect type="OnActive" target="Character">
 		<reduceaffliction identifier="tinkerexhaustion_mod" strength="0.38889555555" />
       </StatusEffect>
-	  <StatusEffect type="OnActive" target="Character">
-		
-      </StatusEffect>
-
     </Controller>
 	<Fabricate suitablefabricators="fabricator" requiredtime="45">
       <RequiredSkill identifier="mechanical" level="50" />
@@ -55,6 +51,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!-- кровать одиночная с ящиками -->
@@ -97,6 +96,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="15" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <Item name="" identifier="opdeco_officechair_mod" tags="chair" allowattachitems="false" texturescale="1.0,1.0" scale="0.45" category="Decorative" canflipy="false">
@@ -127,6 +129,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <Item name="" identifier="opdeco_chair1_mod" nameidentifier="opdeco_officechair_mod" tags="chair" allowattachitems="true" texturescale="1.0,1.0" scale="0.5" category="Decorative" canflipy="false">
@@ -157,6 +162,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  	  	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </Holdable>
   </Item>
 </Items>

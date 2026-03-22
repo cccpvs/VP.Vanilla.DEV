@@ -31,18 +31,21 @@
     </ItemContainer>
     <Wearable limbtype="Head" slots="Any,Headset" msg="ItemMsgPickUpSelect" displaycontainedstatus="true">
       <sprite name="Headset Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hideotherwearables="false" sourcerect="28,321,49,62" origin="0.5,0.6" />
-	  <StatusEffect type="OnWearing" target="Contained,Character" Condition="-0.05">
+	  <StatusEffect type="OnWearing" target="Contained,Character" Condition="-0.02">
 	    <Conditional IsPlayer="true"/> 
 	    <RequiredItem items="mobilebattery" type="Contained" />
 	  </StatusEffect>
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-30.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
-	    <SpawnItem identifiers="scrap" spawnposition="This" />
+	    <SpawnItem identifiers="scrap2" spawnposition="This" />
         <Remove />
       </StatusEffect>
 	  <StatusEffect type="OnSpawn" target="This" >
 	    <SpawnItem identifiers="batterycell" spawnposition="ThisInventory" />
       </StatusEffect>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="0.5" />
+        </StatusEffect>
     </Wearable>
   </Item>
   <!-- Вещмешок -->
@@ -54,9 +57,43 @@
     </Deconstruct>
     <Body width="120" radius="45" density="10.2" friction="1.0" restitution="0.01" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-80" handle1="0,50" handle2="0,50" aimable="false" msg="ItemMsgPickUpSelect" />
-    <ItemContainer autofill="true" capacity="9" ShowContainedStateIndicator="false">
+    <ItemContainer autofill="true" capacity="8" MaxStackSize="4" ShowContainedStateIndicator="false">
       <Containable items="smallitem,spear" excludeditems="toolbelt,toolbox,bandolier,cargoscooter,underwaterscooter"/>
-	  <StatusEffect type="OnContained" SpeedMultiplier="0.9" setvalue="true" target="Character"/>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="-3" />
+        </StatusEffect>
+		<StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="0" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
+            <StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="1" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
+            <StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="2" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
+            <StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="3" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
+            <StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="4" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
+            <StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="5" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
+			<StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="6" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
+			<StatusEffect type="Always" target="Character">
+              <RequiredItem item="smallitem,weapon,gun" type="Contained" targetslot="7" />
+              <Affliction identifier="weight" amount="1" />
+            </StatusEffect>
     </ItemContainer>
   </Item>
 </Items>

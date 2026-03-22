@@ -1,7 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override> 
 <Items>
-  <Item name="" identifier="wire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="210,215,218,255" InventoryIconColor="210,215,218,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="circuitbox" category="Electrical" Tags="smallitem" maxstacksize="1" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" disablecommandmenuwhenselected="true" grabwhenselected="true">
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="192,258,64,64" depth="0.8" canflipx="false" origin="0.5,0.5" />
+    <Body width="51" height="51" density="30" />
+    <Deconstruct time="10">
+      <Item identifier="plastic" />
+      <Item identifier="copper" />
+      <Item identifier="tin" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="electrical" level="35" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="copper" amount="4" />
+      <RequiredItem identifier="tin" amount="4" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true" displayname="cheapitem">
+      <RequiredSkill identifier="electrical" level="35" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="copper" amount="2" />
+      <RequiredItem identifier="tin" amount="2" />
+    </Fabricate>
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench" type="Equipped" />
+    </Holdable>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.4,0.62" minsize="400,350" maxsize="960,840" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="signal_in1" displayname="connection.signalinx~[num]=1" />
+      <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
+      <input name="signal_in3" displayname="connection.signalinx~[num]=3" />
+      <input name="signal_in4" displayname="connection.signalinx~[num]=4" />
+      <input name="signal_in5" displayname="connection.signalinx~[num]=5" />
+      <input name="signal_in6" displayname="connection.signalinx~[num]=6" />
+      <input name="signal_in7" displayname="connection.signalinx~[num]=7" />
+      <input name="signal_in8" displayname="connection.signalinx~[num]=8" />
+      <output name="signal_out1" displayname="connection.signaloutx~[num]=1" />
+      <output name="signal_out2" displayname="connection.signaloutx~[num]=2" />
+      <output name="signal_out3" displayname="connection.signaloutx~[num]=3" />
+      <output name="signal_out4" displayname="connection.signaloutx~[num]=4" />
+      <output name="signal_out5" displayname="connection.signaloutx~[num]=5" />
+      <output name="signal_out6" displayname="connection.signaloutx~[num]=6" />
+      <output name="signal_out7" displayname="connection.signaloutx~[num]=7" />
+      <output name="signal_out8" displayname="connection.signaloutx~[num]=8" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
+      <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+	    <SpawnItem identifiers="scrap2" spawnposition="This"/>
+        <Remove />
+      </StatusEffect>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="3" />
+        </StatusEffect>
+    </ConnectionPanel>
+    <!-- container for components -->
+    <ItemContainer capacity="64" maxstacksize="1" canbeselected="false" allowdraganddrop="false" drawinventory="false" QuickUseMovesItemsInside="false">
+      <Containable items="circuitboxcomponent" />
+    </ItemContainer>
+    <!-- container for wires -->
+    <ItemContainer capacity="10" maxstacksize="32" canbeselected="false" allowdraganddrop="false" drawinventory="false" QuickUseMovesItemsInside="false">
+      <Containable items="wire" />
+    </ItemContainer>
+    <CircuitBox selectkey="Select" canbeselected="true" msg="ItemMsgInteractSelect" allowuioverlap="true">
+      <GuiFrame relativesize="0.7,0.8" style="ItemUI" anchor="Center" />
+      <WireSprite texture="Content/Items/Electricity/wire.png" sourcerect="0,0,16,12" origin="0.5,0.5" />
+      <ConnectionSprite texture="Content/UI/UIAtlasDevices.png" sourcerect="1,1,56,55" origin="0.5,0.5" />
+      <WireConnectorSprite texture="Content/UI/UIAtlasDevices.png" sourcerect="69,3,45,85" origin="0.5,0.27" />
+      <ConnectionScrewSprite texture="Content/UI/UIAtlasDevices.png" sourcerect="88,92,45,45" origin="0.5,0.5" />
+    </CircuitBox>
+  </Item>
+  <Item name="" identifier="wire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="210,215,218,255" InventoryIconColor="210,215,218,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -11,15 +78,20 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab" />
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
       <Item identifier="rubber" outcondition="0.2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="169,224,84,32" origin="0.5,0.5" />
-    <Body radius="14" width="60" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Body radius="14" width="60" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+            <Remove />
+        </StatusEffect>
+	</Holdable>
     <Wire />
   </Item>
   <Item name="" identifier="redwire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="254,23,17,255" InventoryIconColor="254,23,17,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
@@ -32,7 +104,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
       <Item identifier="rubber" outcondition="0.2" />
@@ -44,11 +116,16 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="169,224,84,32" origin="0.5,0.5" />
     <Body radius="14" width="60" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+            <Remove />
+        </StatusEffect>
+	</Holdable>
     <Wire />
   </Item>
 
-  <Item name="" identifier="bluewire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="51,121,173,255" InventoryIconColor="51,121,173,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="bluewire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="51,121,173,255" InventoryIconColor="51,121,173,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -58,7 +135,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
       <Item identifier="rubber" outcondition="0.2" />
@@ -69,12 +146,16 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="169,224,84,32" origin="0.5,0.5" />
-    <Body radius="14" width="60" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Body radius="14" width="60" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+            <Remove />
+        </StatusEffect>
+	</Holdable>
     <Wire />
   </Item>
-
-  <Item name="" identifier="orangewire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="255,140,13,255" InventoryIconColor="255,140,13,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="orangewire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="255,140,13,255" InventoryIconColor="255,140,13,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -84,7 +165,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
       <Item identifier="rubber" outcondition="0.2" />
@@ -95,12 +176,17 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="169,224,84,32" origin="0.5,0.5" />
-    <Body radius="14" width="60" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Body radius="14" width="60" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+            <Remove />
+        </StatusEffect>
+	</Holdable>
     <Wire />
   </Item>
 
-  <Item name="" identifier="greenwire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="56,143,111,255" InventoryIconColor="56,143,111,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="greenwire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="56,143,111,255" InventoryIconColor="56,143,111,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -110,7 +196,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
       <Item identifier="rubber" outcondition="0.2" />
@@ -121,12 +207,17 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="169,224,84,32" origin="0.5,0.5" />
-    <Body radius="14" width="60" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Body radius="14" width="60" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+            <Remove />
+        </StatusEffect>
+	</Holdable>
     <Wire />
   </Item>
 
-  <Item name="" identifier="blackwire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="50,50,50,255" InventoryIconColor="50,50,50,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="blackwire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="50,50,50,255" InventoryIconColor="50,50,50,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -136,7 +227,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
       <Item identifier="rubber" outcondition="0.2" />
@@ -147,12 +238,17 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="169,224,84,32" origin="0.5,0.5" />
-    <Body radius="14" width="60" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Body radius="14" width="60" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+            <Remove />
+        </StatusEffect>
+	</Holdable>
     <Wire />
   </Item>
 
-  <Item name="" identifier="brownwire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="123,77,62,255" InventoryIconColor="123,77,62,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="brownwire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="123,77,62,255" InventoryIconColor="123,77,62,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -162,7 +258,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
       <Item identifier="rubber" outcondition="0.2" />
@@ -174,11 +270,16 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="169,224,84,32" origin="0.5,0.5" />
     <Body radius="14" width="60" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+            <Remove />
+        </StatusEffect>
+	</Holdable>
     <Wire />
   </Item>
 
-  <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="80">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -188,8 +289,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
-    <PreferredContainer primary="reactorcab,storagecab" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="5">
       <Item identifier="plastic" />
       <Item identifier="copper" />
@@ -200,13 +300,24 @@
       <RequiredItem identifier="copper" amount="2" />
       <RequiredItem identifier="tin" />
     </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true" amount="2" displayname="cheapitem">
+      <RequiredSkill identifier="electrical" level="15" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="copper" amount="2" />
+      <RequiredItem identifier="tin" />
+    </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="225,33,36,36" origin="0.5,0.5" />
-    <Body width="36" height="36" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" />
+    <Body width="36" height="36" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
+	<StatusEffect type="OnFire" target="This" Condition="-10.0" />
+    <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+        <Remove />
+      </StatusEffect>
+	</Holdable>
   </Item>
 
-  <Item name="" identifier="andcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="andcomponent" category="Electrical" Tags="smallitem,logic, circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#6c7dd5">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -216,7 +327,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
       <Item identifier="copper" />
@@ -230,7 +341,7 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="65,391,63,52" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,0,32,32" origin="0.5,0.5" />
     <AndComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -241,14 +352,14 @@
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <input name="set_output" displayname="connection.setoutput" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="equalscomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="equalscomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#694341">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -258,11 +369,9 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
       <RequiredSkill identifier="electrical" level="20" />
@@ -270,9 +379,9 @@
       <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="833,900,63,54" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,0,32,32" origin="0.5,0.5" canflipx="false" />
     <EqualsComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -284,14 +393,14 @@
       <output name="signal_out" displayname="connection.signalout" />
       <input name="set_output" displayname="connection.setoutput" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="greatercomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="greatercomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#a1d681">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -301,21 +410,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="769,900,63,54" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,0,32,32" origin="0.5,0.5" />
     <GreaterComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -327,14 +432,14 @@
       <output name="signal_out" displayname="connection.signalout" />
       <input name="set_output" displayname="connection.setoutput" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="addercomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="addercomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#a1d681">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -344,11 +449,9 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
       <RequiredSkill identifier="electrical" level="20" />
@@ -356,9 +459,9 @@
       <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="575,837,65,54" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,0,32,32" origin="0.5,0.5" canflipx="false" />
     <AdderComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -368,14 +471,14 @@
       <input name="signal_in1" displayname="connection.signalinx~[num]=1" />
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="colorcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="colorcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#b3b3b4">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -385,11 +488,9 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
       <RequiredSkill identifier="electrical" level="20" />
@@ -397,9 +498,9 @@
       <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="447,900,65,54" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,0,32,32" origin="0.5,0.5" canflipx="false" />
     <ColorComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -411,14 +512,13 @@
       <input name="signal_b" displayname="connection.signalb" />
       <input name="signal_a" displayname="connection.signala" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
-
-  <Item name="" identifier="subtractcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="subtractcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#a0dbc8">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -428,21 +528,18 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="641,900,63,54" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,0,32,32" origin="0.5,0.5" />
     <SubtractComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -452,14 +549,14 @@
       <input name="signal_in1" displayname="connection.signalinx~[num]=1" />
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="multiplycomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="multiplycomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#8bafd7">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -469,21 +566,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="641,837,64,54" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,32,32,32" origin="0.5,0.5" />
     <MultiplyComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -493,14 +586,14 @@
       <input name="signal_in1" displayname="connection.signalinx~[num]=1" />
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="dividecomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="dividecomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#8bafd7">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -510,21 +603,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="705,900,63,54" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,32,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,32,32,32" origin="0.5,0.5" canflipx="false" />
     <DivideComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -534,14 +623,14 @@
       <input name="signal_in1" displayname="connection.signalinx~[num]=1" />
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="powcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="powcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="false" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#9b7eff">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -551,21 +640,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="384,71,64,51" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,32,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,32,32,32" origin="0.5,0.5" canflipx="false" />
     <ExponentiationComponent canbeselected="true" />
-    <Body width="31" height="26" density="30" />
+    <Body width="31" height="26" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -575,14 +660,14 @@
       <input name="signal_in" displayname="connection.signalin" />
       <input name="set_exponent" displayname="connection.setexponent" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="orcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="orcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#d1b788">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -592,21 +677,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="129,390,64,53" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,32,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,32,32,32" origin="0.5,0.5" canflipx="false" />
     <OrComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -617,14 +698,14 @@
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <input name="set_output" displayname="connection.setoutput" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="xorcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="xorcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#c3a27a">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -636,19 +717,15 @@
     <PreferredContainer primary="engcab"/>
     <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,900,63,54" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,32,32,32" origin="0.5,0.5" />
     <XorComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -659,14 +736,14 @@
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <input name="set_output" displayname="connection.setoutput" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="notcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="notcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#ad7a79">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -676,21 +753,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,390,64,53" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,32,32,32" origin="0.5,0.5" />
     <NotComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -699,14 +772,14 @@
       <RequiredItem items="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="concatcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="concatcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#eb5505">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -716,21 +789,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,389,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,64,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,64,32,32" origin="0.5,0.5" canflipx="false" />
     <ConcatComponent canbeselected="true" />
-    <Body width="32" height="27" density="30" />
+    <Body width="32" height="27" density="15" />
     <Holdable selectkey="Select" pickkey="Use" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" PickingTime="5.0" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -740,14 +809,14 @@
       <input name="signal_in1" displayname="connection.signalinx~[num]=1" />
       <input name="signal_in2" displayname="connection.signalinx~[num]=2" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="sincomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="sincomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#38a54f">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -757,21 +826,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="386,7,63,52" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,64,32,32" origin="0.5,0.5" />
     <TrigonometricFunctionComponent canbeselected="true" function="Sin" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -780,14 +845,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="coscomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="coscomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#3d9d9e">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -797,21 +862,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="320,7,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,64,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,64,32,32" origin="0.5,0.5" canflipx="false" />
     <TrigonometricFunctionComponent canbeselected="true" function="Cos" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -820,14 +881,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="tancomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="tancomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#8e5a4c">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -837,21 +898,18 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="257,7,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,64,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,64,32,32" origin="0.5,0.5" canflipx="false" />
     <TrigonometricFunctionComponent canbeselected="true" function="Tan" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -860,14 +918,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="asincomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="asincomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#a56dc2">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -877,21 +935,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="128,7,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,64,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,64,32,32" origin="0.5,0.5" canflipx="false" />
     <TrigonometricFunctionComponent canbeselected="true" function="Asin" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -900,14 +954,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="acoscomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="acoscomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#7594ba">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -917,21 +971,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="65,7,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,64,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,64,32,32" origin="0.5,0.5" canflipx="false" />
     <TrigonometricFunctionComponent canbeselected="true" function="Acos" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -940,14 +990,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="atancomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="atancomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#6cabbc">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -957,21 +1007,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="193,7,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,96,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,96,32,32" origin="0.5,0.5" canflipx="false" />
     <TrigonometricFunctionComponent canbeselected="true" function="Atan" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -982,14 +1028,14 @@
       <input name="signal_in_x" displayname="connection.signalinx~[num]=x" />
       <input name="signal_in_y" displayname="connection.signalinx~[num]=y" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="roundcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="roundcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#404095">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -999,21 +1045,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="1,71,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,96,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,96,32,32" origin="0.5,0.5" canflipx="false" />
     <FunctionComponent canbeselected="true" function="Round" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -1022,14 +1064,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="ceilcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="ceilcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#983f3c">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1039,21 +1081,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="449,7,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,96,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,96,32,32" origin="0.5,0.5" canflipx="false" />
     <FunctionComponent canbeselected="true" function="Ceil" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -1062,14 +1100,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="floorcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="floorcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#50884d">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1079,21 +1117,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="65,71,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,96,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,96,32,32" origin="0.5,0.5" canflipx="false" />
     <FunctionComponent canbeselected="true" function="Floor" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -1102,14 +1136,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="factorialcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="factorialcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#563697">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1119,21 +1153,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="129,71,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,96,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,96,32,32" origin="0.5,0.5" canflipx="false" />
     <FunctionComponent canbeselected="true" function="Factorial" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -1142,14 +1172,13 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
-  
-  <Item name="" identifier="abscomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="abscomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#2fdca2">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1159,21 +1188,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="448,71,64,51" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,96,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,96,32,32" origin="0.5,0.5" canflipx="false" />
     <FunctionComponent canbeselected="true" function="AbsoluteValue" />
-    <Body width="32" height="26" density="30" />
+    <Body width="32" height="26" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -1182,14 +1207,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="squarerootcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="squarerootcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#ff8e70">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1199,21 +1224,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="320,71,64,51" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,128,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,128,32,32" origin="0.5,0.5" canflipx="false" />
     <FunctionComponent canbeselected="true" function="SquareRoot" />
-    <Body width="32" height="26" density="30" />
+    <Body width="32" height="26" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -1222,14 +1243,14 @@
       <RequiredItem identifier="screwdriver" type="Equipped" />
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="modulocomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="modulocomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#1745b7">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1239,21 +1260,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="193,72,63,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,128,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,128,32,32" origin="0.5,0.5" canflipx="false" />
     <ModuloComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
@@ -1263,14 +1280,14 @@
       <input name="signal_in" displayname="connection.signalin" />
       <input name="set_modulus" displayname="connection.setmodulus" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="relaycomponent" category="Electrical" Tags="smallitem,signal,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="relaycomponent" category="Electrical" Tags="smallitem,signal,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#694341">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1280,23 +1297,19 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,388,63,57" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,128,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,128,32,32" origin="0.5,0.5" canflipx="false" />
     <RelayComponent canbeselected="true" vulnerabletoemp="false" canbeoverloaded="false">
       <GuiFrame relativesize="0.2,0.14" minsize="450,160" anchor="Center" style="ItemUI" />
     </RelayComponent>
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -1312,7 +1325,7 @@
       <output name="signal_out1" displayname="connection.signaloutx~[num]=1" />
       <output name="signal_out2" displayname="connection.signaloutx~[num]=2" />
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
       <output name="load_value_out" displayname="connection.loadvalueout" />
       <output name="power_value_out" displayname="connection.powervalueout" />
@@ -1321,7 +1334,7 @@
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="delaycomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="delaycomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#5e76a2">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1331,21 +1344,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,388,63,57" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="96,128,32,32" origin="0.5,0.5" />
     <DelayComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -1355,14 +1364,14 @@
       <input name="signal_in" displayname="connection.signalin" />
       <output name="signal_out" displayname="connection.signalout" />
       <input name="set_delay" displayname="connection.setdelay" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="memorycomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="memorycomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#a66c6b">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1372,21 +1381,17 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,900,63,54" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,128,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="128,128,32,32" origin="0.5,0.5" canflipx="false" />
     <MemoryComponent canbeselected="true" />
-    <Body width="31" height="25" density="30" />
+    <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <requireditem items="wrench" type="Equipped" />
     </Holdable>
@@ -1396,14 +1401,14 @@
       <input name="signal_in" displayname="connection.signalin" />
       <input name="lock_state" aliases="signal_store" displayname="connection.lockstate" />
       <output name="signal_out" displayname="connection.signalout" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="lightcomponent" category="Electrical" Tags="smallitem,lightcomponent" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="lightcomponent" category="Electrical" Tags="smallitem,lightcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="110" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1413,7 +1418,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
       <Item identifier="fpgacircuit" />
       <Item identifier="phosphorus" />
@@ -1425,11 +1430,11 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,388,59,57" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="195,4,28,24" origin="0.5,0.5" />
-    <LightComponent canbeselected="true" color="1.0,0.0,0.0,0.5" castshadows="false">
+    <LightComponent canbeselected="true" color="255,0.0,0.0,127" alphablend="true" castshadows="false">
       <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
-      <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.5,0.5" />
+      <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.38,0.5" />
     </LightComponent>
-    <Body width="28" height="23" density="30" />
+    <Body width="28" height="23" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
@@ -1439,14 +1444,14 @@
       <input name="toggle" displayname="connection.togglestate" />
       <input name="set_state" displayname="connection.setstate" />
       <input name="set_color" displayname="connection.setcolor" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="lightcomponent90" nameidentifier="lightcomponent" maxstacksize="8" Aliases="Light Component 90Deg" category="Electrical" Tags="smallitem,lightcomponent" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="lightcomponent90" nameidentifier="lightcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" Aliases="Light Component 90Deg" category="Electrical" Tags="smallitem,lightcomponent" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="110" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1456,7 +1461,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
       <Item identifier="fpgacircuit" />
       <Item identifier="phosphorus" />
@@ -1468,7 +1473,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,384,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="195,33,27,31" origin="0.5,0.5" />
-   <LightComponent canbeselected="true" color="255,0.0,0.0,127" alphablend="true" castshadows="false">
+    <LightComponent canbeselected="true" color="255,0.0,0.0,127" alphablend="true" castshadows="false">
       <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
       <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.5,0.55" />
     </LightComponent>
@@ -1484,7 +1489,7 @@
       <input name="set_color" displayname="connection.setcolor" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="lightcomponentround" nameidentifier="lightcomponent" maxstacksize="8" category="Electrical" Tags="smallitem,lightcomponent" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="lightcomponentround" nameidentifier="lightcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" category="Electrical" Tags="smallitem,lightcomponent" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="110" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1494,7 +1499,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
       <Item identifier="fpgacircuit" />
       <Item identifier="phosphorus" />
@@ -1505,7 +1510,7 @@
       <RequiredItem identifier="phosphorus" amount="2" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
-    <Sprite texture="signalcomp.png" depth="0.8" sourcerect="194,103,25,26" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="194,103,25,26" origin="0.5,0.5" />
     <LightComponent canbeselected="true" color="1.0,0.0,0.0,0.5" castshadows="false">
       <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
       <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.5,0.5" />
@@ -1520,14 +1525,14 @@
       <input name="toggle" displayname="connection.togglestate" />
       <input name="set_state" displayname="connection.setstate" />
       <input name="set_color" displayname="connection.setcolor" />
-	  <StatusEffect type="OnFire" target="This" Condition="-100.0" />
+	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Remove />
       </StatusEffect>
     </ConnectionPanel>
   </Item>
 <!-- Детектор кислорода -->
-  <Item name="" identifier="oxygendetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="oxygendetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1537,7 +1542,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Upgrade gameversion="0.9.3.1" scale="0.5" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
@@ -1566,10 +1571,13 @@
         <Conditional HasStatusTag="onfire" />
 		<Remove />
       </StatusEffect>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="2" />
+        </StatusEffect>
     </ConnectionPanel>
   </Item>
 <!-- Детектор воды -->
-  <Item name="" identifier="waterdetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="waterdetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="130" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1579,7 +1587,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Upgrade gameversion="0.9.5.0" scale="0.5" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
@@ -1610,10 +1618,13 @@
         <Conditional HasStatusTag="onfire" />
 		<Remove />
       </StatusEffect>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="2" />
+        </StatusEffect>
     </ConnectionPanel>
   </Item>
 <!-- Детектор дыма -->
-  <Item name="" identifier="smokedetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="smokedetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="130" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1623,7 +1634,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Upgrade gameversion="0.9.3.1" scale="0.5" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
@@ -1652,10 +1663,13 @@
         <Conditional HasStatusTag="onfire" />
 		<Remove />
       </StatusEffect>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="2" />
+        </StatusEffect>
     </ConnectionPanel>
   </Item>
 <!-- Детектор движений -->
-  <Item name="" identifier="motiondetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="motiondetector" category="Electrical" Tags="smallitem,sensor" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="130" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1665,7 +1679,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Upgrade gameversion="0.9.5.0" scale="0.5" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
@@ -1694,10 +1708,13 @@
         <Conditional HasStatusTag="onfire" />
 		<Remove />
       </StatusEffect>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="2" />
+        </StatusEffect>
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="signalcheckcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="signalcheckcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#4f6e3f">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1707,19 +1724,15 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,388,63,57" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,128,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,128,32,32" origin="0.5,0.5" canflipx="false" />
     <SignalCheckComponent canbeselected="true" />
     <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
@@ -1741,7 +1754,7 @@
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="regexcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="regexcomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#424d8f">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1751,19 +1764,15 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,390,64,52" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,160,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,160,32,32" origin="0.5,0.5" canflipx="false" />
     <RegExFindComponent canbeselected="true" />
     <Body width="31" height="25" density="15" />
     <Holdable selectkey="Select" pickkey="Use" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" PickingTime="5.0" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench">
@@ -1784,7 +1793,7 @@
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="oscillator" category="Electrical" Tags="smallitem,signal" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="oscillator" category="Electrical" Tags="smallitem,signal,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#987c6c">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1794,19 +1803,15 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="325,388,59,55" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,160,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,160,32,32" origin="0.5,0.5" canflipx="false" />
     <OscillatorComponent canbeselected="true" outputtype="Pulse" frequency="1" />
     <Body width="28" height="26" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
@@ -1827,9 +1832,9 @@
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="wificomponent" category="Electrical" Tags="smallitem,signal" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="wificomponent" category="Electrical" Tags="smallitem,signal,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#6e514e">
     <Price baseprice="100" minleveldifficulty="15">
-      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantoutpost" /> 
       <Price storeidentifier="merchantcity" sold="false"/>
       <Price storeidentifier="merchantresearch" multiplier="1.25" />
       <Price storeidentifier="merchantmilitary" />
@@ -1837,19 +1842,15 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
-      <Item identifier="plastic" />
-      <Item identifier="copper" />
-      <Item identifier="tin" />
+      <Item identifier="fpgacircuit" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
-      <RequiredSkill identifier="electrical" level="20" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="tin" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="384,388,64,57" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,160,32,32" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,160,32,32" origin="0.5,0.5" canflipx="false" />
     <WifiComponent canbeselected="true" MinChatMessageInterval="1.0" DiscardDuplicateChatMessages="true" />
     <Body width="28" height="26" density="15" />
     <Holdable selectkey="Select" pickkey="Use" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" PickingTime="5.0" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench">
@@ -1870,7 +1871,7 @@
     </ConnectionPanel>
   </Item>
 <!-- Аварийная сирена -->
-  <Item name="" identifier="emergencysiren" category="Electrical" Tags="smallitem,sound" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="emergencysiren" category="Electrical" Tags="smallitem,sound" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="150" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1880,7 +1881,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
       <Item identifier="copper" />
@@ -1918,7 +1919,7 @@
     </ConnectionPanel>
   </Item>
 
-  <Item name="" identifier="alarmbuzzer" category="Electrical" Tags="smallitem,sound" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item name="" identifier="alarmbuzzer" category="Electrical" Tags="smallitem,sound" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
     <Price baseprice="100" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1928,7 +1929,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
     <PreferredContainer primary="engcab"/>
-    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
       <Item identifier="copper" />
@@ -1947,7 +1948,7 @@
     </Holdable>
     <LightComponent canbeselected="false" lightcolor="255,0,0,100" alphablend="true" castshadows="false" blinkfrequency="2.6" range="20">
       <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="301,963,42,57" origin="0.5,0.5" alpha="1.0" />
-      <sound file="Content/Items/WarningBeep.ogg" type="OnActive" range="1000.0" loop="true" volume="0.5" />
+      <sound file="Content/Items/AlarmBuzzerLoop.ogg" type="OnActive" range="1000.0" loop="true" volume="0.5" />
       <StatusEffect type="OnContained" target="This" IsActive="false">
         <Conditional targetitemcomponent="Holdable" IsActive="eq false" />
       </StatusEffect>
@@ -1972,7 +1973,7 @@
       <StatusEffect type="OnBroken" target="This" stackable="false">
         <Conditional HasStatusTag="onfire" />
         <sound file="Content/Sounds/Damage/GlassImpact1.ogg" range="500" selectionmode="All"/>
-		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<SpawnItem identifiers="scrap2" spawnposition="This" />
 		<Remove />
       </StatusEffect>
     </ConnectionPanel>
@@ -2049,7 +2050,7 @@
       <StatusEffect type="OnBroken" target="This" stackable="false">
         <Conditional HasStatusTag="onfire" />
 		<sound file="Content/Sounds/Damage/HitMetal2.ogg" range="500" selectionmode="All"/>
-		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<SpawnItem identifiers="scrap2" spawnposition="This" />
 		<Remove />
       </StatusEffect>
     </Repairable>
@@ -2068,7 +2069,7 @@
     </Terminal>
   </Item>
   <!-- Очки электрика -->
-  <Item name="" identifier="electriciansgoggles" scale="0.5" category="Equipment" tags="smallitem,clothing" allowasextracargo="true" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="electriciansgoggles" scale="0.5" category="Equipment" tags="smallitem" allowasextracargo="true" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="engcab"/>
     <Price baseprice="350" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.3" />
@@ -2105,7 +2106,7 @@
             <StatusEffect type="OnSecondaryUse" targettype="this"  debugwiring="false" />
         </TickBox>
     </CustomInterface>
-	<StatusHUD drawhudwhenequipped="true" debugwiring="false">
+	<StatusHUD drawhudwhenequipped="true" debugwiring="false" ShowTexts="false">
 	  <StatusEffect ActionType="OnWearing" target="Contained,UseTarget" Targets="batterycell" Condition="-0.5">
     		<Conditional TargetContainer="true" debugwiring="true"/>
       </StatusEffect>
@@ -2119,22 +2120,25 @@
 	 <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
         <Conditional HasStatusTag="onfire" />
-		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<SpawnItem identifiers="scrap2" spawnposition="This" />
 		<Remove />
       </StatusEffect>
 	  <StatusEffect type="OnDamaged" target="This" >
         <Conditional condition="lt 1" />
-		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<SpawnItem identifiers="scrap2" spawnposition="This" />
 		<Remove />
       </StatusEffect>
 	  <StatusEffect type="OnImpact" target="This" >
-		<SpawnItem identifiers="scrap" spawnposition="This" />
+		<SpawnItem identifiers="scrap2" spawnposition="This" />
 		<Remove />
       </StatusEffect>
 	</StatusHUD>
 	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery" ShowContainedStateIndicator="false">
       <Containable items="mobilebattery"/>
-      <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />	  
+      <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,186,120,29" origin="0.5,0.45" />
+      <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="1" />
+        </StatusEffect>	  
     </ItemContainer>
   </Item>
 </Items>

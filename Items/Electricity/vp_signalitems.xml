@@ -6,7 +6,9 @@
     <Body width="64" height="64" density="40" />
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
       <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+	    <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </Holdable>
 	<Fabricate suitablefabricators="fabricator" requiredtime="150">
       <RequiredSkill identifier="electrical" level="70" />

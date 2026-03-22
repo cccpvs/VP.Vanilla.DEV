@@ -30,11 +30,20 @@
       </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="" identifier="clowndivingmask" category="Equipment,Diving" cargocontaineridentifier="metalcrate" allowasextracargo="true" tags="smallitem,clothing,clownmask,diving,lightdiving" description="" scale="0.5">
-    <PreferredContainer primary="divingcab,supplycab"/>
+  <Item name="" identifier="clowndivingmask" variantof="divingmask" tags="smallitem,clownmask,diving,lightdiving">
     <Price baseprice="150" sold="false" canbespecial="false" />
+    <PreferredContainer primary="divingcab,supplycab" amount="0"/>
+    <PreferredContainer amount="0"/>
+    <PreferredContainer amount="0"/>
+    <PreferredContainer amount="0"/>
+    <PreferredContainer amount="0"/>
     <Sprite name="Clown Mask" texture="Content/Items/JobGear/TalentGear.png" depth="0.6" sourcerect="328,304,51,51" origin="0.5,0.5" scale="0.5" />
-    <Body width="5" radius="25" density="15" />
+    <!-- clear inventory icon, we want to reuse the normal sprite -->
+    <InventoryIcon />
+    <Body width="5" radius="25" />
+    <!-- clear old fabrication and deconstruction elements, replace with new ones -->
+    <Fabricate />
+    <Deconstruct />
     <Deconstruct time="10">
       <Item identifier="divingmask" />
     </Deconstruct>
@@ -58,7 +67,7 @@
         <RequiredItem items="incendiumfueltank" type="Contained" />
         <Affliction identifier="burn" amount="3.0" />
       </StatusEffect>
-      <StatusEffect type="OnWearing" target="Contained,Character" SpeedMultiplier="1.2" setvalue="true" comparison="Or">
+      <StatusEffect type="OnWearing" target="Contained,Character" SpeedMultiplier="1.0" setvalue="true" comparison="Or">
         <Conditional IsDead="false" />
         <RequiredItem items="oxygenitetank" type="Contained" />
       </StatusEffect>
@@ -95,17 +104,17 @@
       <GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
     </MiniMap>
 	<Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" >
-		<StatusEffect type="OnFire" target="This" Condition="-100.0" />
+		<StatusEffect type="OnFire" target="This" Condition="-10.0" />
         <StatusEffect type="OnBroken" target="This" Condition="-100.0">
-		    <SpawnItem identifiers="scrap" spawnposition="This" />
+		    <SpawnItem identifiers="scrap2" spawnposition="This" />
             <Remove />
         </StatusEffect>
 		<StatusEffect type="OnDamaged" target="This" Condition="-100.0">
-		    <SpawnItem identifiers="scrap" spawnposition="This" />
+		    <SpawnItem identifiers="scrap2" spawnposition="This" />
             <Remove />
         </StatusEffect>
 		<StatusEffect type="OnImpact" target="This" Condition="-100.0">
-		    <SpawnItem identifiers="scrap" spawnposition="This" />
+		    <SpawnItem identifiers="scrap2" spawnposition="This" />
             <Remove />
         </StatusEffect>
 		<StatusEffect type="OnActive" targettype="Contained" Condition="-0.5">
@@ -117,7 +126,9 @@
 		<StatusEffect type="OnActive" targettype="this" drawhudwhenequipped="true">
            <RequiredItem items="mobilebattery" type="Contained" />
         </StatusEffect>
-		<StatusEffect type="OnActive" targettype="this" drawhudwhenequipped="false" interval="5">
+		<StatusEffect type="OnActive" targettype="this" drawhudwhenequipped="false" interval="5"/>
+		<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
         </StatusEffect>
 	</Holdable>
 	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery" ShowContainedStateIndicator="false">
@@ -152,12 +163,12 @@
         <DropContainedItems/>
       </StatusEffect>
     </Holdable>
-    <ItemContainer capacity="2" maxstacksize="1" canbeselected="true" hideitems="false" itempos="92,-48" iteminterval="0,-92" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="2" maxstacksize="1" canbeselected="true" hideitems="false" itempos="92,-48" iteminterval="0,-92" AllowAccessWhenDropped="false" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
       <Containable items="crate" />
     </ItemContainer>
   </Item>
-
+  <!-- Церемониальный меч -->
   <Item name="" identifier="ceremonialsword" category="Weapon" Tags="smallitem,weapon,gunsmith,mountableweapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <PreferredContainer primary="secarmcab" secondary="armcab"/>
     <Price baseprice="340" sold="false">
@@ -176,7 +187,7 @@
       <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
     </Fabricate>
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="0,479,153,18" depth="0.55" origin="0.5,0.5" />
-    <Body width="153" height="18" density="30" />
+    <Body width="153" height="14" density="30" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="35,10" handle1="-28,0" holdangle="30" aimangle="20" reload="0.75" range="75" combatPriority="30" msg="ItemMsgPickUpSelect">
       <Attack targetimpulse="2" severlimbsprobability="0.55" itemdamage="6" structuredamage="1" structuresoundtype="StructureSlash">
         <Affliction identifier="lacerations" strength="19" />
@@ -203,6 +214,9 @@
       <RequiredSkill identifier="medical" level="50" />
       <!--Reset the reload speed-->
       <StatusEffect type="OnUse" target="This" reload="0.75" setvalue="true" delay="1"/>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </MeleeWeapon>
     <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
     <Quality>

@@ -86,7 +86,7 @@
         <Sprite texture="%ModDir%/Items/Weapons/vp_weapons_addons.png" sourcerect="0,0,50,50" scale="0.25" depth="0.55" origin="0.5,0.5" />
 		<RangedWeapon holdtrigger="true" spread="10" unskilledspread="20" drawhudwhenequipped="true" crosshairscale="1">
        	    <Crosshair texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,0,256,256"/>
-               <CrosshairPointer texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,256,256,256" />
+            <CrosshairPointer texture="%ModDir%/Items/Weapons/vp_Crosshairs.png" sourcerect="0,256,256,256" />
 			<RequiredSkill identifier="weapons" level="70" />
         </RangedWeapon>
 </Item>

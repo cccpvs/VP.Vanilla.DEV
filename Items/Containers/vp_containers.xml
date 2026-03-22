@@ -21,6 +21,9 @@
     <Body width="100" height="100" density="0" />
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="15" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!-- Полка с боеприпасами-->
@@ -38,6 +41,9 @@
 	<Body width="140" height="306" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!-- Полка с боеприпасами большими -->
@@ -63,6 +69,9 @@
 	<Body width="210" height="384" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Защищенный металлический ящик-->
@@ -79,7 +88,11 @@
     </Deconstruct>
 	<InventoryIcon texture="Content/Items/Containers/containers.png" depth="0.54" sourcerect="561,377,151,86" />
 	<Body width="100" height="100" density="0" />
-	<Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+	<Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect">
+	    <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="7" />
+        </StatusEffect>
+	</Holdable>
   </Item>
   <!--Защищенный стальной шкаф-->
   <Item name="" identifier="securesteelcabinet_mod" nameidentifier="securesteelcabinet" variantof="securesteelcabinet">
@@ -100,6 +113,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="15" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Полка для хранения кислородных баллонов-->
@@ -122,18 +138,9 @@
 	<Body width="92" height="338" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" stackable="false" />
-      <StatusEffect type="OnBroken" target="This" stackable="false">
-        <Conditional HasStatusTag="onfire" />
-        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="500" selectionmode="All" />
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="500" />
-        <Explosion range="30.0" structuredamage="10" force="1.0">
-          <Affliction identifier="burn" strength="50" />
-          <Affliction identifier="stun" strength="10" />
-        </Explosion>
-		<SpawnItem identifiers="scrap" spawnposition="This" />
-		<Remove />
-      </StatusEffect>
+	  	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="7" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Полка для хранения кислородных баллонов малая-->
@@ -152,18 +159,9 @@
 	<Body width="99" height="82" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true" itempos="27,-42" iteminterval="22.5,0" itemrotation="0">
 	  <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1" stackable="false" />
-      <StatusEffect type="OnBroken" target="This" stackable="false">
-        <Conditional HasStatusTag="onfire" />
-        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="500" selectionmode="All" />
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="500" />
-        <Explosion range="30.0" structuredamage="10" force="1.0">
-          <Affliction identifier="burn" strength="50" />
-          <Affliction identifier="stun" strength="10" />
-        </Explosion>
-		<SpawnItem identifiers="scrap" spawnposition="This" />
-		<Remove />
-      </StatusEffect>
+	  	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Средний стальной шкаф-->
@@ -181,6 +179,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Средний стальной шкаф с окном-->
@@ -201,6 +202,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	    <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Большой стальной шкаф-->
@@ -228,6 +232,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="20" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Стеллаж для ящиков-->
@@ -247,6 +254,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="7" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Стеллаж для ящиков маленький-->
@@ -266,6 +276,9 @@
 	<Body width="185" height="188" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="20.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
 	<ItemContainer capacity="2" maxstacksize="1" canbeselected="true" hideitems="false" itempos="92,-48" iteminterval="0,-92" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
@@ -286,6 +299,9 @@
     </Deconstruct>
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Хозяйственный шкаф-->
@@ -302,7 +318,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="false">
       <RequiredItem identifier="wrench" type="Equipped" />
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+      <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="15" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Шкаф для хранения токсинов-->
@@ -322,6 +340,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!--Шкаф для подводного снаряжения-->
@@ -343,19 +364,9 @@
 	<Body width="99" height="256" density="40" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
-	  <StatusEffect type="OnFire" target="This" Condition="-30.0" tags="onfire" duration="1"/>
-      <StatusEffect type="OnBroken" target="This">
-        <Conditional HasStatusTag="onfire" />
-        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="500" selectionmode="All" />
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="500" />
-        <Explosion range="50.0" structuredamage="10" force="1.0">
-          <Affliction identifier="burn" strength="50" />
-          <Affliction identifier="stun" strength="10" />
-        </Explosion>
-		<SpawnItem identifiers="scrap" spawnposition="This" />
-		<SpawnItem identifiers="scrap" spawnposition="This" />
-		<Remove />
-      </StatusEffect>
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="12" />
+        </StatusEffect>
     </Holdable>
   </Item> 
   <!--Стойка для снарядов рельсотрона--> 
@@ -373,6 +384,9 @@
 	<Body width="100" height="100" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
     </Holdable>
   </Item>
   <!-- Стойка огнетушителя   -->
@@ -392,6 +406,9 @@
 	<Body width="72" height="204" density="0" />
 	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="0,0" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
 	  <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
     </Holdable>
   </Item> 
    <!-- Стойка для проверки оружия -->

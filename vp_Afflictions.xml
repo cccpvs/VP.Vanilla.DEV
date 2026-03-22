@@ -63,19 +63,8 @@
 	    </Effect>
         <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="512,640,128,128" color="68,157,198,255" origin="0,0"/>
     </OxygenLow>
-
-    <tinkerexhaustion_mod
-    name=""
-	description=""
-    identifier="tinkerexhaustion_mod"
-	limbspecific="false"
-	type=""
-	IndicatorLimb="None"
-	showiconthreshold="50"
-	activationthreshold="1"
-	treatmentthreshold="1000"
-    maxstrength="100"
-	iconcolors="41,128,185,255">
+	<!-- Усталость  -->
+    <tinkerexhaustion_mod name="" description="" identifier="tinkerexhaustion_mod" limbspecific="false" type="" IndicatorLimb="None" showiconthreshold="50" activationthreshold="1" treatmentthreshold="1000" maxstrength="100" iconcolors="41,128,185,255">
         <Effect minstrength="0" maxstrength="10"
               minscreendistort="0"
               maxscreendistort="0"
@@ -87,11 +76,11 @@
         	       <Affliction identifier="haste" strength="10" />
         		   <Affliction identifier="strengthen" strength="10" /> 
         	  </StatusEffect>
-             <StatValue stattype="MovementSpeed" minvalue="0.1" maxvalue="0.15" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="0.1" maxvalue="0.15" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="0.1" maxvalue="0.15" />
+             <StatValue stattype="MovementSpeed" minvalue="0.05" maxvalue="0.15" />
+        	 <StatValue stattype="WalkingSpeed" minvalue="0.05" maxvalue="0.15" />
+        	 <StatValue stattype="SwimmingSpeed" minvalue="0.05" maxvalue="0.15" />
         </Effect>
-        <Effect minstrength="10" maxstrength="20"
+        <Effect minstrength="10.1" maxstrength="20"
               minscreendistort="0"
               maxscreendistort="0"
               minscreenblur="0"
@@ -102,7 +91,7 @@
         	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="0.1" />
         	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="0.1" />
         </Effect>
-        <Effect minstrength="20" maxstrength="30"
+        <Effect minstrength="20.1" maxstrength="40"
               minscreendistort="0"
               maxscreendistort="0"
               minscreenblur="0"
@@ -113,97 +102,95 @@
         	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="0" />
         	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="0" />
         </Effect>
-        <Effect minstrength="30" maxstrength="40"
+        <Effect minstrength="40.1" maxstrength="50"
               minscreendistort="0"
               maxscreendistort="0"
               minscreenblur="0"
               maxscreenblur="0"
         	  minchromaticaberration="0"
               maxchromaticaberration="0">
-             <StatValue stattype="MovementSpeed" minvalue="0" maxvalue="0" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="0" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="0" />
+             <StatValue stattype="MovementSpeed" minvalue="0" maxvalue="-0.05" />
+        	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.05" />
+        	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.05" />
         </Effect>
-        <Effect minstrength="40" maxstrength="50"
-              minscreendistort="0"
-              maxscreendistort="0"
-              minscreenblur="0"
-              maxscreenblur="0"
-        	  minchromaticaberration="0"
-              maxchromaticaberration="0">
-             <StatValue stattype="MovementSpeed" minvalue="0" maxvalue="-0.1" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.1" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.1" />
-        </Effect>
-        <Effect minstrength="50" maxstrength="60"
+        <Effect minstrength="50.1" maxstrength="60"
               minscreendistort="0.05"
               maxscreendistort="0.05"
               minscreenblur="0.05"
               maxscreenblur="0.05"
         	  minchromaticaberration="0.05"
               maxchromaticaberration="0.05">
-             <StatValue stattype="MovementSpeed" minvalue="0" maxvalue="-0.2" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.2" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.2" />
+             <StatValue stattype="MovementSpeed" minvalue="0" maxvalue="-0.07" />
+        	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.07" />
+        	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.07" />
         </Effect>
-        <Effect minstrength="60" maxstrength="70"
+        <Effect minstrength="60.1" maxstrength="70"
               minscreendistort="0.1"
               maxscreendistort="0.1"
               minscreenblur="0.1"
               maxscreenblur="0.1"
         	  minchromaticaberration="0.1"
               maxchromaticaberration="0.1">
-             <StatValue stattype="MovementSpeed" minvalue="0" maxvalue="-0.3" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.3" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.3" />
+             <StatValue stattype="MovementSpeed" minvalue="0.03" maxvalue="-0.1" />
+        	 <StatValue stattype="WalkingSpeed" minvalue="0.03" maxvalue="-0.1" />
+        	 <StatValue stattype="SwimmingSpeed" minvalue="0.03" maxvalue="-0.1" />
         </Effect>
-        <Effect minstrength="70" maxstrength="80"
+        <Effect minstrength="70.1" maxstrength="80"
               minscreendistort="0.2"
               maxscreendistort="0.2"
               minscreenblur="0.2"
               maxscreenblur="0.2"
         	  minchromaticaberration="0.2"
               maxchromaticaberration="0.2">
-             <StatValue stattype="MovementSpeed" minvalue="0" maxvalue="-0.3" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.3" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.3" />
+             <StatValue stattype="MovementSpeed" minvalue="0.03" maxvalue="-1.3" />
+        	 <StatValue stattype="WalkingSpeed" minvalue="0.03" maxvalue="-1.3" />
+        	 <StatValue stattype="SwimmingSpeed" minvalue="0.03" maxvalue="-1.3" />
         </Effect>
-        <Effect minstrength="80" maxstrength="90"
+        <Effect minstrength="80.1" maxstrength="90"
               minscreendistort="0.5"
               maxscreendistort="0.5"
               minscreenblur="0.5"
               maxscreenblur="0.5"
         	  minchromaticaberration="0.5"
               maxchromaticaberration="0.5">
-             <StatValue stattype="MovementSpeed" minvalue="-0.1" maxvalue="-0.3" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="-0.1" maxvalue="-0.3" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="-0.1" maxvalue="-0.3" />
+             <StatValue stattype="MovementSpeed" minvalue="-0.1" maxvalue="-1.5" />
+        	 <StatValue stattype="WalkingSpeed" minvalue="-0.1" maxvalue="-1.5" />
+        	 <StatValue stattype="SwimmingSpeed" minvalue="-0.1" maxvalue="-1.5" />
 	    	 <StatusEffect target="Character" setvalue="true">
-                <Affliction identifier="stun" strength="1" probability="0.010" />
+                <!--<Affliction identifier="stun" strength="1" probability="0.005" /> -->
              </StatusEffect>
         </Effect>
-        <Effect minstrength="90" maxstrength="100"
+        <Effect minstrength="90.1" maxstrength="100"
               minscreendistort="1"
               maxscreendistort="1"
               minscreenblur="1"
               maxscreenblur="1"
         	  minchromaticaberration="1"
               maxchromaticaberration="1">
-             <StatValue stattype="MovementSpeed" minvalue="-0.2" maxvalue="-0.4" />
-        	 <StatValue stattype="WalkingSpeed" minvalue="-0.2" maxvalue="-0.4" />
-        	 <StatValue stattype="SwimmingSpeed" minvalue="-0.2" maxvalue="-0.4" />
+             <StatValue stattype="MovementSpeed" minvalue="-0.15" maxvalue="-0.2" />
+        	 <StatValue stattype="WalkingSpeed" minvalue="-0.15" maxvalue="-0.2" />
+        	 <StatValue stattype="SwimmingSpeed" minvalue="-0.15" maxvalue="-0.2" />
 	    	 <StatusEffect target="Character" setvalue="true">
-                <Affliction identifier="stun" strength="1" probability="0.040" />
+                 <!--<Affliction identifier="stun" strength="1" probability="0.015" /> -->
              </StatusEffect>
         </Effect>
         <icon texture="%ModDir%/UI/Afflictions.png" sheetindex="0,0" sheetelementsize="120,120" origin="0,0"/>
     </tinkerexhaustion_mod>
     <!-- Стамина -->
-    <stamina identifier="stamina" IndicatorLimb="None" ShowIconThreshold="70" ShowInHealthScannerThreshold="1000" ShowIconToOthersThreshold="1000" activationthreshold="90" treatmentthreshold="1000" showiconthreshold="1000" maxstrength="100" iconcolors="230,126,34,255">
-          <Effect minstrength="90" maxstrength="100">
-            <StatValue stattype="MovementSpeed" minvalue="-0.5" maxvalue="-0.7" />
-      	    <StatValue stattype="WalkingSpeed" minvalue="-0.5" maxvalue="-0.7" />
-      	    <StatValue stattype="SwimmingSpeed" minvalue="-0.5" maxvalue="-0.7" />
+    <stamina identifier="stamina" limbspecific="false" indicatorlimb="None" ShowIconThreshold="70" ShowInHealthScannerThreshold="0" ShowIconToOthersThreshold="1000" activationthreshold="80" treatmentthreshold="1000" showiconthreshold="1000" maxstrength="100" iconcolors="230,126,34,255">
+          <Effect minstrength="50" maxstrength="90">
+            <StatValue stattype="MovementSpeed" minvalue="-0.1" maxvalue="-0.3" />
+      	    <StatValue stattype="WalkingSpeed" minvalue="-0.1" maxvalue="-0.3" />
+      	    <StatValue stattype="SwimmingSpeed" minvalue="-0.1" maxvalue="-0.3" />
+			<StatusEffect target="Character">
+	  		    <!-- <Conditional InWater="!e true"/> -->
+                  <Affliction identifier="oxygenlow" amount="5"/>
+            </StatusEffect>
+          </Effect>
+		  <Effect minstrength="90.1" maxstrength="100">
+            <StatValue stattype="MovementSpeed" minvalue="-0.31" maxvalue="-0.90" />
+      	    <StatValue stattype="WalkingSpeed" minvalue="-0.31" maxvalue="-0.90" />
+      	    <StatValue stattype="SwimmingSpeed" minvalue="-0.31" maxvalue="-0.90" />
 			<StatusEffect target="Character">
 	  		    <!-- <Conditional InWater="!e true"/> -->
                   <Affliction identifier="oxygenlow" amount="15"/>
@@ -289,5 +276,382 @@
         </Effect>
         <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </StunVision>
+	<!-- Система Вес -->
+	<Affliction name="" identifier="weight" description="" type="weight" limbspecific="false" indicatorlimb="None" maxstrength="35" affectmachines="true" showiconthreshold="5" ShowInHealthScannerThreshold="1000" ShowIconToOthersThreshold="1000">
+    <Effect minstrength="0" maxstrength="1" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="0">
+
+    </Effect>
+    <Effect minstrength="1.1" maxstrength="2" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-2">
+
+    </Effect>
+	<Effect minstrength="2.1" maxstrength="3" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-3">
+
+    </Effect>
+	<Effect minstrength="3.1" maxstrength="4" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-4">
+        <statvalue stattype="MovementSpeed" value="-0.03" />
+        <statvalue stattype="WalkingSpeed" value="-0.03" />
+        <statvalue stattype="SwimmingSpeed" value="-0.03" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.03" />
+		<statvalue stattype="RepairSpeed" value="-0.03" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.03" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.03" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.03" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.03" />
+		<statvalue stattype="FlowResistance" value="0.03" />
+    </Effect>
+	<Effect minstrength="4.1" maxstrength="5" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-5">
+        <statvalue stattype="MovementSpeed" value="-0.06" />
+        <statvalue stattype="WalkingSpeed" value="-0.06" />
+        <statvalue stattype="SwimmingSpeed" value="-0.06" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.06" />
+		<statvalue stattype="RepairSpeed" value="-0.06" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.06" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.06" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.06" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.06" />
+		<statvalue stattype="FlowResistance" value="0.06" />
+    </Effect>
+	<Effect minstrength="5.1" maxstrength="6" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-6">
+        <statvalue stattype="MovementSpeed" value="-0.09" />
+        <statvalue stattype="WalkingSpeed" value="-0.09" />
+        <statvalue stattype="SwimmingSpeed" value="-0.09" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.09" />
+		<statvalue stattype="RepairSpeed" value="-0.09" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.09" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.09" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.09" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.09" />
+		<statvalue stattype="FlowResistance" value="0.09" />
+    </Effect>
+	<Effect minstrength="6.1" maxstrength="7" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-7">
+        <statvalue stattype="MovementSpeed" value="-0.12" />
+        <statvalue stattype="WalkingSpeed" value="-0.12" />
+        <statvalue stattype="SwimmingSpeed" value="-0.12" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.12" />
+		<statvalue stattype="RepairSpeed" value="-0.12" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.12" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.12" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.12" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.12" />
+		<statvalue stattype="FlowResistance" value="0.12" />
+    </Effect>
+	<Effect minstrength="7.1" maxstrength="8" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-8">
+        <statvalue stattype="MovementSpeed" value="-0.15" />
+        <statvalue stattype="WalkingSpeed" value="-0.15" />
+        <statvalue stattype="SwimmingSpeed" value="-0.15" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.15" />
+		<statvalue stattype="RepairSpeed" value="-0.15" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.15" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.15" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.15" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.15" />
+		<statvalue stattype="FlowResistance" value="0.15" />
+    </Effect>
+	<Effect minstrength="8.1" maxstrength="9" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-9">
+        <statvalue stattype="MovementSpeed" value="-0.18" />
+        <statvalue stattype="WalkingSpeed" value="-0.18" />
+        <statvalue stattype="SwimmingSpeed" value="-0.18" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.18" />
+		<statvalue stattype="RepairSpeed" value="-0.18" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.18" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.18" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.18" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.18" />
+		<statvalue stattype="FlowResistance" value="0.18" />
+    </Effect>
+	<Effect minstrength="9.1" maxstrength="10" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-10">
+        <statvalue stattype="MovementSpeed" value="-0.21" />
+        <statvalue stattype="WalkingSpeed" value="-0.21" />
+        <statvalue stattype="SwimmingSpeed" value="-0.21" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.21" />
+		<statvalue stattype="RepairSpeed" value="-0.21" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.21" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.21" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.21" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.21" />
+		<statvalue stattype="FlowResistance" value="0.21" />
+    </Effect>
+	<Effect minstrength="10.1" maxstrength="11" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-11">
+        <statvalue stattype="MovementSpeed" value="-0.24" />
+        <statvalue stattype="WalkingSpeed" value="-0.24" />
+        <statvalue stattype="SwimmingSpeed" value="-0.24" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.24" />
+		<statvalue stattype="RepairSpeed" value="-0.24" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.24" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.24" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.24" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.24" />
+		<statvalue stattype="FlowResistance" value="0.24" />
+    </Effect>
+	<Effect minstrength="11.1" maxstrength="12" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-12">
+        <statvalue stattype="MovementSpeed" value="-0.27" />
+        <statvalue stattype="WalkingSpeed" value="-0.27" />
+        <statvalue stattype="SwimmingSpeed" value="-0.27" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.27" />
+		<statvalue stattype="RepairSpeed" value="-0.27" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.27" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.27" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.27" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.27" />
+		<statvalue stattype="FlowResistance" value="0.27" />
+    </Effect>
+	<Effect minstrength="12.1" maxstrength="13" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-13">
+        <statvalue stattype="MovementSpeed" value="-0.30" />
+        <statvalue stattype="WalkingSpeed" value="-0.30" />
+        <statvalue stattype="SwimmingSpeed" value="-0.30" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.30" />
+		<statvalue stattype="RepairSpeed" value="-0.30" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.30" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.30" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.30" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.30" />
+		<statvalue stattype="FlowResistance" value="0.30" />
+    </Effect>
+	<Effect minstrength="13.1" maxstrength="14" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-14">
+        <statvalue stattype="MovementSpeed" value="-0.33" />
+        <statvalue stattype="WalkingSpeed" value="-0.33" />
+        <statvalue stattype="SwimmingSpeed" value="-0.33" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.33" />
+		<statvalue stattype="RepairSpeed" value="-0.33" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.33" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.33" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.33" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.33" />
+		<statvalue stattype="FlowResistance" value="0.33" />
+    </Effect>
+	<Effect minstrength="14.1" maxstrength="15" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-15">
+        <statvalue stattype="MovementSpeed" value="-0.36" />
+        <statvalue stattype="WalkingSpeed" value="-0.36" />
+        <statvalue stattype="SwimmingSpeed" value="-0.36" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.36" />
+		<statvalue stattype="RepairSpeed" value="-0.36" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.36" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.36" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.36" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.36" />
+		<statvalue stattype="FlowResistance" value="0.36" />
+    </Effect>
+	<Effect minstrength="15.1" maxstrength="16" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-16">
+        <statvalue stattype="MovementSpeed" value="-0.39" />
+        <statvalue stattype="WalkingSpeed" value="-0.39" />
+        <statvalue stattype="SwimmingSpeed" value="-0.39" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.39" />
+		<statvalue stattype="RepairSpeed" value="-0.39" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.39" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.39" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.39" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.39" />
+		<statvalue stattype="FlowResistance" value="0.39" />
+    </Effect>
+	<Effect minstrength="16.1" maxstrength="17" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-17">
+        <statvalue stattype="MovementSpeed" value="-0.41" />
+        <statvalue stattype="WalkingSpeed" value="-0.41" />
+        <statvalue stattype="SwimmingSpeed" value="-0.41" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.41" />
+		<statvalue stattype="RepairSpeed" value="-0.41" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.41" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.41" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.41" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.41" />
+		<statvalue stattype="FlowResistance" value="0.41" />
+    </Effect>
+	<Effect minstrength="17.1" maxstrength="18" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-18">
+        <statvalue stattype="MovementSpeed" value="-0.44" />
+        <statvalue stattype="WalkingSpeed" value="-0.44" />
+        <statvalue stattype="SwimmingSpeed" value="-0.44" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.44" />
+		<statvalue stattype="RepairSpeed" value="-0.44" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.44" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.44" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.44" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.44" />
+		<statvalue stattype="FlowResistance" value="0.44" />
+    </Effect>
+	<Effect minstrength="18.1" maxstrength="19" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-19">
+        <statvalue stattype="MovementSpeed" value="-0.47" />
+        <statvalue stattype="WalkingSpeed" value="-0.47" />
+        <statvalue stattype="SwimmingSpeed" value="-0.47" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.47" />
+		<statvalue stattype="RepairSpeed" value="-0.47" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.47" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.47" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.47" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.47" />
+		<statvalue stattype="FlowResistance" value="0.47" />
+    </Effect>
+	<Effect minstrength="19.1" maxstrength="20" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-20">
+        <statvalue stattype="MovementSpeed" value="-0.50" />
+        <statvalue stattype="WalkingSpeed" value="-0.50" />
+        <statvalue stattype="SwimmingSpeed" value="-0.50" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.50" />
+		<statvalue stattype="RepairSpeed" value="-0.50" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.50" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.50" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.50" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.50" />
+		<statvalue stattype="FlowResistance" value="0.5" />
+    </Effect>
+	<Effect minstrength="20.1" maxstrength="21" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-21">
+        <statvalue stattype="MovementSpeed" value="-0.53" />
+        <statvalue stattype="WalkingSpeed" value="-0.53" />
+        <statvalue stattype="SwimmingSpeed" value="-0.53" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.53" />
+		<statvalue stattype="RepairSpeed" value="-0.53" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.53" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.53" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.53" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.53" />
+		<statvalue stattype="FlowResistance" value="0.53" />
+    </Effect>
+	<Effect minstrength="21.1" maxstrength="22" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-22">
+        <statvalue stattype="MovementSpeed" value="-0.56" />
+        <statvalue stattype="WalkingSpeed" value="-0.56" />
+        <statvalue stattype="SwimmingSpeed" value="-0.56" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.56" />
+		<statvalue stattype="RepairSpeed" value="-0.56" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.56" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.56" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.56" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.56" />
+		<statvalue stattype="FlowResistance" value="0.56" />
+    </Effect>
+	<Effect minstrength="22.1" maxstrength="23" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-23">
+        <statvalue stattype="MovementSpeed" value="-0.59" />
+        <statvalue stattype="WalkingSpeed" value="-0.59" />
+        <statvalue stattype="SwimmingSpeed" value="-0.59" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.59" />
+		<statvalue stattype="RepairSpeed" value="-0.59" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.59" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.59" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.59" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.59" />
+		<statvalue stattype="FlowResistance" value="0.59" />
+    </Effect>
+	<Effect minstrength="23.1" maxstrength="24" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-24">
+        <statvalue stattype="MovementSpeed" value="-0.62" />
+        <statvalue stattype="WalkingSpeed" value="-0.62" />
+        <statvalue stattype="SwimmingSpeed" value="-0.62" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.62" />
+		<statvalue stattype="RepairSpeed" value="-0.62" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.62" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.62" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.62" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.62" />
+		<statvalue stattype="FlowResistance" value="0.62" />
+    </Effect>
+	<Effect minstrength="24.1" maxstrength="25" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-25">
+        <statvalue stattype="MovementSpeed" value="-0.65" />
+        <statvalue stattype="WalkingSpeed" value="-0.65" />
+        <statvalue stattype="SwimmingSpeed" value="-0.65" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.65" />
+		<statvalue stattype="RepairSpeed" value="-0.65" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.65" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.65" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.65" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.65" />
+		<statvalue stattype="FlowResistance" value="0.65" />
+    </Effect>
+	<Effect minstrength="25.1" maxstrength="26" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-26">
+        <statvalue stattype="MovementSpeed" value="-0.68" />
+        <statvalue stattype="WalkingSpeed" value="-0.68" />
+        <statvalue stattype="SwimmingSpeed" value="-0.68" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.68" />
+		<statvalue stattype="RepairSpeed" value="-0.68" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.68" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.68" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.68" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.68" />
+		<statvalue stattype="FlowResistance" value="0.68" />
+    </Effect>
+	<Effect minstrength="26.1" maxstrength="27" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-27">
+        <statvalue stattype="MovementSpeed" value="-0.71" />
+        <statvalue stattype="WalkingSpeed" value="-0.71" />
+        <statvalue stattype="SwimmingSpeed" value="-0.71" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.71" />
+		<statvalue stattype="RepairSpeed" value="-0.71" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.71" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.71" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.71" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.71" />
+		<statvalue stattype="FlowResistance" value="0.71" />
+    </Effect>
+	<Effect minstrength="27.1" maxstrength="28" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-28">
+        <statvalue stattype="MovementSpeed" value="-0.74" />
+        <statvalue stattype="WalkingSpeed" value="-0.74" />
+        <statvalue stattype="SwimmingSpeed" value="-0.74" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.74" />
+		<statvalue stattype="RepairSpeed" value="-0.74" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.74" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.74" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.74" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.74" />
+		<statvalue stattype="FlowResistance" value="0.74" />
+    </Effect>
+	<Effect minstrength="28.1" maxstrength="29" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-29">
+        <statvalue stattype="MovementSpeed" value="-0.77" />
+        <statvalue stattype="WalkingSpeed" value="-0.77" />
+        <statvalue stattype="SwimmingSpeed" value="-0.77" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.77" />
+		<statvalue stattype="RepairSpeed" value="-0.77" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.77" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.77" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.77" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.77" />
+		<statvalue stattype="FlowResistance" value="0.77" />
+    </Effect>
+	<Effect minstrength="29.1" maxstrength="30" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-30">
+        <statvalue stattype="MovementSpeed" value="-0.8" />
+        <statvalue stattype="WalkingSpeed" value="-0.8" />
+        <statvalue stattype="SwimmingSpeed" value="-0.8" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.8" />
+		<statvalue stattype="RepairSpeed" value="-0.8" />
+		<statvalue stattype="MechanicalRepairSpeed" value="-0.8" />
+		<statvalue stattype="DeconstructorSpeedMultiplier" value="-0.8" />
+		<statvalue stattype="RepairToolStructureRepairMultiplier" value="-0.8" />
+        <statvalue stattype="TurretChargeSpeed" value="-0.8" />
+		<statvalue stattype="FlowResistance" value="0.8" />
+    </Effect>
+	<Effect minstrength="30.1" maxstrength="35" minspeedmultiplier="1.0" maxspeedmultiplier="1" strengthchange="-31">
+        <statvalue stattype="MovementSpeed" value="-0.9" />
+        <statvalue stattype="WalkingSpeed" value="-0.9" />
+        <statvalue stattype="SwimmingSpeed" value="-0.9" />
+		<statvalue stattype="MeleeAttackSpeed" value="-0.9" />
+		<statvalue stattype="RepairSpeed" value="-0.9" />
+		<statvalue stattype="FlowResistance" value="0.9" />
+    </Effect>
+	<PeriodicEffect mininterval="300" maxinterval="500" minstrength="10" maxstrength="35">
+      <StatusEffect target="Character">
+        <giveskill skillidentifier="fitnes" amount="0.05"/>
+      </StatusEffect>
+    </PeriodicEffect>
+	<PeriodicEffect mininterval="5" maxinterval="15" minstrength="9" maxstrength="35">
+      <StatusEffect target="Character" Comparison="And">
+	     <Conditional weight="gt 10"/>
+		 <Conditional weight="lt 15"/>
+         <Affliction identifier="stamina" amount="10" probability="0.5"/>
+		 <Affliction identifier="tinkerexhaustion_mod" amount="0.05"/>
+      </StatusEffect>
+	  <StatusEffect target="Character" Comparison="And">
+	     <Conditional weight="gt 15.1"/>
+		 <Conditional weight="lt 20"/>
+         <Affliction identifier="stamina" amount="15" probability="0.5"/>
+		 <Affliction identifier="tinkerexhaustion_mod" amount="0.10"/>
+      </StatusEffect>
+	  <StatusEffect target="Character" Comparison="And">
+	     <Conditional weight="gt 20.1"/>
+		 <Conditional weight="lt 25"/>
+         <Affliction identifier="stamina" amount="20" probability="0.5"/>
+		 <Affliction identifier="tinkerexhaustion_mod" amount="0.2"/>
+      </StatusEffect>
+	  <StatusEffect target="Character" Comparison="And">
+	     <Conditional weight="gt 25.1"/>
+		 <Conditional weight="lt 35"/>
+         <Affliction identifier="stamina" amount="25" probability="0.5"/>
+		 <Affliction identifier="tinkerexhaustion_mod" amount="0.3"/>
+      </StatusEffect>
+    </PeriodicEffect>
+	
+    <icon texture="%ModDir%/UI/Afflictions.png" sheetindex="2,0" sheetelementsize="120,120" color="255,255,0,255" origin="0,0" />
+  </Affliction>
 </Afflictions>
 </Override> 

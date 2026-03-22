@@ -16,7 +16,7 @@
     <damagemodifier DamageSound="" DamageParticle="" DamageMultiplier="1.0" ProbabilityMultiplier="1" ArmorSector="0,360" DeflectProjectiles="False" AfflictionIdentifiers="gunshotwound,lacerations,blunttrauma" AfflictionTypes="" />
     <damagemodifier DamageSound="" DamageParticle="" DamageMultiplier="1.0" ProbabilityMultiplier="1" ArmorSector="0,360" DeflectProjectiles="False" AfflictionIdentifiers="bleeding,bitewounds" AfflictionTypes="" />
     <StatusEffect type="OnDamaged" target="This">
-      <RequiredAffliction identifier="internaldamage,blunttrauma,bitewounds,explosiondamage" minstrength="5" />
+      <RequiredAffliction identifier="internaldamage,blunttrauma,bitewounds,explosiondamage,lacerations" minstrength="5" />
       <Affliction identifier="concussion" strength="10" probability="0.25" />
     </StatusEffect>
 	<!-- <StatusEffect type="OnDamaged" target="This" disabledeltatime="true"> -->

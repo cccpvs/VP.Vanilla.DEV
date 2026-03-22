@@ -42,8 +42,8 @@
   <HiddenFlowerSprite texture="Content/Items/Gardening/ballastflora.png" sourcerect="640,384,128,128"/>
   <BranchSprite type="Stem" sourcerect="0,0,1,1"/>
   <BranchSprite type="CrossJunction" sourcerect="256,64,64,64"/>
-  <BranchSprite type="VerticalLane" sourcerect="256,0,64,64"/>
-  <BranchSprite type="HorizontalLane" sourcerect="320,0,64,64"/>
+  <BranchSprite type="HorizontalLine" sourcerect="256,0,64,64"/>
+  <BranchSprite type="VerticalLine" sourcerect="320,0,64,64"/>
   <BranchSprite type="TurnTopRight" sourcerect="0,0,64,64"/>
   <BranchSprite type="TurnTopLeft" sourcerect="192,0,64,64"/>
   <BranchSprite type="TurnBottomLeft" sourcerect="128,0,64,64"/>

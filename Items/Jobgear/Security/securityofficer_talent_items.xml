@@ -36,11 +36,13 @@
         <Sound file="Content/Items/JobGear/Security/WEAPONS_autoShotgun_1.ogg" type="OnUse" range="3000" volume="2" />
         <Sound file="Content/Items/JobGear/Security/WEAPONS_autoShotgun_2.ogg" type="OnUse" range="3000" volume="2" />
         <Sound file="Content/Items/JobGear/Security/WEAPONS_autoShotgun_3.ogg" type="OnUse" range="3000" volume="2" />
-        <StatusEffect type="OnUse">
+        <StatusEffect type="OnUse" target="this">
           <Explosion range="150.0" force="2" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
         </StatusEffect>
         <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
-		<StatusEffect type="OnContained" SpeedMultiplier="0.5" setvalue="true" target="Character"/>
+			  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="10" />
+        </StatusEffect>
         <!-- <RequiredSkill identifier="weapons" level="70" /> -->
 	          <!-- Поломка оружия -->
 	    <!-- <StatusEffect target="this" type="OnUse" condition="-5" disabledeltatime="true" stackable="false"/> -->
@@ -60,8 +62,7 @@
     </ItemContainer>
     <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
     <Quality>
-        <QualityStat stattype="FirepowerMultiplier" value="0.1" />
-	    <QualityStat stattype="Condition" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
     <SkillRequirementHint identifier="weapons" level="60" />
   </Item>
@@ -100,14 +101,16 @@
         <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_3.ogg" type="OnUse" range="3000" />
         <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_4.ogg" type="OnUse" range="3000" />
         <Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_5.ogg" type="OnUse" range="3000" />
-        <StatusEffect type="OnUse">
+        <StatusEffect type="OnUse" target="this">
             <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Contained">
             <Use />
         </StatusEffect>
         <RequiredItems items="assaultriflemagazine" type="Contained" msg="ItemMsgAmmoRequired" />
-		<StatusEffect type="OnContained" SpeedMultiplier="0.65" setvalue="true" target="Character"/>
+			  <StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="6" />
+        </StatusEffect>
         <!-- <RequiredSkill identifier="weapons" level="50" /> -->
 	    <!-- Поломка оружия -->
 	    <!-- <StatusEffect target="this" type="OnUse" condition="-3" disabledeltatime="true" stackable="false"/> -->
@@ -126,8 +129,7 @@
     </ItemContainer> 
     <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
     <Quality>
-        <QualityStat stattype="FirepowerMultiplier" value="0.1" />
-	    <QualityStat stattype="Condition" value="0.1"/>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
     <SkillRequirementHint identifier="weapons" level="50" />
   </Item>
@@ -145,31 +147,34 @@
     <Fabricate suitablefabricators="fabricator" requiredtime="35" requiresrecipe="true">
       <RequiredSkill identifier="weapons" level="40" />
       <RequiredItem identifier="magnesium" />
-      <RequiredItem identifier="lead" />
-      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem tag="advmunition_tip" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem tag="advmunition_core" description="fabricationdescription.advmunition_core" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem identifier="steel" />
     </Fabricate>
     <Fabricate suitablefabricators="fabricator" requiredtime="35" displayname="recycleitem" requiresrecipe="true">
       <RequiredSkill identifier="weapons" level="40" />
       <RequiredItem identifier="magnesium" />
-      <RequiredItem identifier="lead" />
+      <RequiredItem tag="advmunition_tip" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem tag="advmunition_core" description="fabricationdescription.advmunition_core" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
       <RequiredItem identifier="assaultriflemagazine" mincondition="0.0" maxcondition="0.1" usecondition="false"/>
     </Fabricate>
     <Deconstruct time="15">
-      <Item identifier="lead" mincondition="0.95" />
-      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="steel" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="476,3,36,48" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="476,3,36,48" depth="0.55" origin="0.5,0.5" />
     <Body width="28" height="40" density="25" />
     <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="assaultrifleround" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
       <Containable items="assaultrifleround" />
-      <StatusEffect type="OnUse" target="This" condition="-5.0" disabledeltatime="true">
+      <StatusEffect type="OnUse" target="This" condition="-3.3" disabledeltatime="true">
         <SpawnItem identifiers="assaultrifleround" spawnposition="ThisInventory" />
       </StatusEffect>
     </ItemContainer>
     <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
   </Item>
-  <Item name="assaultrifleround" identifier="assaultrifleround" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+  <Item name="assaultrifleround" identifier="assaultrifleround" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,riflemanbonus" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
     <Body width="40" height="14" density="30" />
@@ -192,8 +197,7 @@
       </StatusEffect>
     </Projectile>
   </Item>
-  <!-- Разрывная пуля -->
-  <Item name="" identifier="shotgunslugexplosive" category="Weapon" maxstacksize="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,shotgunammo" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="shotgunslugexplosive" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" allowasextracargo="true" tags="smallitem,shotgunammo" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="75" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.5" />
@@ -223,16 +227,15 @@
         <ParticleEmitter particle="impactfirearm" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" scalemultiplier="7,7" colormultiplier="255,115,95,150" lifetimemultiplier="0.5"/>
         <ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="300" velocitymax="350" scalemin="1.5" scalemax="1.9" drawontop="true" colormultiplier="255,200,225,180" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+      <StatusEffect type="OnImpact" target="This" disabledeltatime="true">
         <Explosion range="70.0" ballastfloradamage="50" severlimbsprobability="0.5" structuredamage="8" levelwalldamage="40" itemdamage="200" force="3.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,115,95,150">
           <Affliction identifier="burn" strength="60" />
         </Explosion>
       </StatusEffect>
     </Projectile>
-    <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
   <!-- Патронташ -->
-  <Item name="" identifier="bandolier" category="Equipment" tags="smallitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="bandolier" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="250" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.3" minavailable="0" maxavailable="1" sold="true">
@@ -263,10 +266,12 @@
       <StatValue stattype="RangedAttackSpeed" value="0.25" />
       <StatValue stattype="TurretAttackSpeed" value="0.25" />
 	  <StatValue stattype="MeleeAttackSpeed" value="0.3" />
-	  
+	  <StatusEffect type="OnContained" target="Character">
+           <Affliction identifier="weight" amount="2.5" />
+      </StatusEffect>
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
-    <ItemContainer capacity="12">
+    <ItemContainer capacity="4" maxstacksize="8">
 	<SlotIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,960,64,64" origin="0.5,0.5" />
       <Containable items="smgammo,grenade,revolverammo,shotgunammo,assaultrifleammo" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
     </ItemContainer>
@@ -305,7 +310,9 @@
           <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
           <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
         </StatusEffect>
-		<StatusEffect type="OnContained" SpeedMultiplier="0.6" setvalue="true" target="Character"/>
+		<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="5" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <Quality>
@@ -332,7 +339,7 @@
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="83,368,39,56" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="71,74,34,39" depth="0.6" origin="0.5,0.5" />
     <Body width="28" height="36" density="20" />
-    <MeleeWeapon slots="Any,RightHand+LeftHand" aimable="false" aimpos="40,-20" handle1="5,0" holdangle="260" swingamount="0,3" swingspeed="0.5" swingwhenaiming="true" msg="ItemMsgPickUpSelect">
+    <Holdable slots="Any,RightHand+LeftHand" aimable="false" aimpos="40,-20" handle1="5,0" aimangle="260" swingamount="0,3" swingspeed="0.5" swingwhenaiming="true" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="This" Condition="-10.0" />
       <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
         <Conditional Condition="lte 0" />
@@ -340,10 +347,10 @@
         <GiveSkill skillidentifier="weapons" amount="7" triggertalents="false" />
         <RemoveItem />
       </StatusEffect>
-    </MeleeWeapon>
+    </Holdable>
   </Item>
 <!-- Гидрокостюм  -->
-<Item name="" identifier="slipsuit" variantof="combatdivingsuit" category="Equipment" tags="diving,deepdiving,provocative" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="slipsuit" variantof="combatdivingsuit" allowasextracargo="true" botpriority="1.5">
     <Price baseprice="630" sold="false" />
     <PreferredContainer primary="divingsuitcontainer" spawnprobability="0.0"/>
     <PreferredContainer primary="wreckdivingsuitcontainer"  spawnprobability="0.0"/>
@@ -384,13 +391,13 @@
          </StatusEffect>
         </LightComponent>
       </sprite>
-      <sprite name="SlipSuit Torso" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="false" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Torso" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="SlipSuit Right Hand" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="SlipSuit Left Hand" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="SlipSuit Right Lower Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="SlipSuit Left Lower Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="SlipSuit Right Upper Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="SlipSuit Left Upper Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Upper Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightArm" depthlimb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Upper Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Right Lower Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightForearm" depthlimb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="SlipSuit Left Lower Arm" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="SlipSuit Waist" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="Waist" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="SlipSuit Right Thigh" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="SlipSuit Left Thigh" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
@@ -398,11 +405,9 @@
       <sprite name="SlipSuit Left Leg" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="SlipSuit Left Shoe" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="LeftFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="SlipSuit Right Shoe" texture="Content/Items/Jobgear/Security/slipsuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
-      <StatValue stattype="SwimmingSpeed" value="0.38" />
-      <StatValue stattype="WalkingSpeed" value="-0.6" />
-	  <statvalue stattype="RepairSpeed" value="-0.3" />
-	  <statvalue stattype="MovementSpeed" value="-0.3"/>
-	  <statvalue stattype="FlowResistance" value="0.5" />
+      <StatValue stattype="SwimmingSpeed" value="0.45" />
+      <StatValue stattype="PropulsionSpeed" value="0.4" />
+      <StatValue stattype="WalkingSpeed" value="-0.2" />
     </Wearable>
 	<ItemContainer capacity="0" maxstacksize="0" hideitems="true" containedstateindicatorstyle="tank" ShowContainedStateIndicator="false">
 	<Containable items="none" />
@@ -454,6 +459,20 @@
         <Affliction identifier="lacerations" strength="1" />
         <Affliction identifier="stun" strength="6" />
       </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget" disabledeltatime="true">
+        <Conditional entitytype="eq Character" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
+        <Affliction identifier="electricshock" strength="80" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" delay="0.6" disabledeltatime="true">
+        <Conditional entitytype="eq Character" />
+        <Affliction identifier="electricshock" strength="40" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" delay="5" disabledeltatime="true">
+        <Conditional entitytype="eq Character" />
+        <!-- Reapply after 5 seconds to extend the stun -->
+        <Affliction identifier="electricshock" strength="100" />
+      </StatusEffect>
       <StatusEffect type="OnImpact" target="This">
         <Sound file="Content/Items/Weapons/TaserHit1.ogg" type="OnUse" range="1500" selectionmode="Random" />
         <Sound file="Content/Items/Weapons/TaserHit2.ogg" type="OnUse" range="1500" />
@@ -466,6 +485,7 @@
       </StatusEffect>
     </Projectile>
   </Item>
+  <!-- Полицейский щит -->
   <Item name="" identifier="riotshield" category="Equipment" tags="mediumitem" health="150" impactsoundtag="impact_metal_light" cargocontaineridentifier="metalcrate" damagedbyprojectiles="true" scale="1" allowasextracargo="true">
     <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="360" sold="true" minleveldifficulty="50" >
@@ -484,11 +504,15 @@
       <RequiredItem identifier="steel" amount="2" />
       <RequiredItem identifier="plastic" amount="3" />
     </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true" displayname="recycleitem">
+      <RequiredItem identifier="riotshield" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+      <RequiredItem identifier="steel" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,320,64,64" />
     <Sprite texture="Content/Items/Jobgear/Security/riotgear.png" sourcerect="31,54,27,147" origin="0.5,0.5" depth="0.55" />
     <Body width="40" height="145" density="20" />
     <Holdable slots="RightHand+LeftHand" aimpos="60,-30" holdpos="45,-30" handle1="-15,-10" handle2="-15,10" controlpose="true" blocksplayers="true" msg="ItemMsgPickUpSelect">
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" setvalue="true" />
       <StatusEffect type="OnBroken" target="This">
         <particleemitter particle="weldspark" drawontop="true" particleamount="50" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="30" scalemin="0.1" scalemax="0.35" />
         <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" />
@@ -500,6 +524,9 @@
         <!-- an invisible explosion to make the user "flinch" -->
         <Explosion range="100.0" force="1" showeffects="false" camerashake="1.0" />
       </StatusEffect>
+	  	<StatusEffect type="OnContained" target="Character">
+            <Affliction identifier="weight" amount="7" />
+        </StatusEffect>
     </Holdable>
     <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Riot Shield Worn" texture="Content/Items/Jobgear/Security/riotgear.png" canbehiddenbyotherwearables="false" sourcerect="31,54,27,147" rotation="180" inheritlimbdepth="true" depth="0.6" limb="Torso" ignorelimbscale="true" scale="1" origin="-0.2,0.5" />

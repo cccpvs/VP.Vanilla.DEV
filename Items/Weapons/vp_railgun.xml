@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override> 
+<Items>
+<!-- перископ мод-->
+ <Item name="" description="" identifier="periscope_mod" nameidentifier="periscope" variantof="periscope">
+    <Price baseprice="200">
+      <Price locationtype="outpost" multiplier="1"/>
+      <Price locationtype="city" multiplier="0.9"/>
+      <Price locationtype="research" multiplier="1.25"/>
+      <Price locationtype="military" multiplier="1"/>
+      <Price locationtype="mine" multiplier="1"/>
+    </Price>
+	<Body width="134" height="203" density="40" />
+	<Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="30.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
+      <requireditem identifier="wrench" type="Equipped" />
+	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+    </Holdable>
+	<Fabricate suitablefabricators="fabricator" requiredtime="150">
+      <RequiredSkill identifier="electrical" level="70" />
+      <Item identifier="aluminium" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="steel" />
+	  <Item identifier="steel" />
+	  <Item identifier="steel" />
+	  <Item identifier="steel" />
+	  <Item identifier="signalcheckcomponent" />
+	  <Item identifier="concatcomponent" />
+	  <Item identifier="redwire" />
+	  <Item identifier="redwire" />
+    </Fabricate>
+	<Deconstruct time="60" chooserandom="true" amount="2">
+      <Item identifier="steel" />
+	  <Item identifier="aluminium" />
+	  <Item identifier="redwire" />
+    </Deconstruct>
+
+  </Item>  
+<!-- Заряд рельсотрона с с-4 -->
+<Item name="" identifier="railgunshell_c4" variantof="railgunshell">
+    <InventoryIcon texture="railgun.png" sourcerect="0,450,50,50" origin="0.5,0.5" />
+    <Sprite texture="railgun.png" sourcerect="25,5,213,31" depth="0.55" origin="0.5,0.5" />
+    <PreferredContainer/>
+	<Price/>
+    <Deconstruct/>
+	<Fabricate/>
+    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+        <Attack structuredamage="100" itemdamage="100" severlimbsprobability="3" penetration="0.6">
+            <Affliction identifier="lacerations" strength="500" />
+            <Affliction identifier="bleeding" strength="100" />
+            <Affliction identifier="stun" strength="70" />
+        </Attack>
+		<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+            <Explosion range="600.0" structuredamage="400" itemdamage="400" force="60.0" severlimbsprobability="3" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+        </StatusEffect>
+		<StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+        <StatusEffect type="OnBroken" target="This" stackable="false">
+            <Conditional HasStatusTag="onfire" />
+		    <Explosion range="600.0" structuredamage="400" itemdamage="400" force="60.0" severlimbsprobability="3" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+		    <Remove />
+      </StatusEffect>
+    </Projectile>
+	<Deconstruct time="30">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="uex" />
+	  <RequiredItem identifier="uex" />
+	  <RequiredItem identifier="c4block" />
+    </Fabricate>
+</Item>
+<!-- Заряд рельсотрона с с-4+ усиленный-->
+<Item name="" identifier="railgunshell_c4plus" variantof="railgunshell">
+    <InventoryIcon texture="railgun.png" sourcerect="50,450,50,50" origin="0.5,0.5" />
+    <Sprite texture="railgun.png" sourcerect="25,40,213,31" depth="0.55" origin="0.5,0.5" />
+	<PreferredContainer/>
+	<Price/>
+    <Deconstruct/>
+	<Fabricate/>
+    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+        <Attack structuredamage="300" itemdamage="300" severlimbsprobability="6" penetration="0.6">
+            <Affliction identifier="lacerations" strength="1000" />
+            <Affliction identifier="bleeding" strength="1000" />
+            <Affliction identifier="stun" strength="300" />
+        </Attack>
+		<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+            <Explosion range="1200.0" structuredamage="1200" itemdamage="1200" force="120.0" severlimbsprobability="6" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+        </StatusEffect>
+		<StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+        <StatusEffect type="OnBroken" target="This" stackable="false">
+            <Conditional HasStatusTag="onfire" />
+		    <Explosion range="1200.0" structuredamage="1200" itemdamage="1200" force="120.0" severlimbsprobability="6" decal="explosion">
+                <Affliction identifier="explosiondamage" strength="600" />
+		        <Affliction identifier="burn" strength="300" />
+                <Affliction identifier="stun" strength="100" />
+            </Explosion>
+		<Remove />
+      </StatusEffect>
+    </Projectile>
+	<Deconstruct time="30">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+    </Fabricate>
+</Item>
+<!-- Заряд ядерный усиленный-->
+<Item name="" identifier="nuclearshell_plus" variantof="nuclearshell">
+    <InventoryIcon texture="railgun.png" sourcerect="100,450,50,50" origin="0.5,0.5" />
+    <Sprite texture="railgun.png" sourcerect="25,75,213,31" depth="0.55" origin="0.5,0.5" />
+	<PreferredContainer/>
+	<Price/>
+    <Deconstruct/>
+	<Fabricate/>
+    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1">
+        <Attack structuredamage="750" itemdamage="600" severlimbsprobability="6" penetration="0.6">
+            <Affliction identifier="lacerations" strength="750" />
+            <Affliction identifier="bleeding" strength="500" />
+            <Affliction identifier="stun" strength="150" />
+        </Attack>
+		<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+            <Explosion range="2500.0" structuredamage="2000" itemdamage="1800" ballastfloradamage="2000" force="100.0" severlimbsprobability="4" decal="explosion" decalsize="1.0" 
+                       camerashake="900" camerashakerange="70000" 
+                       flashrange="12000" flashduration="8.0"
+                       screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0">        
+                <Affliction identifier="burn" strength="500" />
+                <Affliction identifier="radiationsickness" strength="1000" />
+                <Affliction identifier="explosiondamage" strength="800" />
+                <Affliction identifier="stun" strength="300" />
+            </Explosion>
+        <SpawnItem identifier="nuclearaftereffectemitter" spawnposition="This"/>
+      </StatusEffect>
+	  <StatusEffect type="OnFire" target="This" Condition="-100.0" tags="onfire" duration="1" stackable="false" />
+      <StatusEffect type="OnBroken" target="This" stackable="false">
+            <Conditional HasStatusTag="onfire" />
+		    <Explosion range="2500.0" structuredamage="2000" itemdamage="1800" ballastfloradamage="2000" force="100.0" severlimbsprobability="4" decal="explosion" decalsize="1.0" 
+                       camerashake="900" camerashakerange="70000" 
+                       flashrange="12000" flashduration="8.0"
+                       screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0"> 
+                <Affliction identifier="burn" strength="500" />
+                <Affliction identifier="radiationsickness" strength="1000" />
+                <Affliction identifier="explosiondamage" strength="800" />
+                <Affliction identifier="stun" strength="300" />
+            </Explosion>
+		<Remove />
+      </StatusEffect>
+    </Projectile>
+	<Deconstruct time="30">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="300">
+<RequiredSkill identifier="weapons" level="90" />
+      <RequiredItem identifier="steel" />
+	  <RequiredItem identifier="steel" />
+      <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+	  <RequiredItem identifier="uranium" />
+      <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+	  <RequiredItem identifier="ic4block" />
+    </Fabricate>
+</Item>
+</Items>
+</Override> 

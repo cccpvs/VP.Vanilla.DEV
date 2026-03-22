@@ -258,7 +258,6 @@
     <Wearable type="Beard" tags="male">
       <sprite name="Beard 16" texture="Content/Characters/Human/Human_beards.png" sheetindex="3,3" />
     </Wearable>
-
     <Wearable type="FaceAttachment" commonness="0.01">
       <sprite name="FaceAttachment 1" texture="Content/Characters/Human/Human_head_accessories.png" sheetindex="0,0" />
     </Wearable>
@@ -318,36 +317,56 @@
   </HeadAttachments>
   <!-- Эффект усталости-->
   <StatusEffect TargetType="This" IsActive="true" type="always" Comparison="And">
-        <Conditional IsPlayer="true"/>
+        <Conditional IsPlayer="true" />
         <Affliction identifier="tinkerexhaustion_mod" amount="0.010" target="This"/>
   </StatusEffect>
-  <!-- Уменьшение усталости -->
-  <StatusEffect TargetType="This" Comparison="And">
-	  <Conditional IsPlayer="true" CanMove="!e true"/>
-      <reduceaffliction identifier="tinkerexhaustion_mod" amount="0.3"/>
+  
+  <!-- Влияние веса на усталость -->
+  <StatusEffect TargetType="This" IsActive="true" type="always" Comparison="And">
+        <Conditional IsPlayer="true" CurrentSpeed="gt 0.2" weight="gt 5"/>
+		<Conditional weight="lt 10" />
+        <Affliction identifier="tinkerexhaustion_mod" amount="0.05" target="This"/>
+  </StatusEffect>
+    <StatusEffect TargetType="This" IsActive="true" type="always" Comparison="And">
+        <Conditional  IsPlayer="true" CurrentSpeed="gt 0.2" weight="gt 10.1" />
+		<Conditional weight="lt 15" />
+        <Affliction identifier="tinkerexhaustion_mod" amount="0.1" target="This"/>
+  </StatusEffect>
+    <StatusEffect TargetType="This" IsActive="true" type="always" Comparison="And">
+        <Conditional  IsPlayer="true" CurrentSpeed="gt 0.2" weight="gt 15.1" />
+		<Conditional weight="lt 20" />
+        <Affliction identifier="tinkerexhaustion_mod" amount="0.2" target="This"/>
+  </StatusEffect>
+   <StatusEffect TargetType="This" IsActive="true" type="always" Comparison="And">
+        <Conditional IsPlayer="true" CurrentSpeed="gt 0.2" weight="gt 20.1" />
+        <Affliction identifier="tinkerexhaustion_mod" amount="0.5" target="This"/>
+  </StatusEffect>
+  <!-- Уменьшение усталости CanMove="!e true"-->
+  <StatusEffect TargetType="This" Comparison="And" type="always" >
+	  <Conditional IsPlayer="true" CurrentSpeed="lt 0.1"/>
+      <ReduceAffliction identifier="tinkerexhaustion_mod" amount="0.1"/>
   </StatusEffect>
   
   <!-- Регенерация здоровья -->
   <StatusEffect TargetType="This" IsActive="true" type="always">
-        <reduceaffliction identifier="blunttrauma" strength="0.01" />
-        <reduceaffliction identifier="burn" strength="0.01" />
-        <reduceaffliction identifier="lacerations" strength="0.01" />
-		<reduceaffliction identifier="bitewounds" strength="0.01" />
+        <ReduceAffliction identifier="blunttrauma" strength="0.01" />
+        <ReduceAffliction identifier="burn" strength="0.01" />
+        <ReduceAffliction identifier="lacerations" strength="0.01" />
+        <ReduceAffliction identifier="bitewounds" strength="0.01" />
   </StatusEffect>
   <!-- Ограничение видимости -->
   <StatusEffect TargetType="This" ObstructVision="true"/>
 
     <!-- Выносливость -->
   <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And">
-	  <Conditional IsPlayer="true" CurrentSpeed="gt 1.81" InWater="!e true"/>
+	  <Conditional IsPlayer="true" CurrentSpeed="gt 0.5" InWater="!e true"/>
       <Affliction identifier="stamina" amount="5"/>
   </StatusEffect>
-  <!-- Нахождение в воде. -->
+  <!-- Нахождение в воде. проблема из за скутеров-->
   <!-- <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And"> -->
-	  <!-- <Conditional IsHumanoid="true" CurrentSpeed="gt 1.0" InWater="e true"/> -->
-	  <!-- <Conditional CurrentSpeed="lt 1.81"/>	 -->
-      <!-- <Affliction identifier="stamina" amount="10"/> -->
-  <!-- </StatusEffect> -->
+	   <!-- <Conditional IsPlayer="true" CurrentSpeed="gt 0.5" InWater="e true"/>-->
+       <!-- <Affliction identifier="stamina" amount="5"/>-->
+   <!-- </StatusEffect> -->
   <!-- Восстановление -->
   <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And">
 	  <Conditional CurrentSpeed="lt 1"/>
@@ -361,25 +380,43 @@
 	  <Conditional CurrentSpeed="lt 2" InWater="true"/>
       <reduceaffliction identifier="stamina" amount="1"/>
   </StatusEffect>
-  <!-- <StatusEffect TargetType="This" checkconditionalalways="true" Comparison="And"> -->
-	  <!-- <Conditional CurrentSpeed="lt 1" InWater="e true"/> -->
-      <!-- <reduceaffliction identifier="stamina" amount="5"/> -->
-  <!-- </StatusEffect> -->
-
-<!-- <StatusEffect ActionType="OnWearing" TargetType="this,UseTarget" targettags="deepdiving"> -->
-           <!-- <fire/> -->
-
-<!-- </StatusEffect> -->
-
-
-
 
 
   <!-- Фитнес -->
-  <!-- <StatusEffect TargetType="This" Comparison="And"> -->
-	  <!-- <Conditional CanMove="e true" CurrentSpeed="gt 4"/> -->
-      <!-- <giveskill skillidentifier="fitnes" amount="0.0001"/> -->
-  <!-- </StatusEffect> -->
+  <StatusEffect TargetType="This" Comparison="And">
+	  <Conditional CanMove="e true" CurrentSpeed="gt 3"/>
+      <giveskill skillidentifier="fitnes" amount="0.001"/>
+  </StatusEffect>
+  <!-- Фитнес и система веса -->
+ <StatusEffect Target="this" Comparison="And">
+	  <Conditional SkillRequirement="true" fitnes="gt 10" />
+	  <Conditional SkillRequirement="true" fitnes="lt 30" />
+	  <Affliction identifier="weight" amount="-3"/>
+ </StatusEffect>
+  <StatusEffect Target="this" Comparison="And">
+	  <Conditional SkillRequirement="true" fitnes="gt 30.1" />
+	  <Conditional SkillRequirement="true" fitnes="lt 50" />
+	  <Affliction identifier="weight" amount="-5"/>
+ </StatusEffect>
+  <StatusEffect Target="this" Comparison="And">
+	  <Conditional SkillRequirement="true" fitnes="gt 50.1" />
+	  <Conditional SkillRequirement="true" fitnes="lt 70" />
+	  <Affliction identifier="weight" amount="-7"/>
+	  <reduceaffliction identifier="tinkerexhaustion_mod" amount="0.003"/>
+ </StatusEffect>
+   <StatusEffect Target="this" Comparison="And">
+	  <Conditional SkillRequirement="true" fitnes="gt 70.1" />
+	  <Conditional SkillRequirement="true" fitnes="lt 90" />
+	  <Affliction identifier="weight" amount="-10"/>
+	  <reduceaffliction identifier="tinkerexhaustion_mod" amount="0.01"/>
+ </StatusEffect>
+<StatusEffect Target="this" Comparison="And">
+	  <Conditional SkillRequirement="true" fitnes="gt 90.1" />
+	  <!-- <Conditional SkillRequirement="true" fitnes="lt 101" /> -->
+	  <Affliction identifier="weight" amount="-12"/>
+	  <reduceaffliction identifier="tinkerexhaustion_mod" amount="0.03"/>
+ </StatusEffect>
+  
   <!-- Сброс фитнеса после смерти -->
   <!-- <StatusEffect Type="OnDeath" Target="this" checkconditionalalways="true"> -->
 	  <!-- <Conditional IsDead="e true"/> -->
