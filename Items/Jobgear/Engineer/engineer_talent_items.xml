@@ -288,6 +288,8 @@
     <PreferredContainer primary="secarmcab" spawnprobability="0"/>
     <PreferredContainer primary="outpostsecarmcab" spawnprobability="0"/>
     <PreferredContainer primary="wrecksecarmcab" spawnprobability="0"/>
+    <PreferredContainer secondary="secarmcab" spawnprobability="0" />
+    <PreferredContainer secondary="respawncontainer_kingofthehull" spawnprobability="0"/>
     <Price baseprice="160" sold="false" />
     <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
       <RequiredSkill identifier="weapons" level="40" />

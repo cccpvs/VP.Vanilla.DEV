@@ -191,9 +191,9 @@
     </Holdable>
   </Item>
 
-  <Rum name="" identifier="rum" category="Medical,Material" maxstacksize="8" cargocontaineridentifier="mediccrate" description="" Tags="smallitem" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
-    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
-    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+  <Rum name="" identifier="rum" category="Medical,Misc" maxstacksize="8" cargocontaineridentifier="mediccrate" description="" Tags="smallitem" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab,piratecrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
     <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true"/>
     <PreferredContainer primary="medfabcab" secondary="medcab"/>
     <Price baseprice="130" sold="false">

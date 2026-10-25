@@ -1212,7 +1212,6 @@
         <ParticleEmitter particle="cyborgammotracer" anglemax="360" distancemax="200" scalemultiplier="2.0,2.0" particleamount="40"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
-        <!--TODO: revisit to match the other explosions. Explosion damage 15 is pretty insignificant damage. Misses item damage, ballast flora damage etc-->
         <Explosion range="300.0" structuredamage="0" force="20.0">
           <Affliction identifier="explosiondamage" strength="50" />
         </Explosion>
@@ -1815,7 +1814,6 @@
     <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="1075,1367,395,395" depth="0.8" origin="0.5,0.5" offset="0,0" />
     <TriggerComponent triggeredby="Submarine" force="-100000" radius="250" distancebasedforce="false" moveoutsidesub="true" />
   </Item>
-
   <Item name="" identifier="sparkemitter" hiddeningame="true" scale="5" category="Alien" spritecolor="255,255,255,100" noninteractable="true" hideinmenus="true">
     <Sprite texture="Content/Particles/LightningParticleSheet.png" sourcerect="0,0,256,256" depth="0.8" origin="0.5,0.5" offset="0,0" />
     <ItemComponent>
@@ -1953,7 +1951,7 @@
     <Body width="100" height="35" density="30" />
     <Holdable slots="Any,RightHand" controlpose="false" aimpos="120,0" handle1="-55,0" holdangle="0" usehandrotationforholdangle="true" msg="ItemMsgPickUpSelect" />
     <RepairTool structurefixamount="0.0" range="500" barrelpos="45,0" fireprobability="0.0" spread="25">
-      <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
+      <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="0" velocitymax="10" />
       <ParticleEmitter particle="steamspray" particlespersecond="80" anglemin="0" anglemax="0" velocitymin="300" velocitymax="500" highqualitycollisiondetection="true" />
       <ParticleEmitter particle="bubbles" particlespersecond="20" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
       <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="750.0" loop="true" />

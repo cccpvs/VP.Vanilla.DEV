@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override> 
 <Items>
-  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratesubdeco1" scale="0.7" category="Decorative">
+  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratesubdeco1" scale="0.7" category="Decorative" subcategory="separatistassets">
     <sprite texture="Content/Map/Pirates/PirateShipAssets2.png" sourcerect="1230,737,393,482" depth="0.8" origin="0.5,0.5" />
   </piratedecor>
-  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratesubdeco2" scale="0.7" category="Decorative">
+  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratesubdeco2" scale="0.7" category="Decorative" subcategory="separatistassets">
     <sprite texture="Content/Map/Pirates/PirateShipAssets2.png" sourcerect="1121,1252,600,360" depth="0.8" origin="0.5,0.5" />
   </piratedecor>
-  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratesubdeco3" scale="0.7" category="Decorative">
+  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratesubdeco3" scale="0.7" category="Decorative" subcategory="separatistassets">
     <sprite texture="Content/Map/Pirates/PirateShipAssets2.png" sourcerect="1065,1646,756,397" depth="0.8" origin="0.5,0.5" />
   </piratedecor>
-  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="barbedwire" scale="0.7" category="Decorative">
+  <piratedecor name="" nameidentifier="op_sepbarbedwire" noninteractable="true" identifier="barbedwire" scale="0.7" category="Decorative, Wrecked" subcategory="banditseparatist">
     <sprite texture="Content/Map/Pirates/PirateShipAssets2.png" sourcerect="0,1981,920,59" depth="0.8" origin="0.5,0.5" />
   </piratedecor>
-  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratedecal1" scale="0.7" category="Decorative">
+  <piratedecor name="" nameidentifier="graffiti1" noninteractable="true" identifier="piratedecal1" scale="0.7" category="Decorative" subcategory="generic">
     <sprite texture="Content/Map/Pirates/PirateShipAssets2.png" sourcerect="39,1264,380,431" depth="0.8" origin="0.5,0.5" />
   </piratedecor>
-  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratedecal2" scale="0.7" category="Decorative">
+  <piratedecor name="" nameidentifier="graffiti1" noninteractable="true" identifier="piratedecal2" scale="0.7" category="Decorative" subcategory="generic">
     <sprite texture="Content/Map/Pirates/PirateShipAssets2.png" sourcerect="556,1263,262,437" depth="0.8" origin="0.5,0.5" />
   </piratedecor>
-  <piratedecor name="" nameidentifier="piratesubdeco" noninteractable="true" identifier="piratedecal3" scale="0.7" category="Decorative">
+  <piratedecor name="" nameidentifier="graffiti1" noninteractable="true" identifier="piratedecal3" scale="0.7" category="Decorative" subcategory="generic">
     <sprite texture="Content/Map/Pirates/PirateShipAssets2.png" sourcerect="71,1707,714,252" depth="0.8" origin="0.5,0.5" />
   </piratedecor>
-  <Item name="" identifier="pirateclothes" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,separatists" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="separatistcommoner1" nameidentifier="pirateclothes" aliases="pirateclothes" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,separatists" scale="0.5" impactsoundtag="impact_soft">
     <Price baseprice="225" sold="false">
       <Price storeidentifier="merchantoutpost" minavailable="1" maxavailable="2" sold="true">
         <Reputation faction="separatists" min="30"/>
@@ -39,7 +39,7 @@
     </Deconstruct>
     <Sprite name="pirate" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="767,233,122,58" depth="0.6" origin="0.5,0.5" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sheetindex="1,10" sheetelementsize="64,64" />
-    <Body width="180" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
     <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
       <sprite name="Pirate Uniform 2 Torso" texture="Content/Map/Pirates/pirate_2.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Pirate Uniform 2 Right Hand" texture="Content/Map/Pirates/pirate_2.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
@@ -75,9 +75,10 @@
     </Price>
     <Deconstruct time="10" />
     <Sprite texture="Content/Items/Jobgear/headgears.png" sourcerect="203,418,89,46" depth="0.6" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/Items/Jobgear/headgears.png" sourcerect="203,418,89,90"  />
     <Body radius="30" density="15" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
-      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,gunshotwound,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.7" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" />
       <sprite texture="Content/Items/Jobgear/headgears.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.8" sourcerect="203,418,89,90" origin="0.55,0.6" />
       <SkillModifier skillidentifier="helm" skillvalue="12" />
 	  	<StatusEffect type="OnContained" target="Character">
@@ -185,7 +186,7 @@
         </StatusEffect>
     </Wearable>
   </Item>
-  <Item name="" nameidentifier="pirateclothes" identifier="pirateclothesnovice" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" nameidentifier="pirateclothes" identifier="separatistcommoner2" aliases="pirateclothesnovice" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,separatists" scale="0.5" impactsoundtag="impact_soft">
     <Price baseprice="150" sold="false">
       <Price storeidentifier="merchantoutpost" minavailable="1" maxavailable="2" sold="true">
         <Reputation faction="separatists" min="30"/>
@@ -202,7 +203,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sheetindex="2,10" sheetelementsize="64,64" />
     <Sprite name="pirate" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="898,222,120,66" depth="0.6" origin="0.5,0.5" />
-    <Body width="180" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
     <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
       <sprite name="Pirate Uniform 2 Torso" texture="Content/Map/Pirates/pirate_3.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Pirate Uniform 2 Right Hand" texture="Content/Map/Pirates/pirate_3.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
@@ -241,7 +242,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sheetindex="0,10" sheetelementsize="64,64" />
     <Sprite name="pirate" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="904,294,118,59" depth="0.6" origin="0.5,0.5" />
-    <Body width="180" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
     <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
       <sprite name="Pirate Uniform 3 Torso" texture="Content/Map/Pirates/pirate_3.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Pirate Uniform 3 Right Hand" texture="Content/Map/Pirates/pirate_3.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
@@ -261,7 +262,7 @@
     </Wearable>
   </Item>
   <!-- Ядерный мини-снаряд 40 мм -->
-  <Item name="" identifier="40mmnuke" category="Weapon" maxstacksize="4" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,grenade,separatists" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="40mmnuke" category="Weapon" maxstacksize="4" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,grenade,separatists,nuclearexplosive" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="grenadelauncher" amount="1" spawnprobability="0"/>
     <PreferredContainer secondary="wreckarmcab,abandonedarmcab,piratearmcab" spawnprobability="0"/>
     <PreferredContainer primary="secarmcab" secondary="armcab"/>
@@ -293,6 +294,7 @@
         <Affliction identifier="stun" strength="5" />
       </Attack>
       <StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true">
+        <SteamTimeLineEvent title="Nuke detonated" description="A 40mm Mini Nuke detonated!" icon="steam_explosion"/>
         <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" volume="1" range="20000" />
         <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" volume="1" range="20000" />
         <Explosion range="500.0" ballastfloradamage="300" structuredamage="300" itemdamage="1000" force="20" severlimbsprobability="0.75" debris="true" decal="explosion" decalsize="0.75" penetration="0.5"
@@ -344,10 +346,14 @@
         <Reputation faction="separatists" min="50"/>
       </Price>
     </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true" amount="2">
+      <RequiredItem identifier="ethanol" />
+      <RequiredItem identifier="organicfiber" />
+    </Fabricate>
     <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="271,2,65,68" origin="0.5,0.5" />
     <sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="308,165,40,64" depth="0.55" origin="0.5,0.5" />
-    <Body width="40" height="60" density="12" />
-    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <Body width="40" height="60" density="12" friction="1.0" angulardamping="20.0" />
+    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
     <LightComponent LightColor="255,100,50,255" Flicker="0.5" range="600" IsOn="false">
       <StatusEffect type="OnUse" targettype="This" IsOn="true">
         <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
@@ -374,7 +380,7 @@
         <sound file="Content/Sounds/Damage/GlassImpact2.ogg" selectionmode="All" range="2000" />
         <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" selectionmode="All" range="2000" />
         <ParticleEmitter particle="iceshards" anglemin="0" anglemax="360" particleamount="20" velocitymin="500" velocitymax="800" scalemin="0.5" scalemax="0.5" />
-        <Explosion range="500.0" ballastfloradamage="200" structuredamage="0" itemdamage="100" force="2.0" severlimbsprobability="0" underwaterbubble="false">
+        <Explosion range="500.0" ballastfloradamage="200" structuredamage="0" itemdamage="100" force="2.0" severlimbsprobability="0" debris="true" underwaterbubble="false">
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="stun" strength="0.5" />
         </Explosion>
@@ -392,7 +398,7 @@
     </LightComponent>
   </Item>
   <!-- "Грязная" бомба -->
-  <Item name="" identifier="dirtybomb" category="Weapon" Tags="smallitem,explosive,separatists" allowasextracargo="true" maxstacksize="4" Scale="0.5" impactsoundtag="impact_soft" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="13">
+  <Item name="" identifier="dirtybomb" category="Weapon" Tags="smallitem,explosive,separatists" allowasextracargo="true" maxstacksize="2" Scale="0.5" impactsoundtag="impact_soft" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByRepairTools="true" DamagedByMeleeWeapons="true" DamagedByMonsters="true" impacttolerance="13">
     <PreferredContainer primary="secarmcab" secondary="armcab"/>
     <Price baseprice="240" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.25" minavailable="0" maxavailable="2" sold="true">
@@ -412,7 +418,7 @@
       <RequiredItem identifier="uex" />
       <RequiredItem identifier="uranium" />
       <RequiredItem identifier="depletedfuel" />
-    </Fabricate>
+    </Fabricate>    
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="448,640,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" depth="0.8" sourcerect="202,1,47,32" origin="0.5,0.5" />
     <Body width="45" height="30" density="20" />

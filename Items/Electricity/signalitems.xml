@@ -2,6 +2,7 @@
 <Override> 
 <Items>
   <Item name="" identifier="circuitbox" category="Electrical" Tags="smallitem" maxstacksize="1" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" disablecommandmenuwhenselected="true" grabwhenselected="true">
+    <PreferredContainer primary="engcab"/>
     <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="192,258,64,64" depth="0.8" canflipx="false" origin="0.5,0.5" />
     <Body width="51" height="51" density="30" />
     <Deconstruct time="10">
@@ -9,6 +10,11 @@
       <Item identifier="copper" />
       <Item identifier="tin" />
     </Deconstruct>
+    <Upgrade gameversion="1.6.0.0">
+      <CircuitBox>
+        <RequiredItems items="idcard" type="Picked" msg="itemmsgunauthorizedaccess" ignoreineditor="true" />
+      </CircuitBox>
+    </Upgrade>
     <Fabricate suitablefabricators="fabricator" requiredtime="10">
       <RequiredSkill identifier="electrical" level="35" />
       <RequiredItem identifier="plastic" amount="2" />
@@ -21,8 +27,8 @@
       <RequiredItem identifier="copper" amount="2" />
       <RequiredItem identifier="tin" amount="2" />
     </Fabricate>
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.4,0.62" minsize="400,350" maxsize="960,840" anchor="Center" style="ConnectionPanel" />
@@ -43,6 +49,17 @@
       <output name="signal_out6" displayname="connection.signaloutx~[num]=6" />
       <output name="signal_out7" displayname="connection.signaloutx~[num]=7" />
       <output name="signal_out8" displayname="connection.signaloutx~[num]=8" />
+
+      <!--
+      4 new input/output pins added later after the release of the circuit box.
+      We can't add them in proper order because connection panels are loaded based
+      on pin order, so changing the order of old pins would break backwards compatibility.
+      So instead the new pins are added at the end, and the 0 pins are overwritten to order -1 (first pin is order num 0)
+      -->
+      <input name="signal_in0" displayname="connection.signalinx~[num]=0" displayorderoverride="-1"/>
+      <input name="signal_in9" displayname="connection.signalinx~[num]=9" />
+      <output name="signal_out0" displayname="connection.signaloutx~[num]=0" displayorderoverride="-1"/>
+      <output name="signal_out9" displayname="connection.signaloutx~[num]=9" />
 	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
 	    <SpawnItem identifiers="scrap2" spawnposition="This"/>
@@ -68,7 +85,7 @@
       <ConnectionScrewSprite texture="Content/UI/UIAtlasDevices.png" sourcerect="88,92,45,45" origin="0.5,0.5" />
     </CircuitBox>
   </Item>
-  <Item name="" identifier="wire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="210,215,218,255" InventoryIconColor="210,215,218,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="wire" category="Electrical" Tags="smallitem,wire,electricalwire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="210,215,218,255" InventoryIconColor="210,215,218,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -94,7 +111,7 @@
 	</Holdable>
     <Wire />
   </Item>
-  <Item name="" identifier="redwire" category="Electrical" Tags="smallitem,wire" maxstacksize="8" spritecolor="254,23,17,255" InventoryIconColor="254,23,17,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="redwire" category="Electrical" Tags="smallitem,wire,electricalwire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="254,23,17,255" InventoryIconColor="254,23,17,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -103,7 +120,7 @@
       <Price storeidentifier="merchantmine" />
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
-    <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
+    <PreferredContainer primary="engcab" amount="1" notcampaign="true" />
     <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
@@ -124,8 +141,7 @@
 	</Holdable>
     <Wire />
   </Item>
-
-  <Item name="" identifier="bluewire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="51,121,173,255" InventoryIconColor="51,121,173,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="bluewire" category="Electrical" Tags="smallitem,wire,electricalwire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="51,121,173,255" InventoryIconColor="51,121,173,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -155,7 +171,7 @@
 	</Holdable>
     <Wire />
   </Item>
-  <Item name="" identifier="orangewire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="255,140,13,255" InventoryIconColor="255,140,13,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="orangewire" category="Electrical" Tags="smallitem,wire,electricalwire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="255,140,13,255" InventoryIconColor="255,140,13,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -164,7 +180,7 @@
       <Price storeidentifier="merchantmine" />
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
-    <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
+    <PreferredContainer primary="engcab" amount="1" notcampaign="true" notpvp="true"/>
     <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
@@ -185,8 +201,7 @@
 	</Holdable>
     <Wire />
   </Item>
-
-  <Item name="" identifier="greenwire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="56,143,111,255" InventoryIconColor="56,143,111,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="greenwire" category="Electrical" Tags="smallitem,wire,electricalwire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="56,143,111,255" InventoryIconColor="56,143,111,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -195,7 +210,7 @@
       <Price storeidentifier="merchantmine" />
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
-    <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
+    <PreferredContainer primary="engcab" amount="1" notcampaign="true" notpvp="true"/>
     <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
@@ -216,8 +231,7 @@
 	</Holdable>
     <Wire />
   </Item>
-
-  <Item name="" identifier="blackwire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="50,50,50,255" InventoryIconColor="50,50,50,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="blackwire" category="Electrical" Tags="smallitem,wire,electricalwire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="50,50,50,255" InventoryIconColor="50,50,50,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -226,7 +240,7 @@
       <Price storeidentifier="merchantmine" />
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
-    <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
+    <PreferredContainer primary="engcab" amount="1" notcampaign="true" notpvp="true"/>
     <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
@@ -247,8 +261,7 @@
 	</Holdable>
     <Wire />
   </Item>
-
-  <Item name="" identifier="brownwire" category="Electrical" Tags="smallitem,wire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="123,77,62,255" InventoryIconColor="123,77,62,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="brownwire" category="Electrical" Tags="smallitem,wire,electricalwire" maxstacksize="32" maxstacksizecharacterinventory="8" spritecolor="123,77,62,255" InventoryIconColor="123,77,62,255" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="10">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -257,7 +270,7 @@
       <Price storeidentifier="merchantmine" />
       <Price storeidentifier="merchantengineering" multiplier="0.9" />
     </Price>
-    <PreferredContainer primary="engcab" amount="1" notcampaign="true"/>
+    <PreferredContainer primary="engcab" amount="1" notcampaign="true" notpvp="true"/>
     <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1" />
     <Deconstruct time="5">
       <Item identifier="copper" outcondition="0.2" />
@@ -278,7 +291,6 @@
 	</Holdable>
     <Wire />
   </Item>
-
   <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light">
     <Price baseprice="80">
       <Price storeidentifier="merchantoutpost" />
@@ -1327,13 +1339,19 @@
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
 	  <StatusEffect type="OnFire" target="This" Condition="-10.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
-      <output name="load_value_out" displayname="connection.loadvalueout" />
-      <output name="power_value_out" displayname="connection.powervalueout" />
-        <Remove />
+              <Remove />
       </StatusEffect>
+      <output name="load_value_out" displayname="connection.loadvalueout" />
+      <output name="power_value_out" displayname="connection.powervalueout"  />
+
+      <input name="signal_in3" displayname="connection.signalinx~[num]=3" displayorderoverride="2" />
+      <input name="signal_in4" displayname="connection.signalinx~[num]=4" displayorderoverride="2" />
+      <input name="signal_in5" displayname="connection.signalinx~[num]=5" displayorderoverride="2"/>
+      <output name="signal_out3" displayname="connection.signaloutx~[num]=3" displayorderoverride="2" />
+      <output name="signal_out4" displayname="connection.signaloutx~[num]=4" displayorderoverride="2" />
+      <output name="signal_out5" displayname="connection.signaloutx~[num]=5" displayorderoverride="2" />
     </ConnectionPanel>
   </Item>
-
   <Item name="" identifier="delaycomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#5e76a2">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
@@ -1370,7 +1388,6 @@
       </StatusEffect>
     </ConnectionPanel>
   </Item>
-
   <Item name="" identifier="memorycomponent" category="Electrical" Tags="smallitem,logic,circuitboxcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" signalcomponentcolor="#a66c6b">
     <Price baseprice="100" minleveldifficulty="15">
       <Price storeidentifier="merchantoutpost" />
@@ -1450,8 +1467,7 @@
       </StatusEffect>
     </ConnectionPanel>
   </Item>
-
-  <Item name="" identifier="lightcomponent90" nameidentifier="lightcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" Aliases="Light Component 90Deg" category="Electrical" Tags="smallitem,lightcomponent" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true">
+  <Item name="" identifier="lightcomponent90" nameidentifier="lightcomponent" maxstacksize="32" maxstacksizecharacterinventory="8" Aliases="Light Component 90Deg" category="Electrical" Tags="smallitem,lightcomponent" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" GrabWhenSelected="true" CanFlipY="true">
     <Price baseprice="110" minleveldifficulty="5">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" sold="false"/>
@@ -1478,8 +1494,8 @@
       <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.5,0.55" />
     </LightComponent>
     <Body width="28" height="23" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -1603,8 +1619,8 @@
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,240,48,32" origin="0.5,0.5" />
     <WaterDetector canbeselected="true" />
     <Body width="40" height="37" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -1695,8 +1711,8 @@
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,288,48,48" origin="0.5,0.5" />
     <MotionSensor range="100" canbeselected="true" />
     <Body width="42" height="36" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -1735,8 +1751,8 @@
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="160,128,32,32" origin="0.5,0.5" canflipx="false" />
     <SignalCheckComponent canbeselected="true" />
     <Body width="31" height="25" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -1775,8 +1791,8 @@
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="0,160,32,32" origin="0.5,0.5" canflipx="false" />
     <RegExFindComponent canbeselected="true" />
     <Body width="31" height="25" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" PickingTime="5.0" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" PickingTime="5.0" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -1814,8 +1830,8 @@
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="32,160,32,32" origin="0.5,0.5" canflipx="false" />
     <OscillatorComponent canbeselected="true" outputtype="Pulse" frequency="1" />
     <Body width="28" height="26" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -1853,8 +1869,8 @@
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="64,160,32,32" origin="0.5,0.5" canflipx="false" />
     <WifiComponent canbeselected="true" MinChatMessageInterval="1.0" DiscardDuplicateChatMessages="true" />
     <Body width="28" height="26" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" PickingTime="5.0" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" PickingTime="5.0" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -1895,8 +1911,8 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="191,127,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="222,72,40,62" origin="0.5,0.5" />
     <Body radius="20" height="20" density="15" />
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <LightComponent canbeselected="false" lightcolor="255,0,0,100" alphablend="true" castshadows="false" blinkfrequency="0.68" range="20">
       <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="302,894,40,62" origin="0.5,0.5" alpha="1.0" />
@@ -1905,6 +1921,10 @@
         <Conditional targetitemcomponent="Holdable" IsActive="eq false" />
       </StatusEffect>
     </LightComponent>
+    <CustomInterface canbeselected="true" ElementStates="0">
+      <GuiFrame relativesize="0.2,0.15" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+      <IntegerInput text="speaker.trackselection" propertyname="ManuallySelectedSound" targetitemcomponent="LightComponent" min="0" max="2" />
+    </CustomInterface>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredItem items="screwdriver" type="Equipped" />
@@ -2019,8 +2039,8 @@
     <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false">
       <GuiFrame relativesize="0.35,0.35" anchor="Center" style="ItemUI" />
     </Terminal>
-    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" attachedbydefault="true">
-      <RequiredItem items="wrench" type="Equipped" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" attachedbydefault="true">
+      <RequiredItem items="wrench,deattachtool" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />

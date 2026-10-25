@@ -170,6 +170,7 @@
         <Affliction identifier="stun" strength="4" probability="0.5" />
         <Affliction identifier="electricshock" strength="60"/>
         <Affliction identifier="burn" strength="5" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="10" DistanceMax="25" ParticleAmount="5" ScaleMin="0.1" ScaleMax="0.12" />
       </StatusEffect>
 	  <StatusEffect type="OnFailure" target="this" condition="-30"/>
 	  <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
@@ -378,7 +379,7 @@
   <Item name="" identifier="batterycell" category="Equipment,Electrical" maxstacksize="8" tags="smallitem,loadable,mobilebattery" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light" damagedbyexplosions="true" damagedbyprojectiles="true" DamagedByMonsters="true">
     <PreferredContainer primary="batterycellrecharger" maxcondition="80"/>
     <PreferredContainer primary="stunbaton,underwaterscooter,handheldsonar,sonarbeacon,flashlight,portablepump,poweredcontainer" spawnprobability="1.0" mincondition="25"/>
-    <PreferredContainer secondary="divingcab" amount="3" spawnprobability="1" notcampaign="true"/>
+    <PreferredContainer secondary="divingcab" amount="3" spawnprobability="1" notcampaign="true" />
     <PreferredContainer secondary="abandonedengcab,pirateengcab,wreckengcab,outpostengcab" minamount="1" maxamount="2" spawnprobability="0.1"/>
     <PreferredContainer secondary="abandonedstoragecab,piratestoragecab,wreckstoragecab" minamount="1" maxamount="2" spawnprobability="0.05"/>
     <PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.1" />
@@ -502,7 +503,7 @@
       <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
       <input name="power_in" displayname="connection.powerin" />
     </ConnectionPanel>
-    <ItemContainer capacity="4" maxstacksize="1" canbeselected="true" hideitems="false" itempos="24,10" iteminterval="23,0" itemrotation="-90" uilabel="ChargingDock" containedspritedepth="0.81">
+    <ItemContainer capacity="4" maxstacksize="1" canbeselected="true" hideitems="false" itempos="24,10" iteminterval="22,0" itemrotation="-90" uilabel="ChargingDock" containedspritedepth="0.81">
       <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" />
       <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />

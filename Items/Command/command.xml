@@ -27,6 +27,7 @@
         <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="400,0,384,304" origin="0.5,0.5" alpha="1.0" />
       </LightComponent>
     </Steering>
+    <!-- Note that the default sonar range is set at 10000 (100 meters). The aitarget soundrange is adjusted by code to match the sonar's range.-->
     <aitarget sightrange="200" soundrange="8000" staticsight="true" fadeouttime="5" />
     <Sonar canbeselected="true" powerconsumption="100" displaybordersize="-0.1" allowuioverlap="true" hudlayer="-2">
       <GuiFrame relativesize="0.55,0.59" anchor="Center" relativeoffset="0.1,-0.05" draggable="false" />
@@ -206,7 +207,7 @@
       <GuiFrame relativesize="0.6,0.60" anchor="Center" style="OuterGlow" color="0,0,0,0.8" relativeoffset="0.12,-0.05" />
       <sound file="Content/Items/Command/SonarPing.ogg" type="OnUse" range="1000.0" />
       <sound file="Content/Items/Command/SonarPing2.ogg" type="OnUse" range="1000.0" />
-      <StatusEffect type="OnUse">
+      <StatusEffect type="OnUse" target="This">
         <sound file="Content/Items/Command/SonarPingFar.ogg"  type="OnUse" range="6000.0" volume="0.8" />
         <sound file="Content/Items/Command/SonarPingFar2.ogg" type="OnUse" range="6000.0" volume="0.8" />
       </StatusEffect>

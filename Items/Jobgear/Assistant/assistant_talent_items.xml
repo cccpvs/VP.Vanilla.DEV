@@ -157,7 +157,7 @@
     </Fabricate>
     <Sprite texture="Content/Items/Containers/UnitLoadDevice.png" depth="0.84" sourcerect="567,433,185,187" origin="0.5,0.5" />
     <Body width="185" height="187" density="25" />
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="20.0" aimpos="85,-10" handle1="0,0" attachable="true" attachedbydefault="true" limitedattachable="true" aimable="true">
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="20.0" aimpos="85,-10" handle1="0,0" attachable="true" attachedbydefault="true" limitedattachable="true" aimable="true" AttachesToFloor="true" DisallowAttachingOverTags="container,planter">
       <StatusEffect target="This" type="Always">
         <Conditional attached="false" targetitemcomponentname="Holdable"/>
         <DropContainedItems/>
@@ -186,7 +186,7 @@
       <RequiredSkill identifier="weapons" level="40" />
       <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
     </Fabricate>
-    <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="0,479,153,18" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="0,484,153,18" depth="0.55" origin="0.5,0.5" />
     <Body width="153" height="14" density="30" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="35,10" handle1="-28,0" holdangle="30" aimangle="20" reload="0.75" range="75" combatPriority="30" msg="ItemMsgPickUpSelect">
       <Attack targetimpulse="2" severlimbsprobability="0.55" itemdamage="6" structuredamage="1" structuresoundtype="StructureSlash">
@@ -269,7 +269,7 @@
       <StatusEffect type="OnFire" target="This" Condition="-5.0"/>
       <StatusEffect type="Always" target="This" Condition="0" setvalue="true">
         <Conditional Scale="gte 0.5" />
-        <SpawnCharacter speciesname="Mudraptor_pet" totalmaxcount="2" />
+        <SpawnCharacter speciesname="Mudraptor_pet" totalmaxcount="2" inheritteam="true"/>
         <Remove />
       </StatusEffect>
       <Containable items="antibloodloss1">

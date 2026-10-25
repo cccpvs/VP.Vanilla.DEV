@@ -181,8 +181,8 @@
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
-      <Attack structuredamage="6" targetforce="7.5" itemdamage="6" severlimbsprobability="0.2" penetration="0.2">
-        <Affliction identifier="gunshotwound" strength="30" />
+      <Attack structuredamage="6" targetforce="7.5" itemdamage="6" severlimbsprobability="0.2" penetration="0.3">
+        <Affliction identifier="gunshotwound" strength="25" />
         <Affliction identifier="bleeding" strength="15" />
         <Affliction identifier="stun" strength="0.25" />
         <Affliction identifier="stun" strength="0.5" probability="0.2" />
@@ -476,6 +476,7 @@
       <StatusEffect type="OnImpact" target="This">
         <Sound file="Content/Items/Weapons/TaserHit1.ogg" type="OnUse" range="1500" selectionmode="Random" />
         <Sound file="Content/Items/Weapons/TaserHit2.ogg" type="OnUse" range="1500" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">

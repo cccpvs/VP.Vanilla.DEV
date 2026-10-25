@@ -154,6 +154,7 @@
       <IsActiveConditional state="false" targetitemcomponent="Controller" />
     </LightComponent>
     <Controller direction="None" canbepicked="true" istoggle="true" state="true" msg="ItemMsgPressSelect">
+      <RequiredItem identifier="" type="Picked" msg="ItemMsgUnauthorizedAccess" />
       <StatusEffect type="OnUse" target="This">
         <Conditional state="false"/>
         <sound file="Content/Items/Pump/ValveClose1.ogg" type="OnUse" range="250" selectionmode="random"/>
@@ -167,9 +168,11 @@
       <!-- 0.5 sec to close -->
       <StatusEffect type="OnUse" target="This,LinkedEntities" disabled="true" delay="0.5">
         <Conditional state="false"/>
-      </StatusEffect>
+      </StatusEffect>      
       <StatusEffect type="OnUse" target="This" targetitemcomponent="Controller" canbepicked="false"/>
       <StatusEffect type="OnUse" target="This" targetitemcomponent="Controller" canbepicked="true" delay="0.5"/>
+      <!-- ensure the item gets set back to being interactable even if the round is ended while the delay above is active -->
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="Controller" canbepicked="true"/>
     </Controller>
     <!-- locked by default (can be enabled in the sub editor if someone wants to use the valve e.g. as a type of analog switch -->
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10" Locked="true">

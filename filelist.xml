@@ -1,20 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="VP.Vanilla.DEV" modversion="0.3.5" corepackage="False" steamworkshopid="2858197687" gameversion="1.4.4.1">
+<contentpackage name="VP.Vanilla.DEV" modversion="0.3.8" corepackage="False" steamworkshopid="2858197687" gameversion="1.13.4.0">
   <Text file="%ModDir%/Texts/Russian.xml" />
   <Text file="%ModDir%/Texts/English.xml" />
   <Text file="%ModDir%/Texts/French.xml" />
   <Text file="%ModDir%/Texts/Polish.xml" />
   <Afflictions file="%ModDir%/vp_Afflictions.xml" />
   <Character file="%ModDir%/Characters/Human/Human.xml" />
-  <Character file="%ModDir%/Characters/Crawler/Crawler.xml" />
-  <Character file="%ModDir%/Characters/Crawlerhusk/Crawlerhusk.xml" />
   <Character file="%ModDir%/Characters/Humanhusk/Humanhusk.xml" />
-  <Character file="%ModDir%/Characters/Husk/Husk.xml" />
-  <Character file="%ModDir%/Characters/Mudraptor/Mudraptor.xml" />
-  <Character file="%ModDir%/Characters/Mudraptor_unarmored/Mudraptor_unarmored.xml" />
-  <Character file="%ModDir%/Characters/Spineling/Spineling.xml" />
-  <Character file="%ModDir%/Characters/Tigerthresher/Tigerthresher.xml" />
-  <Character file="%ModDir%/Characters/Bonethresher/Bonethresher.xml" />
   <Item file="%ModDir%/Map/Outposts/vp_OutpostItems.xml" />
   <Item file="%ModDir%/Items/Weapons/vp_weapons.xml" />
   <Item file="%ModDir%/Items/Weapons/vp_weapons_addons.xml" />
